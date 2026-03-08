@@ -1,0 +1,40 @@
+project:
+  type: book
+
+book:
+  title: "A Modern R-proach to Econometrics"
+  author: "Ahmed H. Darwish"
+  chapters:
+    - index.qmd
+    - chapter01.qmd
+    - part: "PART 1: Regression Analysis with Cross-Sectional Data"
+      chapters:
+        - chapter02.qmd
+        - chapter03.qmd
+        - chapter04.qmd
+        - chapter05.qmd
+        - chapter06.qmd
+        - chapter07.qmd
+        - chapter08.qmd
+        - chapter09.qmd
+    - part: "PART 2: Regression Analysis with Time Series Data"
+      chapters:
+        - chapter10.qmd
+        - chapter11.qmd
+        - chapter12.qmd
+    - part: "PART 3: Advanced Topics"
+      chapters:
+        - chapter13.qmd
+        - chapter14.qmd
+        - chapter15.qmd
+        - chapter16.qmd
+        - chapter17.qmd
+        - chapter18.qmd
+        - chapter19.qmd
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    toc: true

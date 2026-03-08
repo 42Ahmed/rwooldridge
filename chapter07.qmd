@@ -1,0 +1,4 @@
+---
+title: "Multiple Regression Analysis with Qualitative Information"
+format: html
+---

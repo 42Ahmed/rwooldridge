@@ -1,0 +1,4 @@
+---
+title: "Pooling Cross Sections across Time: Simple Panel Data Methods"
+format: html
+---

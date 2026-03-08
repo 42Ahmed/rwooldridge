@@ -1,0 +1,4 @@
+---
+title: "The Simple Regression Model"
+format: html
+---

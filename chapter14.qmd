@@ -1,0 +1,4 @@
+---
+title: "Advanced Panel Data Methods"
+format: html
+---
