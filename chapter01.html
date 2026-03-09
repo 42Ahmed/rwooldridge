@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -48,11 +83,11 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-dark-7c8ba9dac8feea6a77ed63b2e2898d0e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="site_libs/bootstrap/bootstrap-00ccf60c28c3bdf2d57f5131fbf16f11.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -75,10 +110,39 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
-<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -244,6 +308,14 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+        <div class="quarto-navbar-tools tools-end">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -252,29 +324,13 @@ ul.task-list li input[type="checkbox"] {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter01.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Nature of Econometrics and Economic Data</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">A Modern R-proach to Econometrics</a> 
-        <div class="sidebar-tools-main">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-</div>
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -435,8 +491,19 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#computer-exercises" id="toc-computer-exercises" class="nav-link active" data-scroll-target="#computer-exercises"><span class="header-section-number">1.1</span> Computer Exercises</a>
+  <ul class="collapse">
+  <li><a href="#c1-wage-1" id="toc-c1-wage-1" class="nav-link" data-scroll-target="#c1-wage-1"><span class="header-section-number">1.1.1</span> C1 [Wage 1]</a></li>
+  <li><a href="#c2-bwght" id="toc-c2-bwght" class="nav-link" data-scroll-target="#c2-bwght"><span class="header-section-number">1.1.2</span> C2 [BWGHT]</a></li>
+  <li><a href="#c3-meap01" id="toc-c3-meap01" class="nav-link" data-scroll-target="#c3-meap01"><span class="header-section-number">1.1.3</span> C3 [MEAP01]</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -461,8 +528,818 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="computer-exercises" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="computer-exercises"><span class="header-section-number">1.1</span> Computer Exercises</h2>
+<section id="c1-wage-1" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="c1-wage-1"><span class="header-section-number">1.1.1</span> C1 [Wage 1]</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df_wage <span class="ot">&lt;-</span> wooldridge<span class="sc">::</span>wage1</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(df_wage))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 5%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 2%">
+<col style="width: 5%">
+<col style="width: 3%">
+<col style="width: 2%">
+<col style="width: 5%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 3%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 4%">
+<col style="width: 4%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">wage</th>
+<th style="text-align: right;">educ</th>
+<th style="text-align: right;">exper</th>
+<th style="text-align: right;">tenure</th>
+<th style="text-align: right;">nonwhite</th>
+<th style="text-align: right;">female</th>
+<th style="text-align: right;">married</th>
+<th style="text-align: right;">numdep</th>
+<th style="text-align: right;">smsa</th>
+<th style="text-align: right;">northcen</th>
+<th style="text-align: right;">south</th>
+<th style="text-align: right;">west</th>
+<th style="text-align: right;">construc</th>
+<th style="text-align: right;">ndurman</th>
+<th style="text-align: right;">trcommpu</th>
+<th style="text-align: right;">trade</th>
+<th style="text-align: right;">services</th>
+<th style="text-align: right;">profserv</th>
+<th style="text-align: right;">profocc</th>
+<th style="text-align: right;">clerocc</th>
+<th style="text-align: right;">servocc</th>
+<th style="text-align: right;">lwage</th>
+<th style="text-align: right;">expersq</th>
+<th style="text-align: right;">tenursq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">3.10</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.131402</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3.24</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.175573</td>
+<td style="text-align: right;">484</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3.00</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.098612</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6.00</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">44</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.791759</td>
+<td style="text-align: right;">1936</td>
+<td style="text-align: right;">784</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5.30</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.667707</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8.75</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2.169054</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">64</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<blockquote class="blockquote">
+<ol type="i">
+<li>Find the average education level in the sample. What are the lowest and highest years of education?</li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df_wage <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_Educ =</span> <span class="fu">mean</span>(educ),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Min_Educ =</span> <span class="fu">min</span>(educ),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Max_Educ =</span> <span class="fu">max</span>(educ)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Avg_Educ Min_Educ Max_Educ
+1    12.56        0       18</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong> The average education in this sample is approximately 12.5 years. The range is broad ranging from 0 years (no formal education) to 18 years of education (graduate level)</p>
+<blockquote class="blockquote">
+<ol start="2" type="i">
+<li>Find the average hourly wage in the sample. Does it seem high or low?</li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df_wage <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_Wage =</span> <span class="fu">mean</span>(wage, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Avg_Wage
+1      5.9</code></pre>
+</div>
+</div>
+<p><span class="math display">\[
+\begin{align*}
+{Wage}_{2026} &amp;= {Wage}_{1976} \times \dfrac{CPI_{2026}}{CPI_{1976}}\\
+&amp;= 5.9 \times \dfrac{325.3}{56.9}\\
+&amp;= 33.7
+\end{align*}
+\]</span></p>
+<p><strong>Interpretation:</strong> The average nominal wage of <strong>$5.90</strong> in 1976 translates to approximately <strong>$33.73</strong> in 2026 dollars. This adjustment reveals that the workers in the <code>wage1</code> dataset were significantly better off than the nominal figure suggests, earning a real wage that is competitive even by modern standards.</p>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li>The wage data are reported in 1976 dollars. Using the Internet or a printed source, find the Consumer Price Index (CPI) for the years 1976 and 2013.</li>
+</ol>
+</blockquote>
+<p>CPI for 1976 is <strong>$56.9</strong> and became <strong>$233</strong> in 2013.</p>
+<blockquote class="blockquote">
+<ol start="4" type="i">
+<li>Use the CPI values from part (iii) to find the average hourly wage in 2013 dollars. Now does the average hourly wage seem reasonable?</li>
+</ol>
+</blockquote>
+<p><span class="math display">\[
+\begin{align*}
+{Wage}_{2013} &amp;= {Wage}_{1976} \times \dfrac{CPI_{2013}}{CPI_{1976}}\\
+&amp;= 5.9 \times \dfrac{233}{56.9}\\
+&amp;= 24.2
+\end{align*}
+\]</span> <strong>Interpretation:</strong> The average wage is equivalent to <strong>$24.2</strong> in 2013, which is three times the minimum wage of <strong>$7.25</strong>. Minimum wage was <strong>$2.3</strong> in 1976 which indicates sample includes skilled labor.</p>
+<blockquote class="blockquote">
+<ol start="22" type="a">
+<li>How many women are in the sample? How many men?</li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df_wage <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Count =</span> <span class="fu">n</span>(),</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_Wage =</span> <span class="fu">mean</span>(wage) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">2</span>),</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">.by =</span> female</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Gender =</span> <span class="fu">ifelse</span>(female <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Female"</span>, <span class="st">"Male"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Gender, Count, Avg_Wage)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Gender Count Avg_Wage
+1 Female   252     4.59
+2   Male   274     7.10</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong> Although sample is well balanced with 252 females and 274 males, there is a notable wage gap between the genders.</p>
+</section>
+<section id="c2-bwght" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="c2-bwght"><span class="header-section-number">1.1.2</span> C2 [BWGHT]</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df_bwght <span class="ot">&lt;-</span> wooldridge<span class="sc">::</span>bwght</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(df_bwght))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 8%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 6%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 4%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 5%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">faminc</th>
+<th style="text-align: right;">cigtax</th>
+<th style="text-align: right;">cigprice</th>
+<th style="text-align: right;">bwght</th>
+<th style="text-align: right;">fatheduc</th>
+<th style="text-align: right;">motheduc</th>
+<th style="text-align: right;">parity</th>
+<th style="text-align: right;">male</th>
+<th style="text-align: right;">white</th>
+<th style="text-align: right;">cigs</th>
+<th style="text-align: right;">lbwght</th>
+<th style="text-align: right;">bwghtlbs</th>
+<th style="text-align: right;">packs</th>
+<th style="text-align: right;">lfaminc</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">13.5</td>
+<td style="text-align: right;">16.5</td>
+<td style="text-align: right;">122.3</td>
+<td style="text-align: right;">109</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4.691348</td>
+<td style="text-align: right;">6.8125</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2.6026897</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">7.5</td>
+<td style="text-align: right;">16.5</td>
+<td style="text-align: right;">122.3</td>
+<td style="text-align: right;">133</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4.890349</td>
+<td style="text-align: right;">8.3125</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2.0149031</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">16.5</td>
+<td style="text-align: right;">122.3</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4.859812</td>
+<td style="text-align: right;">8.0625</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">-0.6931472</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">15.5</td>
+<td style="text-align: right;">16.5</td>
+<td style="text-align: right;">122.3</td>
+<td style="text-align: right;">126</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4.836282</td>
+<td style="text-align: right;">7.8750</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2.7408400</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">27.5</td>
+<td style="text-align: right;">16.5</td>
+<td style="text-align: right;">122.3</td>
+<td style="text-align: right;">134</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4.897840</td>
+<td style="text-align: right;">8.3750</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3.3141861</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">7.5</td>
+<td style="text-align: right;">16.5</td>
+<td style="text-align: right;">122.3</td>
+<td style="text-align: right;">118</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4.770685</td>
+<td style="text-align: right;">7.3750</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2.0149031</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<blockquote class="blockquote">
+<ol type="i">
+<li>How many women are in the sample, and how many report smoking during pregnancy?</li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df_bwght <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Count =</span> <span class="fu">n</span>(),</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Smokers =</span> <span class="fu">sum</span>(cigs <span class="sc">&gt;</span> <span class="dv">0</span>),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Non_Smokers =</span> <span class="fu">sum</span>(cigs <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Count Smokers Non_Smokers
+1  1388     212        1176</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong>The sample contains <strong>1,388 women</strong>. Out of these, <strong>212 women</strong> (approximately 15%) reported smoking at least one cigarette per day during pregnancy, while <strong>1,176</strong> reported not smoking at all.</p>
+<blockquote class="blockquote">
+<ol start="2" type="i">
+<li>What is the average number of cigarettes smoked per day? Is the average a good measure of the “typical” woman in this case? Explain.</li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df_bwght <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_Cigs_All =</span> <span class="fu">mean</span>(cigs),</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_Cigs_Smokers =</span> <span class="fu">mean</span>(cigs[cigs <span class="sc">&gt;</span> <span class="dv">0</span>])</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Avg_Cigs_All Avg_Cigs_Smokers
+1         2.09            13.67</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong> The sample average is <strong>2.09</strong> because most of the pregnant females are non smokers. A smoker pregnant female smokes on average <strong>13.67</strong> cigarettes per day.</p>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li>Among women who smoked during pregnancy, what is the average number of cigarettes smoked per day?</li>
+</ol>
+</blockquote>
+<p><strong>Interpretation:</strong> A smoker pregnant female smokes on average <strong>13.67</strong> cigarettes per day.</p>
+<blockquote class="blockquote">
+<ol start="4" type="i">
+<li>Find the average of fatheduc in the sample. Why are only 1,192 observations used to compute this average?</li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df_bwght <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_Fath_Educ =</span> <span class="fu">mean</span>(fatheduc, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Missing_Obs =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(fatheduc))</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Avg_Fath_Educ Missing_Obs
+1         13.19         196</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong> An average father has <strong>13.19</strong> years of education in the sample, with <em>196</em> missing data.</p>
+<blockquote class="blockquote">
+<ol start="22" type="a">
+<li>Report the average family income and its standard deviation in dollars.</li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df_bwght <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_Fam_Inc =</span> <span class="fu">mean</span>(faminc, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">SD_Fam_Inc =</span> <span class="fu">sd</span>(faminc, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Avg_Fam_Inc SD_Fam_Inc
+1       29.03      18.74</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong> Families included in the sample have an average income of <strong>$29,000</strong> with a standard deviation of <strong>$18,700</strong></p>
+</section>
+<section id="c3-meap01" class="level3" data-number="1.1.3">
+<h3 data-number="1.1.3" class="anchored" data-anchor-id="c3-meap01"><span class="header-section-number">1.1.3</span> C3 [MEAP01]</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df_meap1 <span class="ot">&lt;-</span> wooldridge<span class="sc">::</span>meap01</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(df_meap1))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 9%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">dcode</th>
+<th style="text-align: right;">bcode</th>
+<th style="text-align: right;">math4</th>
+<th style="text-align: right;">read4</th>
+<th style="text-align: right;">lunch</th>
+<th style="text-align: right;">enroll</th>
+<th style="text-align: right;">expend</th>
+<th style="text-align: right;">exppp</th>
+<th style="text-align: right;">lenroll</th>
+<th style="text-align: right;">lexpend</th>
+<th style="text-align: right;">lexppp</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1010</td>
+<td style="text-align: right;">4937</td>
+<td style="text-align: right;">83.3</td>
+<td style="text-align: right;">77.8</td>
+<td style="text-align: right;">40.60</td>
+<td style="text-align: right;">468</td>
+<td style="text-align: right;">2747475</td>
+<td style="text-align: right;">5870.673</td>
+<td style="text-align: right;">6.148468</td>
+<td style="text-align: right;">14.82619</td>
+<td style="text-align: right;">8.677725</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2070</td>
+<td style="text-align: right;">597</td>
+<td style="text-align: right;">90.3</td>
+<td style="text-align: right;">82.3</td>
+<td style="text-align: right;">27.10</td>
+<td style="text-align: right;">679</td>
+<td style="text-align: right;">1505772</td>
+<td style="text-align: right;">2217.632</td>
+<td style="text-align: right;">6.520621</td>
+<td style="text-align: right;">14.22482</td>
+<td style="text-align: right;">7.704195</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2080</td>
+<td style="text-align: right;">4860</td>
+<td style="text-align: right;">61.9</td>
+<td style="text-align: right;">71.4</td>
+<td style="text-align: right;">41.75</td>
+<td style="text-align: right;">400</td>
+<td style="text-align: right;">2121871</td>
+<td style="text-align: right;">5304.678</td>
+<td style="text-align: right;">5.991465</td>
+<td style="text-align: right;">14.56781</td>
+<td style="text-align: right;">8.576344</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3010</td>
+<td style="text-align: right;">790</td>
+<td style="text-align: right;">85.7</td>
+<td style="text-align: right;">60.0</td>
+<td style="text-align: right;">12.75</td>
+<td style="text-align: right;">251</td>
+<td style="text-align: right;">1211034</td>
+<td style="text-align: right;">4824.836</td>
+<td style="text-align: right;">5.525453</td>
+<td style="text-align: right;">14.00698</td>
+<td style="text-align: right;">8.481532</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3010</td>
+<td style="text-align: right;">1403</td>
+<td style="text-align: right;">77.3</td>
+<td style="text-align: right;">59.1</td>
+<td style="text-align: right;">17.08</td>
+<td style="text-align: right;">439</td>
+<td style="text-align: right;">1913501</td>
+<td style="text-align: right;">4358.772</td>
+<td style="text-align: right;">6.084499</td>
+<td style="text-align: right;">14.46445</td>
+<td style="text-align: right;">8.379946</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3010</td>
+<td style="text-align: right;">4056</td>
+<td style="text-align: right;">85.2</td>
+<td style="text-align: right;">67.0</td>
+<td style="text-align: right;">23.17</td>
+<td style="text-align: right;">561</td>
+<td style="text-align: right;">2637483</td>
+<td style="text-align: right;">4701.396</td>
+<td style="text-align: right;">6.329721</td>
+<td style="text-align: right;">14.78534</td>
+<td style="text-align: right;">8.455615</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<blockquote class="blockquote">
+<ol type="i">
+<li>Find the largest and smallest values of math4. Does the range make sense? Explain</li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df_meap1 <span class="sc">|&gt;</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Max_math4 =</span> <span class="fu">max</span>(math4),</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Min_math4 =</span> <span class="fu">min</span>(math4)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Max_math4 Min_math4
+1       100         0</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong> The sample includes math scores ranging from <strong>0</strong> to <strong>100</strong> indication wide variety.</p>
+<blockquote class="blockquote">
+<ol start="2" type="i">
+<li>How many schools have a perfect pass rate on the math test? What percentage is this of the total sample?</li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df_meap1 <span class="sc">|&gt;</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_Schools =</span> <span class="fu">n</span>(),</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Perfect_Math_Count =</span> <span class="fu">sum</span>(math4 <span class="sc">==</span> <span class="dv">100</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Percentage =</span> (Perfect_Math_Count <span class="sc">/</span> Total_Schools) <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">|&gt;</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Total_Schools Perfect_Math_Count Percentage
+1          1823                 38       2.08</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong> Out of the 1,823 schools in the sample, 38 schools (approximately 2.08%) achieved a perfect 100% pass rate on the fourth-grade math test.</p>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li>How many schools have math pass rates of exactly 50%?</li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df_meap1 <span class="sc">|&gt;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Schools_at_50 =</span> <span class="fu">sum</span>(math4 <span class="sc">==</span> <span class="dv">50</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Schools_at_50
+1            17</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong> There are exactly 17 schools with a pass rate of exactly 50%</p>
+<blockquote class="blockquote">
+<ol start="4" type="i">
+<li>Compare the average pass rates for the math and reading scores. Which test is harder to pass?</li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df_meap1 <span class="sc">|&gt;</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(math4, read4) <span class="sc">|&gt;</span> </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_Math =</span> <span class="fu">mean</span>(math4),</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_Read =</span> <span class="fu">mean</span>(read4)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Avg_Math Avg_Read
+1    71.91    60.06</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong> The average pass rate for math <strong>71.90%</strong> is significantly higher than for reading <strong>60.06%</strong>. This shows that the reading exam was harder in the sample.</p>
+<blockquote class="blockquote">
+<ol start="22" type="a">
+<li>Find the correlation between math4 and read4. What do you conclude?</li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>df_meap1 <span class="sc">|&gt;</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(math4, read4) <span class="sc">|&gt;</span> </span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Correlation =</span> <span class="fu">cor</span>(math4, read4)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Correlation
+1        0.84</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong> The correlation between the two exams is high <strong>0.84</strong> showing that performance in the two exams is similar.</p>
+<blockquote class="blockquote">
+<ol start="6" type="i">
+<li>The variable exppp is expenditure per pupil. Find the average of exppp along with its standard deviation. Would you say there is wide variation in per pupil spending?</li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>df_meap1 <span class="sc">|&gt;</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(math4, read4) <span class="sc">|&gt;</span> </span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean_Expnd =</span> <span class="fu">mean</span>(exppp),</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Std_Expend =</span> <span class="fu">sd</span>(exppp)</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Mean_Expnd Std_Expend
+1    5194.87    1091.89</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong> The average expenditure per pupil is <strong>$5,194.87</strong>, with a standard deviation of <strong>$1,091.89</strong> representing a significant spread (<strong>21%</strong> of the mean).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To know if the spread is significant or not, calculate coefficient of variation (cv).</p>
+<p>Small (cv &lt; 10%)</p>
+<p>Medium (cv 10% - 30%)</p>
+<p>Large(cv &gt; 30%), mean is not reliable here.</p>
+</div>
+</div>
+<p><span class="math display">\[
+CV = \dfrac \sigma \mu
+\]</span></p>
+<blockquote class="blockquote">
+<ol start="7" type="i">
+<li>Suppose School A spends $6,000 per student and School B spends $5,500 per student. By what percentage does School A’s spending exceed School B’s? Compare this to <span class="math inline">\(100 \times [\log(6,000) – \log(5,500)]\)</span>?</li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>school_a <span class="ot">&lt;-</span> <span class="dv">6000</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>school_b <span class="ot">&lt;-</span> <span class="dv">5500</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>pct_diff <span class="ot">&lt;-</span> ((school_a <span class="sc">-</span> school_b) <span class="sc">/</span> school_b) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>log_diff <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> (<span class="fu">log</span>(school_a) <span class="sc">-</span> <span class="fu">log</span>(school_b))</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">Exact_Pct =</span> pct_diff, <span class="at">Log_Approx =</span> log_diff)</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>results <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Exact_Pct Log_Approx 
+      9.09       8.70 </code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong> School A spends <strong>9.09%</strong> more per student than School B. The logarithmic approximation (<span class="math inline">\(100 \times \Delta \log\)</span>) yields <strong>8.70</strong>, which is a reasonably close estimate.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Logarithmic approximation fails when percentage change is large (&gt; 10%)</p>
+</div>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
