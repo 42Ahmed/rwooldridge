@@ -2,3 +2,179 @@
 title: "The Simple Regression Model"
 format: html
 ---
+
+## Computer Exercises
+
+```{r}
+#| label: 'setup'
+#| include: false
+library(tidyverse)
+library(wooldridge)
+library(modelsummary)
+```
+
+### C1 \[401K\]
+
+```{r}
+#| label: c1_data
+df_401k <- wooldridge::k401k
+knitr::kable(head(df_401k))
+
+```
+
+> (i) Find the average participation rate and the average match rate in the sample of plans
+
+```{r}
+#| label: c1_i
+df_401k |>
+  summarise(
+    Avg_Part_Rt = mean(prate),
+    Avg_Match_Rt = mean(mrate)
+  ) |>
+  round(2)
+```
+
+**Interpretation:**  
+On average, **87.36%** of eligible employees participate in their company's 401(k) plan. Their company matches *\$0.73* for every dollar an employee contributes.
+
+> estimate the simple regression equation $$\widehat{prate} = \hat \beta_0 + \hat \beta_1 mrate$$
+
+```{r}
+#| label: c1_ii
+model_401k <- lm(prate ~ mrate, data = df_401k)
+
+modelsummary(
+  model_401k,
+  fmt = 2,
+  statistic = NULL,
+  gof_map = c("nobs", "r.squared"),
+  coef_rename = c("mrate" = "Match Rate ($)", "(Intercept)" = "Constant")
+)
+```
+
+**Interpretation:**
+$$
+\beta_0 = 83.03 \quad \beta_1 = 5.86 \quad R^2 = 0.075 \quad n = 1534 \quad
+$$
+
+> (iii) Interpret the intercept in your equation. Interpret the coefficient on mrate
+
+**Interpretation:**  
+If the match rate is 0, predicted participation rate is **83.08%**.\
+For ever \$1 increase in match rate, participation is predicted to increase by **5.86 percentage points**.
+
+> (iv) Find the predicted prate when mrate = 3.5. Is this a reasonable prediction?
+
+```{r}
+#| label: c1_iv
+new_data <- data.frame(mrate = 3.5)
+pred_prate <- predict(model_401k, newdata = new_data)
+round(pred_prate, 2)
+```
+
+**Interpretation:**  
+Model predicts a participation rate of **103.59%** which exceeds maximum possible value of 100%
+
+> (v) How much of the variation in prate is explained by mrate? Is this a lot in your opinion?
+
+**Interpretation:**  
+Match rate explains only about **7.5%** of the variation in participation, while the remaining 92.5% are due to other factors.
+
+### C2 \[CEOSAL2\]
+
+```{r}
+#| label: c2_data
+df_ceosal2 <- wooldridge::ceosal2
+knitr::kable(head(df_ceosal2))
+```
+
+> (i) Find the average salary and the average tenure in the sample.
+
+```{r}
+#| label: c2_i
+df_ceosal2 |>
+  summarise(
+    Avg_Salary = mean(salary),
+    Avg_Tenure = mean(ceoten)
+  ) |>
+  round(2)
+```
+
+**Interpretation:**\
+Average salary is **\$865,860** with an average tenure of **7.95** years.
+
+> (ii) How many CEOs are in their first year as CEO? What is the longest tenure as a CEO?
+
+```{r}
+#| label: c2_ii
+df_ceosal2 |>
+  summarise(
+    Fresh_CEO = sum(ceoten == 0),
+    Veteran = max(ceoten)
+  )
+```
+
+**Interpretation:**\    
+There are **5** CEOs in their first year, and the longest serving CEO has been in charge for **37** years.
+
+> (iii) Estimate the regression model $$ \log(salary) = \beta_0 + \beta_1 ceoten + u$$
+
+```{r}
+#| label: c2_iii
+model_ceosal2 <- lm(lsalary ~ ceoten, data = df_ceosal2)
+
+modelsummary(
+  model_ceosal2,
+  fmt = 2,
+  statistic = NULL,
+  gof_map = c("nobs", "r.squared"),
+  coef_rename = c("ceoten" = "Tenure", "(Intercept)" = "Constant")
+)
+```
+
+**Interpretation:**\
+For every 1 additional year of tenure as CEO, salary is predicted to increase by **1%**
+
+::: callout-note
+Looks like CEO aren't driven by loyalty, neither should you
+:::
+
+### C3 \[SLEEP75\]
+
+```{r}
+#| label: c3_data
+df_sleep75 <- wooldridge::sleep75
+knitr::kable(head(df_sleep75))
+```
+
+> (i) Estimate the model and reprot results 
+
+```{r}
+#| label: c3_i
+model_sleep75 <- lm(sleep ~ totwrk, data = df_sleep75)
+
+modelsummary(
+  model_sleep75,
+  fmt = 2,
+  statistic = NULL,
+  gof_map = c("nobs", "r.squared"),
+  coef_rename = c("totwrk" = "Minutes Worked per Week", "(Intercept)" = "Constant")
+)
+```
+
+**Interpretation:**\  
+A jobless person is predicted to sleep **3586** minutes per week [**8.54** hours of daily sleep].  
+For every 100 minutes worked, 15 minutes of sleep are lost.
+
+> (ii) If totwrk increases by 2 hours, by how much is sleep estimated to fall?
+
+```{r}
+#| label: c3_ii
+new_data <- data.frame(totwrk = 120)
+prediction <- predict(model_sleep75, newdata = new_data)
+
+result <- model_sleep75$coefficients[1]
+paste(round(prediction, 2), round(prediction - result, 2))
+```
+**Interpretation:**\  
+Working an extra two hours per week will reduce weekly sleep by **18** minutes [2.6 minutes per night]. This is practically insignficant.
