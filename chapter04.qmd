@@ -110,7 +110,7 @@ modelsummary(
   gof_map = c("nobs", "r.squared", "adj.r.squared"),
   coef_rename = c(
     "(Intercept)"             = "Constant",
-    "lexpendA"                = "Log(Expenditures A) [\u03b81]",
+    "lexpendA"                = "Log(Expenditures A) [\u03b8]",
     "lexpendB"                = "Log(Expenditures B) [\u03b22]",
     "I(lexpendB - lexpendA)"  = "Log(Exp B) - Log(Exp A) [\u03b22]",
     "prtystrA"                = "Party Strength A [\u03b23]"
