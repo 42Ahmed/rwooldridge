@@ -1,3 +1,11 @@
+```{r}
+
+```
+
+```{r}
+
+```
+
 ---
 title: "Multiple Regression Analysis: Inference"
 format: html
@@ -208,3 +216,99 @@ Restricted model shows no significant difference from unrestricted model (p = 0.
 Unobserved factors absorbed by the rank variable might include the school's geographic location, the strength of its alumni network, and the socioeconomic background of the student body (such as family income or father's occupation)
 
 ### C3 \[HPRICE1\]
+
+```{r}
+#| label: c3_data
+df_hprice1 <- wooldridge::hprice1
+knitr::kable(head(df_hprice1))
+```
+
+> \(i\) Estimate and obtain a confidence interval for the percentage change in price when a 150 square foot bedroom is added to a house
+>
+> $$
+> \log(price) = \beta_0 + \beta_1 sqrft + \beta_2 bdrms + u
+> $$
+
+```{r}
+#| label: c3_i
+model_hprice1 <- lm(
+  lprice ~ sqrft + bdrms, data = df_hprice1
+)
+
+modelsummary(
+  model_hprice1,
+  shape = term ~ model + statistic,
+  fmt = 2,
+  estimate = "{estimate}{stars}",
+  statistic = c("std.error", "statistic", "p.value"),
+  gof_map = c("nobs", "r.squared", "adj.r.squared"),
+  coef_rename = c(
+    "(Intercept)"  = "Constant",
+    "sqrft"        = "Square Foot",
+    "bdrms"        = "Bedrooms"
+  )
+)
+
+```
+
+**The Easy Way**
+
+```{r}
+#| label: c3_i_2
+deltaMethod(model_hprice1, "150 * sqrft + bdrms")
+```
+
+**Interpretation:**
+
+Adding a 150 square foot bedroom is associated with an estimated **8.58%** increase in price. We are 95% sure the true value lies in the interval **\[3.33%, 13.83%\]**
+
+> \(ii\) write $\beta_2$ in terms of $\theta$ and $\beta_1$
+
+**The Math Way:**
+
+To get the confidence Interval for a 150 square foot bedroom, let $\theta = 150 \times \beta_1 + \beta_2$.
+
+$$
+\begin{align}
+\beta_2 &= \theta - 150 \beta_1\\
+\log(price) &= \beta_0 + \beta_1(sqrft) + (\theta - 150 \beta_1)bdrms + u \\
+\log(price) &= \beta_0 + \beta_1 (sqrft - 150 \cdot bdrms) + \theta(bdrms) + u
+\end{align}
+$$
+
+> (iii) Obtain standard error for $\hat \theta$ and construct a 95% confidence Interval
+
+We run regression to obtain its standard error and confidence interval
+
+```{r}
+#| label: c3_iii
+df_hprice1$sqrft_adj <- df_hprice1$sqrft - 150 * df_hprice1$bdrms
+
+model_theta <- lm(I(100*lprice) ~ sqrft_adj + bdrms, data = df_hprice1)
+
+
+
+
+cm <- c("bdrms" = "Effect of 150 sqft Bedroom (%)")
+
+modelsummary(
+  model_theta,
+  coef_map = cm,
+  fmt = 2,
+  estimate = "{estimate} [{conf.low}, {conf.high}]",
+  statistic = NULL,   
+  title = "Estimated Impact of Adding a 150 sqft Bedroom",
+  gof_omit = ".*"     
+)
+
+```
+
+**Interpretation:**
+
+We scaled dependent variable by 100 to get percentage values for the log-level model. The estimated effect is 8.58% with a confidence interval of \[3.26%, 13.90%\].
+
+::: callout-caution
+`deltMethod` relies on asymptotic theory, confidence intervals are calculated using Z distribution. Critical value = **1.96**
+
+`lm` uses t distribution. With 85 degrees of freedom, critical value = **1.988**
+:::
