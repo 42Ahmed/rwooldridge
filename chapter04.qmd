@@ -59,8 +59,8 @@ If the absolute estimate is at least \*\*twice as large\*\* as its standard erro
 **Interpretation:**
 
 $$\begin{align}
-H_0&: \beta_1 + \beta_2 = 0\\
-H_1 &: \beta_1 + \beta_2 \neq 0
+H_0: \beta_1 + \beta_2 &= 0\\
+H_1: \beta_1 + \beta_2 &\neq 0
 \end{align}$$
 
 > (iii) Estimate the given model using the data in VOTE1 and report the results in usual form. Do A’s expenditures affect the outcome? What about B’s expenditures? Can you use these results to test the hypothesis in part (ii)?
@@ -137,8 +137,8 @@ knitr::kable(head(df_lawsch85))
 
 **Interpretation:**
 
-$$H_0: \beta_5 = 0\\
-H_1: \beta_5 \neq 0$$
+$$\begin{align}H_0: \beta_5 &= 0\\
+H_1: \beta_5 &\neq 0\end{align}$$
 
 ```{r}
 #| label: c2_i
