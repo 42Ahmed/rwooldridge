@@ -2,7 +2,7 @@ project:
   type: book
 
 book:
-  title: "A Modern R-proach to Econometrics"
+  title: "rwooldridge: A Modern R-proach"
   author: "Ahmed H. Darwish"
   
   navbar:
