@@ -20,7 +20,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          install.packages(c('tidyverse', 'wooldridge', 'rmarkdown', 'knitr', 'modelsummary'))
+          install.packages(c('tidyverse', 'wooldridge', 'rmarkdown', 'knitr', 'modelsummary', 'car'))
         shell: Rscript {0}
 
       - name: Set up Quarto

@@ -2,3 +2,124 @@
 title: "Multiple Regression Analysis: Inference"
 format: html
 ---
+
+## Computer Exercises
+
+```{r}
+#| label: 'setup'
+#| include: false
+library(tidyverse)
+library(wooldridge)
+library(modelsummary)
+library(car)
+```
+
+### C1 \[VOTE1\]
+
+```{r}
+#| label: c1_data
+df_vote1 <- wooldridge::vote1
+knitr::kable(head(df_vote1))
+```
+
+> (i) To study whether campaign expenditures affect election outcomes: voteA is the percentage of the vote received by Candidate A, expendA and expendB are campaign expenditures by Candidates A and B, and prtystrA is a measure of party strength for Candidate A $$ voteA = \beta_0 + \beta_1 \log(expendA) + \beta_2 \log(expendB) + \beta_3 prtystrA + u$$ Interpret $\beta_1$
+
+```{r}
+#| label: c1_i
+model_vote1 <- lm(voteA ~ lexpendA + lexpendB + prtystrA, data = df_vote1)
+
+modelsummary(
+  model_vote1,
+  fmt = 2,
+  shape = term ~ model + statistic,
+  estimate = "{estimate}{stars}",
+  statistic = c("std.error", "statistic", "p.value"),
+  gof_map = c("nobs", "r.squared", "adj.r.squared"),
+  coef_rename = c(
+    "(Intercept)" = "Constant",
+    "lexpendA"    = "Log(Expenditures A)",
+    "lexpendB" = "Log(Expenditures B)",
+    "prtystrA"    = "Party Strength A"
+  )
+)
+```
+
+**Interpretation:**
+
+$\beta_1 = 7.23$, a 1% increase in candidate A's expenditures is associated with 0.07 percentage point increase in the share of the vote for candidate A, holding other factors fixed.
+
+::: callout-tip
+**The Two Times Rule**
+
+If the absolute estimate is at least \*\*twice as large\*\* as its standard error, it is statistically significant
+:::
+
+> (ii) In terms of the parameters, state the null hypothesis that a 1% increase in A’s expenditures is offset by a 1% increase in B’s expenditures.
+
+**Interpretation:** $$
+\begin{align}
+H_0&: \beta_1 + \beta_2 = 0\\
+H_1 &: \beta_1 + \beta_2 \neq 0
+\end{align}
+$$
+
+> (iii) Estimate the given model using the data in VOTE1 and report the results in usual form. Do A’s expenditures affect the outcome? What about B’s expenditures? Can you use these results to test the hypothesis in part (ii)?
+
+**Interpretation:**
+
+All the independent variables are statistically significant, indicating that $\beta \neq 0$. We still can't test the hypothesis from part 2 because we don't have the covariance needed $$ 
+se(\hat \beta_1 + \hat \beta_2) = \sqrt{Var(\hat \beta_1) + Var(\hat \beta_2) + 2 Cov(\hat \beta_1, \hat \beta_2)}
+$$
+
+> (iv) Estimate a model that directly gives the t statistic for testing the hypothesis in part (ii). What do you conclude? (Use a two-sided alternative.)
+
+The easy way:
+
+```{r}
+#| label: c1_iv
+linearHypothesis(model_vote1, "lexpendA + lexpendB = 0")
+```
+
+**Interpretation:**
+
+**p \> 0.05**, we fail to reject the hypothesis; if both candidates double their budget, election outcome stays the same.
+
+The math way:
+
+We define a new estimator $\theta = \beta_1 + \beta_2$ which means that $\beta_1 = \theta - \beta_2$ Substitute into the original equation: $$
+\begin{align}
+voteA &= \beta_0 + \beta_1 \log(expendA) + \beta_2 \log(expendB) + \beta_3 prtystrA + u \\
+voteA &= \beta_0 + (\theta - \beta_2) \log(expendA) + \beta_2 \log(expendB) + \beta_3 prtystrA + u \\
+voteA &= \beta_0 + \theta \log(expendA) - \beta_2 \log(expendA) + \beta_2 \log(expendB) + \beta_3 prtystrA + u \\
+voteA &= \beta_0 + \theta \log(expendA) + \beta_2[\log(expendB) - \log(expendA)]   + \beta_3 prtystrA + u 
+\end{align}
+$$
+
+```{r}
+#| label: c1_iv_2
+
+model_vote1_reparameterized <- lm(
+  voteA ~ lexpendA + I(lexpendB - lexpendA) + prtystrA, data = df_vote1)
+
+modelsummary(
+  model_vote1_reparameterized,
+  fmt = 2,
+  shape = term ~ model + statistic,
+  estimate = "{estimate}{stars}",
+  statistic = c("std.error", "statistic", "p.value"),
+  gof_map = c("nobs", "r.squared", "adj.r.squared"),
+  coef_rename = c(
+    "(Intercept)"             = "Constant",
+    "lexpendA"                = "Log(Expenditures A) [\u03b81]",
+    "lexpendB"                = "Log(Expenditures B) [\u03b22]",
+    "I(lexpendB - lexpendA)"  = "Log(Exp B) - Log(Exp A) [\u03b22]",
+    "prtystrA"                = "Party Strength A [\u03b23]"
+  )
+)
+```
+
+**Interpretation:**
+
+$\theta = -0.53$, with a p-value of 0.32. We fail to reject the null hypothesis. This implies that $\beta_1$ and $\beta_2$ perfectly offset each other; if both candidates double their budgets, the net effect on the election outcome is practically zero.
+
+### C2 \[LAWSCH85\]
