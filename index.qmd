@@ -4,14 +4,42 @@ Welcome to **A Modern R-proach to Econometrics**.
 
 This digital book serves as a comprehensive computational companion to Jeffrey Wooldridge's *Introductory Econometrics: A Modern Approach*. As a Teaching Assistant at **Alexandria University**, I developed this resource to bridge the gap between theoretical econometric concepts and practical data analysis using the **R programming language**.
 
-### About the Author
-I am **Ahmed H. Darwish**, a Teaching Assistant with a Bachelor’s degree in Business Administration, majoring in **Applied Statistics**. Currently, I am pursuing my Master’s degree and conducting research in the field of econometrics. 
+## About the Author
 
-My work focuses on:  
-* **Applied Econometrics:** Replicating complex academic models to ensure reproducibility.  
-* **Causal Inference:** Applying modern frameworks from "The Effect" to real-world data.  
-* **Open Source Contribution:** I am a contributor to the `wooldridge` Python library, and I bring that same rigor to this R-based project.
+I am **Ahmed H. Darwish**, a Teaching Assistant with a Bachelor’s degree in Business Administration, majoring in **Applied Statistics**. Currently, I am pursuing my Master’s degree and conducting research in the field of econometrics.
 
+My work focuses on:\
+\* **Applied Econometrics:** Replicating complex academic models to ensure reproducibility.\
+\* **Causal Inference:** Applying modern frameworks from "The Effect" to real-world data.\
+\* **Open Source Contribution:** I am a contributor to the `wooldridge` Python library, and I bring that same rigor to this R-based project.
 
----
+## Exercises Solved
+
+| Chapter   | Total Questions | Solved |
+|-----------|-----------------|--------|
+| 1         | 8               | 3      |
+| 2         | 11              | 3      |
+| 3         | 13              | 3      |
+| 4         | 14              | 3      |
+| 5         | 6               | 3      |
+| 6         | 14              | \-     |
+| 7         | 17              | \-     |
+| 8         | 14              | \-     |
+| 9         | 14              | \-     |
+| 10        | 14              | \-     |
+| 11        | 14              | \-     |
+| 12        | 16              | \-     |
+| 13        | 16              | \-     |
+| 14        | 17              | \-     |
+| 15        | 13              | \-     |
+| 16        | 12              | \-     |
+| 17        | 17              | \-     |
+| 18        | 16              | \-     |
+| 19        | \-              | \-     |
+| **Total** | **246**         | **15** |
+
+: Exercises Solved
+
+------------------------------------------------------------------------
+
 *This project is a work in progress as part of my Master's thesis portfolio. For collaborations or inquiries regarding remote data analysis, feel free to contact me via GitHub.*
