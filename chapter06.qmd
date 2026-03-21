@@ -67,10 +67,10 @@ modelsummary(
   gof_map = c("nobs", "r.squared", "adj.r.squared"),
   coef_rename = c(
     "(Intercept)" = "Constant",
-    "ldist"    = "Distance from Incinerator",
-    "lintst"   = "Distance from Interstate",
-    "larea"    = "Square Footage of House",
-    "lland"    = "Lot size",
+    "ldist"    = "Log Dist. to Incinerator",
+    "lintst"   = "Log Dist. to Interstate",
+    "larea"    = "Log Square Footage of House",
+    "lland"    = "Log Lot size",
     "rooms"    = "Number of Rooms",
     "baths"    = "Number of Bathrooms",
     "age"      = "Age of House in Years"
@@ -98,6 +98,96 @@ ggcorrplot(corr_matrix,
 
 In the multiple regression model, the coefficient for distance to the incinerator ($\beta_1$) shrinks considerably and becomes statistically insignificant. The large, significant estimate observed in the simple model was heavily driven by omitted variable bias; distance from the incinerator is positively correlated with other desirable, price-increasing characteristics, such as larger lot sizes and closer proximity to the interstate. By including these controls, the isolated effect of the incinerator is revealed to be much smaller. Furthermore, the fact that these newly added spatial variables also lack individual statistical significance strongly suggests multicollinearity. The model struggles to disentangle the individual marginal effects of these highly correlated geographic features, resulting in inflated standard errors.
 
-> (iii) Add $\[\log(intst)\]^2$ to the model, what do you conclude?
+> (iii) Add $[\log(intst)]^2$ to the model, what do you conclude?
+
+```{r}
+#| label: c1_iii
+model_c1_iii <- lm(
+  lprice ~ ldist + lintst + I(lintst^2) + larea + lland +
+    rooms + baths + age,
+  data = df_1981
+)
+
+modelsummary(
+  model_c1_iii,
+  fmt = 2, 
+  shape = term ~ model + statistic,
+  estimate = "{estimate}{stars}",
+  statistic = c("std.error", "statistic", "p.value"),
+  gof_map = c("nobs", "r.squared", "adj.r.squared"),
+  coef_rename = c(
+    "(Intercept)" = "Constant",
+    "ldist"       = "Log Dist. to Incinerator",
+    "lintst"      = "Log Dist. to Interstate",
+    "I(lintst^2)" = "Log Dist. to Interstate Squared",
+    "larea"       = "Log Square Footage of House",
+    "lland"       = "Log Lot size",
+    "rooms"       = "Number of Rooms",
+    "baths"       = "Number of Bathrooms",
+    "age"         = "Age of House in Years"
+  )
+)
+```
+
+```{r}
+#| label: c1_iii_2
+df_1981 |>
+  summarize(
+    Correlation = cor(ldist, lintstsq)
+  )
+```
+
+**Interpretation:**
+
+By adding the squared term for the distance to the interstate, we corrected a functional form misspecification present in the previous model. Both the linear term (2.07) and the squared term (-0.12) are statistically significant at the 1% level. The negative coefficient on the squared term indicates an inverted U-shaped relationship: moving away from the interstate initially increases house prices (escaping the noise penalty), but eventually, the marginal effect becomes negative as the house becomes too isolated (the commute penalty).With the non-linear spatial effect of the interstate properly modeled, the isolated effect of the incinerator is clarified. The coefficient $\beta_1 = 0.19$ is statistically significant ($p < 0.01$). Holding all other controlled factors constant, a 1% increase in distance from the incinerator is associated with a 0.19% increase in the housing price.
+
+::: callout-note
+Optimal distance from interstate is obtained by solving
+
+$$
+\frac{\partial \log(price)}{\partial \log(intst)} = 2.07 - 2(0.12) \log(intst) = 0
+$$
+
+Which can be solved easily using the formula
+
+$$
+x^* = \left| \dfrac{\hat \beta_1}{2 \hat \beta_2}\right| = \dfrac{2.07}{0.24} = 8.625
+$$
+
+Where $x^*$ is in log terms, so $\exp{x^*} =  \exp(8.625) = 5569$
+:::
 
 > (iv) Is square of $\log(dist)$ significant when you add it to model from part (iii)?
+
+```{r}
+model_c1_iv <- lm(
+  lprice ~ ldist + I(ldist^2) + lintst + I(lintst^2) 
+  + larea + lland + rooms + baths + age,
+  data = df_1981
+)
+
+modelsummary(
+  model_c1_iv,
+  fmt = 2, 
+  shape = term ~ model + statistic,
+  estimate = "{estimate}{stars}",
+  statistic = c("std.error", "statistic", "p.value"),
+  gof_map = c("nobs", "r.squared", "adj.r.squared"),
+  coef_rename = c(
+    "(Intercept)" = "Constant",
+    "ldist"       = "Log Dist. to Incinerator",
+    "I(ldist^2)"  = "Log Dist. to Incinerator squared",
+    "lintst"      = "Log Dist. to Interstate",
+    "I(lintst^2)" = "Log Dist. to Interstate Squared",
+    "larea"       = "Log Square Footage of House",
+    "lland"       = "Log Lot size",
+    "rooms"       = "Number of Rooms",
+    "baths"       = "Number of Bathrooms",
+    "age"         = "Age of House in Years"
+  )
+)
+```
+
+**Interpretation:**
+
+Adding the squared term for the distance to the incinerator causes both the linear ($\beta_1 = 0.87$, $p = 0.67$) and quadratic ($-0.04$, $p = 0.74$) terms to become statistically insignificant. This insignificance is driven by severe variance inflation due to structural multicollinearity between $\log(dist)$ and $[\log(dist)]^2$. We conclude that there is no evidence of a non-linear relationship between house prices and proximity to the incinerator. The strictly linear functional form for $\log(dist)$ established in part (iii) is the correct specification.
