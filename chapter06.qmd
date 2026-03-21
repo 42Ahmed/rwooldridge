@@ -98,6 +98,6 @@ ggcorrplot(corr_matrix,
 
 In the multiple regression model, the coefficient for distance to the incinerator ($\beta_1$) shrinks considerably and becomes statistically insignificant. The large, significant estimate observed in the simple model was heavily driven by omitted variable bias; distance from the incinerator is positively correlated with other desirable, price-increasing characteristics, such as larger lot sizes and closer proximity to the interstate. By including these controls, the isolated effect of the incinerator is revealed to be much smaller. Furthermore, the fact that these newly added spatial variables also lack individual statistical significance strongly suggests multicollinearity. The model struggles to disentangle the individual marginal effects of these highly correlated geographic features, resulting in inflated standard errors.
 
-> (iii) Add $[\log(intst)]^2}$ to the model, what do you conclude?
+> (iii) Add $\[\log(intst)\]^2$ to the model, what do you conclude?
 
 > (iv) Is square of $\log(dist)$ significant when you add it to model from part (iii)?
