@@ -7,6 +7,7 @@ format: html
 #| label: 'setup'
 library(tidyverse)
 library(wooldridge)
+library(knitr)
 ```
 
 ## C1 \[Wage 1\]
@@ -16,8 +17,7 @@ library(wooldridge)
 ```{r}
 #| label: c1_data
 c1 <- wooldridge::wage1
-knitr::kable(head(c1))
-
+kable(head(c1))
 ```
 
 > (i) Find the average education level in the sample. What are the lowest and highest years of education?
@@ -33,7 +33,8 @@ c1 |>
   round(2)
 ```
 
-**Interpretation:**\
+**Interpretation:**
+
 The average education in this sample is approximately 12.5 years. The range is broad ranging from 0 years (no formal education) to 18 years of education (graduate level)
 
 > (ii) Find the average hourly wage in the sample. Does it seem high or low?
@@ -45,7 +46,6 @@ c1 |>
     Avg_Wage = mean(wage, na.rm = TRUE)
   ) |>
   round(2)
-
 ```
 
 $$
@@ -56,12 +56,14 @@ $$
 \end{align*}
 $$
 
-**Interpretation:**\
+**Interpretation:**
+
 The average nominal wage of **\$5.90** in 1976 translates to approximately **\$33.73** in 2026 dollars. This adjustment reveals that the workers in the `wage1` dataset were significantly better off than the nominal figure suggests, earning a real wage that is competitive even by modern standards.
 
 > (iii) The wage data are reported in 1976 dollars. Using the Internet or a printed source, find the Consumer Price Index (CPI) for the years 1976 and 2013.
 
-**Interpretation:**\
+**Interpretation:**
+
 CPI for 1976 is **\$56.9** and became **\$233** in 2013.
 
 > (iv) Use the CPI values from part (iii) to find the average hourly wage in 2013 dollars. Now does the average hourly wage seem reasonable?
@@ -72,7 +74,10 @@ $$
 &= 5.9 \times \dfrac{233}{56.9}\\
 &= 24.2
 \end{align*}
-$$ **Interpretation:**\
+$$
+
+**Interpretation:**
+
 The average wage is equivalent to **\$24.2** in 2013, which is three times the minimum wage of **\$7.25**. Minimum wage was **\$2.3** in 1976 which indicates sample includes skilled labor.
 
 > (v) How many women are in the sample? How many men?
@@ -89,7 +94,8 @@ c1 |>
   select(Gender, Count, Avg_Wage)
 ```
 
-**Interpretation:**\
+**Interpretation:**
+
 Although sample is well balanced with 252 females and 274 males, there is a notable wage gap between the genders.
 
 ## C2 \[BWGHT\]
@@ -99,8 +105,7 @@ Although sample is well balanced with 252 females and 274 males, there is a nota
 ```{r}
 #| label: c2_data
 c2 <- wooldridge::bwght
-knitr::kable(head(c2))
-
+kable(head(c2))
 ```
 
 > (i) How many women are in the sample, and how many report smoking during pregnancy?
@@ -115,7 +120,8 @@ c2 |>
   )
 ```
 
-**Interpretation:**\
+**Interpretation:**
+
 The sample contains **1,388 women**. Out of these, **212 women** (approximately 15%) reported smoking at least one cigarette per day during pregnancy, while **1,176** reported not smoking at all.
 
 > (ii) What is the average number of cigarettes smoked per day? Is the average a good measure of the “typical” woman in this case? Explain.
@@ -130,12 +136,14 @@ c2 |>
   round(2)
 ```
 
-**Interpretation:**\
+**Interpretation:**
+
 The sample average is **2.09** because most of the pregnant females are non smokers. A smoker pregnant female smokes on average **13.67** cigarettes per day.
 
 > (iii) Among women who smoked during pregnancy, what is the average number of cigarettes smoked per day? How does this compare with your answer from part (ii), and why?
 
-**Interpretation:**\
+**Interpretation:**
+
 A smoker pregnant female smokes on average **13.67** cigarettes per day.
 
 > (iv) Find the average of *fatheduc* in the sample. Why are only 1,192 observations used to compute this average?
@@ -150,7 +158,8 @@ c2 |>
   round(2)
 ```
 
-**Interpretation:**\
+**Interpretation:**
+
 An average father has **13.19** years of education in the sample, with *196* missing data.
 
 > (v) Report the average family income and its standard deviation in dollars.
@@ -165,7 +174,8 @@ c2 |>
   round(2)
 ```
 
-**Interpretation:**\
+**Interpretation:**
+
 Families included in the sample have an average income of **\$29,000** with a standard deviation of **\$18,700**
 
 ## C3 \[MEAP01\]
@@ -175,8 +185,7 @@ Families included in the sample have an average income of **\$29,000** with a st
 ```{r}
 #| label: c3_data
 c3 <- wooldridge::meap01
-knitr::kable(head(c3))
-
+kable(head(c3))
 ```
 
 > (i) Find the largest and smallest values of *math4*. Does the range make sense? Explain.
@@ -191,7 +200,8 @@ c3 |>
   round(2)
 ```
 
-**Interpretation:**\
+**Interpretation:**
+
 The sample includes math scores ranging from **0** to **100** indication wide variety.
 
 > (ii) How many schools have a perfect pass rate on the math test? What percentage is this of the total sample?
@@ -202,12 +212,13 @@ c3 |>
   summarise(
     Total_Schools = n(),
     Perfect_Math_Count = sum(math4 == 100, na.rm = TRUE),
-    Percentage = (Perfect_Math_Count / Total_Schools) * 100) |>
+    Percentage = (Perfect_Math_Count / Total_Schools) * 100
+  ) |>
   round(2)
-
 ```
 
-**Interpretation:**\
+**Interpretation:**
+
 Out of the 1,823 schools in the sample, 38 schools (approximately 2.08%) achieved a perfect 100% pass rate on the fourth-grade math test.
 
 > (iii) How many schools have math pass rates of exactly 50%?
@@ -217,11 +228,11 @@ Out of the 1,823 schools in the sample, 38 schools (approximately 2.08%) achieve
 c3 |>
   summarise(
     Schools_at_50 = sum(math4 == 50, na.rm = TRUE)
-)
-
+  )
 ```
 
-**Interpretation:**\
+**Interpretation:**
+
 There are exactly 17 schools with a pass rate of exactly 50%
 
 > (iv) Compare the average pass rates for the math and reading scores. Which test is harder to pass?
@@ -229,7 +240,7 @@ There are exactly 17 schools with a pass rate of exactly 50%
 ```{r}
 #| label: c3_iv
 c3 |>
-  drop_na(math4, read4) |> 
+  drop_na(math4, read4) |>
   summarise(
     Avg_Math = mean(math4),
     Avg_Read = mean(read4)
@@ -237,7 +248,8 @@ c3 |>
   round(2)
 ```
 
-**Interpretation:**\
+**Interpretation:**
+
 The average pass rate for math **71.90%** is significantly higher than for reading **60.06%**. This shows that the reading exam was harder in the sample.
 
 > (v) Find the correlation between *math4* and *read4*. What do you conclude?
@@ -245,15 +257,15 @@ The average pass rate for math **71.90%** is significantly higher than for readi
 ```{r}
 #| label: c3_v
 c3 |>
-  drop_na(math4, read4) |> 
+  drop_na(math4, read4) |>
   summarise(
     Correlation = cor(math4, read4)
   ) |>
   round(2)
-
 ```
 
-**Interpretation:**\
+**Interpretation:**
+
 The correlation between the two exams is high **0.84** showing that performance in the two exams is similar.
 
 > (vi) The variable *exppp* is expenditure per pupil. Find the average of *exppp* along with its standard deviation. Would you say there is wide variation in per pupil spending?
@@ -261,16 +273,16 @@ The correlation between the two exams is high **0.84** showing that performance 
 ```{r}
 #| label: c3_vi
 c3 |>
-  drop_na(math4, read4) |> 
+  drop_na(math4, read4) |>
   summarise(
     Mean_Expnd = mean(exppp),
     Std_Expend = sd(exppp)
   ) |>
   round(2)
-
 ```
 
-**Interpretation:**\
+**Interpretation:**
+
 The average expenditure per pupil is **\$5,194.87**, with a standard deviation of **\$1,091.89** representing a significant spread (**21%** of the mean).
 
 ::: callout-note
@@ -303,7 +315,8 @@ results <- c(Exact_Pct = pct_diff, Log_Approx = log_diff)
 results |> round(2)
 ```
 
-**Interpretation:**\
+**Interpretation:**
+
 School A spends **9.09%** more per student than School B. The logarithmic approximation ($100 \times \Delta \log$) yields **8.70**, which is a reasonably close estimate.
 
 ::: callout-important
@@ -319,7 +332,7 @@ we can approximate **percentage change** $$\% \Delta x =\dfrac{x_1 - x_0}{x_0}$$
 ```{r}
 #| label: c4_data
 c4 <- wooldridge::jtrain2
-knitr::kable(head(c4))
+kable(head(c4))
 ```
 
 > (i) Use the indicator variable *train* to determine the fraction of men receiving job training.
@@ -333,7 +346,9 @@ c4 |>
   round(2)
 ```
 
-**Interpretation:** **42%** of men in the sample received training.
+**Interpretation:**
+
+**42%** of men in the sample received training.
 
 > (ii) The variable *re78* is earnings from 1978, measured in thousands of 1982 dollars. Find the averages of *re78* for the sample of men receiving job training and the sample not receiving job training. Is the difference economically large?
 
@@ -350,8 +365,8 @@ c4 |>
 ```
 
 **Interpretation:**
-Trained men received earnings of **6.35** while untrained received **4.55* only. The percentage change is 
-$\%\Delta x\dfrac{6.35 - 4.55}{4.55} =  39.56\%$ which is practically significant.
+
+Trained men received earnings of **6.35** while untrained received \*\*4.55\* only. The percentage change is $\%\Delta x\dfrac{6.35 - 4.55}{4.55} =  39.56\%$ which is practically significant.
 
 > (iii) The variable *unem78* is an indicator of whether a man was unemployed or not in 1978. What fraction of the men who received job training were unemployed? What about for men who did not receive job training? Comment on the difference.
 
@@ -367,9 +382,95 @@ c4 |>
 ```
 
 **Interpretation:**
+
 **24%** of the trained men where unemployed while **35%** of the untrained men where unemployed. There is a **11 percentage point change** in unemployment between the two groups.
 
 > (iv) From parts (ii) and (iii), does it appear that the job training program was effective? What would make our conclusions more convincing?
 
 **Interpretation:**
+
 Training program appears to be effective to increase earnings from part (ii) and decrease unemployment from part (iii). Conclusions will be more convincing if the random sample was balanced, and we controlled for other factors such as earnings and employment before taking the program.
+
+## C5 \[FERTIL2\]
+
+> The data in FERTIL2 were collected on women living in the Republic of Botswana in 1988. The variable *children* refers to the number of living children. The variable *electric* is a binary indicator equal to one if the woman’s home has electricity, and zero if not.
+
+```{r}
+#| label: c5_data
+c5 <- wooldridge::fertil2
+kable(head(c5))
+```
+
+> (i) Find the smallest and largest values of *children* in the sample. What is the average of *children*?
+
+```{r}
+#| label: c5_i
+c5 |>
+  summarise(
+    Min = min(children),
+    Max = max(children),
+    Average = mean(children)
+  ) |>
+  round(2)
+```
+
+```{r}
+#| label: c5_i_2
+
+ggplot(c5, aes(x = factor(children))) +
+  geom_bar(fill = "#2c3e50") +
+  geom_text(stat = "count", aes(label = ..count..), vjust = -0.5, size = 3, color = "black") +
+  theme_minimal() +
+  labs(
+    title = "Distribution of Number of Children",
+    subtitle = "Based on the c5 dataset observations",
+    x = "Number of Children",
+    y = "Frequency (Count)",
+    caption = "Source: Wooldridge Dataset"
+  )
+```
+
+**Interpretation**:
+
+Number of children is heavily skewed to the left. **1132** women had 0 children while only one woman had a maximum number of **13** children.
+
+> (ii) What percentage of women have electricity in the home?
+
+```{r}
+#| label: c5_ii
+
+c5 |>
+  summarise(
+    Has_Electricity = mean(electric, na.rm = TRUE)
+  ) |>
+  round(2)
+```
+
+**Interpretation**:
+
+**14%** of the women in the sample had home electricity.
+
+> (iii) Compute the average of *children* for those without electricity and do the same for those with electricity. Comment on what you find.
+
+```{r}
+#| label: c5_iii
+
+c5 |>
+  drop_na(electric) |>
+  summarise(
+    Avg_Children = mean(children) |> round(2),
+    .by = electric
+  ) |>
+  mutate(Home_Electricity = ifelse(electric == 1, "Has Electricity", "No Electricity")) |>
+  select(Home_Electricity, Avg_Children)
+```
+
+**Interpretation:**
+
+Women who had access to electricity have lower average children **(1.9)** compared to women with no electricity **(2.33)**
+
+> (iv) From part (iii), can you infer that having electricity “causes” women to have fewer children? Explain.
+
+**Interpretation:**
+
+Having electricity does not have causal effect on womens' number of children. But electricity can be an indidactor to other factors that have causal effect, like socioeconomic status and urban area.
