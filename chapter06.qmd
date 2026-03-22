@@ -160,7 +160,7 @@ Where $x^*$ is in log terms, so $\exp{x^*} =  \exp(8.625) = 5569$
 > (iv) Is square of $\log(dist)$ significant when you add it to model from part (iii)?
 
 ```{r}
-#| label: c2_iv
+#| label: c1_iv
 model_c1_iv <- lm(
   lprice ~ ldist + I(ldist^2) + lintst + I(lintst^2) 
   + larea + lland + rooms + baths + age,
