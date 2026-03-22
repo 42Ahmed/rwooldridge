@@ -475,4 +475,4 @@ Women who had access to electricity have lower average children **(1.9)** compar
 
 **Interpretation:**
 
-Having electricity does not have causal effect on womens' number of children. But electricity can be an indidactor to other factors that have causal effect, like socioeconomic status and urban area.
+Having electricity does not have causal effect on women number of children. But electricity can be an indicator to other factors that have causal effect, like socioeconomic status and urban area.

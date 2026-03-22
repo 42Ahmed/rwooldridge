@@ -32,14 +32,14 @@ model_c1_i <- lm(lprice ~ ldist, data = df_1981)
 
 modelsummary(
   model_c1_i,
-  fmt = 2, 
+  fmt = 2,
   shape = term ~ model + statistic,
   estimate = "{estimate}{stars}",
   statistic = c("std.error", "statistic", "p.value"),
   gof_map = c("nobs", "r.squared", "adj.r.squared"),
   coef_rename = c(
     "(Intercept)" = "Constant",
-    "ldist"    = "Distance from Incinerator"
+    "ldist" = "Distance from Incinerator"
   )
 )
 ```
@@ -60,20 +60,20 @@ model_c1_ii <- lm(
 
 modelsummary(
   model_c1_ii,
-  fmt = 2, 
+  fmt = 2,
   shape = term ~ model + statistic,
   estimate = "{estimate}{stars}",
   statistic = c("std.error", "statistic", "p.value"),
   gof_map = c("nobs", "r.squared", "adj.r.squared"),
   coef_rename = c(
     "(Intercept)" = "Constant",
-    "ldist"    = "Log Dist. to Incinerator",
-    "lintst"   = "Log Dist. to Interstate",
-    "larea"    = "Log Square Footage of House",
-    "lland"    = "Log Lot size",
-    "rooms"    = "Number of Rooms",
-    "baths"    = "Number of Bathrooms",
-    "age"      = "Age of House in Years"
+    "ldist" = "Log Dist. to Incinerator",
+    "lintst" = "Log Dist. to Interstate",
+    "larea" = "Log Square Footage of House",
+    "lland" = "Log Lot size",
+    "rooms" = "Number of Rooms",
+    "baths" = "Number of Bathrooms",
+    "age" = "Age of House in Years"
   )
 )
 ```
@@ -82,16 +82,17 @@ modelsummary(
 #| label: c1_ii_2
 #| warning: false
 #| message: false
-df_1981_sub <- df_1981|>
-  select(c("ldist","lintst", "lprice", "age", "rooms", "larea", "lland", "baths"))
+df_1981_sub <- df_1981 |>
+  select(c("ldist", "lintst", "lprice", "age", "rooms", "larea", "lland", "baths"))
 
 corr_matrix <- cor(df_1981_sub, use = "complete.obs")
 
-ggcorrplot(corr_matrix, 
-           hc.order = TRUE, 
-           type = "lower",
-           lab = TRUE, 
-           title = "Correlation Matrix (1981 Housing Data)")
+ggcorrplot(corr_matrix,
+  hc.order = TRUE,
+  type = "lower",
+  lab = TRUE,
+  title = "Correlation Matrix (1981 Housing Data)"
+)
 ```
 
 **Interpretation:**
@@ -110,7 +111,7 @@ model_c1_iii <- lm(
 
 modelsummary(
   model_c1_iii,
-  fmt = 2, 
+  fmt = 2,
   shape = term ~ model + statistic,
   estimate = "{estimate}{stars}",
   statistic = c("std.error", "statistic", "p.value"),
@@ -162,14 +163,14 @@ Where $x^*$ is in log terms, so $\exp{x^*} =  \exp(8.625) = 5569$
 ```{r}
 #| label: c1_iv
 model_c1_iv <- lm(
-  lprice ~ ldist + I(ldist^2) + lintst + I(lintst^2) 
-  + larea + lland + rooms + baths + age,
+  lprice ~ ldist + I(ldist^2) + lintst + I(lintst^2)
+    + larea + lland + rooms + baths + age,
   data = df_1981
 )
 
 modelsummary(
   model_c1_iv,
-  fmt = 2, 
+  fmt = 2,
   shape = term ~ model + statistic,
   estimate = "{estimate}{stars}",
   statistic = c("std.error", "statistic", "p.value"),
