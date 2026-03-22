@@ -5,6 +5,8 @@ format: html
 
 ```{r}
 #| label: 'setup'
+#| message: false
+#| warning: false
 library(tidyverse)
 library(wooldridge)
 library(knitr)
