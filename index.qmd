@@ -15,29 +15,71 @@ My work focuses on:\
 
 ## Exercises Solved
 
-| Chapter   | Questions | Solved |
-|-----------|-----------|--------|
-| 1\.       | 9         | 9      |
-| 2\.       | 12        | 3      |
-| 3\.       | 14        | 3      |
-| 4\.       | 15        | 3      |
-| 5\.       | 7         | 3      |
-| 6\.       | 16        | 2      |
-| 7\.       | 19        | \-     |
-| 8\.       | 14        | \-     |
-| 9\.       | 15        | \-     |
-| 10\.      | 15        | \-     |
-| 11\.      | 15        | \-     |
-| 12\.      | 17        | \-     |
-| 13\.      | 18        | \-     |
-| 14\.      | 20        | \-     |
-| 15\.      | 15        | \-     |
-| 16\.      | 12        | \-     |
-| 17\.      | 18        | \-     |
-| 18\.      | 18        | \-     |
-| 19\.      | 10        | \-     |
-| 20\.      | \-        | \-     |
-| **Total** | **279**   | **23** |
+```{r}
+#| label: progress
+#| echo: false
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(gt)
+library(gtExtras)
+
+
+progress_data <- tribble(
+  ~Chapter, ~Questions, ~Solved,
+  1, 9, 9,
+  2, 12, 3,
+  3, 14, 3,
+  4, 15, 3,
+  5, 7, 3,
+  6, 16, 2,
+  7, 19, 0,
+  8, 14, 0,
+  9, 15, 0,
+  10, 15, 0,
+  11, 15, 0,
+  12, 17, 0,
+  13, 18, 0,
+  14, 20, 0,
+  15, 15, 0,
+  16, 12, 0,
+  17, 18, 0,
+  18, 18, 0,
+  19, 10, 0
+) |> 
+  mutate(
+    Percentage = Solved / Questions,
+    Status = case_when(
+      Percentage == 1 ~ "Finished",
+      Percentage > 0  ~ "In Progress",
+      TRUE            ~ "Pending"
+    )
+  )
+
+
+progress_data |>
+  gt() |>
+  
+  gt_plt_bar_pct(column = Percentage, scaled = FALSE, fill = "#2c3e50", background = "#ecf0f1") |>
+  
+  gt_badge(Status, palette = c("Finished" = "#27ae60", "In Progress" = "#f39c12", "Pending" = "#bdc3c7")) |>
+  cols_label(
+    Percentage = "Progress",
+    Solved = "Completed"
+  ) |>
+  tab_header(
+    title = md("**Exercise Completion Tracker**"),
+    subtitle = "Real-time status of the Wooldridge Code Companion"
+  ) |>
+  tab_options(
+    table.width = pct(90),
+    column_labels.font.weight = "bold",
+    heading.title.font.size = px(24)
+  ) |>
+  cols_align(align = "center", columns = everything())
+```
+
 
 ::: callout-note
 8th edition increased computer exercises from 246 to 279
