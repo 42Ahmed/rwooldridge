@@ -28,7 +28,7 @@ kable(head(c1))
 > (i) Find the average education level in the sample. What are the lowest and highest years of education?
 
 ```{r}
-#| label: c1-i
+#| label: c1_i
 
 c1 |>
   summarise(
@@ -41,12 +41,12 @@ c1 |>
 
 **Interpretation:**
 
-The average education in this sample is approximately 12.5 years. The range is broad ranging from 0 years (no formal education) to 18 years of education (graduate level)
+The average education in this sample is approximately 12.5 years. The range is broad ranging from 0 years (no formal education) to 18 years of education (graduate level).
 
 > (ii) Find the average hourly wage in the sample. Does it seem high or low?
 
 ```{r}
-#| label: c1-ii
+#| label: c1_ii
 
 c1 |>
   summarise(
@@ -59,30 +59,30 @@ c1 |>
 
 The average nominal wage is \$5.90. On its own, in 1976 dollars, it might seem low compared to modern standards, but we need to account for inflation to truly judge its purchasing power.
 
-> (iii) The wage data are reported in 1976 dollars. Using the Internet or a printed source, find the Consumer Price Index (CPI) for the years 1976 and 2013.
+> (iii) The wage data are reported in 1976 dollars. Using the Internet or a printed source, find the Consumer Price Index (CPI) for the years 1976 and 2022.
 
 **Interpretation:**
 
-CPI for 1976 is **\$56.9** and became **\$233** in 2013.
+CPI for 1976 is **\$56.9** and became **\$292.7** in 2022.
 
-> (iv) Use the CPI values from part (iii) to find the average hourly wage in 2013 dollars. Now does the average hourly wage seem reasonable?
+> (iv) Use the CPI values from part (iii) to find the average hourly wage in 2022 dollars. Now does the average hourly wage seem reasonable?
 
 $$
 \begin{align*}
-{Wage}_{2013} &= {Wage}_{1976} \times \dfrac{CPI_{2013}}{CPI_{1976}}\\
-&= 5.9 \times \dfrac{233}{56.9}\\
-&= 24.2
+{Wage}_{2022} &= {Wage}_{1976} \times \dfrac{CPI_{2022}}{CPI_{1976}}\\
+&= 5.9 \times \dfrac{292.7}{56.9}\\
+&= 30.35
 \end{align*}
 $$
 
 **Interpretation:**
 
-The average wage is equivalent to **\$24.2** in 2013, which is three times the minimum wage of **\$7.25**. Minimum wage was **\$2.3** in 1976 which indicates sample includes skilled labor.
+The average wage in this sample is equivalent to \$30.35 in 2022 dollars.The nominal 1976 average wage of \$5.90 is more than 2.5 times the 1976 minimum wage of $2.30. Because the sample's average earnings vastly exceed the baseline wage of its own era, it is highly probable that this sample includes a significant proportion of skilled or experienced labor.
 
 > (v) How many women are in the sample? How many men?
 
 ```{r}
-#| label: c1-iv
+#| label: c1_v
 
 c1 |>
   summarise(
@@ -152,7 +152,7 @@ The sample average is **2.09** cigarettes per day. However, this is not a good m
 > (iii) Among women who smoked during pregnancy, what is the average number of cigarettes smoked per day? How does this compare with your answer from part (ii), and why?
 
 ```{r}
-#| label: c2_ii
+#| label: c2_iii
 
 c2 |>
   summarise(
@@ -323,13 +323,13 @@ Small (cv \< 10%)
 
 Medium (cv 10% - 30%)
 
-Large(cv \> 30%), mean is not reliable here.
+Large(cv \> 30%)
 :::
 
 > (vii) Suppose School A spends \$6,000 per student and School B spends \$5,500 per student. By what percentage does School A’s spending exceed School B’s? Compare this to $100 \times [\log(6,000) – \log(5,500)]$, which is the approximation percentage difference based on the difference in the natural logs?
 
 ```{r}
-#| label: c3-vii
+#| label: c3_vii
 
 school_a <- 6000
 school_b <- 5500
@@ -348,9 +348,17 @@ results |> round(2)
 School A spends **9.09%** more per student than School B. The logarithmic approximation ($100 \times \Delta \log$) yields **8.70**, which is a reasonably close estimate.
 
 ::: callout-important
-### Logarithmic Approximation
+### Logarithmic Approximation for Percentage Differences
 
-we can approximate **percentage change** $$\% \Delta x =\dfrac{x_1 - x_0}{x_0}$$ by $$100 \times [\log(x_1) - \log(x_0)]$$ Logarithmic approximation fails when percentage change is large (\> 10%)
+When comparing two cross-sectional observations (such as expenditures between two different schools), we calculate a **percentage difference**. The exact percentage difference of $x_1$ relative to $x_0$ is:
+
+$$\% \text{Difference} = \frac{x_1 - x_0}{x_0} \times 100$$
+
+We can approximate this difference using natural logarithms:
+
+$$\% \text{Difference} \approx 100 \times [\log(x_1) - \log(x_0)]$$
+
+*Note:* This approximation is only mathematically reliable for small differences (typically less than 10%). For larger gaps, the exact formula must be used.
 :::
 
 ## C4 \[JTRAIN2\]
@@ -397,7 +405,19 @@ c4 |>
 
 **Interpretation:**
 
-Trained men received earnings of **6,350** while untrained received **4,550** only. The percentage change is $\%\Delta x =\dfrac{6.35 - 4.55}{4.55} =  39.56\%$ which is practically significant. A difference of 1800 is economically significant, especially for low-income men in 1978.
+Trained men received earnings of **6,350** while untrained received **4,550** only. The percentage difference is $\%\Delta x =\dfrac{6.35 - 4.55}{4.55} =  39.56\%$ which is practically significant. A difference of 1800 is economically significant, especially for low-income men in 1978.
+
+::: callout-caution
+### Terminology: Change vs. Difference
+
+**Change = Time (Longitudinal)**
+Tracking the *same* subject across different time periods.
+* *Math:* (New - Old) / Old
+
+**Difference = Distinct Groups (Cross-Sectional)**
+Comparing *separate* subjects at the *same* point in time.
+* *Math:* (Group A - Group B) / Group B
+:::
 
 > (iii) The variable `unem78` is an indicator of whether a man was unemployed or not in 1978. What fraction of the men who received job training were unemployed? What about for men who did not receive job training? Comment on the difference.
 
@@ -415,7 +435,7 @@ c4 |>
 
 **Interpretation:**
 
-**24%** of the trained men were unemployed while **35%** of the untrained men were unemployed. There is a **11 percentage point change** in unemployment between the two groups.
+**24%** of the trained men were unemployed while **35%** of the untrained men were unemployed. There is a **11 percentage point difference** in unemployment between the two groups.
 
 > (iv) From parts (ii) and (iii), does it appear that the job training program was effective? What would make our conclusions more convincing?
 
@@ -507,7 +527,7 @@ Women who had access to electricity have lower average children **(1.9)** compar
 
 **Interpretation:**
 
-Having electricity does not have causal effect on women number of children. But electricity can be an indicator to other factors that have causal effect, like socioeconomic status and urban area.
+No, we cannot conclude that having electricity causes women to have fewer children based solely on this data. While there is a clear negative correlation, this simple comparison in averages suffers heavily from omitted variable bias. Electricity in the home is likely a proxy variable for broader confounding factors—such as higher household income, urban residency, or better access to education and healthcare—which are the more probable underlying drivers of lower fertility rates.
 
 ## C6 \[COUNTYMURDERS\]
 
@@ -582,7 +602,7 @@ c6 |>
 
 There is a weak correlation **(0.21)** between murders and executions.
 
-> (iv) You should have computed a positive correlation in part (iii). Do you think that more executions cause more murders to occur? What might explain the positive correlation?
+> (iv) You should have computed a positive correlation in part (iii). Do you think that more executions `cause` more murders to occur? What might explain the positive correlation?
 
 **Interpretation:**
 
@@ -591,6 +611,211 @@ No, more executions do not "cause" more murders. The positive, albeit weak, corr
 -   **Omitted Variable Bias:** The raw counts ignore population size. Highly populated counties will naturally have higher absolute numbers of both murders and executions compared to rural counties.
 -   **Reverse Causality:** The causal arrow likely points the other direction. Counties experiencing higher murder rates might face intense public and political pressure to utilize the death penalty more frequently in response to the crime wave.
 -   **Justice System Lag & Attrition:** Executions in 1996 are punishments for crimes committed years or decades prior. Furthermore, many murders go unsolved, meaning the immediate murder count does not directly map to execution rates.
--   **Non-Linearity:** A simple correlation coefficient only measures linear relationships. Because 98.6% of the counties had zero executions, the data is heavily skewed and bounded at zero, meaning any actual relationship between the two variables is almost certainly non-linear.
+-   **Extreme Data Skew (Zero-Inflation):** Because 98.6% of the counties had exactly zero executions, this data is heavily right-skewed and zero-inflated. A standard linear correlation metric is mathematically inadequate for capturing the true dynamic here.
 
 ## C7 \[ALCOHOL\]
+
+> The data set in ALCOHOL contains information on a sample of men in the United States. Two key variables are self-reported employment status and alcohol abuse (along with many other variables). The variables `employ` and `abuse` are both binary, or indicator, variables: they take on only the values zero and one.
+
+```{r}
+#| label: c7_data
+
+c7 <- alcohol
+kable(head(c7))
+```
+
+> (i) What percentage of the men in the sample report abusing alcohol? What is the employment rate?
+
+```{r}
+#| label: c7_i
+
+c7 |>
+  summarise(
+    Pct_Alcohol_Abuse = mean(abuse) * 100,
+    Employment_Rate = mean(employ)
+  ) |>
+  round(3)
+```
+
+**Interpretation:**
+
+**9.917%** of men in the sample reported abusing alcohol. Self reported employment rate is **0.898** so 89.8% of the men are employed.
+
+> (ii) Consider the group of men who abuse alcohol. What is the employment rate?
+
+```{r}
+#| label: c7_ii
+
+c7 |>
+  filter(abuse == 1) |>
+  summarise(
+    Count = n(),
+    Employment_Rate = mean(employ)
+  ) |>
+  round(3)
+```
+
+**Interpretation:**
+
+Employment rate for alcohol abusers is **0.873**.
+
+> (iii) What is the employment rate for the group of men who do not abuse alcohol?
+
+```{r}
+#| label: c7_iii
+
+c7 |>
+  filter(abuse == 0) |>
+  summarise(
+    Count = n(),
+    Employment_Rate = mean(employ)
+  ) |>
+  round(3)
+```
+
+**Interpretation:**
+
+For non alcohol abusers, employment rate is 0.901.
+
+> (iv) Discuss the difference in your answers to parts (ii) and (iii). Does this allow you to conclude that alcohol abuse causes unemployment?
+
+**Interpretation:**
+
+No, we cannot conclude that alcohol abuse causes unemployment. There is a 3 percentage point difference in the employment rates (87% for abusers versus 90% for non-abusers). However, this is merely a correlation. This simple comparison fails to account for omitted variable bias. Other unobserved factors may be education level, underlying mental or physical health issues.
+
+::: callout-note
+### Random Sampling vs. Over-Sampling
+
+A true **random sample** naturally reflects the base rates of the actual population. If only 10% of the real world abuses alcohol, a perfectly random sample `must` show a roughly 9-to-1 imbalance.
+
+**Over-sampling** happens when researchers intentionally skew the collection process to gather more data on a minority group (e.g., artificially forcing a 50/50 split).
+
+Therefore, massively unequal group sizes in your data are a sign of healthy randomization.
+:::
+
+## C8 \[ECONMATH\]
+
+> The data in ECONMATH were obtained on students from a large university course in introductory microeconomics. For this problem, we are interested in two variables: `score`, which is the final course score, and `econhs`, which is a binary variable indicating whether a student took an economics course in high school
+
+```{r}
+#| label: c8_data
+
+c8 <- econmath
+kable(head(c8))
+```
+
+> (i) How many students are in the sample? How many students report taking an economics course in high school?
+
+```{r}
+#| label: c8_i
+
+c8 |>
+  summarise(
+    Count = n(),
+    HS_Economics = sum(econhs)
+  )
+```
+
+**Interpretation:** The sample has **856** students. Among those students, **317** took the economics class in high school.
+
+> (ii) Find the average of score for those students who did take a high school economics class. How does it compare with the average of score for those who did not?
+
+```{r}
+#| label: c8_ii
+c8 |>
+  summarise(
+    Avg_Score = round(mean(score), 2),
+    .by = econhs
+  ) |>
+  mutate(HS_Economics = ifelse(econhs == 1, "HS Economics", "No HS Economics ")) |>
+  select(HS_Economics, Avg_Score)
+```
+
+**Interpretation:** Average score for students with no high school economics is **72.91** while students with high school economics scored on average **72.08**
+
+> (iii) Do the findings in part (ii) necessarily tell you anything about the causal effect of taking high school economics on college course performance? Explain.
+
+No, students with high school economics chose to take the course in high school so we have selection bias. There is a small difference between the two groups that may be due to other factors or pure chance.
+
+> (iv) If you want to obtain a good causal estimate of the effect of taking a high school economics course using the difference in averages, what experiment would you run?
+
+**Interpretation:** I would conduct an **RCT** in which I randomly assign students to high school economics and other students stay as control. Then I will track both groups score in the university course.
+
+## C9 \[LOANAPP\]
+
+> The data set in LOANAPP contains information on a sample of mortgage applications in the Boston, Massachusetts area; the data were originally compiled by the Federal Reserve Bank of Boston. The race variable, denoted `white`, is recorded as binary, equaling one if the mortgage applicant is classified as White and zero otherwise. The variable `approve` is also binary, equaling one if the loan application was approved, and zero otherwise.
+
+```{r}
+#| label: c9_data
+
+c9 <- loanapp
+kable(head(c9))
+```
+
+> (i) What proportion of the applicants in the sample are recorded as being White?
+
+```{r}
+#| label: c9_i
+
+c9 |>
+  summarise(
+    Pct_White = mean(white) * 100
+  ) |>
+  round(2)
+```
+
+**Interpretation:** **84.51%** of the applicants in the sample are white.
+
+> (ii) For the group of non-White applicants, what is the proportion of loans approved?
+
+```{r}
+#| label: c9_ii
+
+c9 |>
+  filter(white == 0) |>
+  summarise(
+    Approved_Pct = mean(approve) * 100
+  ) |>
+  round(2)
+```
+
+**Interpretation:**
+
+Among non-white applicants, **70.78%** have their application approved.
+
+> (iii) What is the loan approval rate for White applicants?
+
+```{r}
+#| label: c9_iii
+
+c9 |>
+  filter(white == 1) |>
+  summarise(
+    Approved_Pct = mean(approve) * 100
+  ) |>
+  round(2)
+```
+
+**Interpretation:**
+
+Among white applicants, **90.84%** have their application approved.
+
+> (iv) Report the difference between (iii) and (ii) in percentage point terms. Does this analysis allow you to convincingly conclude that there is racial bias in mortgage application approvals? Explain.
+
+**Interpretation:**
+
+The percentage point difference is $90.84 - 70.78 = 20.06$. Although the gap between both groups is big, it can be due to other factors like employment status and crime record.
+
+::: callout-warning
+### Percentage Difference vs. Percentage Point Difference
+
+**Percentage Point Difference:**
+The absolute mathematical difference between two rates.
+
+$$\text{Difference in Points} = \text{Rate}_A - \text{Rate}_B$$
+
+**Percentage Difference:**
+The relative size of the gap compared to a chosen base group.
+
+$$\% \text{Difference} = \frac{\text{Rate}_A - \text{Rate}_B}{\text{Rate}_B} \times 100$$
+:::
