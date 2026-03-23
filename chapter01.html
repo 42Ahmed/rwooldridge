@@ -509,6 +509,10 @@ window.Quarto = {
   <li><a href="#c3-meap01" id="toc-c3-meap01" class="nav-link" data-scroll-target="#c3-meap01"><span class="header-section-number">1.3</span> C3 [MEAP01]</a></li>
   <li><a href="#c4-jtrain2" id="toc-c4-jtrain2" class="nav-link" data-scroll-target="#c4-jtrain2"><span class="header-section-number">1.4</span> C4 [JTRAIN2]</a></li>
   <li><a href="#c5-fertil2" id="toc-c5-fertil2" class="nav-link" data-scroll-target="#c5-fertil2"><span class="header-section-number">1.5</span> C5 [FERTIL2]</a></li>
+  <li><a href="#c6-countymurders" id="toc-c6-countymurders" class="nav-link" data-scroll-target="#c6-countymurders"><span class="header-section-number">1.6</span> C6 [COUNTYMURDERS]</a></li>
+  <li><a href="#c7-alcohol" id="toc-c7-alcohol" class="nav-link" data-scroll-target="#c7-alcohol"><span class="header-section-number">1.7</span> C7 [ALCOHOL]</a></li>
+  <li><a href="#c8-econmath" id="toc-c8-econmath" class="nav-link" data-scroll-target="#c8-econmath"><span class="header-section-number">1.8</span> C8 [ECONMATH]</a></li>
+  <li><a href="#c9-loanapp" id="toc-c9-loanapp" class="nav-link" data-scroll-target="#c9-loanapp"><span class="header-section-number">1.9</span> C9 [LOANAPP]</a></li>
   </ul>
 </nav>
     </div>
@@ -538,7 +542,8 @@ window.Quarto = {
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wooldridge)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="c1-wage-1" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="c1-wage-1"><span class="header-section-number">1.1</span> C1 [Wage 1]</h2>
@@ -546,7 +551,7 @@ window.Quarto = {
 <p>Use the data in WAGE1 for this exercise.</p>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>c1 <span class="ot">&lt;-</span> wooldridge<span class="sc">::</span>wage1</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>c1 <span class="ot">&lt;-</span> wage1</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(c1))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -784,7 +789,7 @@ window.Quarto = {
 </div>
 </div>
 <p><strong>Interpretation:</strong></p>
-<p>The average education in this sample is approximately 12.5 years. The range is broad ranging from 0 years (no formal education) to 18 years of education (graduate level)</p>
+<p>The average education in this sample is approximately 12.5 years. The range is broad ranging from 0 years (no formal education) to 18 years of education (graduate level).</p>
 <blockquote class="blockquote">
 <ol start="2" type="i">
 <li>Find the average hourly wage in the sample. Does it seem high or low?</li>
@@ -801,36 +806,29 @@ window.Quarto = {
 1      5.9</code></pre>
 </div>
 </div>
-<p><span class="math display">\[
-\begin{align*}
-{Wage}_{2026} &amp;= {Wage}_{1976} \times \dfrac{CPI_{2026}}{CPI_{1976}}\\
-&amp;= 5.9 \times \dfrac{325.3}{56.9}\\
-&amp;= 33.7
-\end{align*}
-\]</span></p>
 <p><strong>Interpretation:</strong></p>
-<p>The average nominal wage of <strong>$5.90</strong> in 1976 translates to approximately <strong>$33.73</strong> in 2026 dollars. This adjustment reveals that the workers in the <code>wage1</code> dataset were significantly better off than the nominal figure suggests, earning a real wage that is competitive even by modern standards.</p>
+<p>The average nominal wage is $5.90. On its own, in 1976 dollars, it might seem low compared to modern standards, but we need to account for inflation to truly judge its purchasing power.</p>
 <blockquote class="blockquote">
 <ol start="3" type="i">
-<li>The wage data are reported in 1976 dollars. Using the Internet or a printed source, find the Consumer Price Index (CPI) for the years 1976 and 2013.</li>
+<li>The wage data are reported in 1976 dollars. Using the Internet or a printed source, find the Consumer Price Index (CPI) for the years 1976 and 2022.</li>
 </ol>
 </blockquote>
 <p><strong>Interpretation:</strong></p>
-<p>CPI for 1976 is <strong>$56.9</strong> and became <strong>$233</strong> in 2013.</p>
+<p>CPI for 1976 is <strong>$56.9</strong> and became <strong>$292.7</strong> in 2022.</p>
 <blockquote class="blockquote">
 <ol start="4" type="i">
-<li>Use the CPI values from part (iii) to find the average hourly wage in 2013 dollars. Now does the average hourly wage seem reasonable?</li>
+<li>Use the CPI values from part (iii) to find the average hourly wage in 2022 dollars. Now does the average hourly wage seem reasonable?</li>
 </ol>
 </blockquote>
 <p><span class="math display">\[
 \begin{align*}
-{Wage}_{2013} &amp;= {Wage}_{1976} \times \dfrac{CPI_{2013}}{CPI_{1976}}\\
-&amp;= 5.9 \times \dfrac{233}{56.9}\\
-&amp;= 24.2
+{Wage}_{2022} &amp;= {Wage}_{1976} \times \dfrac{CPI_{2022}}{CPI_{1976}}\\
+&amp;= 5.9 \times \dfrac{292.7}{56.9}\\
+&amp;= 30.35
 \end{align*}
 \]</span></p>
 <p><strong>Interpretation:</strong></p>
-<p>The average wage is equivalent to <strong>$24.2</strong> in 2013, which is three times the minimum wage of <strong>$7.25</strong>. Minimum wage was <strong>$2.3</strong> in 1976 which indicates sample includes skilled labor.</p>
+<p>The average wage in this sample is equivalent to $30.35 in 2022 dollars.The nominal 1976 average wage of $5.90 is more than 2.5 times the 1976 minimum wage of $2.30. Because the sample’s average earnings vastly exceed the baseline wage of its own era, it is highly probable that this sample includes a significant proportion of skilled or experienced labor.</p>
 <blockquote class="blockquote">
 <ol start="22" type="a">
 <li>How many women are in the sample? How many men?</li>
@@ -860,7 +858,7 @@ window.Quarto = {
 <p>Use the data in BWGHT to answer this question.</p>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>c2 <span class="ot">&lt;-</span> wooldridge<span class="sc">::</span>bwght</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>c2 <span class="ot">&lt;-</span> bwght</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(c2))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -1026,36 +1024,57 @@ window.Quarto = {
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>c2 <span class="sc">|&gt;</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_Cigs_All =</span> <span class="fu">mean</span>(cigs),</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_Cigs_Smokers =</span> <span class="fu">mean</span>(cigs[cigs <span class="sc">&gt;</span> <span class="dv">0</span>])</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_Cigs_All =</span> <span class="fu">mean</span>(cigs)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  Avg_Cigs_All Avg_Cigs_Smokers
-1         2.09            13.67</code></pre>
+<pre><code>  Avg_Cigs_All
+1         2.09</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(c2, <span class="fu">aes</span>(<span class="at">x =</span> cigs)) <span class="sc">+</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chapter01_files/figure-html/c2_ii_2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p><strong>Interpretation:</strong></p>
-<p>The sample average is <strong>2.09</strong> because most of the pregnant females are non smokers. A smoker pregnant female smokes on average <strong>13.67</strong> cigarettes per day.</p>
+<p>The sample average is <strong>2.09</strong> cigarettes per day. However, this is not a good measure of a “typical” woman because the vast majority of pregnant females in the sample (about 85%) are non-smokers. The median is 0.</p>
 <blockquote class="blockquote">
 <ol start="3" type="i">
 <li>Among women who smoked during pregnancy, what is the average number of cigarettes smoked per day? How does this compare with your answer from part (ii), and why?</li>
 </ol>
 </blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>c2 <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_Cigs_Smokers =</span> <span class="fu">mean</span>(cigs[cigs <span class="sc">&gt;</span> <span class="dv">0</span>])</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Avg_Cigs_Smokers
+1            13.67</code></pre>
+</div>
+</div>
 <p><strong>Interpretation:</strong></p>
-<p>A smoker pregnant female smokes on average <strong>13.67</strong> cigarettes per day.</p>
+<p>A pregnant female who smokes consumes an average of <strong>13.67</strong> cigarettes per day. This is significantly higher than the sample average of 2.09 because this calculation excludes the overwhelming majority of women who bring the overall average down to near zero.</p>
 <blockquote class="blockquote">
 <ol start="4" type="i">
-<li>Find the average of <em>fatheduc</em> in the sample. Why are only 1,192 observations used to compute this average?</li>
+<li>Find the average of <code>fatheduc</code> in the sample. Why are only 1,192 observations used to compute this average?</li>
 </ol>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>c2 <span class="sc">|&gt;</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_Fath_Educ =</span> <span class="fu">mean</span>(fatheduc, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Missing_Obs =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(fatheduc))</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>c2 <span class="sc">|&gt;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_Fath_Educ =</span> <span class="fu">mean</span>(fatheduc, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Missing_Obs =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(fatheduc))</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Avg_Fath_Educ Missing_Obs
 1         13.19         196</code></pre>
@@ -1069,12 +1088,12 @@ window.Quarto = {
 </ol>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>c2 <span class="sc">|&gt;</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_Fam_Inc =</span> <span class="fu">mean</span>(faminc, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">SD_Fam_Inc =</span> <span class="fu">sd</span>(faminc, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>c2 <span class="sc">|&gt;</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_Fam_Inc =</span> <span class="fu">mean</span>(faminc, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">SD_Fam_Inc =</span> <span class="fu">sd</span>(faminc, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Avg_Fam_Inc SD_Fam_Inc
 1       29.03      18.74</code></pre>
@@ -1089,8 +1108,8 @@ window.Quarto = {
 <p>The data in MEAP01 are for the state of Michigan in the year 2001. Use these data to answer the following questions.</p>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>c3 <span class="ot">&lt;-</span> wooldridge<span class="sc">::</span>meap01</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(c3))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>c3 <span class="ot">&lt;-</span> meap01</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(c3))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
@@ -1206,36 +1225,36 @@ window.Quarto = {
 </div>
 <blockquote class="blockquote">
 <ol type="i">
-<li>Find the largest and smallest values of <em>math4</em>. Does the range make sense? Explain.</li>
+<li>Find the largest and smallest values of <code>math4</code>. Does the range make sense? Explain.</li>
 </ol>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>c3 <span class="sc">|&gt;</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Max_math4 =</span> <span class="fu">max</span>(math4),</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Min_math4 =</span> <span class="fu">min</span>(math4)</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>c3 <span class="sc">|&gt;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Max_math4 =</span> <span class="fu">max</span>(math4),</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Min_math4 =</span> <span class="fu">min</span>(math4)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Max_math4 Min_math4
 1       100         0</code></pre>
 </div>
 </div>
 <p><strong>Interpretation:</strong></p>
-<p>The sample includes math scores ranging from <strong>0</strong> to <strong>100</strong> indication wide variety.</p>
+<p>The sample includes math scores ranging from <strong>0</strong> to <strong>100</strong> indicating wide variety.</p>
 <blockquote class="blockquote">
 <ol start="2" type="i">
 <li>How many schools have a perfect pass rate on the math test? What percentage is this of the total sample?</li>
 </ol>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>c3 <span class="sc">|&gt;</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_Schools =</span> <span class="fu">n</span>(),</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Perfect_Math_Count =</span> <span class="fu">sum</span>(math4 <span class="sc">==</span> <span class="dv">100</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Percentage =</span> (Perfect_Math_Count <span class="sc">/</span> Total_Schools) <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>c3 <span class="sc">|&gt;</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_Schools =</span> <span class="fu">n</span>(),</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Perfect_Math_Count =</span> <span class="fu">sum</span>(math4 <span class="sc">==</span> <span class="dv">100</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Percentage =</span> (Perfect_Math_Count <span class="sc">/</span> Total_Schools) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Total_Schools Perfect_Math_Count Percentage
 1          1823                 38       2.08</code></pre>
@@ -1249,10 +1268,10 @@ window.Quarto = {
 </ol>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>c3 <span class="sc">|&gt;</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Schools_at_50 =</span> <span class="fu">sum</span>(math4 <span class="sc">==</span> <span class="dv">50</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>c3 <span class="sc">|&gt;</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Schools_at_50 =</span> <span class="fu">sum</span>(math4 <span class="sc">==</span> <span class="dv">50</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Schools_at_50
 1            17</code></pre>
@@ -1266,13 +1285,13 @@ window.Quarto = {
 </ol>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>c3 <span class="sc">|&gt;</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(math4, read4) <span class="sc">|&gt;</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_Math =</span> <span class="fu">mean</span>(math4),</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_Read =</span> <span class="fu">mean</span>(read4)</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>c3 <span class="sc">|&gt;</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(math4, read4) <span class="sc">|&gt;</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_Math =</span> <span class="fu">mean</span>(math4),</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_Read =</span> <span class="fu">mean</span>(read4)</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Avg_Math Avg_Read
 1    71.91    60.06</code></pre>
@@ -1282,16 +1301,16 @@ window.Quarto = {
 <p>The average pass rate for math <strong>71.90%</strong> is significantly higher than for reading <strong>60.06%</strong>. This shows that the reading exam was harder in the sample.</p>
 <blockquote class="blockquote">
 <ol start="22" type="a">
-<li>Find the correlation between <em>math4</em> and <em>read4</em>. What do you conclude?</li>
+<li>Find the correlation between <code>math4</code> and <code>read4</code>. What do you conclude?</li>
 </ol>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>c3 <span class="sc">|&gt;</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(math4, read4) <span class="sc">|&gt;</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Correlation =</span> <span class="fu">cor</span>(math4, read4)</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>c3 <span class="sc">|&gt;</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(math4, read4) <span class="sc">|&gt;</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Correlation =</span> <span class="fu">cor</span>(math4, read4)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Correlation
 1        0.84</code></pre>
@@ -1301,17 +1320,17 @@ window.Quarto = {
 <p>The correlation between the two exams is high <strong>0.84</strong> showing that performance in the two exams is similar.</p>
 <blockquote class="blockquote">
 <ol start="6" type="i">
-<li>The variable <em>exppp</em> is expenditure per pupil. Find the average of <em>exppp</em> along with its standard deviation. Would you say there is wide variation in per pupil spending?</li>
+<li>The variable <code>exppp</code> is expenditure per pupil. Find the average of <code>exppp</code> along with its standard deviation. Would you say there is wide variation in per pupil spending?</li>
 </ol>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>c3 <span class="sc">|&gt;</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(math4, read4) <span class="sc">|&gt;</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean_Expnd =</span> <span class="fu">mean</span>(exppp),</span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Std_Expend =</span> <span class="fu">sd</span>(exppp)</span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>c3 <span class="sc">|&gt;</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(math4, read4) <span class="sc">|&gt;</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean_Expnd =</span> <span class="fu">mean</span>(exppp),</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Std_Expend =</span> <span class="fu">sd</span>(exppp)</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Mean_Expnd Std_Expend
 1    5194.87    1091.89</code></pre>
@@ -1325,7 +1344,7 @@ window.Quarto = {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Coefficient of Varitation (CV)
+<span class="screen-reader-only">Note</span>Coefficient of Variation (CV)
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1333,7 +1352,7 @@ window.Quarto = {
 CV = \dfrac \sigma \mu\]</span></p>
 <p>Small (cv &lt; 10%)</p>
 <p>Medium (cv 10% - 30%)</p>
-<p>Large(cv &gt; 30%), mean is not reliable here.</p>
+<p>Large(cv &gt; 30%)</p>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -1342,16 +1361,16 @@ CV = \dfrac \sigma \mu\]</span></p>
 </ol>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>school_a <span class="ot">&lt;-</span> <span class="dv">6000</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>school_b <span class="ot">&lt;-</span> <span class="dv">5500</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>pct_diff <span class="ot">&lt;-</span> ((school_a <span class="sc">-</span> school_b) <span class="sc">/</span> school_b) <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>log_diff <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> (<span class="fu">log</span>(school_a) <span class="sc">-</span> <span class="fu">log</span>(school_b))</span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">Exact_Pct =</span> pct_diff, <span class="at">Log_Approx =</span> log_diff)</span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>results <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>school_a <span class="ot">&lt;-</span> <span class="dv">6000</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>school_b <span class="ot">&lt;-</span> <span class="dv">5500</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>pct_diff <span class="ot">&lt;-</span> ((school_a <span class="sc">-</span> school_b) <span class="sc">/</span> school_b) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>log_diff <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> (<span class="fu">log</span>(school_a) <span class="sc">-</span> <span class="fu">log</span>(school_b))</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">Exact_Pct =</span> pct_diff, <span class="at">Log_Approx =</span> log_diff)</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>results <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> Exact_Pct Log_Approx 
       9.09       8.70 </code></pre>
@@ -1365,11 +1384,15 @@ CV = \dfrac \sigma \mu\]</span></p>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Logarithmic Approximation
+<span class="screen-reader-only">Important</span>Logarithmic Approximation for Percentage Differences
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>we can approximate <strong>percentage change</strong> <span class="math display">\[\% \Delta x =\dfrac{x_1 - x_0}{x_0}\]</span> by <span class="math display">\[100 \times [\log(x_1) - \log(x_0)]\]</span> Logarithmic approximation fails when percentage change is large (&gt; 10%)</p>
+<p>When comparing two cross-sectional observations (such as expenditures between two different schools), we calculate a <strong>percentage difference</strong>. The exact percentage difference of <span class="math inline">\(x_1\)</span> relative to <span class="math inline">\(x_0\)</span> is:</p>
+<p><span class="math display">\[\% \text{Difference} = \frac{x_1 - x_0}{x_0} \times 100\]</span></p>
+<p>We can approximate this difference using natural logarithms:</p>
+<p><span class="math display">\[\% \text{Difference} \approx 100 \times [\log(x_1) - \log(x_0)]\]</span></p>
+<p><em>Note:</em> This approximation is only mathematically reliable for small differences (typically less than 10%). For larger gaps, the exact formula must be used.</p>
 </div>
 </div>
 </section>
@@ -1379,8 +1402,8 @@ CV = \dfrac \sigma \mu\]</span></p>
 <p>The data in JTRAIN2 come from a job training experiment conducted for low-income men during 1976–1977; see Lalonde (1986).</p>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>c4 <span class="ot">&lt;-</span> wooldridge<span class="sc">::</span>jtrain2</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(c4))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>c4 <span class="ot">&lt;-</span> jtrain2</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(c4))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
@@ -1560,15 +1583,15 @@ CV = \dfrac \sigma \mu\]</span></p>
 </div>
 <blockquote class="blockquote">
 <ol type="i">
-<li>Use the indicator variable <em>train</em> to determine the fraction of men receiving job training.</li>
+<li>Use the indicator variable <code>train</code> to determine the fraction of men receiving job training.</li>
 </ol>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>c4 <span class="sc">|&gt;</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Trained =</span> <span class="fu">mean</span>(train)</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>c4 <span class="sc">|&gt;</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Trained =</span> <span class="fu">mean</span>(train)</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Trained
 1    0.42</code></pre>
@@ -1578,18 +1601,18 @@ CV = \dfrac \sigma \mu\]</span></p>
 <p><strong>42%</strong> of men in the sample received training.</p>
 <blockquote class="blockquote">
 <ol start="2" type="i">
-<li>The variable <em>re78</em> is earnings from 1978, measured in thousands of 1982 dollars. Find the averages of <em>re78</em> for the sample of men receiving job training and the sample not receiving job training. Is the difference economically large?</li>
+<li>The variable <code>re78</code> is earnings from 1978, measured in thousands of 1982 dollars. Find the averages of <code>re78</code> for the sample of men receiving job training and the sample not receiving job training. Is the difference economically large?</li>
 </ol>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>c4 <span class="sc">|&gt;</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Count =</span> <span class="fu">n</span>(),</span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Earnings =</span> <span class="fu">mean</span>(re78) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">2</span>),</span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">.by =</span> train</span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Train =</span> <span class="fu">ifelse</span>(train <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Trained"</span>, <span class="st">"Untrained"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Train, Count, Earnings)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>c4 <span class="sc">|&gt;</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Count =</span> <span class="fu">n</span>(),</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Earnings =</span> <span class="fu">mean</span>(re78) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">2</span>),</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">.by =</span> train</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Train =</span> <span class="fu">ifelse</span>(train <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Trained"</span>, <span class="st">"Untrained"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Train, Count, Earnings)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Train Count Earnings
 1   Trained   185     6.35
@@ -1597,20 +1620,34 @@ CV = \dfrac \sigma \mu\]</span></p>
 </div>
 </div>
 <p><strong>Interpretation:</strong></p>
-<p>Trained men received earnings of <strong>6.35</strong> while untrained received **4.55* only. The percentage change is <span class="math inline">\(\%\Delta x\dfrac{6.35 - 4.55}{4.55} =  39.56\%\)</span> which is practically significant.</p>
+<p>Trained men received earnings of <strong>6,350</strong> while untrained received <strong>4,550</strong> only. The percentage difference is <span class="math inline">\(\%\Delta x =\dfrac{6.35 - 4.55}{4.55} =  39.56\%\)</span> which is practically significant. A difference of 1800 is economically significant, especially for low-income men in 1978.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>Terminology: Change vs.&nbsp;Difference
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Change = Time (Longitudinal)</strong> Tracking the <em>same</em> subject across different time periods. * <em>Math:</em> (New - Old) / Old</p>
+<p><strong>Difference = Distinct Groups (Cross-Sectional)</strong> Comparing <em>separate</em> subjects at the <em>same</em> point in time. * <em>Math:</em> (Group A - Group B) / Group B</p>
+</div>
+</div>
 <blockquote class="blockquote">
 <ol start="3" type="i">
-<li>The variable <em>unem78</em> is an indicator of whether a man was unemployed or not in 1978. What fraction of the men who received job training were unemployed? What about for men who did not receive job training? Comment on the difference.</li>
+<li>The variable <code>unem78</code> is an indicator of whether a man was unemployed or not in 1978. What fraction of the men who received job training were unemployed? What about for men who did not receive job training? Comment on the difference.</li>
 </ol>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>c4 <span class="sc">|&gt;</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Unemployed =</span> <span class="fu">mean</span>(unem78) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">2</span>),</span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">.by =</span> train</span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Train =</span> <span class="fu">ifelse</span>(train <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Trained"</span>, <span class="st">"Untrained"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Train, Unemployed)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>c4 <span class="sc">|&gt;</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Unemployed =</span> <span class="fu">mean</span>(unem78) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">2</span>),</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">.by =</span> train</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Train =</span> <span class="fu">ifelse</span>(train <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Trained"</span>, <span class="st">"Untrained"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Train, Unemployed)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Train Unemployed
 1   Trained       0.24
@@ -1618,7 +1655,7 @@ CV = \dfrac \sigma \mu\]</span></p>
 </div>
 </div>
 <p><strong>Interpretation:</strong></p>
-<p><strong>24%</strong> of the trained men where unemployed while <strong>35%</strong> of the untrained men where unemployed. There is a <strong>11 percentage point change</strong> in unemployment between the two groups.</p>
+<p><strong>24%</strong> of the trained men were unemployed while <strong>35%</strong> of the untrained men were unemployed. There is a <strong>11 percentage point difference</strong> in unemployment between the two groups.</p>
 <blockquote class="blockquote">
 <ol start="4" type="i">
 <li>From parts (ii) and (iii), does it appear that the job training program was effective? What would make our conclusions more convincing?</li>
@@ -1630,11 +1667,11 @@ CV = \dfrac \sigma \mu\]</span></p>
 <section id="c5-fertil2" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="c5-fertil2"><span class="header-section-number">1.5</span> C5 [FERTIL2]</h2>
 <blockquote class="blockquote">
-<p>The data in FERTIL2 were collected on women living in the Republic of Botswana in 1988. The variable <em>children</em> refers to the number of living children. The variable <em>electric</em> is a binary indicator equal to one if the woman’s home has electricity, and zero if not.</p>
+<p>The data in FERTIL2 were collected on women living in the Republic of Botswana in 1988. The variable <code>children</code> refers to the number of living children. The variable <code>electric</code> is a binary indicator equal to one if the woman’s home has electricity, and zero if not.</p>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>c5 <span class="ot">&lt;-</span> wooldridge<span class="sc">::</span>fertil2</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(c5))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>c5 <span class="ot">&lt;-</span> fertil2</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(c5))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
@@ -1878,38 +1915,34 @@ CV = \dfrac \sigma \mu\]</span></p>
 </div>
 <blockquote class="blockquote">
 <ol type="i">
-<li>Find the smallest and largest values of <em>children</em> in the sample. What is the average of <em>children</em>?</li>
+<li>Find the smallest and largest values of <code>children</code> in the sample. What is the average of <code>children</code>?</li>
 </ol>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>c5 <span class="sc">|&gt;</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Min =</span> <span class="fu">min</span>(children),</span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Max =</span> <span class="fu">max</span>(children),</span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Average =</span> <span class="fu">mean</span>(children)</span>
-<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>c5 <span class="sc">|&gt;</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Min =</span> <span class="fu">min</span>(children),</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Max =</span> <span class="fu">max</span>(children),</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Average =</span> <span class="fu">mean</span>(children)</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Min Max Average
 1   0  13    2.27</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(c5, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(children))) <span class="sc">+</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"#2c3e50"</span>) <span class="sc">+</span></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">stat =</span> <span class="st">"count"</span>, <span class="fu">aes</span>(<span class="at">label =</span> ..count..), <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribution of Number of Children"</span>,</span>
-<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Based on the c5 dataset observations"</span>,</span>
-<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Number of Children"</span>,</span>
-<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Frequency (Count)"</span>,</span>
-<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Source: Wooldridge Dataset"</span></span>
-<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: The dot-dot notation (`..count..`) was deprecated in ggplot2 3.4.0.
-ℹ Please use `after_stat(count)` instead.</code></pre>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(c5, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(children))) <span class="sc">+</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"#2c3e50"</span>) <span class="sc">+</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">stat =</span> <span class="st">"count"</span>, <span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">after_stat</span>(count)), <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribution of Number of Children"</span>,</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Based on the c5 dataset observations"</span>,</span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Number of Children"</span>,</span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Frequency (Count)"</span>,</span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Source: Wooldridge Dataset"</span></span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1919,18 +1952,18 @@ CV = \dfrac \sigma \mu\]</span></p>
 </div>
 </div>
 <p><strong>Interpretation</strong>:</p>
-<p>Number of children is heavily skewed to the left. <strong>1132</strong> women had 0 children while only one woman had a maximum number of <strong>13</strong> children.</p>
+<p>Number of children is heavily right skewed. <strong>1132</strong> women had 0 children while only one woman had a maximum number of <strong>13</strong> children.</p>
 <blockquote class="blockquote">
 <ol start="2" type="i">
 <li>What percentage of women have electricity in the home?</li>
 </ol>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>c5 <span class="sc">|&gt;</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Has_Electricity =</span> <span class="fu">mean</span>(electric, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>c5 <span class="sc">|&gt;</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Has_Electricity =</span> <span class="fu">mean</span>(electric, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Has_Electricity
 1            0.14</code></pre>
@@ -1940,18 +1973,18 @@ CV = \dfrac \sigma \mu\]</span></p>
 <p><strong>14%</strong> of the women in the sample had home electricity.</p>
 <blockquote class="blockquote">
 <ol start="3" type="i">
-<li>Compute the average of <em>children</em> for those without electricity and do the same for those with electricity. Comment on what you find.</li>
+<li>Compute the average of <code>children</code> for those without electricity and do the same for those with electricity. Comment on what you find.</li>
 </ol>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>c5 <span class="sc">|&gt;</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(electric) <span class="sc">|&gt;</span></span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_Children =</span> <span class="fu">mean</span>(children) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">2</span>),</span>
-<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">.by =</span> electric</span>
-<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Home_Electricity =</span> <span class="fu">ifelse</span>(electric <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Has Electricity"</span>, <span class="st">"No Electricity"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Home_Electricity, Avg_Children)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>c5 <span class="sc">|&gt;</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(electric) <span class="sc">|&gt;</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_Children =</span> <span class="fu">mean</span>(children) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">2</span>),</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">.by =</span> electric</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Home_Electricity =</span> <span class="fu">ifelse</span>(electric <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Has Electricity"</span>, <span class="st">"No Electricity"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Home_Electricity, Avg_Children)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Home_Electricity Avg_Children
 1  Has Electricity         1.90
@@ -1966,7 +1999,1470 @@ CV = \dfrac \sigma \mu\]</span></p>
 </ol>
 </blockquote>
 <p><strong>Interpretation:</strong></p>
-<p>Having electricity does not have causal effect on women number of children. But electricity can be an indicator to other factors that have causal effect, like socioeconomic status and urban area.</p>
+<p>No, we cannot conclude that having electricity causes women to have fewer children based solely on this data. While there is a clear negative correlation, this simple comparison in averages suffers heavily from omitted variable bias. Electricity in the home is likely a proxy variable for broader confounding factors—such as higher household income, urban residency, or better access to education and healthcare—which are the more probable underlying drivers of lower fertility rates.</p>
+</section>
+<section id="c6-countymurders" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="c6-countymurders"><span class="header-section-number">1.6</span> C6 [COUNTYMURDERS]</h2>
+<blockquote class="blockquote">
+<p>Use the data in COUNTYMURDERS to answer this question. Use only the year 1996. The variable <code>murders</code> is the number of murders reported in the county. The variable <code>execs</code> is the number of executions that took place of people sentenced to death in the given county. Most states in the United States have the death penalty, but several do not.</p>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|label: c6_data</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>c6 <span class="ot">&lt;-</span> countymurders <span class="sc">|&gt;</span></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1996</span>)</span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(c6))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 4%">
+<col style="width: 6%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 2%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 3%">
+<col style="width: 5%">
+<col style="width: 4%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">arrests</th>
+<th style="text-align: right;">countyid</th>
+<th style="text-align: right;">density</th>
+<th style="text-align: right;">popul</th>
+<th style="text-align: right;">perc1019</th>
+<th style="text-align: right;">perc2029</th>
+<th style="text-align: right;">percblack</th>
+<th style="text-align: right;">percmale</th>
+<th style="text-align: right;">rpcincmaint</th>
+<th style="text-align: right;">rpcpersinc</th>
+<th style="text-align: right;">rpcunemins</th>
+<th style="text-align: right;">year</th>
+<th style="text-align: right;">murders</th>
+<th style="text-align: right;">murdrate</th>
+<th style="text-align: right;">arrestrate</th>
+<th style="text-align: right;">statefips</th>
+<th style="text-align: right;">countyfips</th>
+<th style="text-align: right;">execs</th>
+<th style="text-align: right;">lpopul</th>
+<th style="text-align: right;">execrate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">1001</td>
+<td style="text-align: right;">67.21535</td>
+<td style="text-align: right;">40061</td>
+<td style="text-align: right;">15.89077</td>
+<td style="text-align: right;">13.17491</td>
+<td style="text-align: right;">20.975510</td>
+<td style="text-align: right;">48.70073</td>
+<td style="text-align: right;">192.038</td>
+<td style="text-align: right;">11852.760</td>
+<td style="text-align: right;">26.796</td>
+<td style="text-align: right;">1996</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1.7473350</td>
+<td style="text-align: right;">1.9969550</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10.598160</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">1003</td>
+<td style="text-align: right;">77.05643</td>
+<td style="text-align: right;">123023</td>
+<td style="text-align: right;">13.93886</td>
+<td style="text-align: right;">11.63929</td>
+<td style="text-align: right;">13.496660</td>
+<td style="text-align: right;">48.83233</td>
+<td style="text-align: right;">139.084</td>
+<td style="text-align: right;">13583.020</td>
+<td style="text-align: right;">28.710</td>
+<td style="text-align: right;">1996</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.4877137</td>
+<td style="text-align: right;">0.4877137</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">11.720130</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1005</td>
+<td style="text-align: right;">29.91548</td>
+<td style="text-align: right;">26475</td>
+<td style="text-align: right;">15.06327</td>
+<td style="text-align: right;">13.69972</td>
+<td style="text-align: right;">46.190750</td>
+<td style="text-align: right;">49.15203</td>
+<td style="text-align: right;">405.768</td>
+<td style="text-align: right;">10760.510</td>
+<td style="text-align: right;">63.162</td>
+<td style="text-align: right;">1996</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.3777148</td>
+<td style="text-align: right;">0.3777148</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10.183960</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1009</td>
+<td style="text-align: right;">67.20457</td>
+<td style="text-align: right;">43392</td>
+<td style="text-align: right;">14.17542</td>
+<td style="text-align: right;">12.99318</td>
+<td style="text-align: right;">1.415007</td>
+<td style="text-align: right;">48.97446</td>
+<td style="text-align: right;">184.382</td>
+<td style="text-align: right;">11094.820</td>
+<td style="text-align: right;">21.692</td>
+<td style="text-align: right;">1996</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.4609145</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10.678030</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1011</td>
+<td style="text-align: right;">17.89899</td>
+<td style="text-align: right;">11188</td>
+<td style="text-align: right;">14.98927</td>
+<td style="text-align: right;">14.13121</td>
+<td style="text-align: right;">72.756520</td>
+<td style="text-align: right;">49.91956</td>
+<td style="text-align: right;">485.518</td>
+<td style="text-align: right;">8349.506</td>
+<td style="text-align: right;">63.162</td>
+<td style="text-align: right;">1996</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.8938148</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9.322598</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1013</td>
+<td style="text-align: right;">27.71148</td>
+<td style="text-align: right;">21530</td>
+<td style="text-align: right;">15.68509</td>
+<td style="text-align: right;">11.25871</td>
+<td style="text-align: right;">41.384110</td>
+<td style="text-align: right;">46.81839</td>
+<td style="text-align: right;">357.918</td>
+<td style="text-align: right;">9947.058</td>
+<td style="text-align: right;">54.868</td>
+<td style="text-align: right;">1996</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.9289364</td>
+<td style="text-align: right;">0.9289364</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9.977202</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<blockquote class="blockquote">
+<ol type="i">
+<li>How many counties are there in the data set? Of these, how many have zero murders? What percentage of counties have zero executions?</li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>c6 <span class="sc">|&gt;</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Counties =</span> <span class="fu">n_distinct</span>(countyid),</span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Zero_Murders =</span> <span class="fu">sum</span>(murders <span class="sc">==</span> <span class="dv">0</span>),</span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Pct_Zero_Executions =</span> <span class="fu">mean</span>(execs <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Counties Zero_Murders Pct_Zero_Executions
+1     2197         1051               98.59</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>There are <strong>2197</strong> counties in the sample. Out of these, <strong>1051</strong> have zero murders, and <strong>98.59%</strong> of them have zero executions.</p>
+<blockquote class="blockquote">
+<ol start="2" type="i">
+<li>What is the largest number of murders? What is the largest number of executions? Compute the average number of executions and explain why it is so small.</li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>c6 <span class="sc">|&gt;</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Max_Murders =</span> <span class="fu">max</span>(murders),</span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Max_Execs =</span> <span class="fu">max</span>(execs),</span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_Execs =</span> <span class="fu">mean</span>(execs)</span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Max_Murders Max_Execs Avg_Execs
+1        1403         3      0.02</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>c6 <span class="sc">|&gt;</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(execs) <span class="sc">|&gt;</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_pct_formatting</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> execs    n percent
+     0 2166   98.6%
+     1   28    1.3%
+     2    2    0.1%
+     3    1    0.0%</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>Largest number of murders is <strong>1403</strong> while largest number of executions is only <strong>3</strong>. Average execution is <strong>0.02</strong> because 98.6% of the sample have zero executions, 1.3% have 1 execution, leaving only 0.1% for 2 executions.</p>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li>Compute the correlation coefficient between <code>murders</code> and <code>execs</code> and describe what you find.</li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>c6 <span class="sc">|&gt;</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Correlation =</span> <span class="fu">cor</span>(murders, execs)</span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Correlation
+1        0.21</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>There is a weak correlation <strong>(0.21)</strong> between murders and executions.</p>
+<blockquote class="blockquote">
+<ol start="4" type="i">
+<li>You should have computed a positive correlation in part (iii). Do you think that more executions <code>cause</code> more murders to occur? What might explain the positive correlation?</li>
+</ol>
+</blockquote>
+<p><strong>Interpretation:</strong></p>
+<p>No, more executions do not “cause” more murders. The positive, albeit weak, correlation (0.21) is highly misleading for several reasons:</p>
+<ul>
+<li><strong>Omitted Variable Bias:</strong> The raw counts ignore population size. Highly populated counties will naturally have higher absolute numbers of both murders and executions compared to rural counties.</li>
+<li><strong>Reverse Causality:</strong> The causal arrow likely points the other direction. Counties experiencing higher murder rates might face intense public and political pressure to utilize the death penalty more frequently in response to the crime wave.</li>
+<li><strong>Justice System Lag &amp; Attrition:</strong> Executions in 1996 are punishments for crimes committed years or decades prior. Furthermore, many murders go unsolved, meaning the immediate murder count does not directly map to execution rates.</li>
+<li><strong>Extreme Data Skew (Zero-Inflation):</strong> Because 98.6% of the counties had exactly zero executions, this data is heavily right-skewed and zero-inflated. A standard linear correlation metric is mathematically inadequate for capturing the true dynamic here.</li>
+</ul>
+</section>
+<section id="c7-alcohol" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="c7-alcohol"><span class="header-section-number">1.7</span> C7 [ALCOHOL]</h2>
+<blockquote class="blockquote">
+<p>The data set in ALCOHOL contains information on a sample of men in the United States. Two key variables are self-reported employment status and alcohol abuse (along with many other variables). The variables <code>employ</code> and <code>abuse</code> are both binary, or indicator, variables: they take on only the values zero and one.</p>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>c7 <span class="ot">&lt;-</span> alcohol</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(c7))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 3%">
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 2%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">abuse</th>
+<th style="text-align: right;">status</th>
+<th style="text-align: right;">unemrate</th>
+<th style="text-align: right;">age</th>
+<th style="text-align: right;">educ</th>
+<th style="text-align: right;">married</th>
+<th style="text-align: right;">famsize</th>
+<th style="text-align: right;">white</th>
+<th style="text-align: right;">exhealth</th>
+<th style="text-align: right;">vghealth</th>
+<th style="text-align: right;">goodhealth</th>
+<th style="text-align: right;">fairhealth</th>
+<th style="text-align: right;">northeast</th>
+<th style="text-align: right;">midwest</th>
+<th style="text-align: right;">south</th>
+<th style="text-align: right;">centcity</th>
+<th style="text-align: right;">outercity</th>
+<th style="text-align: right;">qrt1</th>
+<th style="text-align: right;">qrt2</th>
+<th style="text-align: right;">qrt3</th>
+<th style="text-align: right;">beertax</th>
+<th style="text-align: right;">cigtax</th>
+<th style="text-align: right;">ethanol</th>
+<th style="text-align: right;">mothalc</th>
+<th style="text-align: right;">fathalc</th>
+<th style="text-align: right;">livealc</th>
+<th style="text-align: right;">inwf</th>
+<th style="text-align: right;">employ</th>
+<th style="text-align: right;">agesq</th>
+<th style="text-align: right;">beertaxsq</th>
+<th style="text-align: right;">cigtaxsq</th>
+<th style="text-align: right;">ethanolsq</th>
+<th style="text-align: right;">educsq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4.0</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.334</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">2.03946</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2500</td>
+<td style="text-align: right;">0.111556</td>
+<td style="text-align: right;">1444</td>
+<td style="text-align: right;">4.159397</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4.0</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.334</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">2.03946</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1369</td>
+<td style="text-align: right;">0.111556</td>
+<td style="text-align: right;">1444</td>
+<td style="text-align: right;">4.159397</td>
+<td style="text-align: right;">144</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4.0</td>
+<td style="text-align: right;">53</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.334</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">2.03946</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2809</td>
+<td style="text-align: right;">0.111556</td>
+<td style="text-align: right;">1444</td>
+<td style="text-align: right;">4.159397</td>
+<td style="text-align: right;">81</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3.3</td>
+<td style="text-align: right;">59</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.240</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">2.44998</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3481</td>
+<td style="text-align: right;">0.057600</td>
+<td style="text-align: right;">676</td>
+<td style="text-align: right;">6.002402</td>
+<td style="text-align: right;">121</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3.3</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.240</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">2.44998</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1849</td>
+<td style="text-align: right;">0.057600</td>
+<td style="text-align: right;">676</td>
+<td style="text-align: right;">6.002402</td>
+<td style="text-align: right;">100</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3.3</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.240</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">2.44998</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1444</td>
+<td style="text-align: right;">0.057600</td>
+<td style="text-align: right;">676</td>
+<td style="text-align: right;">6.002402</td>
+<td style="text-align: right;">100</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<blockquote class="blockquote">
+<ol type="i">
+<li>What percentage of the men in the sample report abusing alcohol? What is the employment rate?</li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>c7 <span class="sc">|&gt;</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Pct_Alcohol_Abuse =</span> <span class="fu">mean</span>(abuse) <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Employment_Rate =</span> <span class="fu">mean</span>(employ)</span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Pct_Alcohol_Abuse Employment_Rate
+1             9.917           0.898</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p><strong>9.917%</strong> of men in the sample reported abusing alcohol. Self reported employment rate is <strong>0.898</strong> so 89.8% of the men are employed.</p>
+<blockquote class="blockquote">
+<ol start="2" type="i">
+<li>Consider the group of men who abuse alcohol. What is the employment rate?</li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>c7 <span class="sc">|&gt;</span></span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(abuse <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Count =</span> <span class="fu">n</span>(),</span>
+<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Employment_Rate =</span> <span class="fu">mean</span>(employ)</span>
+<span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Count Employment_Rate
+1   974           0.873</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>Employment rate for alcohol abusers is <strong>0.873</strong>.</p>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li>What is the employment rate for the group of men who do not abuse alcohol?</li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>c7 <span class="sc">|&gt;</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(abuse <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">|&gt;</span></span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Count =</span> <span class="fu">n</span>(),</span>
+<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Employment_Rate =</span> <span class="fu">mean</span>(employ)</span>
+<span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb65-7"><a href="#cb65-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Count Employment_Rate
+1  8848           0.901</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>For non alcohol abusers, employment rate is 0.901.</p>
+<blockquote class="blockquote">
+<ol start="4" type="i">
+<li>Discuss the difference in your answers to parts (ii) and (iii). Does this allow you to conclude that alcohol abuse causes unemployment?</li>
+</ol>
+</blockquote>
+<p><strong>Interpretation:</strong></p>
+<p>No, we cannot conclude that alcohol abuse causes unemployment. There is a 3 percentage point difference in the employment rates (87% for abusers versus 90% for non-abusers). However, this is merely a correlation. This simple comparison fails to account for omitted variable bias. Other unobserved factors may be education level, underlying mental or physical health issues.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Random Sampling vs.&nbsp;Over-Sampling
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A true <strong>random sample</strong> naturally reflects the base rates of the actual population. If only 10% of the real world abuses alcohol, a perfectly random sample <code>must</code> show a roughly 9-to-1 imbalance.</p>
+<p><strong>Over-sampling</strong> happens when researchers intentionally skew the collection process to gather more data on a minority group (e.g., artificially forcing a 50/50 split).</p>
+<p>Therefore, massively unequal group sizes in your data are a sign of healthy randomization.</p>
+</div>
+</div>
+</section>
+<section id="c8-econmath" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="c8-econmath"><span class="header-section-number">1.8</span> C8 [ECONMATH]</h2>
+<blockquote class="blockquote">
+<p>The data in ECONMATH were obtained on students from a large university course in introductory microeconomics. For this problem, we are interested in two variables: <code>score</code>, which is the final course score, and <code>econhs</code>, which is a binary variable indicating whether a student took an economics course in high school</p>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>c8 <span class="ot">&lt;-</span> econmath</span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(c8))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 5%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 3%">
+<col style="width: 7%">
+<col style="width: 4%">
+<col style="width: 7%">
+<col style="width: 6%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 5%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">age</th>
+<th style="text-align: right;">work</th>
+<th style="text-align: right;">study</th>
+<th style="text-align: right;">econhs</th>
+<th style="text-align: right;">colgpa</th>
+<th style="text-align: right;">hsgpa</th>
+<th style="text-align: right;">acteng</th>
+<th style="text-align: right;">actmth</th>
+<th style="text-align: right;">act</th>
+<th style="text-align: right;">mathscr</th>
+<th style="text-align: right;">male</th>
+<th style="text-align: right;">calculus</th>
+<th style="text-align: right;">attexc</th>
+<th style="text-align: right;">attgood</th>
+<th style="text-align: right;">fathcoll</th>
+<th style="text-align: right;">mothcoll</th>
+<th style="text-align: right;">score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">10.0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3.4909</td>
+<td style="text-align: right;">3.355</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">84.43</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">22.5</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2.1000</td>
+<td style="text-align: right;">3.219</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">57.38</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">12.0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3.0851</td>
+<td style="text-align: right;">3.306</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">66.39</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">40.0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2.6805</td>
+<td style="text-align: right;">3.977</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">81.15</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">15.0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3.7454</td>
+<td style="text-align: right;">3.890</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">95.90</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">30.0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3.0555</td>
+<td style="text-align: right;">3.500</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">83.61</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<blockquote class="blockquote">
+<ol type="i">
+<li>How many students are in the sample? How many students report taking an economics course in high school?</li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>c8 <span class="sc">|&gt;</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Count =</span> <span class="fu">n</span>(),</span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">HS_Economics =</span> <span class="fu">sum</span>(econhs)</span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Count HS_Economics
+1   856          317</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong> The sample has <strong>856</strong> students. Among those students, <strong>317</strong> took the economics class in high school.</p>
+<blockquote class="blockquote">
+<ol start="2" type="i">
+<li>Find the average of score for those students who did take a high school economics class. How does it compare with the average of score for those who did not?</li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>c8 <span class="sc">|&gt;</span></span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_Score =</span> <span class="fu">round</span>(<span class="fu">mean</span>(score), <span class="dv">2</span>),</span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">.by =</span> econhs</span>
+<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">HS_Economics =</span> <span class="fu">ifelse</span>(econhs <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"HS Economics"</span>, <span class="st">"No HS Economics "</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb70-7"><a href="#cb70-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(HS_Economics, Avg_Score)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      HS_Economics Avg_Score
+1 No HS Economics      72.91
+2     HS Economics     72.08</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong> Average score for students with no high school economics is <strong>72.91</strong> while students with high school economics scored on average <strong>72.08</strong></p>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li>Do the findings in part (ii) necessarily tell you anything about the causal effect of taking high school economics on college course performance? Explain.</li>
+</ol>
+</blockquote>
+<p>No, students with high school economics chose to take the course in high school so we have selection bias. There is a small difference between the two groups that may be due to other factors or pure chance.</p>
+<blockquote class="blockquote">
+<ol start="4" type="i">
+<li>If you want to obtain a good causal estimate of the effect of taking a high school economics course using the difference in averages, what experiment would you run?</li>
+</ol>
+</blockquote>
+<p><strong>Interpretation:</strong> I would conduct an <strong>RCT</strong> in which I randomly assign students to high school economics and other students stay as control. Then I will track both groups score in the university course.</p>
+</section>
+<section id="c9-loanapp" class="level2" data-number="1.9">
+<h2 data-number="1.9" class="anchored" data-anchor-id="c9-loanapp"><span class="header-section-number">1.9</span> C9 [LOANAPP]</h2>
+<blockquote class="blockquote">
+<p>The data set in LOANAPP contains information on a sample of mortgage applications in the Boston, Massachusetts area; the data were originally compiled by the Federal Reserve Bank of Boston. The race variable, denoted <code>white</code>, is recorded as binary, equaling one if the mortgage applicant is classified as White and zero otherwise. The variable <code>approve</code> is also binary, equaling one if the loan application was approved, and zero otherwise.</p>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>c9 <span class="ot">&lt;-</span> loanapp</span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(c9))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 1%">
+<col style="width: 0%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 1%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">occ</th>
+<th style="text-align: right;">loanamt</th>
+<th style="text-align: right;">action</th>
+<th style="text-align: right;">msa</th>
+<th style="text-align: right;">suffolk</th>
+<th style="text-align: right;">appinc</th>
+<th style="text-align: right;">typur</th>
+<th style="text-align: right;">unit</th>
+<th style="text-align: right;">married</th>
+<th style="text-align: right;">dep</th>
+<th style="text-align: right;">emp</th>
+<th style="text-align: right;">yjob</th>
+<th style="text-align: right;">self</th>
+<th style="text-align: right;">atotinc</th>
+<th style="text-align: right;">cototinc</th>
+<th style="text-align: right;">hexp</th>
+<th style="text-align: right;">price</th>
+<th style="text-align: right;">other</th>
+<th style="text-align: right;">liq</th>
+<th style="text-align: right;">rep</th>
+<th style="text-align: right;">gdlin</th>
+<th style="text-align: right;">lines</th>
+<th style="text-align: right;">mortg</th>
+<th style="text-align: right;">cons</th>
+<th style="text-align: right;">pubrec</th>
+<th style="text-align: right;">hrat</th>
+<th style="text-align: right;">obrat</th>
+<th style="text-align: right;">fixadj</th>
+<th style="text-align: right;">term</th>
+<th style="text-align: right;">apr</th>
+<th style="text-align: right;">prop</th>
+<th style="text-align: right;">inss</th>
+<th style="text-align: right;">inson</th>
+<th style="text-align: right;">gift</th>
+<th style="text-align: right;">cosign</th>
+<th style="text-align: right;">unver</th>
+<th style="text-align: right;">review</th>
+<th style="text-align: right;">netw</th>
+<th style="text-align: right;">unem</th>
+<th style="text-align: right;">min30</th>
+<th style="text-align: right;">bd</th>
+<th style="text-align: right;">mi</th>
+<th style="text-align: right;">old</th>
+<th style="text-align: right;">vr</th>
+<th style="text-align: right;">sch</th>
+<th style="text-align: right;">black</th>
+<th style="text-align: right;">hispan</th>
+<th style="text-align: right;">male</th>
+<th style="text-align: right;">reject</th>
+<th style="text-align: right;">approve</th>
+<th style="text-align: right;">mortno</th>
+<th style="text-align: right;">mortperf</th>
+<th style="text-align: right;">mortlat1</th>
+<th style="text-align: right;">mortlat2</th>
+<th style="text-align: right;">chist</th>
+<th style="text-align: right;">multi</th>
+<th style="text-align: right;">loanprc</th>
+<th style="text-align: right;">thick</th>
+<th style="text-align: right;">white</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">89</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1120</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">72</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5849</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1031</td>
+<td style="text-align: right;">118</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">34.5</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">17.63</td>
+<td style="text-align: right;">34.5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">360</td>
+<td style="text-align: right;">118</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">99.6</td>
+<td style="text-align: right;">3.2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.7542373</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1120</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">74</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4583</td>
+<td style="text-align: right;">1508</td>
+<td style="text-align: right;">1391</td>
+<td style="text-align: right;">160</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">52.0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">22.54</td>
+<td style="text-align: right;">34.1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">360</td>
+<td style="text-align: right;">175</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">999</td>
+<td style="text-align: right;">847.0</td>
+<td style="text-align: right;">3.2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.8000000</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1120</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">84</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2666</td>
+<td style="text-align: right;">4416</td>
+<td style="text-align: right;">1371</td>
+<td style="text-align: right;">143</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">37.0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">19.00</td>
+<td style="text-align: right;">26.0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">180</td>
+<td style="text-align: right;">145</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">40.0</td>
+<td style="text-align: right;">3.9</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.8951049</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1120</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3000</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">839</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">19.0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">24.00</td>
+<td style="text-align: right;">37.0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">360</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">158.0</td>
+<td style="text-align: right;">3.1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.6000000</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1120</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">59</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2583</td>
+<td style="text-align: right;">2358</td>
+<td style="text-align: right;">1341</td>
+<td style="text-align: right;">134</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">31.0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">25.10</td>
+<td style="text-align: right;">32.1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">360</td>
+<td style="text-align: right;">135</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">69.0</td>
+<td style="text-align: right;">4.3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.8955224</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">111</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1120</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">63</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2208</td>
+<td style="text-align: right;">2959</td>
+<td style="text-align: right;">1122</td>
+<td style="text-align: right;">138</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">169.0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">21.00</td>
+<td style="text-align: right;">33.0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">360</td>
+<td style="text-align: right;">144</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">262.0</td>
+<td style="text-align: right;">3.2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.8043478</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<blockquote class="blockquote">
+<ol type="i">
+<li>What proportion of the applicants in the sample are recorded as being White?</li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>c9 <span class="sc">|&gt;</span></span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Pct_White =</span> <span class="fu">mean</span>(white) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Pct_White
+1     84.51</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong> <strong>84.51%</strong> of the applicants in the sample are white.</p>
+<blockquote class="blockquote">
+<ol start="2" type="i">
+<li>For the group of non-White applicants, what is the proportion of loans approved?</li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>c9 <span class="sc">|&gt;</span></span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(white <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">|&gt;</span></span>
+<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Approved_Pct =</span> <span class="fu">mean</span>(approve) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb75-5"><a href="#cb75-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb75-6"><a href="#cb75-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Approved_Pct
+1        70.78</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>Among non-white applicants, <strong>70.78%</strong> have their application approved.</p>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li>What is the loan approval rate for White applicants?</li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>c9 <span class="sc">|&gt;</span></span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(white <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Approved_Pct =</span> <span class="fu">mean</span>(approve) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb77-5"><a href="#cb77-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb77-6"><a href="#cb77-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Approved_Pct
+1        90.84</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>Among white applicants, <strong>90.84%</strong> have their application approved.</p>
+<blockquote class="blockquote">
+<ol start="4" type="i">
+<li>Report the difference between (iii) and (ii) in percentage point terms. Does this analysis allow you to convincingly conclude that there is racial bias in mortgage application approvals? Explain.</li>
+</ol>
+</blockquote>
+<p><strong>Interpretation:</strong></p>
+<p>The percentage point difference is <span class="math inline">\(90.84 - 70.78 = 20.06\)</span>. Although the gap between both groups is big, it can be due to other factors like employment status and crime record.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Percentage Difference vs.&nbsp;Percentage Point Difference
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Percentage Point Difference:</strong> The absolute mathematical difference between two rates.</p>
+<p><span class="math display">\[\text{Difference in Points} = \text{Rate}_A - \text{Rate}_B\]</span></p>
+<p><strong>Percentage Difference:</strong> The relative size of the gap compared to a chosen base group.</p>
+<p><span class="math display">\[\% \text{Difference} = \frac{\text{Rate}_A - \text{Rate}_B}{\text{Rate}_B} \times 100\]</span></p>
+</div>
+</div>
 
 
 </section>
