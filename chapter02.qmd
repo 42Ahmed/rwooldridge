@@ -3,30 +3,34 @@ title: "The Simple Regression Model"
 format: html
 ---
 
-## Computer Exercises
-
 ```{r}
 #| label: 'setup'
-#| include: false
+#| message: false
+#| warning: false
+
 library(tidyverse)
 library(wooldridge)
+library(knitr)
 library(modelsummary)
 ```
 
-### C1 \[401K\]
+## C1 \[401K\]
+
+> The data in 401K are a subset of data analyzed by Papke (1995) to study the relationship between participation in a 401(k) pension plan and the generosity of the plan. The variable `prate` is the percentage of eligible workers with an active account; this is the variable we would like to explain. The measure of generosity is the plan match rate, `mrate`. This variable gives the average amount the firm contributes to each worker’s plan for each \$1 contribution by the worker. For example, if `mrate` = 0 50. , then a \$1 contribution by the worker is matched by a 50¢ contribution by the firm.
 
 ```{r}
 #| label: c1_data
-df_401k <- wooldridge::k401k
-knitr::kable(head(df_401k))
 
+c1 <- k401k
+kable(head(c1))
 ```
 
-> (i) Find the average participation rate and the average match rate in the sample of plans
+> (i) Find the average participation rate and the average match rate in the sample of plans.
 
 ```{r}
 #| label: c1_i
-df_401k |>
+
+c1 |>
   summarise(
     Avg_Part_Rt = mean(prate),
     Avg_Match_Rt = mean(mrate)
@@ -34,17 +38,19 @@ df_401k |>
   round(2)
 ```
 
-**Interpretation:**  
+**Interpretation:**
+
 On average, **87.36%** of eligible employees participate in their company's 401(k) plan. Their company matches *\$0.73* for every dollar an employee contributes.
 
-> estimate the simple regression equation $$\widehat{prate} = \hat \beta_0 + \hat \beta_1 mrate$$
+> estimate the simple regression equation $$\widehat{prate} = \hat \beta_0 + \hat \beta_1 mrate$$ and report the results along with the sample size and R-squared.
 
 ```{r}
 #| label: c1_ii
-model_401k <- lm(prate ~ mrate, data = df_401k)
+
+c1m <- lm(prate ~ mrate, data = c1)
 
 modelsummary(
-  model_401k,
+  c1m,
   fmt = 2,
   statistic = NULL,
   gof_map = c("nobs", "r.squared"),
@@ -53,46 +59,67 @@ modelsummary(
 ```
 
 **Interpretation:**
+
 $$
-\beta_0 = 83.03 \quad \beta_1 = 5.86 \quad R^2 = 0.075 \quad n = 1534 \quad
+\begin{align}
+\beta_0 &= 83.03 & \beta_1 &= 5.86 \\
+R^2 &= 0.075 & n &= 1534
+\end{align}
 $$
 
-> (iii) Interpret the intercept in your equation. Interpret the coefficient on mrate
+> (iii) Interpret the intercept in your equation. Interpret the coefficient on `mrate`.
 
-**Interpretation:**  
-If the match rate is 0, predicted participation rate is **83.08%**.\
-For ever \$1 increase in match rate, participation is predicted to increase by **5.86 percentage points**.
+**Interpretation:**
 
-> (iv) Find the predicted prate when mrate = 3.5. Is this a reasonable prediction?
+If the match rate is 0, predicted participation rate is **83.08%**. For ever \$1 increase in match rate, participation is associated by an increase of **5.86 percentage points**.
+
+> (iv) Find the predicted prate when `mrate` = 3.5. Is this a reasonable prediction? Explain what is happening here.
 
 ```{r}
 #| label: c1_iv
+
 new_data <- data.frame(mrate = 3.5)
-pred_prate <- predict(model_401k, newdata = new_data)
-round(pred_prate, 2)
+
+c1m |>
+  predict(newdata = new_data) |>
+  round(2)
 ```
 
-**Interpretation:**  
-Model predicts a participation rate of **103.59%** which exceeds maximum possible value of 100%
+::: callout-note
+### Level-Level model prediction
 
-> (v) How much of the variation in prate is explained by mrate? Is this a lot in your opinion?
+To predict $\hat y$ value given a new value of x in a level-level model, substitute in this formula
 
-**Interpretation:**  
-Match rate explains only about **7.5%** of the variation in participation, while the remaining 92.5% are due to other factors.
+$$\hat y = \hat \beta_0 + \hat \beta_1 x$$
+:::
 
-### C2 \[CEOSAL2\]
+**Interpretation:**
+
+Model predicts a participation rate of **103.59** which exceeds the maximum possible value of 100.
+
+> (v) How much of the variation in `prate` is explained by `mrate`? Is this a lot in your opinion?
+
+**Interpretation:**
+
+Match rate explains only about **7.5%** of the variation in participation rate, while the remaining 92.5% are due to other factors.
+
+## C2 \[CEOSAL2\]
+
+> The data set in CEOSAL2 contains information on chief executive officers for U.S. corporations. The variable `salary` is annual compensation, in thousands of dollars, and `ceoten` is prior number of years as company CEO.
 
 ```{r}
 #| label: c2_data
-df_ceosal2 <- wooldridge::ceosal2
-knitr::kable(head(df_ceosal2))
+
+c2 <- ceosal2
+kable(head(c2))
 ```
 
 > (i) Find the average salary and the average tenure in the sample.
 
 ```{r}
 #| label: c2_i
-df_ceosal2 |>
+
+c2 |>
   summarise(
     Avg_Salary = mean(salary),
     Avg_Tenure = mean(ceoten)
@@ -100,31 +127,35 @@ df_ceosal2 |>
   round(2)
 ```
 
-**Interpretation:**\
+**Interpretation:**
+
 Average salary is **\$865,860** with an average tenure of **7.95** years.
 
-> (ii) How many CEOs are in their first year as CEO? What is the longest tenure as a CEO?
+> (ii) How many CEOs are in their first year as CEO (that is, `ceoten` = 0)? What is the longest tenure as a CEO?
 
 ```{r}
 #| label: c2_ii
-df_ceosal2 |>
+
+c2 |>
   summarise(
     Fresh_CEO = sum(ceoten == 0),
     Veteran = max(ceoten)
   )
 ```
 
-**Interpretation:**\    
+**Interpretation:**
+
 There are **5** CEOs in their first year, and the longest serving CEO has been in charge for **37** years.
 
-> (iii) Estimate the regression model $$ \log(salary) = \beta_0 + \beta_1 ceoten + u$$
+> (iii) Estimate the regression model $$ \log(salary) = \beta_0 + \beta_1 ceoten + u$$ and report your results in the usual form. What is the (approximate) predicted percentage increase in salary given one more year as a CEO?
 
 ```{r}
 #| label: c2_iii
-model_ceosal2 <- lm(lsalary ~ ceoten, data = df_ceosal2)
+
+c2m <- lm(lsalary ~ ceoten, data = c2)
 
 modelsummary(
-  model_ceosal2,
+  c2m,
   fmt = 2,
   statistic = NULL,
   gof_map = c("nobs", "r.squared"),
@@ -132,47 +163,154 @@ modelsummary(
 )
 ```
 
-**Interpretation:**\
-For every 1 additional year of tenure as CEO, salary is predicted to increase by **1%**
+**Interpretation:**
 
-::: callout-note
-Looks like CEO aren't driven by loyalty, neither should you
-:::
+For every 1 additional year of tenure as CEO, salary is predicted to increase by **1%**. This shows that salary increases due to other factors not loyalty.
 
-### C3 \[SLEEP75\]
+## C3 \[SLEEP75\]
+
+> Use the data in SLEEP75 from Biddle and Hamermesh (1990) to study whether there is a tradeoff between the time spent sleeping per week and the time spent in paid work. We could use either variable as the dependent variable. For concreteness, estimate the model $$sleep = \beta_0 + \beta_1 totwrk + u$$ where `sleep` is minutes spent sleeping at night per week and `totwrk` is total minutes worked during the week.
 
 ```{r}
 #| label: c3_data
-df_sleep75 <- wooldridge::sleep75
-knitr::kable(head(df_sleep75))
+
+c3 <- sleep75
+kable(head(c3))
 ```
 
-> (i) Estimate the model and reprot results 
+> (i) Report your results in equation form along with the number of observations and $R^2$. What does the intercept in this equation mean?
 
 ```{r}
 #| label: c3_i
-model_sleep75 <- lm(sleep ~ totwrk, data = df_sleep75)
+
+c3m <- lm(sleep ~ totwrk, data = c3)
 
 modelsummary(
-  model_sleep75,
+  c3m,
   fmt = 2,
   statistic = NULL,
   gof_map = c("nobs", "r.squared"),
-  coef_rename = c("totwrk" = "Minutes Worked per Week", "(Intercept)" = "Constant")
+  coef_rename = c(
+    "(Intercept)" = "Constant",
+    "totwrk" = "Minutes Worked per Week"
+  )
 )
 ```
 
-**Interpretation:**\  
-A jobless person is predicted to sleep **3586** minutes per week [**8.54** hours of daily sleep].  
+**Interpretation:**
+
+A jobless person is predicted to sleep **3586** minutes per week \[**8.54** hours of daily sleep\].\
 For every 100 minutes worked, 15 minutes of sleep are lost.
 
-> (ii) If totwrk increases by 2 hours, by how much is sleep estimated to fall?
+> (ii) If `totwrk` increases by 2 hours, by how much is `sleep` estimated to fall? Do you find this to be a large effect?
 
 ```{r}
 #| label: c3_ii
-sleep_fall <- coef(model_sleep75)["totwrk"] * 120
 
-paste("Estimated change in sleep:", round(sleep_fall, 2), "minutes")
+sleep_fall <- coef(c3m)["totwrk"] * 120
+
+cat("Estimated change in sleep:", round(sleep_fall, 2), "minutes")
 ```
-**Interpretation:**\  
-Working an extra two hours per week will reduce weekly sleep by **18** minutes [2.6 minutes per night]. This is practically insignificant.
+
+| Model | Regression Equation | Interpretation of $\hat \beta_1$ | Name |
+|-----------------|-----------------|---------------------|-----------------|
+| Level-Level | $y = \hat \beta_0 + \hat \beta_1 x$ | $\Delta \hat y = \hat \beta \Delta x$ | Marginal Effect |
+| Log-Level | $\log(y) = \hat \beta_0 + \hat \beta_1 x$ | $\% \Delta \hat y \approx (100\hat \beta_1) \Delta x$ | Semi-elasticity |
+| Level-Log | $y = \hat \beta_0 + \hat \beta_1 \log(x)$ | $\Delta \hat y \approx (\hat \beta_1)/100 \% \Delta x$ | \- |
+| Log-Log | $\log(y) = \hat \beta_0 + \hat \beta_1 \log(x)$ | $\% \Delta \hat y \approx \hat \beta_1 \% \Delta x$ | Elasticity |
+
+**Interpretation:**
+
+Working an extra two hours per week will reduce weekly sleep by **18** minutes \[2.6 minutes per night\]. This is practically insignificant.
+
+## C4 \[WAGE2\]
+
+> Use the data in WAGE2 to estimate a simple regression explaining monthly salary (`wage`) in terms of IQ score (`IQ`).
+
+```{r}
+#| label: c4_data
+
+c4 <- wage2
+kable(head(c4))
+```
+
+> (i) Find the average salary and average IQ in the sample. What is the sample standard deviation of IQ? (IQ scores are standardized so that the average in the population is 100 with a standard deviation equal to 15).
+
+```{r}
+#| label: c4_i
+
+c4 |>
+  summarise(
+    Avg_Salary = mean(wage),
+    Avg_IQ = mean(IQ),
+    SD_IQ = sd(IQ)
+  ) |>
+  round(2)
+```
+
+**Interpretation:**
+
+The sample average wage ($\overline{wage}$) is **957.95**, with an average IQ ($\overline{IQ}$) of **101.28**. The sample standard deviation for IQ $\hat \sigma_{IQ}$ is **15.05**
+
+> (ii) Estimate a simple regression model where a one-point increase in `IQ` changes `wage` by a constant dollar amount. Use this model to find the predicted increase in `wage` for an increase in `IQ` of 15 points. Does `IQ` explain most of the variation in `wage`?
+
+```{r}
+#| label: c4_ii
+
+c4m <- lm(wage ~ IQ, data = c4)
+
+modelsummary(
+  c4m,
+  fmt = 2,
+  statistic = NULL,
+  gof_map = c("nobs", "r.squared"),
+  coef_rename = c(
+    "(Intercept)" = "Constant"
+  )
+)
+```
+
+```{r}
+#| label: c4_ii_2
+
+IQ_inc <- coef(c4m)["IQ"] * 15
+
+cat("Estimated change in wage:", round(IQ_inc, 2), "dollars")
+```
+
+**Interpretation:**
+
+An increase in IQ by 15 is associated with an in increase in predicted wage by **\$124.55**. IQ explains only **9.6%** of the variation in wage ; the remaining variation is unexplained by the model.
+
+> (iii) Now, estimate a model where each one-point increase in `IQ` has the same percentage effect on `wage`. If `IQ` increases by 15 points, what is the approximate percentage increase in predicted `wage`?
+
+```{r}
+#| label: c4_iii
+
+c4m2 <- lm(lwage ~ IQ, data = c4)
+
+modelsummary(
+  c4m2,
+  fmt = 3,
+  statistic = NULL,
+  gof_map = c("nobs", "r.squared"),
+  coef_rename = c(
+    "(Intercept)" = "Constant"
+  )
+)
+```
+
+```{r}
+#| label: c4_iii_2
+
+IQ_inc <- coef(c4m2)["IQ"] * 15 * 100
+
+cat("Estimated change in wage:", round(IQ_inc, 2), "percent")
+```
+
+
+**Interpretation:**
+
+Each point increase is associated with an increase in wage by **0.9%**; 15 point increase in IQ will have a predicted wage increase by approximately **13%** percent.
+
+## C5 [RDCHEM]
