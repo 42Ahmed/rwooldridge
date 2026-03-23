@@ -17,9 +17,10 @@ My work focuses on:\
 
 ```{r}
 #| label: progress
-#| echo: false
 #| message: false
 #| warning: false
+#| code-fold: true
+#| code-summary: "Click to see how the tracker is generated"
 
 library(tidyverse)
 library(gt)
@@ -70,7 +71,7 @@ progress_data |>
   ) |>
   tab_header(
     title = md("**Exercise Completion Tracker**"),
-    subtitle = "Real-time status of the Wooldridge Code Companion"
+    subtitle = "Real-time status of the Wooldridge Solution Manual"
   ) |>
   tab_options(
     table.width = pct(90),
