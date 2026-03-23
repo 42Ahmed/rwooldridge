@@ -189,7 +189,84 @@
     "href": "chapter02.html#c5-rdchem",
     "title": "2  The Simple Regression Model",
     "section": "2.5 C5 [RDCHEM]",
-    "text": "2.5 C5 [RDCHEM]",
+    "text": "2.5 C5 [RDCHEM]\n\nFor the population of firms in the chemical industry, let rd denote annual expenditures on research and development, and let sales denote annual sales (both are in millions of dollars).\n\n\nc5 &lt;- rdchem\nkable(head(c5))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nrd\nsales\nprofits\nrdintens\nprofmarg\nsalessq\nlsales\nlrd\n\n\n\n\n430.6\n4570.2\n186.9\n9.421907\n4.089536\n20886730.00\n8.427312\n6.0651798\n\n\n59.0\n2830.0\n467.0\n2.084806\n16.501766\n8008900.00\n7.948032\n4.0775375\n\n\n23.5\n596.8\n107.4\n3.937668\n17.995979\n356170.22\n6.391582\n3.1570003\n\n\n3.5\n133.6\n-4.3\n2.619760\n-3.218563\n17848.96\n4.894850\n1.2527629\n\n\n1.7\n42.0\n8.0\n4.047619\n19.047619\n1764.00\n3.737670\n0.5306283\n\n\n8.4\n390.0\n47.3\n2.153846\n12.128205\n152100.00\n5.966147\n2.1282318\n\n\n\n\n\n\n\nWrite down a model (not an estimated equation) that implies a constant elasticity between rd and sales. Which parameter is the elasticity?\n\n\n\\[\\log(rd) = \\beta_0 + \\beta_1 \\log(sales) + u\\]\nInterpretation:\nThe parameter \\(\\beta_1\\) represents elasticity\n\n\nNow, estimate the model using the data in RDCHEM. Write out the estimated equation in the usual form. What is the estimated elasticity of rd with respect to sales? Explain in words what this elasticity means.\n\n\n\nc5m &lt;- lm(lrd ~ lsales, data = c5)\n\nmodelsummary(\n  c5m,\n  fmt = 2,\n  statistic = NULL,\n  gof_map = c(\"nobs\", \"r.squared\"),\n  coef_rename = c(\n    \"(Intercept)\" = \"Constant\",\n    \"lsales\" = \"Log Sales\"\n  )\n)\n\n\n\n    \n\n    \n\n    \n    \n    \n      \n        \n        \n              \n                 \n                (1)\n              \n        \n        \n        \n                \n                  Constant\n                  -4.10\n                \n                \n                  Log Sales\n                  1.08\n                \n                \n                  Num.Obs.\n                  32\n                \n                \n                  R2\n                  0.910\n                \n        \n      \n    \n\n\n\nInterpretation:\nA 1% change in sales is associated with a 1.08% change in expenditures.",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Simple Regression Model</span>"
+    ]
+  },
+  {
+    "objectID": "chapter02.html#c6-meap93",
+    "href": "chapter02.html#c6-meap93",
+    "title": "2  The Simple Regression Model",
+    "section": "2.6 C6 [MEAP93]",
+    "text": "2.6 C6 [MEAP93]",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Simple Regression Model</span>"
+    ]
+  },
+  {
+    "objectID": "chapter02.html#c7-charity",
+    "href": "chapter02.html#c7-charity",
+    "title": "2  The Simple Regression Model",
+    "section": "2.7 C7 [CHARITY]",
+    "text": "2.7 C7 [CHARITY]",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Simple Regression Model</span>"
+    ]
+  },
+  {
+    "objectID": "chapter02.html#c8-simulation",
+    "href": "chapter02.html#c8-simulation",
+    "title": "2  The Simple Regression Model",
+    "section": "2.8 C8 [Simulation]",
+    "text": "2.8 C8 [Simulation]",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Simple Regression Model</span>"
+    ]
+  },
+  {
+    "objectID": "chapter02.html#c9-countymurders",
+    "href": "chapter02.html#c9-countymurders",
+    "title": "2  The Simple Regression Model",
+    "section": "2.9 C9 [COUNTYMURDERS]",
+    "text": "2.9 C9 [COUNTYMURDERS]",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Simple Regression Model</span>"
+    ]
+  },
+  {
+    "objectID": "chapter02.html#c10-catholic",
+    "href": "chapter02.html#c10-catholic",
+    "title": "2  The Simple Regression Model",
+    "section": "2.10 C10 [CATHOLIC]",
+    "text": "2.10 C10 [CATHOLIC]",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Simple Regression Model</span>"
+    ]
+  },
+  {
+    "objectID": "chapter02.html#c11-gpa1",
+    "href": "chapter02.html#c11-gpa1",
+    "title": "2  The Simple Regression Model",
+    "section": "2.11 C11 [GPA1]",
+    "text": "2.11 C11 [GPA1]",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Simple Regression Model</span>"
+    ]
+  },
+  {
+    "objectID": "chapter02.html#c12-loanapp",
+    "href": "chapter02.html#c12-loanapp",
+    "title": "2  The Simple Regression Model",
+    "section": "2.12 C12 [LOANAPP]",
+    "text": "2.12 C12 [LOANAPP]",
     "crumbs": [
       "PART 1: Regression Analysis with Cross-Sectional Data",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Simple Regression Model</span>"
