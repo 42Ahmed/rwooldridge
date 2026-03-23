@@ -213,7 +213,7 @@ cat("Estimated change in sleep:", round(sleep_fall, 2), "minutes")
 ```
 
 | Model | Regression Equation | Interpretation of $\hat \beta_1$ | Name |
-|-----------------|-----------------|---------------------|-----------------|
+|-----------------|-----------------|--------------------|-----------------|
 | Level-Level | $y = \hat \beta_0 + \hat \beta_1 x$ | $\Delta \hat y = \hat \beta \Delta x$ | Marginal Effect |
 | Log-Level | $\log(y) = \hat \beta_0 + \hat \beta_1 x$ | $\% \Delta \hat y \approx (100\hat \beta_1) \Delta x$ | Semi-elasticity |
 | Level-Log | $y = \hat \beta_0 + \hat \beta_1 \log(x)$ | $\Delta \hat y \approx (\hat \beta_1)/100 \% \Delta x$ | \- |
@@ -308,9 +308,64 @@ IQ_inc <- coef(c4m2)["IQ"] * 15 * 100
 cat("Estimated change in wage:", round(IQ_inc, 2), "percent")
 ```
 
-
 **Interpretation:**
 
 Each point increase is associated with an increase in wage by **0.9%**; 15 point increase in IQ will have a predicted wage increase by approximately **13%** percent.
 
-## C5 [RDCHEM]
+## C5 \[RDCHEM\]
+
+> For the population of firms in the chemical industry, let `rd` denote annual expenditures on research and development, and let `sales` denote annual sales (both are in millions of dollars).
+
+```{r}
+#| label: c5_data
+
+c5 <- rdchem
+kable(head(c5))
+```
+
+> (i) Write down a model (not an estimated equation) that implies a constant elasticity between `rd` and `sales`. Which parameter is the elasticity?
+
+$$\log(rd) = \beta_0 + \beta_1 \log(sales) + u$$
+
+**Interpretation:**
+
+The parameter $\beta_1$ represents elasticity
+
+> (ii) Now, estimate the model using the data in RDCHEM. Write out the estimated equation in the usual form. What is the estimated elasticity of `rd` with respect to `sales`? Explain in words what this elasticity means.
+
+```{r}
+#| label: c5_i
+
+c5m <- lm(lrd ~ lsales, data = c5)
+
+modelsummary(
+  c5m,
+  fmt = 2,
+  statistic = NULL,
+  gof_map = c("nobs", "r.squared"),
+  coef_rename = c(
+    "(Intercept)" = "Constant",
+    "lsales" = "Log Sales"
+  )
+)
+```
+
+**Interpretation:**
+
+A **1%** change in sales is associated with a *1.08%* change in expenditures.
+
+## C6 [MEAP93]
+
+
+
+## C7 [CHARITY]
+
+## C8 [Simulation]
+
+## C9 [COUNTYMURDERS]
+
+## C10 [CATHOLIC]
+
+## C11 [GPA1]
+
+## C12 [LOANAPP]
