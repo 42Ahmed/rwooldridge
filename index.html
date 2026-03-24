@@ -514,15 +514,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="preface" class="level1 unnumbered">
 <h1 class="unnumbered">Preface</h1>
-<p>Welcome to <strong>A Modern R-proach to Econometrics</strong>.</p>
-<p>This digital book serves as a comprehensive computational companion to Jeffrey Wooldridge’s <em>Introductory Econometrics: A Modern Approach</em>. As a Teaching Assistant at <strong>Alexandria University</strong>, I developed this resource to bridge the gap between theoretical econometric concepts and practical data analysis using the <strong>R programming language</strong>.</p>
+<p>This companion book contains my code and interpretation for the 279 computer exercises found in the main textbook along with tips and notes. Hope that it serves as an educational reference.</p>
 <section id="about-the-author" class="level2">
 <h2 class="anchored" data-anchor-id="about-the-author">About the Author</h2>
-<p>I am <strong>Ahmed H. Darwish</strong>, a Teaching Assistant with a Bachelor’s degree in Business Administration, majoring in <strong>Applied Statistics</strong>. Currently, I am pursuing my Master’s degree and conducting research in the field of econometrics.</p>
-<p>My work focuses on:<br>
-* <strong>Applied Econometrics:</strong> Replicating complex academic models to ensure reproducibility.<br>
-* <strong>Causal Inference:</strong> Applying modern frameworks from “The Effect” to real-world data.<br>
-* <strong>Open Source Contribution:</strong> I am a contributor to the <code>wooldridge</code> Python library, and I bring that same rigor to this R-based project.</p>
+<p>I am Ahmed H. Darwish, a Teaching Assistant with a Bachelor’s degree in Business Administration, majoring in Applied Statistics. My work focuses on econometrics and causal inference.</p>
 </section>
 <section id="exercises-solved" class="level2">
 <h2 class="anchored" data-anchor-id="exercises-solved">Exercises Solved</h2>
@@ -537,7 +532,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>progress_data <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>Chapter, <span class="sc">~</span>Questions, <span class="sc">~</span>Solved,</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span>, <span class="dv">9</span>, <span class="dv">9</span>,</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span>, <span class="dv">12</span>, <span class="dv">5</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span>, <span class="dv">12</span>, <span class="dv">8</span>,</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="dv">3</span>, <span class="dv">14</span>, <span class="dv">3</span>,</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="dv">4</span>, <span class="dv">15</span>, <span class="dv">3</span>,</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">3</span>,</span>
@@ -588,23 +583,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_align</span>(<span class="at">align =</span> <span class="st">"center"</span>, <span class="at">columns =</span> <span class="fu">everything</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<div id="lgfypgxeeh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#lgfypgxeeh table {
+<div id="rskelnepsw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rskelnepsw table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#lgfypgxeeh thead, #lgfypgxeeh tbody, #lgfypgxeeh tfoot, #lgfypgxeeh tr, #lgfypgxeeh td, #lgfypgxeeh th {
+#rskelnepsw thead, #rskelnepsw tbody, #rskelnepsw tfoot, #rskelnepsw tr, #rskelnepsw td, #rskelnepsw th {
   border-style: none;
 }
 
-#lgfypgxeeh p {
+#rskelnepsw p {
   margin: 0;
   padding: 0;
 }
 
-#lgfypgxeeh .gt_table {
+#rskelnepsw .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -630,12 +625,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#lgfypgxeeh .gt_caption {
+#rskelnepsw .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#lgfypgxeeh .gt_title {
+#rskelnepsw .gt_title {
   color: #333333;
   font-size: 24px;
   font-weight: initial;
@@ -647,7 +642,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#lgfypgxeeh .gt_subtitle {
+#rskelnepsw .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -659,7 +654,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#lgfypgxeeh .gt_heading {
+#rskelnepsw .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -671,13 +666,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#lgfypgxeeh .gt_bottom_border {
+#rskelnepsw .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#lgfypgxeeh .gt_col_headings {
+#rskelnepsw .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -692,7 +687,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#lgfypgxeeh .gt_col_heading {
+#rskelnepsw .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -712,7 +707,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#lgfypgxeeh .gt_column_spanner_outer {
+#rskelnepsw .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -724,15 +719,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#lgfypgxeeh .gt_column_spanner_outer:first-child {
+#rskelnepsw .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#lgfypgxeeh .gt_column_spanner_outer:last-child {
+#rskelnepsw .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#lgfypgxeeh .gt_column_spanner {
+#rskelnepsw .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -744,11 +739,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#lgfypgxeeh .gt_spanner_row {
+#rskelnepsw .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#lgfypgxeeh .gt_group_heading {
+#rskelnepsw .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -774,7 +769,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#lgfypgxeeh .gt_empty_group_heading {
+#rskelnepsw .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -789,15 +784,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#lgfypgxeeh .gt_from_md > :first-child {
+#rskelnepsw .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#lgfypgxeeh .gt_from_md > :last-child {
+#rskelnepsw .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#lgfypgxeeh .gt_row {
+#rskelnepsw .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -816,7 +811,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#lgfypgxeeh .gt_stub {
+#rskelnepsw .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -829,7 +824,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#lgfypgxeeh .gt_stub_row_group {
+#rskelnepsw .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -843,15 +838,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#lgfypgxeeh .gt_row_group_first td {
+#rskelnepsw .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#lgfypgxeeh .gt_row_group_first th {
+#rskelnepsw .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#lgfypgxeeh .gt_summary_row {
+#rskelnepsw .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -861,16 +856,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#lgfypgxeeh .gt_first_summary_row {
+#rskelnepsw .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#lgfypgxeeh .gt_first_summary_row.thick {
+#rskelnepsw .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#lgfypgxeeh .gt_last_summary_row {
+#rskelnepsw .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -880,7 +875,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#lgfypgxeeh .gt_grand_summary_row {
+#rskelnepsw .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -890,7 +885,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#lgfypgxeeh .gt_first_grand_summary_row {
+#rskelnepsw .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -900,7 +895,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#lgfypgxeeh .gt_last_grand_summary_row_top {
+#rskelnepsw .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -910,11 +905,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#lgfypgxeeh .gt_striped {
+#rskelnepsw .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#lgfypgxeeh .gt_table_body {
+#rskelnepsw .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -923,7 +918,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#lgfypgxeeh .gt_footnotes {
+#rskelnepsw .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -937,7 +932,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#lgfypgxeeh .gt_footnote {
+#rskelnepsw .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -946,7 +941,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#lgfypgxeeh .gt_sourcenotes {
+#rskelnepsw .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -960,7 +955,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#lgfypgxeeh .gt_sourcenote {
+#rskelnepsw .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -968,72 +963,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#lgfypgxeeh .gt_left {
+#rskelnepsw .gt_left {
   text-align: left;
 }
 
-#lgfypgxeeh .gt_center {
+#rskelnepsw .gt_center {
   text-align: center;
 }
 
-#lgfypgxeeh .gt_right {
+#rskelnepsw .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lgfypgxeeh .gt_font_normal {
+#rskelnepsw .gt_font_normal {
   font-weight: normal;
 }
 
-#lgfypgxeeh .gt_font_bold {
+#rskelnepsw .gt_font_bold {
   font-weight: bold;
 }
 
-#lgfypgxeeh .gt_font_italic {
+#rskelnepsw .gt_font_italic {
   font-style: italic;
 }
 
-#lgfypgxeeh .gt_super {
+#rskelnepsw .gt_super {
   font-size: 65%;
 }
 
-#lgfypgxeeh .gt_footnote_marks {
+#rskelnepsw .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#lgfypgxeeh .gt_asterisk {
+#rskelnepsw .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#lgfypgxeeh .gt_indent_1 {
+#rskelnepsw .gt_indent_1 {
   text-indent: 5px;
 }
 
-#lgfypgxeeh .gt_indent_2 {
+#rskelnepsw .gt_indent_2 {
   text-indent: 10px;
 }
 
-#lgfypgxeeh .gt_indent_3 {
+#rskelnepsw .gt_indent_3 {
   text-indent: 15px;
 }
 
-#lgfypgxeeh .gt_indent_4 {
+#rskelnepsw .gt_indent_4 {
   text-indent: 20px;
 }
 
-#lgfypgxeeh .gt_indent_5 {
+#rskelnepsw .gt_indent_5 {
   text-indent: 25px;
 }
 
-#lgfypgxeeh .katex-display {
+#rskelnepsw .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#lgfypgxeeh div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#rskelnepsw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1071,9 +1066,9 @@ Finished
 <tr class="even">
 <td class="gt_row gt_center" headers="Chapter">2</td>
 <td class="gt_row gt_center" headers="Questions">12</td>
-<td class="gt_row gt_center" headers="Solved">5</td>
+<td class="gt_row gt_center" headers="Solved">8</td>
 <td class="gt_row gt_center" headers="Percentage"><div style="flex-grow:1;margin-left:8px;background:#ecf0f1;">
-<div style="background:#2c3e50;width:41.6666666666667%;height:16px;">
+<div style="background:#2c3e50;width:66.6666666666667%;height:16px;">
 
 </div>
 </div></td>
@@ -1322,7 +1317,7 @@ Note
 </div>
 </div>
 <hr>
-<p><em>This project is a work in progress as part of my Master’s thesis portfolio. For collaborations or inquiries regarding remote data analysis, feel free to contact me via GitHub.</em></p>
+<p><em>This project is a work in progress as part of my portfolio. For collaborations or inquiries regarding remote data analysis, feel free to contact me via GitHub.</em></p>
 
 
 </section>
