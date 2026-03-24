@@ -213,7 +213,7 @@ cat("Estimated change in sleep:", round(sleep_fall, 2), "minutes")
 ```
 
 | Model | Regression Equation | Interpretation of $\hat \beta_1$ | Name |
-|-----------------|-----------------|--------------------|-----------------|
+|------------------|------------------|--------------------|------------------|
 | Level-Level | $y = \hat \beta_0 + \hat \beta_1 x$ | $\Delta \hat y = \hat \beta \Delta x$ | Marginal Effect |
 | Log-Level | $\log(y) = \hat \beta_0 + \hat \beta_1 x$ | $\% \Delta \hat y \approx (100\hat \beta_1) \Delta x$ | Semi-elasticity |
 | Level-Log | $y = \hat \beta_0 + \hat \beta_1 \log(x)$ | $\Delta \hat y \approx (\hat \beta_1)/100 \% \Delta x$ | \- |
@@ -354,18 +354,300 @@ modelsummary(
 
 A **1%** change in sales is associated with a *1.08%* change in expenditures.
 
-## C6 [MEAP93]
+## C6 \[MEAP93\]
+
+```{r}
+#| label: c6_data
+
+c6 <- meap93
+kable(head(meap93))
+```
+
+> (i) 
+
+**Interpretation:**
+
+I believe dollar has a diminishing effect on passing rate. Most students with limited source can pass, but scoring maximum mark takes very high resources. Also a constant effect may predict students can pass the maximum score.
+
+> (ii) 
+
+**Interpretation:**
+
+$$
+\begin{align}
+\Delta math10 &= \beta_1 \cdot \Delta \log(expend) \\
+\Delta math10 &\approx \beta_1 \cdot \left( \frac{\Delta expend}{expend} \right) \\
+\Delta math10 &\approx \beta_1 \cdot (0.10) \\
+\Delta math10 &\approx \frac{\beta_1}{10}
+\end{align}
+$$
+
+> (iii) 
+
+```{r}
+#| label: c6_iii
+
+c6m <- lm(math10 ~ lexpend, data = c6)
+
+modelsummary(
+  c6m,
+  fmt = 2,
+  statistic = NULL,
+  gof_map = c("nobs", "r.squared"),
+  coef_rename = c(
+    "(Intercept)" = "Constant",
+    "lexpend" = "Student Spending"
+  )
+)
+```
+
+**Interpretation:**
+
+Estimated effect for spending effect is 11.16. If spending increases by 10%, math pass rate increase by 1.116 percentage points.
+
+> (v) 
+
+```{r}
+#| label: c6_v
+
+c6m |>
+  augment() |>
+  select(math10, .fitted) |>
+  pivot_longer(everything()) |>
+  ggplot(aes(x = value)) +
+  geom_histogram(bins = 40) +
+  facet_wrap(~name)
+```
+
+**Interpretation:**
+
+We don’t have to worry about passing maximum rate because predicted rates are between the interval \[20, 30\] while original rates had maximum rate below 80.
+
+## C7 \[CHARITY\]
+
+```{r}
+#| label: c7_data
+
+c7 <- charity
+kable(head(c7))
+```
+
+> (i) 
+
+```{r}
+#| label: c7_i
+
+c7 |>
+  summarise(
+    Avg_Gift = mean(gift),
+    No_Gift_Pct = mean(gift == 0) * 100
+  ) |>
+  round(2)
+```
+
+**Interpretation:**
+
+Average gift in the sample is 7.44 with 60% of the sample having no gifts.
+
+> (ii) 
+
+```{r}
+#| label: c7_ii
+
+c7 |>
+  summarise(
+    Min_Mailing = min(mailsyear),
+    Avg_Mailing = mean(mailsyear),
+    Max_Mailing = max(mailsyear)
+  ) |>
+  round(2)
+```
+
+**Interpretation:**
+
+Minimum number of mailings per year is 0.25. The average is 2.05 and maximum is 3.05.
+
+> (iii) 
+
+```{r}
+#| label: c7_iii
+
+c7m <- lm(gift ~ mailsyear, data = c7)
+
+modelsummary(
+  c7m,
+  fmt = 2,
+  statistic = NULL,
+  gof_map = c("nobs", "r.squared"),
+  coef_rename = c(
+    "(Intercept)" = "Constant",
+    "mailsyear" = "Mailings per Year"
+  )
+)
+```
+
+> (iv) 
+
+**Interpretation:**
+
+For each extra mailing per year, gift is predicted to increase by 2.65. If each mailing costs 1 guilder, net gain on each mail is 2.65 - 1 = 1.65. This does not mean that charity makes a net gain on every mailing, it means that, on average, net gain will be 1.65.
+
+> (v) 
+
+```{r}
+#| label: c7_v
 
 
+c7m |>
+  augment() |>
+  summarise(
+    Min_Prediction = min(.fitted)
+  ) |>
+  round(2)
+```
 
-## C7 [CHARITY]
+**Interpretation:**
 
-## C8 [Simulation]
+Minimum predicted gift is 2.68 coming from the observation with 0.25 mailings per year ( ). Predicting a zero is impossible with this model because and are both greater than zero; least possible value is .
 
-## C9 [COUNTYMURDERS]
+## C8 \[Simulation\]
 
-## C10 [CATHOLIC]
+> (i) 
 
-## C11 [GPA1]
+```{r}
+#| label: c8_i
 
-## C12 [LOANAPP]
+set.seed(42)
+
+x_i <- runif(500, min = 0, max = 10)
+
+cat(round(mean(x_i), 2), round(sd(x_i), 2))
+```
+
+**Interpretation:**
+
+The sample mean of is 4.9 and the sample standard deviation is 2.89. These values are close to, but not exactly equal to, the theoretical population mean ( ) and population standard deviation ( ) of a Uniform(0,10) distribution due to finite sampling variance.
+
+> (ii) 
+
+```{r}
+#| label: c8_ii
+
+set.seed(42)
+
+u_i <- rnorm(500, mean = 0, sd = 6)
+
+cat(round(mean(u_i), 2), round(sd(u_i), 2))
+```
+
+**Interpretation:**
+
+The sample average of is -0.18, which is not exactly zero. While the population expectation is exactly zero ( ), a finite sample of 500 random draws will inherently contain sampling error, preventing the sample mean from perfectly matching the population mean. The sample standard deviation is 5.83, which closely approximates the population standard deviation of 6.
+
+> (iii) 
+
+```{r}
+#| label: c8_iii
+
+y_i <- 1 + (2 * x_i) + u_i
+
+c8m <- lm(y_i ~ x_i)
+
+modelsummary(
+  c8m,
+  statistic = NULL,
+  gof_map = list(),
+  coef_rename = c(
+    "(Intercept)" = "Constant",
+    "x_i" = "x"
+  )
+)
+```
+
+**Interpretation:**
+
+is estimated to be 0.901 and is estimated to be 1.983. They differ from the true population parameters ( ) due to sampling error. The intercept deviates because the sample mean of the errors ( ) is not exactly zero. More importantly, the slope deviates because the sample covariance between and is not exactly zero.
+
+> (iv) 
+
+```{r}
+#| label: c8_iv
+
+c8m |>
+  augment() |>
+  summarise(
+    Sum_Resid = sum(.resid),
+    Sum_x_resid = sum(x_i * .resid)
+  ) |>
+  round(2)
+```
+
+**Interpretation:**
+
+The sum of the residuals ( ) and the sum of the product of the regressors and residuals ( ) are both effectively zero. This confirms that the algebraic properties of OLS hold perfectly in the sample.
+
+> (v) 
+
+```{r}
+#| label: c8_v
+
+c8m |>
+  augment() |>
+  summarise(
+    Sum_Error = sum(u_i),
+    Sum_x_Error = sum(x_i * u_i)
+  ) |>
+  round(2)
+```
+
+**Interpretation:**
+
+When using the unobserved population errors ( ) instead of the OLS residuals ( ), the sums are far from zero ( and ). This highlights the fundamental mechanical difference between errors and residuals: OLS residuals are mathematically forced by the regression algorithm to sum to zero and be uncorrelated with , whereas population errors are unobserved random variables that will not perfectly satisfy these orthogonal conditions in a finite sample.
+
+> (vi) 
+
+```{r}
+#| label: c7_vi
+
+set.seed(43)
+
+x_i <- runif(500, min = 0, max = 10)
+u_i <- rnorm(500, mean = 0, sd = 6)
+y_i <- 1 + (2 * x_i) + u_i
+
+c8m2 <- lm(y_i ~ x_i)
+
+modelsummary(
+  c8m2,
+  statistic = NULL,
+  gof_map = list(),
+  coef_rename = c(
+    "(Intercept)" = "Constant",
+    "x_i" = "x"
+  )
+)
+```
+
+**Interpretation:**
+
+With a new random sample, the estimates change to and . These differ from the estimates in part (iii) because every new sample draws a unique set of and values. Consequently, the new sample mean of and the new sample covariance between and have changed. The OLS estimator processes this new random sample variation, resulting in different deviations from the true population parameters.
+
+::: callout-caution
+Formula for the slope $\hat \beta_1$:
+$$\hat \beta_1 = \beta_1 + \dfrac{Cov(x,u)}{Var(x)}$$
+To be equal to the parameter, covariance must be = zero
+
+Formula for $\hat \beta_0$:
+
+$$\hat \beta_0 = \beta_0 + (\beta_1 - \hat \beta_1) \bar x + \bar u$$
+To be equal to the parameter, average of error term must be exactly zero, and $\hat \beta_1 = \beta_1
+$
+:::
+
+## C9 \[COUNTYMURDERS\]
+
+## C10 \[CATHOLIC\]
+
+## C11 \[GPA1\]
+
+## C12 \[LOANAPP\]
