@@ -551,6 +551,9 @@ window.Quarto = {
 </div>
 <section id="c1-401k" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="c1-401k"><span class="header-section-number">2.1</span> C1 [401K]</h2>
+<blockquote class="blockquote">
+<p>The data in 401K are a subset of data analyzed by Papke (1995) to study the relationship between participation in a 401(k) pension plan and the generosity of the plan. The variable <code>prate</code> is the percentage of eligible workers with an active account; this is the variable we would like to explain. The measure of generosity is the plan match rate, <code>mrate</code>. This variable gives the average amount the firm contributes to each worker’s plan for each $1 contribution by the worker. For example, if <code>mrate</code> = 0 50. , then a $1 contribution by the worker is matched by a 50¢ contribution by the firm.</p>
+</blockquote>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>c1 <span class="ot">&lt;-</span> k401k</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(c1))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -635,7 +638,7 @@ window.Quarto = {
 </div>
 <blockquote class="blockquote">
 <ol type="i">
-<li></li>
+<li>Find the average participation rate and the average match rate in the sample of plans.</li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -653,9 +656,7 @@ window.Quarto = {
 <p><strong>Interpretation:</strong></p>
 <p>On average, <strong>87.36%</strong> of eligible employees participate in their company’s 401(k) plan. Their company matches <em>$0.73</em> for every dollar an employee contributes.</p>
 <blockquote class="blockquote">
-<ol start="2" type="i">
-<li></li>
-</ol>
+<p>estimate the simple regression equation <span class="math display">\[\widehat{prate} = \hat \beta_0 + \hat \beta_1 mrate\]</span> and report the results along with the sample size and R-squared.</p>
 </blockquote>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>c1m <span class="ot">&lt;-</span> <span class="fu">lm</span>(prate <span class="sc">~</span> mrate, <span class="at">data =</span> c1)</span>
@@ -674,25 +675,25 @@ window.Quarto = {
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_e9fievlw92nyxu4wt41h = TinyTable.createTableFunctions("tinytable_e9fievlw92nyxu4wt41h");
+      const tableFns_nnmajncxal4legtgoia6 = TinyTable.createTableFunctions("tinytable_nnmajncxal4legtgoia6");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '4', j: 2 } ], css_id: 'tinytable_css_fl98hf119kuh1yt6z5mp',}, 
-          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_kp6r9ut28569weg3wylr',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '3', j: 2 } ], css_id: 'tinytable_css_smsj4kjsz835w9sfphgm',}, 
-          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_vpvtpu4494pwos8v8ldh',}, 
-          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_ah8jkg4cfnubxp3jw8ho',}, 
-          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_prg0beqbz93qt1ivk3t2',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '3', j: 1 } ], css_id: 'tinytable_css_vqjwqfpp2rclkpq9fb4y',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_mkdprmvloywgu12x8447',}, 
+          { positions: [ { i: '4', j: 2 } ], css_id: 'tinytable_css_sthn0lop0jugqftlyqco',}, 
+          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_iccoj52yfhq37p6j28vy',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '3', j: 2 } ], css_id: 'tinytable_css_cpq6tdlpji9buqp4skg9',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_wk21rek5hyv4m2566lxn',}, 
+          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_vw1ohucixgo37h84676p',}, 
+          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_2fd94gbi1i1rk766dpra',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '3', j: 1 } ], css_id: 'tinytable_css_n7jde5u654ip4dx2pup8',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_bvhsk2d3pjjs017bp8f2',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_e9fievlw92nyxu4wt41h.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_nnmajncxal4legtgoia6.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -701,17 +702,17 @@ window.Quarto = {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_e9fievlw92nyxu4wt41h td.tinytable_css_fl98hf119kuh1yt6z5mp, #tinytable_e9fievlw92nyxu4wt41h th.tinytable_css_fl98hf119kuh1yt6z5mp {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_e9fievlw92nyxu4wt41h td.tinytable_css_kp6r9ut28569weg3wylr, #tinytable_e9fievlw92nyxu4wt41h th.tinytable_css_kp6r9ut28569weg3wylr {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_e9fievlw92nyxu4wt41h td.tinytable_css_smsj4kjsz835w9sfphgm, #tinytable_e9fievlw92nyxu4wt41h th.tinytable_css_smsj4kjsz835w9sfphgm { text-align: center }
-    #tinytable_e9fievlw92nyxu4wt41h td.tinytable_css_vpvtpu4494pwos8v8ldh, #tinytable_e9fievlw92nyxu4wt41h th.tinytable_css_vpvtpu4494pwos8v8ldh {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_e9fievlw92nyxu4wt41h td.tinytable_css_ah8jkg4cfnubxp3jw8ho, #tinytable_e9fievlw92nyxu4wt41h th.tinytable_css_ah8jkg4cfnubxp3jw8ho {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_e9fievlw92nyxu4wt41h td.tinytable_css_prg0beqbz93qt1ivk3t2, #tinytable_e9fievlw92nyxu4wt41h th.tinytable_css_prg0beqbz93qt1ivk3t2 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_e9fievlw92nyxu4wt41h td.tinytable_css_vqjwqfpp2rclkpq9fb4y, #tinytable_e9fievlw92nyxu4wt41h th.tinytable_css_vqjwqfpp2rclkpq9fb4y { text-align: left }
-    #tinytable_e9fievlw92nyxu4wt41h td.tinytable_css_mkdprmvloywgu12x8447, #tinytable_e9fievlw92nyxu4wt41h th.tinytable_css_mkdprmvloywgu12x8447 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_nnmajncxal4legtgoia6 td.tinytable_css_sthn0lop0jugqftlyqco, #tinytable_nnmajncxal4legtgoia6 th.tinytable_css_sthn0lop0jugqftlyqco {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_nnmajncxal4legtgoia6 td.tinytable_css_iccoj52yfhq37p6j28vy, #tinytable_nnmajncxal4legtgoia6 th.tinytable_css_iccoj52yfhq37p6j28vy {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_nnmajncxal4legtgoia6 td.tinytable_css_cpq6tdlpji9buqp4skg9, #tinytable_nnmajncxal4legtgoia6 th.tinytable_css_cpq6tdlpji9buqp4skg9 { text-align: center }
+    #tinytable_nnmajncxal4legtgoia6 td.tinytable_css_wk21rek5hyv4m2566lxn, #tinytable_nnmajncxal4legtgoia6 th.tinytable_css_wk21rek5hyv4m2566lxn {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_nnmajncxal4legtgoia6 td.tinytable_css_vw1ohucixgo37h84676p, #tinytable_nnmajncxal4legtgoia6 th.tinytable_css_vw1ohucixgo37h84676p {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_nnmajncxal4legtgoia6 td.tinytable_css_2fd94gbi1i1rk766dpra, #tinytable_nnmajncxal4legtgoia6 th.tinytable_css_2fd94gbi1i1rk766dpra {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_nnmajncxal4legtgoia6 td.tinytable_css_n7jde5u654ip4dx2pup8, #tinytable_nnmajncxal4legtgoia6 th.tinytable_css_n7jde5u654ip4dx2pup8 { text-align: left }
+    #tinytable_nnmajncxal4legtgoia6 td.tinytable_css_bvhsk2d3pjjs017bp8f2, #tinytable_nnmajncxal4legtgoia6 th.tinytable_css_bvhsk2d3pjjs017bp8f2 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_e9fievlw92nyxu4wt41h" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_nnmajncxal4legtgoia6" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -752,14 +753,14 @@ R^2 &amp;= 0.075 &amp; n &amp;= 1534
 \]</span></p>
 <blockquote class="blockquote">
 <ol start="3" type="i">
-<li></li>
+<li>Interpret the intercept in your equation. Interpret the coefficient on <code>mrate</code>.</li>
 </ol>
 </blockquote>
 <p><strong>Interpretation:</strong></p>
 <p>If the match rate is 0, predicted participation rate is <strong>83.08%</strong>. For ever $1 increase in match rate, participation is associated by an increase of <strong>5.86 percentage points</strong>.</p>
 <blockquote class="blockquote">
 <ol start="4" type="i">
-<li></li>
+<li>Find the predicted prate when <code>mrate</code> = 3.5. Is this a reasonable prediction? Explain what is happening here.</li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -791,7 +792,7 @@ R^2 &amp;= 0.075 &amp; n &amp;= 1534
 <p>Model predicts a participation rate of <strong>103.59</strong> which exceeds the maximum possible value of 100.</p>
 <blockquote class="blockquote">
 <ol start="22" type="a">
-<li></li>
+<li>How much of the variation in <code>prate</code> is explained by <code>mrate</code>? Is this a lot in your opinion?</li>
 </ol>
 </blockquote>
 <p><strong>Interpretation:</strong></p>
@@ -799,6 +800,9 @@ R^2 &amp;= 0.075 &amp; n &amp;= 1534
 </section>
 <section id="c2-ceosal2" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="c2-ceosal2"><span class="header-section-number">2.2</span> C2 [CEOSAL2]</h2>
+<blockquote class="blockquote">
+<p>The data set in CEOSAL2 contains information on chief executive officers for U.S. corporations. The variable <code>salary</code> is annual compensation, in thousands of dollars, and <code>ceoten</code> is prior number of years as company CEO.</p>
+</blockquote>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>c2 <span class="ot">&lt;-</span> ceosal2</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(c2))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -949,7 +953,7 @@ R^2 &amp;= 0.075 &amp; n &amp;= 1534
 </div>
 <blockquote class="blockquote">
 <ol type="i">
-<li></li>
+<li>Find the average salary and the average tenure in the sample.</li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -968,7 +972,7 @@ R^2 &amp;= 0.075 &amp; n &amp;= 1534
 <p>Average salary is <strong>$865,860</strong> with an average tenure of <strong>7.95</strong> years.</p>
 <blockquote class="blockquote">
 <ol start="2" type="i">
-<li></li>
+<li>How many CEOs are in their first year as CEO (that is, <code>ceoten</code> = 0)? What is the longest tenure as a CEO?</li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -986,7 +990,7 @@ R^2 &amp;= 0.075 &amp; n &amp;= 1534
 <p>There are <strong>5</strong> CEOs in their first year, and the longest serving CEO has been in charge for <strong>37</strong> years.</p>
 <blockquote class="blockquote">
 <ol start="3" type="i">
-<li></li>
+<li>Estimate the regression model <span class="math display">\[ \log(salary) = \beta_0 + \beta_1 ceoten + u\]</span> and report your results in the usual form. What is the (approximate) predicted percentage increase in salary given one more year as a CEO?</li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -1006,25 +1010,25 @@ R^2 &amp;= 0.075 &amp; n &amp;= 1534
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_kivqq9ngeozsz69hp4cu = TinyTable.createTableFunctions("tinytable_kivqq9ngeozsz69hp4cu");
+      const tableFns_vdh8yd3lker9m41erewq = TinyTable.createTableFunctions("tinytable_vdh8yd3lker9m41erewq");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '4', j: 2 } ], css_id: 'tinytable_css_wgy2k73n83b5nlvmfqa9',}, 
-          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_t7xx4gw3zm9024zb8fa8',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '3', j: 2 } ], css_id: 'tinytable_css_2wrpb5xkr9izxknaw5dz',}, 
-          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_p3qombpjihhuff158hsh',}, 
-          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_etijr8mih6vzu1xix9r3',}, 
-          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_uue8t3hbbkusnq4ii0zn',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '3', j: 1 } ], css_id: 'tinytable_css_8ayrxi6xerfhofccx29s',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_o7aro8qqo03sb1eo1p83',}, 
+          { positions: [ { i: '4', j: 2 } ], css_id: 'tinytable_css_pm2nco101jiqibtptxxa',}, 
+          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_dtdd7gnw52xer0tgont7',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '3', j: 2 } ], css_id: 'tinytable_css_iztid4gabro6wrrch2r5',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_pq646s6fitrd5rcyw3qx',}, 
+          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_fbee0sgobqi70p5ekr1h',}, 
+          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_tgpuzn41q8k220cu7e2l',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '3', j: 1 } ], css_id: 'tinytable_css_tybwe93xpgs2li6pzi8c',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_35t6i57amhacg2fi6y4r',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_kivqq9ngeozsz69hp4cu.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_vdh8yd3lker9m41erewq.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1033,17 +1037,17 @@ R^2 &amp;= 0.075 &amp; n &amp;= 1534
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_kivqq9ngeozsz69hp4cu td.tinytable_css_wgy2k73n83b5nlvmfqa9, #tinytable_kivqq9ngeozsz69hp4cu th.tinytable_css_wgy2k73n83b5nlvmfqa9 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_kivqq9ngeozsz69hp4cu td.tinytable_css_t7xx4gw3zm9024zb8fa8, #tinytable_kivqq9ngeozsz69hp4cu th.tinytable_css_t7xx4gw3zm9024zb8fa8 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_kivqq9ngeozsz69hp4cu td.tinytable_css_2wrpb5xkr9izxknaw5dz, #tinytable_kivqq9ngeozsz69hp4cu th.tinytable_css_2wrpb5xkr9izxknaw5dz { text-align: center }
-    #tinytable_kivqq9ngeozsz69hp4cu td.tinytable_css_p3qombpjihhuff158hsh, #tinytable_kivqq9ngeozsz69hp4cu th.tinytable_css_p3qombpjihhuff158hsh {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_kivqq9ngeozsz69hp4cu td.tinytable_css_etijr8mih6vzu1xix9r3, #tinytable_kivqq9ngeozsz69hp4cu th.tinytable_css_etijr8mih6vzu1xix9r3 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_kivqq9ngeozsz69hp4cu td.tinytable_css_uue8t3hbbkusnq4ii0zn, #tinytable_kivqq9ngeozsz69hp4cu th.tinytable_css_uue8t3hbbkusnq4ii0zn {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_kivqq9ngeozsz69hp4cu td.tinytable_css_8ayrxi6xerfhofccx29s, #tinytable_kivqq9ngeozsz69hp4cu th.tinytable_css_8ayrxi6xerfhofccx29s { text-align: left }
-    #tinytable_kivqq9ngeozsz69hp4cu td.tinytable_css_o7aro8qqo03sb1eo1p83, #tinytable_kivqq9ngeozsz69hp4cu th.tinytable_css_o7aro8qqo03sb1eo1p83 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_vdh8yd3lker9m41erewq td.tinytable_css_pm2nco101jiqibtptxxa, #tinytable_vdh8yd3lker9m41erewq th.tinytable_css_pm2nco101jiqibtptxxa {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_vdh8yd3lker9m41erewq td.tinytable_css_dtdd7gnw52xer0tgont7, #tinytable_vdh8yd3lker9m41erewq th.tinytable_css_dtdd7gnw52xer0tgont7 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_vdh8yd3lker9m41erewq td.tinytable_css_iztid4gabro6wrrch2r5, #tinytable_vdh8yd3lker9m41erewq th.tinytable_css_iztid4gabro6wrrch2r5 { text-align: center }
+    #tinytable_vdh8yd3lker9m41erewq td.tinytable_css_pq646s6fitrd5rcyw3qx, #tinytable_vdh8yd3lker9m41erewq th.tinytable_css_pq646s6fitrd5rcyw3qx {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_vdh8yd3lker9m41erewq td.tinytable_css_fbee0sgobqi70p5ekr1h, #tinytable_vdh8yd3lker9m41erewq th.tinytable_css_fbee0sgobqi70p5ekr1h {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_vdh8yd3lker9m41erewq td.tinytable_css_tgpuzn41q8k220cu7e2l, #tinytable_vdh8yd3lker9m41erewq th.tinytable_css_tgpuzn41q8k220cu7e2l {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_vdh8yd3lker9m41erewq td.tinytable_css_tybwe93xpgs2li6pzi8c, #tinytable_vdh8yd3lker9m41erewq th.tinytable_css_tybwe93xpgs2li6pzi8c { text-align: left }
+    #tinytable_vdh8yd3lker9m41erewq td.tinytable_css_35t6i57amhacg2fi6y4r, #tinytable_vdh8yd3lker9m41erewq th.tinytable_css_35t6i57amhacg2fi6y4r {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_kivqq9ngeozsz69hp4cu" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_vdh8yd3lker9m41erewq" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -1080,6 +1084,9 @@ R^2 &amp;= 0.075 &amp; n &amp;= 1534
 </section>
 <section id="c3-sleep75" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="c3-sleep75"><span class="header-section-number">2.3</span> C3 [SLEEP75]</h2>
+<blockquote class="blockquote">
+<p>Use the data in SLEEP75 from Biddle and Hamermesh (1990) to study whether there is a tradeoff between the time spent sleeping per week and the time spent in paid work. We could use either variable as the dependent variable. For concreteness, estimate the model <span class="math display">\[sleep = \beta_0 + \beta_1 totwrk + u\]</span> where <code>sleep</code> is minutes spent sleeping at night per week and <code>totwrk</code> is total minutes worked during the week.</p>
+</blockquote>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>c3 <span class="ot">&lt;-</span> sleep75</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(c3))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1382,7 +1389,7 @@ R^2 &amp;= 0.075 &amp; n &amp;= 1534
 </div>
 <blockquote class="blockquote">
 <ol type="i">
-<li></li>
+<li>Report your results in equation form along with the number of observations and <span class="math inline">\(R^2\)</span>. What does the intercept in this equation mean?</li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -1405,25 +1412,25 @@ R^2 &amp;= 0.075 &amp; n &amp;= 1534
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_npygixvrha0asvuulxvh = TinyTable.createTableFunctions("tinytable_npygixvrha0asvuulxvh");
+      const tableFns_vvp017ki5wp3yk59b1vv = TinyTable.createTableFunctions("tinytable_vvp017ki5wp3yk59b1vv");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '4', j: 2 } ], css_id: 'tinytable_css_xyreet82wljkdmfpzrt5',}, 
-          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_b121ygqjv9n80r46f132',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '3', j: 2 } ], css_id: 'tinytable_css_3covlu7ha0joc3udac5u',}, 
-          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_vahj24qjhw6kwnhm4lkn',}, 
-          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_8bxnvs91f5s6vuquw66f',}, 
-          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_a4ypvyv9u2xzxoedmp1q',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '3', j: 1 } ], css_id: 'tinytable_css_ecsv0vn8yzggpljc1cgu',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_zfdmldgjr1tq8u1q8nhs',}, 
+          { positions: [ { i: '4', j: 2 } ], css_id: 'tinytable_css_7tkyze02y9dhx5z3q9vd',}, 
+          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_cuwyxlus3kk0nl0qw96z',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '3', j: 2 } ], css_id: 'tinytable_css_c53l2lxmedvw64uoskvc',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_nblybocacwmuuuzau5ux',}, 
+          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_z7goduggmwdj2obzl26a',}, 
+          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_m5oyu3lr5od3k89owr6h',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '3', j: 1 } ], css_id: 'tinytable_css_xxogzxl5zdbvoeyzcalo',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_fkdnoswbijocc5tqgita',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_npygixvrha0asvuulxvh.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_vvp017ki5wp3yk59b1vv.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1432,17 +1439,17 @@ R^2 &amp;= 0.075 &amp; n &amp;= 1534
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_npygixvrha0asvuulxvh td.tinytable_css_xyreet82wljkdmfpzrt5, #tinytable_npygixvrha0asvuulxvh th.tinytable_css_xyreet82wljkdmfpzrt5 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_npygixvrha0asvuulxvh td.tinytable_css_b121ygqjv9n80r46f132, #tinytable_npygixvrha0asvuulxvh th.tinytable_css_b121ygqjv9n80r46f132 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_npygixvrha0asvuulxvh td.tinytable_css_3covlu7ha0joc3udac5u, #tinytable_npygixvrha0asvuulxvh th.tinytable_css_3covlu7ha0joc3udac5u { text-align: center }
-    #tinytable_npygixvrha0asvuulxvh td.tinytable_css_vahj24qjhw6kwnhm4lkn, #tinytable_npygixvrha0asvuulxvh th.tinytable_css_vahj24qjhw6kwnhm4lkn {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_npygixvrha0asvuulxvh td.tinytable_css_8bxnvs91f5s6vuquw66f, #tinytable_npygixvrha0asvuulxvh th.tinytable_css_8bxnvs91f5s6vuquw66f {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_npygixvrha0asvuulxvh td.tinytable_css_a4ypvyv9u2xzxoedmp1q, #tinytable_npygixvrha0asvuulxvh th.tinytable_css_a4ypvyv9u2xzxoedmp1q {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_npygixvrha0asvuulxvh td.tinytable_css_ecsv0vn8yzggpljc1cgu, #tinytable_npygixvrha0asvuulxvh th.tinytable_css_ecsv0vn8yzggpljc1cgu { text-align: left }
-    #tinytable_npygixvrha0asvuulxvh td.tinytable_css_zfdmldgjr1tq8u1q8nhs, #tinytable_npygixvrha0asvuulxvh th.tinytable_css_zfdmldgjr1tq8u1q8nhs {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_vvp017ki5wp3yk59b1vv td.tinytable_css_7tkyze02y9dhx5z3q9vd, #tinytable_vvp017ki5wp3yk59b1vv th.tinytable_css_7tkyze02y9dhx5z3q9vd {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_vvp017ki5wp3yk59b1vv td.tinytable_css_cuwyxlus3kk0nl0qw96z, #tinytable_vvp017ki5wp3yk59b1vv th.tinytable_css_cuwyxlus3kk0nl0qw96z {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_vvp017ki5wp3yk59b1vv td.tinytable_css_c53l2lxmedvw64uoskvc, #tinytable_vvp017ki5wp3yk59b1vv th.tinytable_css_c53l2lxmedvw64uoskvc { text-align: center }
+    #tinytable_vvp017ki5wp3yk59b1vv td.tinytable_css_nblybocacwmuuuzau5ux, #tinytable_vvp017ki5wp3yk59b1vv th.tinytable_css_nblybocacwmuuuzau5ux {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_vvp017ki5wp3yk59b1vv td.tinytable_css_z7goduggmwdj2obzl26a, #tinytable_vvp017ki5wp3yk59b1vv th.tinytable_css_z7goduggmwdj2obzl26a {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_vvp017ki5wp3yk59b1vv td.tinytable_css_m5oyu3lr5od3k89owr6h, #tinytable_vvp017ki5wp3yk59b1vv th.tinytable_css_m5oyu3lr5od3k89owr6h {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_vvp017ki5wp3yk59b1vv td.tinytable_css_xxogzxl5zdbvoeyzcalo, #tinytable_vvp017ki5wp3yk59b1vv th.tinytable_css_xxogzxl5zdbvoeyzcalo { text-align: left }
+    #tinytable_vvp017ki5wp3yk59b1vv td.tinytable_css_fkdnoswbijocc5tqgita, #tinytable_vvp017ki5wp3yk59b1vv th.tinytable_css_fkdnoswbijocc5tqgita {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_npygixvrha0asvuulxvh" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_vvp017ki5wp3yk59b1vv" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -1479,7 +1486,7 @@ R^2 &amp;= 0.075 &amp; n &amp;= 1534
 For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 <blockquote class="blockquote">
 <ol start="2" type="i">
-<li></li>
+<li>If <code>totwrk</code> increases by 2 hours, by how much is <code>sleep</code> estimated to fall? Do you find this to be a large effect?</li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -1494,7 +1501,7 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 <colgroup>
 <col style="width: 24%">
 <col style="width: 24%">
-<col style="width: 26%">
+<col style="width: 27%">
 <col style="width: 24%">
 </colgroup>
 <thead>
@@ -1537,6 +1544,9 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 </section>
 <section id="c4-wage2" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="c4-wage2"><span class="header-section-number">2.4</span> C4 [WAGE2]</h2>
+<blockquote class="blockquote">
+<p>Use the data in WAGE2 to estimate a simple regression explaining monthly salary (<code>wage</code>) in terms of IQ score (<code>IQ</code>).</p>
+</blockquote>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>c4 <span class="ot">&lt;-</span> wage2</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(c4))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1703,7 +1713,7 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 </div>
 <blockquote class="blockquote">
 <ol type="i">
-<li></li>
+<li>Find the average salary and average IQ in the sample. What is the sample standard deviation of IQ? (IQ scores are standardized so that the average in the population is 100 with a standard deviation equal to 15).</li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -1723,7 +1733,7 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 <p>The sample average wage (<span class="math inline">\(\overline{wage}\)</span>) is <strong>957.95</strong>, with an average IQ (<span class="math inline">\(\overline{IQ}\)</span>) of <strong>101.28</strong>. The sample standard deviation for IQ <span class="math inline">\(\hat \sigma_{IQ}\)</span> is <strong>15.05</strong></p>
 <blockquote class="blockquote">
 <ol start="2" type="i">
-<li></li>
+<li>Estimate a simple regression model where a one-point increase in <code>IQ</code> changes <code>wage</code> by a constant dollar amount. Use this model to find the predicted increase in <code>wage</code> for an increase in <code>IQ</code> of 15 points. Does <code>IQ</code> explain most of the variation in <code>wage</code>?</li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -1745,25 +1755,25 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_fgi852kyklee08rmifyb = TinyTable.createTableFunctions("tinytable_fgi852kyklee08rmifyb");
+      const tableFns_9jwrrzv2cl2xnw25ti8i = TinyTable.createTableFunctions("tinytable_9jwrrzv2cl2xnw25ti8i");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '4', j: 2 } ], css_id: 'tinytable_css_se4tvayxzpuifup3trly',}, 
-          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_45cm81vsvlqyci6arrqa',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '3', j: 2 } ], css_id: 'tinytable_css_5h6fl84trgxpdzc1juok',}, 
-          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_elsr786ddx6yvifyilhw',}, 
-          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_8bdl1jdasrsfr8413eqn',}, 
-          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_12p95ttik0qb6buk5e46',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '3', j: 1 } ], css_id: 'tinytable_css_ibibzsl02lq0oyyqc2a6',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_4sl8jm9map00u3t4xe8r',}, 
+          { positions: [ { i: '4', j: 2 } ], css_id: 'tinytable_css_5b6f3lpf088ihtlgb7rt',}, 
+          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_6usqo0sq825nvu2kzhy4',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '3', j: 2 } ], css_id: 'tinytable_css_w13wfx2ilm2ki5odx10u',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_7lshgue4d1m1vkn44h66',}, 
+          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_q8mh7xtbsyuvde7cejto',}, 
+          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_rjiu9tn8h1jknh8k96kg',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '3', j: 1 } ], css_id: 'tinytable_css_ilmmgbvkpemmprhk1mbz',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_1qbhsu77i8qtrxikrbs5',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_fgi852kyklee08rmifyb.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_9jwrrzv2cl2xnw25ti8i.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1772,17 +1782,17 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_fgi852kyklee08rmifyb td.tinytable_css_se4tvayxzpuifup3trly, #tinytable_fgi852kyklee08rmifyb th.tinytable_css_se4tvayxzpuifup3trly {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_fgi852kyklee08rmifyb td.tinytable_css_45cm81vsvlqyci6arrqa, #tinytable_fgi852kyklee08rmifyb th.tinytable_css_45cm81vsvlqyci6arrqa {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_fgi852kyklee08rmifyb td.tinytable_css_5h6fl84trgxpdzc1juok, #tinytable_fgi852kyklee08rmifyb th.tinytable_css_5h6fl84trgxpdzc1juok { text-align: center }
-    #tinytable_fgi852kyklee08rmifyb td.tinytable_css_elsr786ddx6yvifyilhw, #tinytable_fgi852kyklee08rmifyb th.tinytable_css_elsr786ddx6yvifyilhw {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_fgi852kyklee08rmifyb td.tinytable_css_8bdl1jdasrsfr8413eqn, #tinytable_fgi852kyklee08rmifyb th.tinytable_css_8bdl1jdasrsfr8413eqn {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_fgi852kyklee08rmifyb td.tinytable_css_12p95ttik0qb6buk5e46, #tinytable_fgi852kyklee08rmifyb th.tinytable_css_12p95ttik0qb6buk5e46 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_fgi852kyklee08rmifyb td.tinytable_css_ibibzsl02lq0oyyqc2a6, #tinytable_fgi852kyklee08rmifyb th.tinytable_css_ibibzsl02lq0oyyqc2a6 { text-align: left }
-    #tinytable_fgi852kyklee08rmifyb td.tinytable_css_4sl8jm9map00u3t4xe8r, #tinytable_fgi852kyklee08rmifyb th.tinytable_css_4sl8jm9map00u3t4xe8r {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_9jwrrzv2cl2xnw25ti8i td.tinytable_css_5b6f3lpf088ihtlgb7rt, #tinytable_9jwrrzv2cl2xnw25ti8i th.tinytable_css_5b6f3lpf088ihtlgb7rt {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_9jwrrzv2cl2xnw25ti8i td.tinytable_css_6usqo0sq825nvu2kzhy4, #tinytable_9jwrrzv2cl2xnw25ti8i th.tinytable_css_6usqo0sq825nvu2kzhy4 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_9jwrrzv2cl2xnw25ti8i td.tinytable_css_w13wfx2ilm2ki5odx10u, #tinytable_9jwrrzv2cl2xnw25ti8i th.tinytable_css_w13wfx2ilm2ki5odx10u { text-align: center }
+    #tinytable_9jwrrzv2cl2xnw25ti8i td.tinytable_css_7lshgue4d1m1vkn44h66, #tinytable_9jwrrzv2cl2xnw25ti8i th.tinytable_css_7lshgue4d1m1vkn44h66 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_9jwrrzv2cl2xnw25ti8i td.tinytable_css_q8mh7xtbsyuvde7cejto, #tinytable_9jwrrzv2cl2xnw25ti8i th.tinytable_css_q8mh7xtbsyuvde7cejto {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_9jwrrzv2cl2xnw25ti8i td.tinytable_css_rjiu9tn8h1jknh8k96kg, #tinytable_9jwrrzv2cl2xnw25ti8i th.tinytable_css_rjiu9tn8h1jknh8k96kg {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_9jwrrzv2cl2xnw25ti8i td.tinytable_css_ilmmgbvkpemmprhk1mbz, #tinytable_9jwrrzv2cl2xnw25ti8i th.tinytable_css_ilmmgbvkpemmprhk1mbz { text-align: left }
+    #tinytable_9jwrrzv2cl2xnw25ti8i td.tinytable_css_1qbhsu77i8qtrxikrbs5, #tinytable_9jwrrzv2cl2xnw25ti8i th.tinytable_css_1qbhsu77i8qtrxikrbs5 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_fgi852kyklee08rmifyb" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_9jwrrzv2cl2xnw25ti8i" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -1826,7 +1836,7 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 <p>An increase in IQ by 15 is associated with an in increase in predicted wage by <strong>$124.55</strong>. IQ explains only <strong>9.6%</strong> of the variation in wage ; the remaining variation is unexplained by the model.</p>
 <blockquote class="blockquote">
 <ol start="3" type="i">
-<li></li>
+<li>Now, estimate a model where each one-point increase in <code>IQ</code> has the same percentage effect on <code>wage</code>. If <code>IQ</code> increases by 15 points, what is the approximate percentage increase in predicted <code>wage</code>?</li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -1848,25 +1858,25 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_bbmveknxig3krkleoc1y = TinyTable.createTableFunctions("tinytable_bbmveknxig3krkleoc1y");
+      const tableFns_klklxrx4or0dxp179y93 = TinyTable.createTableFunctions("tinytable_klklxrx4or0dxp179y93");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '4', j: 2 } ], css_id: 'tinytable_css_6s5nqvtc03sv1mv9bvxo',}, 
-          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_4uoeivlgrhd2tuwlseaq',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '3', j: 2 } ], css_id: 'tinytable_css_6ar9bh0sn1yte3r8cxx0',}, 
-          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_5134pru9cb46y2jnhe6d',}, 
-          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_7heilbo2r9xz1aiaw2na',}, 
-          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_hxt9w4xrrbnylzh44u5u',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '3', j: 1 } ], css_id: 'tinytable_css_ava4nt503pa6gu67b6jb',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_2xfgfsqbkybsahbwcd5e',}, 
+          { positions: [ { i: '4', j: 2 } ], css_id: 'tinytable_css_ybcnscxctjbs5ve4ko68',}, 
+          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_c337em909av7dir0ele2',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '3', j: 2 } ], css_id: 'tinytable_css_jcbdjn0vs9ndsfwxhz4v',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_1gtf6171nffsg1nb5pg4',}, 
+          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_fbwvmbcb4e2yme9w2kfo',}, 
+          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_p9ax29ykor20btyyupxc',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '3', j: 1 } ], css_id: 'tinytable_css_4fne0ndegdf6yk18343p',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_m5xxwmwjrv56fzzgklcw',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_bbmveknxig3krkleoc1y.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_klklxrx4or0dxp179y93.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1875,17 +1885,17 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_bbmveknxig3krkleoc1y td.tinytable_css_6s5nqvtc03sv1mv9bvxo, #tinytable_bbmveknxig3krkleoc1y th.tinytable_css_6s5nqvtc03sv1mv9bvxo {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_bbmveknxig3krkleoc1y td.tinytable_css_4uoeivlgrhd2tuwlseaq, #tinytable_bbmveknxig3krkleoc1y th.tinytable_css_4uoeivlgrhd2tuwlseaq {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_bbmveknxig3krkleoc1y td.tinytable_css_6ar9bh0sn1yte3r8cxx0, #tinytable_bbmveknxig3krkleoc1y th.tinytable_css_6ar9bh0sn1yte3r8cxx0 { text-align: center }
-    #tinytable_bbmveknxig3krkleoc1y td.tinytable_css_5134pru9cb46y2jnhe6d, #tinytable_bbmveknxig3krkleoc1y th.tinytable_css_5134pru9cb46y2jnhe6d {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_bbmveknxig3krkleoc1y td.tinytable_css_7heilbo2r9xz1aiaw2na, #tinytable_bbmveknxig3krkleoc1y th.tinytable_css_7heilbo2r9xz1aiaw2na {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_bbmveknxig3krkleoc1y td.tinytable_css_hxt9w4xrrbnylzh44u5u, #tinytable_bbmveknxig3krkleoc1y th.tinytable_css_hxt9w4xrrbnylzh44u5u {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_bbmveknxig3krkleoc1y td.tinytable_css_ava4nt503pa6gu67b6jb, #tinytable_bbmveknxig3krkleoc1y th.tinytable_css_ava4nt503pa6gu67b6jb { text-align: left }
-    #tinytable_bbmveknxig3krkleoc1y td.tinytable_css_2xfgfsqbkybsahbwcd5e, #tinytable_bbmveknxig3krkleoc1y th.tinytable_css_2xfgfsqbkybsahbwcd5e {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_klklxrx4or0dxp179y93 td.tinytable_css_ybcnscxctjbs5ve4ko68, #tinytable_klklxrx4or0dxp179y93 th.tinytable_css_ybcnscxctjbs5ve4ko68 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_klklxrx4or0dxp179y93 td.tinytable_css_c337em909av7dir0ele2, #tinytable_klklxrx4or0dxp179y93 th.tinytable_css_c337em909av7dir0ele2 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_klklxrx4or0dxp179y93 td.tinytable_css_jcbdjn0vs9ndsfwxhz4v, #tinytable_klklxrx4or0dxp179y93 th.tinytable_css_jcbdjn0vs9ndsfwxhz4v { text-align: center }
+    #tinytable_klklxrx4or0dxp179y93 td.tinytable_css_1gtf6171nffsg1nb5pg4, #tinytable_klklxrx4or0dxp179y93 th.tinytable_css_1gtf6171nffsg1nb5pg4 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_klklxrx4or0dxp179y93 td.tinytable_css_fbwvmbcb4e2yme9w2kfo, #tinytable_klklxrx4or0dxp179y93 th.tinytable_css_fbwvmbcb4e2yme9w2kfo {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_klklxrx4or0dxp179y93 td.tinytable_css_p9ax29ykor20btyyupxc, #tinytable_klklxrx4or0dxp179y93 th.tinytable_css_p9ax29ykor20btyyupxc {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_klklxrx4or0dxp179y93 td.tinytable_css_4fne0ndegdf6yk18343p, #tinytable_klklxrx4or0dxp179y93 th.tinytable_css_4fne0ndegdf6yk18343p { text-align: left }
+    #tinytable_klklxrx4or0dxp179y93 td.tinytable_css_m5xxwmwjrv56fzzgklcw, #tinytable_klklxrx4or0dxp179y93 th.tinytable_css_m5xxwmwjrv56fzzgklcw {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_bbmveknxig3krkleoc1y" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_klklxrx4or0dxp179y93" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -1930,6 +1940,9 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 </section>
 <section id="c5-rdchem" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="c5-rdchem"><span class="header-section-number">2.5</span> C5 [RDCHEM]</h2>
+<blockquote class="blockquote">
+<p>For the population of firms in the chemical industry, let <code>rd</code> denote annual expenditures on research and development, and let <code>sales</code> denote annual sales (both are in millions of dollars).</p>
+</blockquote>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>c5 <span class="ot">&lt;-</span> rdchem</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(c5))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -2024,7 +2037,7 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 </div>
 <blockquote class="blockquote">
 <ol type="i">
-<li></li>
+<li>Write down a model (not an estimated equation) that implies a constant elasticity between <code>rd</code> and <code>sales</code>. Which parameter is the elasticity?</li>
 </ol>
 </blockquote>
 <p><span class="math display">\[\log(rd) = \beta_0 + \beta_1 \log(sales) + u\]</span></p>
@@ -2032,7 +2045,7 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 <p>The parameter <span class="math inline">\(\beta_1\)</span> represents elasticity</p>
 <blockquote class="blockquote">
 <ol start="2" type="i">
-<li></li>
+<li>Now, estimate the model using the data in RDCHEM. Write out the estimated equation in the usual form. What is the estimated elasticity of <code>rd</code> with respect to <code>sales</code>? Explain in words what this elasticity means.</li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -2055,25 +2068,25 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_e3ith5iosbtkiifw76tx = TinyTable.createTableFunctions("tinytable_e3ith5iosbtkiifw76tx");
+      const tableFns_o3dzhbh0jbnvftb928eq = TinyTable.createTableFunctions("tinytable_o3dzhbh0jbnvftb928eq");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '4', j: 2 } ], css_id: 'tinytable_css_rwfbdj38yxjm164iwg8f',}, 
-          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_88ke1ym75a36upajgo8j',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '3', j: 2 } ], css_id: 'tinytable_css_20y571krpvrwfq70kygn',}, 
-          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_wiunorqc0jqr7dnj1lj9',}, 
-          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_fiy7h41gc7kz13xgy0qh',}, 
-          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_78xr2a8jarkxpe75nhb9',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '3', j: 1 } ], css_id: 'tinytable_css_9wpoue2xphpqxbxl3p42',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_noggw2jr6gn5mu2eqv79',}, 
+          { positions: [ { i: '4', j: 2 } ], css_id: 'tinytable_css_v7u81ecpqq30o5ybgodh',}, 
+          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_zwv7egmsixeinw6u6pm0',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '3', j: 2 } ], css_id: 'tinytable_css_zt14tozz2mqvd2zpjz58',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_hvqp4r523k5f6lr8k9cz',}, 
+          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_uif9ccwrmtqzk6stevwm',}, 
+          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_gbppi569rfii6r9227jn',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '3', j: 1 } ], css_id: 'tinytable_css_xsk1eg34dccor2p5rk3u',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_16mh5hybjj0bf9v95ux2',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_e3ith5iosbtkiifw76tx.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_o3dzhbh0jbnvftb928eq.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -2082,17 +2095,17 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_e3ith5iosbtkiifw76tx td.tinytable_css_rwfbdj38yxjm164iwg8f, #tinytable_e3ith5iosbtkiifw76tx th.tinytable_css_rwfbdj38yxjm164iwg8f {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_e3ith5iosbtkiifw76tx td.tinytable_css_88ke1ym75a36upajgo8j, #tinytable_e3ith5iosbtkiifw76tx th.tinytable_css_88ke1ym75a36upajgo8j {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_e3ith5iosbtkiifw76tx td.tinytable_css_20y571krpvrwfq70kygn, #tinytable_e3ith5iosbtkiifw76tx th.tinytable_css_20y571krpvrwfq70kygn { text-align: center }
-    #tinytable_e3ith5iosbtkiifw76tx td.tinytable_css_wiunorqc0jqr7dnj1lj9, #tinytable_e3ith5iosbtkiifw76tx th.tinytable_css_wiunorqc0jqr7dnj1lj9 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_e3ith5iosbtkiifw76tx td.tinytable_css_fiy7h41gc7kz13xgy0qh, #tinytable_e3ith5iosbtkiifw76tx th.tinytable_css_fiy7h41gc7kz13xgy0qh {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_e3ith5iosbtkiifw76tx td.tinytable_css_78xr2a8jarkxpe75nhb9, #tinytable_e3ith5iosbtkiifw76tx th.tinytable_css_78xr2a8jarkxpe75nhb9 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_e3ith5iosbtkiifw76tx td.tinytable_css_9wpoue2xphpqxbxl3p42, #tinytable_e3ith5iosbtkiifw76tx th.tinytable_css_9wpoue2xphpqxbxl3p42 { text-align: left }
-    #tinytable_e3ith5iosbtkiifw76tx td.tinytable_css_noggw2jr6gn5mu2eqv79, #tinytable_e3ith5iosbtkiifw76tx th.tinytable_css_noggw2jr6gn5mu2eqv79 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_o3dzhbh0jbnvftb928eq td.tinytable_css_v7u81ecpqq30o5ybgodh, #tinytable_o3dzhbh0jbnvftb928eq th.tinytable_css_v7u81ecpqq30o5ybgodh {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_o3dzhbh0jbnvftb928eq td.tinytable_css_zwv7egmsixeinw6u6pm0, #tinytable_o3dzhbh0jbnvftb928eq th.tinytable_css_zwv7egmsixeinw6u6pm0 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_o3dzhbh0jbnvftb928eq td.tinytable_css_zt14tozz2mqvd2zpjz58, #tinytable_o3dzhbh0jbnvftb928eq th.tinytable_css_zt14tozz2mqvd2zpjz58 { text-align: center }
+    #tinytable_o3dzhbh0jbnvftb928eq td.tinytable_css_hvqp4r523k5f6lr8k9cz, #tinytable_o3dzhbh0jbnvftb928eq th.tinytable_css_hvqp4r523k5f6lr8k9cz {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_o3dzhbh0jbnvftb928eq td.tinytable_css_uif9ccwrmtqzk6stevwm, #tinytable_o3dzhbh0jbnvftb928eq th.tinytable_css_uif9ccwrmtqzk6stevwm {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_o3dzhbh0jbnvftb928eq td.tinytable_css_gbppi569rfii6r9227jn, #tinytable_o3dzhbh0jbnvftb928eq th.tinytable_css_gbppi569rfii6r9227jn {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_o3dzhbh0jbnvftb928eq td.tinytable_css_xsk1eg34dccor2p5rk3u, #tinytable_o3dzhbh0jbnvftb928eq th.tinytable_css_xsk1eg34dccor2p5rk3u { text-align: left }
+    #tinytable_o3dzhbh0jbnvftb928eq td.tinytable_css_16mh5hybjj0bf9v95ux2, #tinytable_o3dzhbh0jbnvftb928eq th.tinytable_css_16mh5hybjj0bf9v95ux2 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_e3ith5iosbtkiifw76tx" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_o3dzhbh0jbnvftb928eq" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -2129,6 +2142,9 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 </section>
 <section id="c6-meap93" class="level2" data-number="2.6">
 <h2 data-number="2.6" class="anchored" data-anchor-id="c6-meap93"><span class="header-section-number">2.6</span> C6 [MEAP93]</h2>
+<blockquote class="blockquote">
+<p>We used the data in MEAP93 for Example 2.12. In this exercise, we want to explore the relationship between the math pass rate (<code>math10</code>) and spending per student (<code>expend</code>).</p>
+</blockquote>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>c6 <span class="ot">&lt;-</span> meap93</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(meap93))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -2295,26 +2311,28 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 </div>
 <blockquote class="blockquote">
 <ol type="i">
-<li></li>
+<li>Do you think each additional dollar spent has the same effect on the pass rate, or does a diminishing effect seem more appropriate? Explain.</li>
 </ol>
 </blockquote>
 <p><strong>Interpretation:</strong></p>
 <p>I believe dollar has a diminishing effect on passing rate. Most students with limited source can pass, but scoring maximum mark takes very high resources. Also a constant effect may predict students can pass the maximum score.</p>
 <blockquote class="blockquote">
 <ol start="2" type="i">
-<li></li>
+<li>In the population model <span class="math display">\[math10 = \beta_0 + \beta_1 \log(expend) + u\]</span> argue that <span class="math inline">\(β_1 / 10\)</span> is approximately the percentage point change in <code>math10</code> given a 10% increase in <code>expend</code>.</li>
 </ol>
 </blockquote>
 <p><strong>Interpretation:</strong></p>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
 \Delta math10 &amp;= \beta_1 \cdot \Delta \log(expend) \\
 \Delta math10 &amp;\approx \beta_1 \cdot \left( \frac{\Delta expend}{expend} \right) \\
 \Delta math10 &amp;\approx \beta_1 \cdot (0.10) \\
 \Delta math10 &amp;\approx \frac{\beta_1}{10}
-\end{align}\]</span></p>
+\end{align}
+\]</span></p>
 <blockquote class="blockquote">
 <ol start="3" type="i">
-<li></li>
+<li>Use the data in MEAP93 to estimate the model from part (ii). Report the estimated equation in the usual way, including the sample size and R-squared.</li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -2337,25 +2355,25 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_muxop34a9dn0mssrns1w = TinyTable.createTableFunctions("tinytable_muxop34a9dn0mssrns1w");
+      const tableFns_5mdrw10h6ph6f714m2s5 = TinyTable.createTableFunctions("tinytable_5mdrw10h6ph6f714m2s5");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '4', j: 2 } ], css_id: 'tinytable_css_1mfftq1y2o6d99jyxr1p',}, 
-          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_911f61fbl0xcw1vir08r',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '3', j: 2 } ], css_id: 'tinytable_css_ltjvzz9z0oa7fct24gcs',}, 
-          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_hpgffuwoh5b4iqjdnbzd',}, 
-          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_qwf1ek1a2gx89ta79d3u',}, 
-          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_mt2skqzthdh2oz74bjqn',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '3', j: 1 } ], css_id: 'tinytable_css_hpdl0m5wbq321vmhgfa0',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_ew1hxzgalve89tc57yks',}, 
+          { positions: [ { i: '4', j: 2 } ], css_id: 'tinytable_css_ppsohljpcgrgq9tqp3mn',}, 
+          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_qk60dsru8xdu0ly9vqb8',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '3', j: 2 } ], css_id: 'tinytable_css_cxsprwmhnl47aaprm1j2',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_x07pq2cvpom9382nzi4g',}, 
+          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_nevp12ftuen5vbrfgr1b',}, 
+          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_ikamdfzomzesni9xo70g',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '3', j: 1 } ], css_id: 'tinytable_css_qhf0zdnmkkirhr6ajyn7',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_qnwj6fcur1c6l665v6ub',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_muxop34a9dn0mssrns1w.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_5mdrw10h6ph6f714m2s5.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -2364,17 +2382,17 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_muxop34a9dn0mssrns1w td.tinytable_css_1mfftq1y2o6d99jyxr1p, #tinytable_muxop34a9dn0mssrns1w th.tinytable_css_1mfftq1y2o6d99jyxr1p {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_muxop34a9dn0mssrns1w td.tinytable_css_911f61fbl0xcw1vir08r, #tinytable_muxop34a9dn0mssrns1w th.tinytable_css_911f61fbl0xcw1vir08r {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_muxop34a9dn0mssrns1w td.tinytable_css_ltjvzz9z0oa7fct24gcs, #tinytable_muxop34a9dn0mssrns1w th.tinytable_css_ltjvzz9z0oa7fct24gcs { text-align: center }
-    #tinytable_muxop34a9dn0mssrns1w td.tinytable_css_hpgffuwoh5b4iqjdnbzd, #tinytable_muxop34a9dn0mssrns1w th.tinytable_css_hpgffuwoh5b4iqjdnbzd {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_muxop34a9dn0mssrns1w td.tinytable_css_qwf1ek1a2gx89ta79d3u, #tinytable_muxop34a9dn0mssrns1w th.tinytable_css_qwf1ek1a2gx89ta79d3u {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_muxop34a9dn0mssrns1w td.tinytable_css_mt2skqzthdh2oz74bjqn, #tinytable_muxop34a9dn0mssrns1w th.tinytable_css_mt2skqzthdh2oz74bjqn {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_muxop34a9dn0mssrns1w td.tinytable_css_hpdl0m5wbq321vmhgfa0, #tinytable_muxop34a9dn0mssrns1w th.tinytable_css_hpdl0m5wbq321vmhgfa0 { text-align: left }
-    #tinytable_muxop34a9dn0mssrns1w td.tinytable_css_ew1hxzgalve89tc57yks, #tinytable_muxop34a9dn0mssrns1w th.tinytable_css_ew1hxzgalve89tc57yks {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_5mdrw10h6ph6f714m2s5 td.tinytable_css_ppsohljpcgrgq9tqp3mn, #tinytable_5mdrw10h6ph6f714m2s5 th.tinytable_css_ppsohljpcgrgq9tqp3mn {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_5mdrw10h6ph6f714m2s5 td.tinytable_css_qk60dsru8xdu0ly9vqb8, #tinytable_5mdrw10h6ph6f714m2s5 th.tinytable_css_qk60dsru8xdu0ly9vqb8 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_5mdrw10h6ph6f714m2s5 td.tinytable_css_cxsprwmhnl47aaprm1j2, #tinytable_5mdrw10h6ph6f714m2s5 th.tinytable_css_cxsprwmhnl47aaprm1j2 { text-align: center }
+    #tinytable_5mdrw10h6ph6f714m2s5 td.tinytable_css_x07pq2cvpom9382nzi4g, #tinytable_5mdrw10h6ph6f714m2s5 th.tinytable_css_x07pq2cvpom9382nzi4g {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_5mdrw10h6ph6f714m2s5 td.tinytable_css_nevp12ftuen5vbrfgr1b, #tinytable_5mdrw10h6ph6f714m2s5 th.tinytable_css_nevp12ftuen5vbrfgr1b {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_5mdrw10h6ph6f714m2s5 td.tinytable_css_ikamdfzomzesni9xo70g, #tinytable_5mdrw10h6ph6f714m2s5 th.tinytable_css_ikamdfzomzesni9xo70g {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_5mdrw10h6ph6f714m2s5 td.tinytable_css_qhf0zdnmkkirhr6ajyn7, #tinytable_5mdrw10h6ph6f714m2s5 th.tinytable_css_qhf0zdnmkkirhr6ajyn7 { text-align: left }
+    #tinytable_5mdrw10h6ph6f714m2s5 td.tinytable_css_qnwj6fcur1c6l665v6ub, #tinytable_5mdrw10h6ph6f714m2s5 th.tinytable_css_qnwj6fcur1c6l665v6ub {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_muxop34a9dn0mssrns1w" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_5mdrw10h6ph6f714m2s5" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -2408,14 +2426,14 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 </div>
 <blockquote class="blockquote">
 <ol start="4" type="i">
-<li></li>
+<li>How big is the estimated spending effect? Namely, if spending increases by 10%, what is the estimated percentage point increase in <code>math10</code>?</li>
 </ol>
 </blockquote>
 <p><strong>Interpretation:</strong></p>
 <p>Estimated effect for spending effect is <strong>11.16</strong>. If spending increases by 10%, math pass rate increase by <strong>1.116</strong> percentage points.</p>
 <blockquote class="blockquote">
 <ol start="22" type="a">
-<li></li>
+<li>One might worry that regression analysis can produce fitted values for <code>math10</code> that are greater than 100. Why is this not much of a worry in this data set?</li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -2439,6 +2457,9 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 </section>
 <section id="c7-charity" class="level2" data-number="2.7">
 <h2 data-number="2.7" class="anchored" data-anchor-id="c7-charity"><span class="header-section-number">2.7</span> C7 [CHARITY]</h2>
+<blockquote class="blockquote">
+<p>Use the data in CHARITY [obtained from Franses and Paap (2001)] to answer the following questions:</p>
+</blockquote>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>c7 <span class="ot">&lt;-</span> charity</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(c7))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -2533,7 +2554,7 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 </div>
 <blockquote class="blockquote">
 <ol type="i">
-<li></li>
+<li>What is the average gift in the sample of 4,268 people (in Dutch guilders)? What percentage of people gave no gift?</li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -2549,10 +2570,10 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 </div>
 </div>
 <p><strong>Interpretation:</strong></p>
-<p>Average gift in the sample is <strong>7.44</strong> with <strong>60%</strong> of the sample having no gifts.</p>
+<p>Average gift in the sample is 7.44 with <strong>60%</strong> of the sample having no gifts.</p>
 <blockquote class="blockquote">
 <ol start="2" type="i">
-<li></li>
+<li>What is the average mailings per year? What are the minimum and maximum values?</li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -2569,10 +2590,10 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 </div>
 </div>
 <p><strong>Interpretation:</strong></p>
-<p>Minimum number of mailings per year is <strong>0.25</strong>. The average is <strong>2.05</strong> and maximum is <strong>3.05</strong></p>
+<p>Minimum number of mailings per year is 0.25. The average is <strong>2.05</strong> and maximum is <strong>3.05</strong>.</p>
 <blockquote class="blockquote">
 <ol start="3" type="i">
-<li></li>
+<li>Estimate the model <span class="math display">\[gift = \beta_0 + \beta_1 mailsyear + u\]</span> by OLS and report the results in the usual way, including the sample size and R-squared.</li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -2595,25 +2616,25 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_3wdyp3qtmp916lf29rae = TinyTable.createTableFunctions("tinytable_3wdyp3qtmp916lf29rae");
+      const tableFns_igj27y0j16eelmfc2j95 = TinyTable.createTableFunctions("tinytable_igj27y0j16eelmfc2j95");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '4', j: 2 } ], css_id: 'tinytable_css_5bsyr0e7huk0smee2rcn',}, 
-          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_1fcjlar3t0obx38atjt1',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '3', j: 2 } ], css_id: 'tinytable_css_puvyyif3fbyuedi70lq1',}, 
-          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_x4pbc1kxwuh7u6i8jo2j',}, 
-          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_zkg33so549fq6zj54g5f',}, 
-          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_77g9tla1ispg4i022x3q',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '3', j: 1 } ], css_id: 'tinytable_css_j1zzcfx8stvk41vusfrx',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_mg82v6ukueenicvsbp0z',}, 
+          { positions: [ { i: '4', j: 2 } ], css_id: 'tinytable_css_x81rzhl2b102knlpp7i2',}, 
+          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_ybhjg2m3d9jwyyoo3cej',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '3', j: 2 } ], css_id: 'tinytable_css_v90zvl38tunnhxur1z00',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_37mq9a3ev1l7d6nbh4ko',}, 
+          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_d7ifvnrefvn7s45syezh',}, 
+          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_cuffvv8gmgx9t2wcsctq',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '3', j: 1 } ], css_id: 'tinytable_css_o0abpvgplzbiqidp84jr',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_1ecxin9j5sxxkkus66hn',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_3wdyp3qtmp916lf29rae.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_igj27y0j16eelmfc2j95.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -2622,17 +2643,17 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_3wdyp3qtmp916lf29rae td.tinytable_css_5bsyr0e7huk0smee2rcn, #tinytable_3wdyp3qtmp916lf29rae th.tinytable_css_5bsyr0e7huk0smee2rcn {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_3wdyp3qtmp916lf29rae td.tinytable_css_1fcjlar3t0obx38atjt1, #tinytable_3wdyp3qtmp916lf29rae th.tinytable_css_1fcjlar3t0obx38atjt1 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_3wdyp3qtmp916lf29rae td.tinytable_css_puvyyif3fbyuedi70lq1, #tinytable_3wdyp3qtmp916lf29rae th.tinytable_css_puvyyif3fbyuedi70lq1 { text-align: center }
-    #tinytable_3wdyp3qtmp916lf29rae td.tinytable_css_x4pbc1kxwuh7u6i8jo2j, #tinytable_3wdyp3qtmp916lf29rae th.tinytable_css_x4pbc1kxwuh7u6i8jo2j {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_3wdyp3qtmp916lf29rae td.tinytable_css_zkg33so549fq6zj54g5f, #tinytable_3wdyp3qtmp916lf29rae th.tinytable_css_zkg33so549fq6zj54g5f {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_3wdyp3qtmp916lf29rae td.tinytable_css_77g9tla1ispg4i022x3q, #tinytable_3wdyp3qtmp916lf29rae th.tinytable_css_77g9tla1ispg4i022x3q {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_3wdyp3qtmp916lf29rae td.tinytable_css_j1zzcfx8stvk41vusfrx, #tinytable_3wdyp3qtmp916lf29rae th.tinytable_css_j1zzcfx8stvk41vusfrx { text-align: left }
-    #tinytable_3wdyp3qtmp916lf29rae td.tinytable_css_mg82v6ukueenicvsbp0z, #tinytable_3wdyp3qtmp916lf29rae th.tinytable_css_mg82v6ukueenicvsbp0z {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_igj27y0j16eelmfc2j95 td.tinytable_css_x81rzhl2b102knlpp7i2, #tinytable_igj27y0j16eelmfc2j95 th.tinytable_css_x81rzhl2b102knlpp7i2 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_igj27y0j16eelmfc2j95 td.tinytable_css_ybhjg2m3d9jwyyoo3cej, #tinytable_igj27y0j16eelmfc2j95 th.tinytable_css_ybhjg2m3d9jwyyoo3cej {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_igj27y0j16eelmfc2j95 td.tinytable_css_v90zvl38tunnhxur1z00, #tinytable_igj27y0j16eelmfc2j95 th.tinytable_css_v90zvl38tunnhxur1z00 { text-align: center }
+    #tinytable_igj27y0j16eelmfc2j95 td.tinytable_css_37mq9a3ev1l7d6nbh4ko, #tinytable_igj27y0j16eelmfc2j95 th.tinytable_css_37mq9a3ev1l7d6nbh4ko {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_igj27y0j16eelmfc2j95 td.tinytable_css_d7ifvnrefvn7s45syezh, #tinytable_igj27y0j16eelmfc2j95 th.tinytable_css_d7ifvnrefvn7s45syezh {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_igj27y0j16eelmfc2j95 td.tinytable_css_cuffvv8gmgx9t2wcsctq, #tinytable_igj27y0j16eelmfc2j95 th.tinytable_css_cuffvv8gmgx9t2wcsctq {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_igj27y0j16eelmfc2j95 td.tinytable_css_o0abpvgplzbiqidp84jr, #tinytable_igj27y0j16eelmfc2j95 th.tinytable_css_o0abpvgplzbiqidp84jr { text-align: left }
+    #tinytable_igj27y0j16eelmfc2j95 td.tinytable_css_1ecxin9j5sxxkkus66hn, #tinytable_igj27y0j16eelmfc2j95 th.tinytable_css_1ecxin9j5sxxkkus66hn {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_3wdyp3qtmp916lf29rae" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_igj27y0j16eelmfc2j95" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -2666,13 +2687,14 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 </div>
 <blockquote class="blockquote">
 <ol start="4" type="i">
-<li></li>
+<li>Interpret the slope coefficient. If each mailing costs one guilder, is the charity expected to make a net gain on each mailing? Does this mean the charity makes a net gain on every mailing? Explain.</li>
 </ol>
 </blockquote>
-<p><strong>Interpretation:</strong> For each extra mailing per year, gift is predicted to increase by <strong>2.65</strong>. If each mailing costs 1 guilder, net gain on each mail is <strong>2.65 - 1 = 1.65</strong>. This does not mean that charity makes a net gain on every mailing, it means that, on average, net gain will be 1.65.</p>
+<p><strong>Interpretation:</strong></p>
+<p>For each extra mailing per year, gift is predicted to increase by <strong>2.65</strong>. If each mailing costs 1 guilder, net gain on each mail is <strong>2.65 - 1 = 1.65</strong>. This does not mean that charity makes a net gain on every mailing, it means that, on average, net gain will be 1.65.</p>
 <blockquote class="blockquote">
 <ol start="22" type="a">
-<li></li>
+<li>What is the smallest predicted charitable contribution in the sample? Using this simple regression analysis, can you ever predict zero for <code>gift</code>?</li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -2690,13 +2712,13 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 </div>
 </div>
 <p><strong>Interpretation:</strong></p>
-<p>Minimum predicted gift is <strong>2.68</strong> coming from the observation with 0.25 mailings per year (<span class="math inline">\(2.01 + 2.65(0.25) = 2.68\)</span>). Predicting a zero is impossible with this model because <span class="math inline">\(\hat \beta_0\)</span> and <span class="math inline">\(\hat \beta_1\)</span> are both greater than zero; least possible value is <span class="math inline">\(\hat \beta_0 = 2.01\)</span></p>
+<p>Minimum predicted gift is <strong>2.68</strong> coming from the observation with 0.25 mailings per year (<span class="math inline">\(2.01 + 2.65(0.25) = 2.68\)</span>). Predicting a zero is impossible with this model because <span class="math inline">\(\hat \beta_0\)</span> and <span class="math inline">\(\hat \beta_1\)</span> are both greater than zero; least possible value is<span class="math inline">\(\hat \beta_0 = 2.01\)</span>.</p>
 </section>
 <section id="c8-simulation" class="level2" data-number="2.8">
 <h2 data-number="2.8" class="anchored" data-anchor-id="c8-simulation"><span class="header-section-number">2.8</span> C8 [Simulation]</h2>
 <blockquote class="blockquote">
 <ol type="i">
-<li></li>
+<li>Start by generating 500 observations on <span class="math inline">\(x_i\)</span>—the explanatory variable—from the uniform distribution with range [0,10]. (Most statistical packages have a command for the Uniform(0,1) distribution; just multiply those observations by 10.) What are the sample mean and sample standard deviation of the <span class="math inline">\(x_i\)</span>?</li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -2713,7 +2735,7 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 <p>The sample mean of <span class="math inline">\(x_i\)</span> is 4.9 and the sample standard deviation is 2.89. These values are close to, but not exactly equal to, the theoretical population mean (<span class="math inline">\(E[x] = 5\)</span>) and population standard deviation (<span class="math inline">\(\sigma_x \approx 2.93\)</span>) of a Uniform(0,10) distribution due to finite sampling variance.</p>
 <blockquote class="blockquote">
 <ol start="2" type="i">
-<li></li>
+<li>Randomly generate 500 errors, <span class="math inline">\(u_i\)</span>, from the Normal(0,36) distribution. (If you generate a Normal(0,1), as is commonly available, simply multiply the outcomes by six.) Is the sample average of the <span class="math inline">\(u_i\)</span> exactly zero? Why or why not? What is the sample standard deviation of the <span class="math inline">\(u_i\)</span>?</li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -2730,7 +2752,7 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 <p>The sample average of <span class="math inline">\(u_i\)</span> is -0.18, which is not exactly zero. While the population expectation is exactly zero (<span class="math inline">\(E[u] = 0\)</span>), a finite sample of 500 random draws will inherently contain sampling error, preventing the sample mean from perfectly matching the population mean. The sample standard deviation is 5.83, which closely approximates the population standard deviation of 6.</p>
 <blockquote class="blockquote">
 <ol start="3" type="i">
-<li></li>
+<li>Now generate <span class="math inline">\(y_i\)</span> as <span class="math display">\[y_i = 1+2x_i + u_i \equiv \beta_0 + \beta_1 + u_i\]</span> that is, the population intercept is one and the population slope is two. Use the data to run the regression of <span class="math inline">\(y_i\)</span> on <span class="math inline">\(x_i\)</span>. What are your estimates of the intercept and slope? Are they equal to the population values in the above equation? Explain.</li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -2811,11 +2833,11 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 <!-- hack to avoid NA insertion in last line -->
 </div>
 </div>
-<p><strong>Interpretation</strong></p>
-<p><span class="math inline">\(\hat{\beta}_0\)</span> is estimated to be 0.901 and <span class="math inline">\(\hat{\beta}_1\)</span> is estimated to be 1.983. They differ from the true population parameters (<span class="math inline">\(\beta_0 = 1, \beta_1 = 2\)</span>) due to sampling error. The intercept deviates because the sample mean of the errors (<span class="math inline">\(\bar{u}\)</span>) is not exactly zero. More importantly, the slope deviates because the sample covariance between <span class="math inline">\(x_i\)</span> and <span class="math inline">\(u_i\)</span> is not exactly zero.</p>
+<p><strong>Interpretation:</strong></p>
+<p><span class="math inline">\(\hat \beta_0\)</span>is estimated to be 0.901 and <span class="math inline">\(\hat \beta_1\)</span> is estimated to be 1.983. They differ from the true population parameters (<span class="math inline">\(\beta_0 = 1, \beta_1 = 2\)</span>) due to sampling error. The intercept deviates because the sample mean of the errors (<span class="math inline">\(\bar u\)</span>) is not exactly zero. More importantly, the slope deviates because the sample covariance between <span class="math inline">\(x_i\)</span> and <span class="math inline">\(u_i\)</span> is not exactly zero.</p>
 <blockquote class="blockquote">
 <ol start="4" type="i">
-<li></li>
+<li>Obtain the OLS residuals, <span class="math inline">\(u_i\)</span>, and verify that equation (2.60) holds (subject to rounding error).</li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -2833,11 +2855,11 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 1         0           0</code></pre>
 </div>
 </div>
-<p><strong>Interpretation</strong></p>
+<p><strong>Interpretation:</strong></p>
 <p>The sum of the residuals (<span class="math inline">\(\sum \hat{u}_i\)</span>) and the sum of the product of the regressors and residuals (<span class="math inline">\(\sum x_i \hat{u}_i\)</span>) are both effectively zero. This confirms that the algebraic properties of OLS hold perfectly in the sample.</p>
 <blockquote class="blockquote">
 <ol start="22" type="a">
-<li></li>
+<li>Compute the same quantities in equation (2.60) but use the errors <span class="math inline">\(u_i\)</span> in place of the residuals. Now what do you conclude?</li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -2856,10 +2878,10 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 </div>
 </div>
 <p><strong>Interpretation:</strong></p>
-<p>When using the unobserved population errors (<span class="math inline">\(u_i\)</span>) instead of the OLS residuals (<span class="math inline">\(\hat{u}_i\)</span>), the sums are far from zero (<span class="math inline">\(\sum u_i = -90.14\)</span> and <span class="math inline">\(\sum x_i u_i = -512.34\)</span>). This highlights the fundamental mechanical difference between errors and residuals: OLS residuals are mathematically forced by the regression algorithm to sum to zero and be uncorrelated with <span class="math inline">\(x\)</span>, whereas population errors are unobserved random variables that will not perfectly satisfy these orthogonal conditions in a finite sample.</p>
+<p>When using the unobserved population errors (<span class="math inline">\(u_i\)</span>) instead of the OLS residuals (<span class="math inline">\(\hat u_i\)</span>), the sums are far from zero (<span class="math inline">\(\sum u_i = -90.14\)</span> and <span class="math inline">\(\sum x_i u_i = -512.34\)</span>). This highlights the fundamental mechanical difference between errors and residuals: OLS residuals are mathematically forced by the regression algorithm to sum to zero and be uncorrelated with , whereas population errors are unobserved random variables that will not perfectly satisfy these orthogonal conditions in a finite sample.</p>
 <blockquote class="blockquote">
 <ol start="6" type="i">
-<li></li>
+<li>Repeat parts (i), (ii), and (iii) with a new sample of data, starting with generating the <span class="math inline">\(x_i\)</span>.Now what do you obtain for <span class="math inline">\(\hat \beta_0, \hat \beta_1\)</span>? Why are these different from what you obtained in part (iii)?</li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -2945,34 +2967,30 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 </div>
 </div>
 <p><strong>Interpretation:</strong></p>
-<p>With a new random sample, the estimates change to <span class="math inline">\(\hat{\beta}_0 = 1.022\)</span> and <span class="math inline">\(\hat{\beta}_1 = 2.040\)</span>. These differ from the estimates in part (iii) because every new sample draws a unique set of <span class="math inline">\(x_i\)</span> and <span class="math inline">\(u_i\)</span> values. Consequently, the new sample mean of <span class="math inline">\(u_i\)</span> and the new sample covariance between <span class="math inline">\(x_i\)</span> and <span class="math inline">\(u_i\)</span> have changed. The OLS estimator processes this new random sample variation, resulting in different deviations from the true population parameters.</p>
+<p>With a new random sample, the estimates change to <span class="math inline">\(\hat{\beta}_0 = 1.022\)</span> and <span class="math inline">\(\hat{\beta}_1 = 2.040\)</span>. These differ from the estimates in part (iii) because every new sample draws a unique set of <span class="math inline">\(x_i\)</span> and <span class="math inline">\(u_i\)</span> values. Consequently, the new sample mean of and the new sample covariance between and have changed. The OLS estimator processes this new random sample variation, resulting in different deviations from the true population parameters.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Caution
+<span class="screen-reader-only">Caution</span>When estimate equals parameter
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Formula for the slope <span class="math inline">\(\hat \beta_1\)</span>:</p>
-<p><span class="math display">\[
-\hat \beta_1 = \beta_1 + \dfrac{Cov(x,u)}{Var(x)}
-\]</span></p>
-<p>To be equal to the parameter, covariance must be = zero</p>
+<p>Formula for the slope <span class="math inline">\(\hat \beta_1\)</span>: <span class="math display">\[\hat \beta_1 = \beta_1 + \dfrac{Cov(x,u)}{Var(x)}\]</span> To be equal to the parameter, covariance must be = zero</p>
 <p>Formula for <span class="math inline">\(\hat \beta_0\)</span>:</p>
-<p><span class="math display">\[
-\hat \beta_0 = \beta_0 + (\beta_1 - \hat \beta_1) \bar x + \bar u
-\]</span></p>
-<p>To be equal to the parameter, average of error term must be exactly zero, and <span class="math inline">\(\hat \beta_1 = \beta_1\)</span></p>
+<p><span class="math display">\[\hat \beta_0 = \beta_0 + (\beta_1 - \hat \beta_1) \bar x + \bar u\]</span> To be equal to the parameter, average of error term must be exactly zero, and <span class="math inline">\(\hat \beta_1 = \beta_1\)</span></p>
 </div>
 </div>
 </section>
 <section id="c9-countymurders" class="level2" data-number="2.9">
 <h2 data-number="2.9" class="anchored" data-anchor-id="c9-countymurders"><span class="header-section-number">2.9</span> C9 [COUNTYMURDERS]</h2>
+<blockquote class="blockquote">
+<p>Use the data in COUNTYMURDERS to answer these questions. Use only the data for 1996.</p>
+</blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>c9 <span class="ot">&lt;-</span> countymurders <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>c9 <span class="ot">&lt;-</span> countymurders<span class="sc">|&gt;</span></span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1996</span>)</span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(c9))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -3163,7 +3181,7 @@ Caution
 </div>
 <blockquote class="blockquote">
 <ol type="i">
-<li></li>
+<li>How many counties had zero murders in 1996? How many counties had at least one execution? What is the largest number of executions?</li>
 </ol>
 </blockquote>
 </section>
