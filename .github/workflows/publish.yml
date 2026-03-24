@@ -22,7 +22,7 @@ jobs:
         run: |
           install.packages(c('tidyverse', 'wooldridge', 'rmarkdown',
           'knitr', 'modelsummary', 'car', 'ggcorrplot', 'janitor',
-          'gt', 'gtExtras'))
+          'gt', 'gtExtras', 'broom'))
         shell: Rscript {0}
 
       - name: Set up Quarto
