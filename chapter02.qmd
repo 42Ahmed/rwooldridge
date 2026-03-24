@@ -659,7 +659,7 @@ $
 > Use the data in COUNTYMURDERS to answer these questions. Use only the data for 1996.
 
 ```{r}
-c9 <- countymurders|>
+c9 <- countymurders |>
   filter(year == 1996)
 
 kable(head(c9))
@@ -667,6 +667,65 @@ kable(head(c9))
 
 > (i) How many counties had zero murders in 1996? How many counties had at least one execution? What is the largest number of executions?
 
+```{r}
+#| label: c9_i
+
+c9 |>
+  summarise(
+    Zero_murders = sum(murders == 0),
+    Execution = sum(execs > 0)
+  )
+```
+
+**Interpretation:**
+
+In 1996, **1051** counties had zero murders. **31** counties had executions.
+
+> (ii) Estimate the equation $$murders = \beta_0 + \beta_1 execs + u$$ by OLS and report the results in the usual way, including sample size and R-squared.
+
+```{r}
+#| label: c9_ii
+
+c9m <- lm(murders ~ execs, data = c9)
+
+modelsummary(
+  c9m,
+  fmt = 2,
+  statistic = NULL,
+  gof_map = c("nobs", "r.squared"),
+  coef_rename = c(
+    "(Intercept)" = "Constant",
+    "execs" = "Execution"
+  )
+)
+```
+
+> (iii) Interpret the slope coefficient reported in part (ii). Does the estimated equation suggest a deterrent effect of capital punishment?
+
+For every one additional execution in a county, the model predicts an increase of approximately **59** murders. No, slope should be negative to have a deterrent effect.
+
+> (iv) What is the smallest number of murders that can be predicted by the equation? What is the residual for a county with zero executions and zero murders?
+
+```{r}
+#| label: c9_iv
+
+df <- data.frame(execs = 0)
+
+min_pred <- round(predict(c9m, newdata = df), 2)
+residual <- round(0 - min_pred, 2)
+
+cat(min_pred, residual)
+```
+
+**Interpretation:**
+
+Minimum murders prediction possible from the model is $\beta_0 = 5.46$. If county has zero murders and zero executions, the residual is $\hat u = 0 - 5.46 = -5.46$.
+
+> (v) Explain why a simple regression analysis is not well suited for determining whether capital punishment has a deterrent effect on murders.
+
+**Interpretation:**
+
+To capture causal effect, zero conditional mean assumption must be satisfied. Execution is likely to be correlated with other omitted variables in the error term like police strength. We can also have reverse causal effectin which number of murders causes the number of executions.
 
 ## C10 \[CATHOLIC\]
 
