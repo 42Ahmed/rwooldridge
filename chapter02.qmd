@@ -214,7 +214,7 @@ cat("Estimated change in sleep:", round(sleep_fall, 2), "minutes")
 ```
 
 | Model | Regression Equation | Interpretation of $\hat \beta_1$ | Name |
-|------------------|------------------|--------------------|------------------|
+|------------------|------------------|-------------------|------------------|
 | Level-Level | $y = \hat \beta_0 + \hat \beta_1 x$ | $\Delta \hat y = \hat \beta \Delta x$ | Marginal Effect |
 | Log-Level | $\log(y) = \hat \beta_0 + \hat \beta_1 x$ | $\% \Delta \hat y \approx (100\hat \beta_1) \Delta x$ | Semi-elasticity |
 | Level-Log | $y = \hat \beta_0 + \hat \beta_1 \log(x)$ | $\Delta \hat y \approx (\hat \beta_1)/100 \% \Delta x$ | \- |
@@ -366,7 +366,7 @@ c6 <- meap93
 kable(head(meap93))
 ```
 
-> (i)  Do you think each additional dollar spent has the same effect on the pass rate, or does a diminishing effect seem more appropriate? Explain.
+> (i) Do you think each additional dollar spent has the same effect on the pass rate, or does a diminishing effect seem more appropriate? Explain.
 
 **Interpretation:**
 
@@ -410,7 +410,7 @@ modelsummary(
 
 Estimated effect for spending effect is **11.16**. If spending increases by 10%, math pass rate increase by **1.116** percentage points.
 
-> (v)  One might worry that regression analysis can produce fitted values for `math10` that are greater than 100. Why is this not much of a worry in this data set?
+> (v) One might worry that regression analysis can produce fitted values for `math10` that are greater than 100. Why is this not much of a worry in this data set?
 
 ```{r}
 #| label: c6_v
@@ -430,7 +430,7 @@ We don’t have to worry about passing maximum rate because predicted rates are 
 
 ## C7 \[CHARITY\]
 
-> Use the data in CHARITY [obtained from Franses and Paap (2001)] to answer the following questions:
+> Use the data in CHARITY \[obtained from Franses and Paap (2001)\] to answer the following questions:
 
 ```{r}
 #| label: c7_data
@@ -456,7 +456,7 @@ c7 |>
 
 Average gift in the sample is 7.44 with **60%** of the sample having no gifts.
 
-> (ii)  What is the average mailings per year? What are the minimum and maximum values?
+> (ii) What is the average mailings per year? What are the minimum and maximum values?
 
 ```{r}
 #| label: c7_ii
@@ -493,14 +493,13 @@ modelsummary(
 )
 ```
 
-> (iv)  Interpret the slope coefficient. If each mailing costs one guilder, is the charity expected to make a net gain on each mailing? Does this mean the charity makes a net gain on every
-mailing? Explain.
+> (iv) Interpret the slope coefficient. If each mailing costs one guilder, is the charity expected to make a net gain on each mailing? Does this mean the charity makes a net gain on every mailing? Explain.
 
 **Interpretation:**
 
 For each extra mailing per year, gift is predicted to increase by **2.65**. If each mailing costs 1 guilder, net gain on each mail is **2.65 - 1 = 1.65**. This does not mean that charity makes a net gain on every mailing, it means that, on average, net gain will be 1.65.
 
-> (v)  What is the smallest predicted charitable contribution in the sample? Using this simple regression analysis, can you ever predict zero for `gift`?
+> (v) What is the smallest predicted charitable contribution in the sample? Using this simple regression analysis, can you ever predict zero for `gift`?
 
 ```{r}
 #| label: c7_v
@@ -520,8 +519,7 @@ Minimum predicted gift is **2.68** coming from the observation with 0.25 mailing
 
 ## C8 \[Simulation\]
 
-> (i) Start by generating 500 observations on $x_i$—the explanatory variable—from the uniform distribution with range [0,10]. (Most statistical packages have a command for the
-Uniform(0,1) distribution; just multiply those observations by 10.) What are the sample mean and sample standard deviation of the $x_i$?
+> (i) Start by generating 500 observations on $x_i$—the explanatory variable—from the uniform distribution with range \[0,10\]. (Most statistical packages have a command for the Uniform(0,1) distribution; just multiply those observations by 10.) What are the sample mean and sample standard deviation of the $x_i$?
 
 ```{r}
 #| label: c8_i
@@ -537,7 +535,7 @@ cat(round(mean(x_i), 2), round(sd(x_i), 2))
 
 The sample mean of $x_i$ is 4.9 and the sample standard deviation is 2.89. These values are close to, but not exactly equal to, the theoretical population mean ($E[x] = 5$) and population standard deviation ($\sigma_x \approx 2.93$) of a Uniform(0,10) distribution due to finite sampling variance.
 
-> (ii)  Randomly generate 500 errors, $u_i$, from the Normal(0,36) distribution. (If you generate a Normal(0,1), as is commonly available, simply multiply the outcomes by six.) Is the sample average of the $u_i$ exactly zero? Why or why not? What is the sample standard deviation of the $u_i$?
+> (ii) Randomly generate 500 errors, $u_i$, from the Normal(0,36) distribution. (If you generate a Normal(0,1), as is commonly available, simply multiply the outcomes by six.) Is the sample average of the $u_i$ exactly zero? Why or why not? What is the sample standard deviation of the $u_i$?
 
 ```{r}
 #| label: c8_ii
@@ -613,7 +611,7 @@ c8m |>
 
 When using the unobserved population errors ($u_i$) instead of the OLS residuals ($\hat u_i$), the sums are far from zero ($\sum u_i = -90.14$ and $\sum x_i u_i = -512.34$). This highlights the fundamental mechanical difference between errors and residuals: OLS residuals are mathematically forced by the regression algorithm to sum to zero and be uncorrelated with , whereas population errors are unobserved random variables that will not perfectly satisfy these orthogonal conditions in a finite sample.
 
-> (vi)  Repeat parts (i), (ii), and (iii) with a new sample of data, starting with generating the $x_i$.Now what do you obtain for $\hat \beta_0, \hat \beta_1$? Why are these different from what you obtained in part (iii)?
+> (vi) Repeat parts (i), (ii), and (iii) with a new sample of data, starting with generating the $x_i$.Now what do you obtain for $\hat \beta_0, \hat \beta_1$? Why are these different from what you obtained in part (iii)?
 
 ```{r}
 #| label: c7_vi
@@ -643,15 +641,12 @@ With a new random sample, the estimates change to $\hat{\beta}_0 = 1.022$ and $\
 
 ::: callout-caution
 ### When estimate equals parameter
-Formula for the slope $\hat \beta_1$:
-$$\hat \beta_1 = \beta_1 + \dfrac{Cov(x,u)}{Var(x)}$$
-To be equal to the parameter, covariance must be = zero
+
+Formula for the slope $\hat \beta_1$: $$\hat \beta_1 = \beta_1 + \dfrac{Cov(x,u)}{Var(x)}$$ To be equal to the parameter, covariance must be = zero
 
 Formula for $\hat \beta_0$:
 
-$$\hat \beta_0 = \beta_0 + (\beta_1 - \hat \beta_1) \bar x + \bar u$$
-To be equal to the parameter, average of error term must be exactly zero, and $\hat \beta_1 = \beta_1
-$
+$$\hat \beta_0 = \beta_0 + (\beta_1 - \hat \beta_1) \bar x + \bar u$$ To be equal to the parameter, average of error term must be exactly zero, and $\hat \beta_1 = \beta_1$
 :::
 
 ## C9 \[COUNTYMURDERS\]
@@ -725,9 +720,112 @@ Minimum murders prediction possible from the model is $\beta_0 = 5.46$. If count
 
 **Interpretation:**
 
-To capture causal effect, zero conditional mean assumption must be satisfied. Execution is likely to be correlated with other omitted variables in the error term like police strength. We can also have reverse causal effectin which number of murders causes the number of executions.
+To capture causal effect, zero conditional mean assumption must be satisfied. Execution is likely to be correlated with other omitted variables in the error term like police strength. We can also have reverse causal effect in which number of murders causes the number of executions.
 
 ## C10 \[CATHOLIC\]
+
+> The data set in CATHOLIC includes test score information on over 7,000 students in the United States who were in eighth grade in 1988. The variables `math12` and `read12` are scores on twelfth grade standardized math and reading tests, respectively.
+
+```{r}
+#| label: c10_data
+
+c10 <- catholic
+kable(head(c10))
+```
+
+> (i) How many students are in the sample? Find the means and standard deviations of `math12` and `read12`.
+
+```{r}
+#| label: c10_i
+
+c10 |>
+  summarise(
+    Count = n(),
+    Mean_Math = mean(math12),
+    Sd_Math = sd(math12),
+    Mean_Read = mean(read12),
+    Sd_Read = sd(read12)
+  ) |>
+  round(2)
+```
+
+**Interpretation:**
+
+There are 7430 students in the sample. Math score averaged 52.13 with standard deviation of 9.46. Reading score averaged 51.77 with standard deviation of 9.41.
+
+> (ii) Run the simple regression of `math12` on `read12` to obtain the OLS intercept and slope estimates. Report the results.
+
+```{r}
+#| label: c10_ii
+
+c10m <- lm(math12 ~ read12, data = c10)
+
+modelsummary(
+  c10m,
+  fmt = 2,
+  statistic = NULL,
+  gof_map = c("nobs", "r.squared"),
+  coef_rename = c(
+    "(Intercept)" = "Constant",
+    "read12" = "Reading Score"
+  )
+)
+```
+
+> (iii) Does the intercept reported in part (ii) have a meaningful interpretation? Explain.
+
+```{r}
+#| label: c10_iii
+
+ggplot(c10, aes(x = read12)) +
+  geom_histogram(bins = 30, fill = "steelblue", color = "white") +
+  theme_minimal()
+```
+
+**Interpretation:**
+
+The intercept of 15.15 represents predicted math score for a student with a zero reading score. The sample has no such students (extrapolation). Intercept is included to satisfy the first order conditions.
+
+> (iv) Are you surprised by the $\hat \beta_1$ that you found? What about $R^2$?
+
+**Interpretation:**
+
+Standardized tests for math and reading both measure general cognitive ability and test taking skills, so a high $\hat \beta_1$ is expected. $R^2$ is high for cross sectional observational data.
+
+> (v) Suppose that you present your findings to a superintendent of a school district, and the superintendent says, “Your findings show that to improve math scores we just need to improve reading scores, so we should hire more reading tutors.” How would you respond to this comment? (Hint: If you instead run the regression of read12 on math12, what would you expect to find?)
+
+```{r}
+#| label: c10_v
+
+c10m2 <- lm(read12 ~ math12, data = c10)
+
+modelsummary(
+  c10m2,
+  fmt = 2,
+  statistic = NULL,
+  gof_map = c("nobs", "r.squared"),
+  coef_rename = c(
+    "(Intercept)" = "Constant",
+    "math12" = "Math Score"
+  )
+)
+```
+
+**Interpretation:**
+
+Running regression in reverse resulted in almost identical $R^2, \hat \beta_1$. Both variables are correlated and move together. This may indicate presence of a confounding variable like school quality.
+
+::: callout-note
+### Correlation VS Causaliy.
+
+Remember that OLS slope can be written as
+
+$$
+\hat \beta_1 = \rho_{xy}\cdot \dfrac{\sigma_y}{\sigma_x}
+$$
+
+So it is measuring correlation at the end of the day, except if zero conditional mean assumption is really met.
+:::
 
 ## C11 \[GPA1\]
 
