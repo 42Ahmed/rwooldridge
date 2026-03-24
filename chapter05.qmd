@@ -23,7 +23,7 @@ df_wage1 <- wooldridge::wage1
 knitr::kable(head(df_wage1))
 ```
 
-> (i)
+> (i) Estimate the equation and plot the residuals $$wage = \beta_0 + \beta_1 educ + \beta_2 exper + \beta_3 tenure + u$$
 
 ```{r}
 #| label: c1_i
@@ -39,7 +39,7 @@ ggplot( data = model_wage1, aes(x = .resid)) +
 
 The residuals are highly right-skewed and clearly violate the assumption of normality.
 
-> (ii)
+> (ii) Use log wage as dependent variable
 
 ```{r}
 #| label: c1_ii
@@ -55,7 +55,7 @@ ggplot( data = model_lwage, aes(x = .resid)) +
 
 Residuals of the log wage model seem symmetric with few outliers.
 
-> (iii)
+> (iii) Would you say that Assumption MLR.6 is closer to being satisfied for the level-level model or the log-level model?
 
 ```{r}
 #| label: c1_iii
@@ -90,7 +90,7 @@ df_gpa2 <- wooldridge::gpa2
 knitr::kable(head(df_gpa2))
 ```
 
-> (i)
+> (i) Estimate the equation $$colgpa = \beta_0 + \beta_1 hsperc + \beta_2 sat +u$$
 
 ```{r}
 #| label: c2_i
@@ -113,7 +113,7 @@ modelsummary(
 )
 ```
 
-> (ii)
+> (ii) Reestimate the equation using first 2070 observations
 
 ```{r}
 df_gpa2_sub <- df_gpa2 |> 
@@ -138,7 +138,7 @@ modelsummary(
 )
 ```
 
-> (iii)
+> \(iii\) Find the ratio of the standard errors on hsperc from parts (i) and (ii)
 
 ```{r}
 #| label: c2_iii
@@ -165,7 +165,7 @@ df_bwght <- wooldridge::bwght
 knitr::kable(head(df_bwght))
 ```
 
-> (i)
+> compute the LM statistic for testing whether motheduc and fatheduc are jointly significant. $$\begin{align}bwght =& \beta_0 + \beta_1 cigs + \beta_2 parity + \beta_3 faminc \\&+ \beta_4 motheduc + \beta_5 fatheduc + u\end{align}$$
 
 **The Math Way:**
 

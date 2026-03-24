@@ -12,10 +12,11 @@ library(tidyverse)
 library(wooldridge)
 library(knitr)
 library(modelsummary)
-library(broom)
 ```
 
 ## C1 \[401K\]
+
+> The data in 401K are a subset of data analyzed by Papke (1995) to study the relationship between participation in a 401(k) pension plan and the generosity of the plan. The variable `prate` is the percentage of eligible workers with an active account; this is the variable we would like to explain. The measure of generosity is the plan match rate, `mrate`. This variable gives the average amount the firm contributes to each worker’s plan for each \$1 contribution by the worker. For example, if `mrate` = 0 50. , then a \$1 contribution by the worker is matched by a 50¢ contribution by the firm.
 
 ```{r}
 #| label: c1_data
@@ -24,7 +25,7 @@ c1 <- k401k
 kable(head(c1))
 ```
 
-> (i)
+> (i) Find the average participation rate and the average match rate in the sample of plans.
 
 ```{r}
 #| label: c1_i
@@ -41,7 +42,7 @@ c1 |>
 
 On average, **87.36%** of eligible employees participate in their company's 401(k) plan. Their company matches *\$0.73* for every dollar an employee contributes.
 
-> (ii)
+> estimate the simple regression equation $$\widehat{prate} = \hat \beta_0 + \hat \beta_1 mrate$$ and report the results along with the sample size and R-squared.
 
 ```{r}
 #| label: c1_ii
@@ -66,13 +67,13 @@ R^2 &= 0.075 & n &= 1534
 \end{align}
 $$
 
-> (iii)
+> (iii) Interpret the intercept in your equation. Interpret the coefficient on `mrate`.
 
 **Interpretation:**
 
 If the match rate is 0, predicted participation rate is **83.08%**. For ever \$1 increase in match rate, participation is associated by an increase of **5.86 percentage points**.
 
-> (iv)
+> (iv) Find the predicted prate when `mrate` = 3.5. Is this a reasonable prediction? Explain what is happening here.
 
 ```{r}
 #| label: c1_iv
@@ -96,13 +97,15 @@ $$\hat y = \hat \beta_0 + \hat \beta_1 x$$
 
 Model predicts a participation rate of **103.59** which exceeds the maximum possible value of 100.
 
-> (v)
+> (v) How much of the variation in `prate` is explained by `mrate`? Is this a lot in your opinion?
 
 **Interpretation:**
 
 Match rate explains only about **7.5%** of the variation in participation rate, while the remaining 92.5% are due to other factors.
 
 ## C2 \[CEOSAL2\]
+
+> The data set in CEOSAL2 contains information on chief executive officers for U.S. corporations. The variable `salary` is annual compensation, in thousands of dollars, and `ceoten` is prior number of years as company CEO.
 
 ```{r}
 #| label: c2_data
@@ -111,7 +114,7 @@ c2 <- ceosal2
 kable(head(c2))
 ```
 
-> (i)
+> (i) Find the average salary and the average tenure in the sample.
 
 ```{r}
 #| label: c2_i
@@ -128,7 +131,7 @@ c2 |>
 
 Average salary is **\$865,860** with an average tenure of **7.95** years.
 
-> (ii)
+> (ii) How many CEOs are in their first year as CEO (that is, `ceoten` = 0)? What is the longest tenure as a CEO?
 
 ```{r}
 #| label: c2_ii
@@ -144,7 +147,7 @@ c2 |>
 
 There are **5** CEOs in their first year, and the longest serving CEO has been in charge for **37** years.
 
-> (iii)
+> (iii) Estimate the regression model $$ \log(salary) = \beta_0 + \beta_1 ceoten + u$$ and report your results in the usual form. What is the (approximate) predicted percentage increase in salary given one more year as a CEO?
 
 ```{r}
 #| label: c2_iii
@@ -166,6 +169,8 @@ For every 1 additional year of tenure as CEO, salary is predicted to increase by
 
 ## C3 \[SLEEP75\]
 
+> Use the data in SLEEP75 from Biddle and Hamermesh (1990) to study whether there is a tradeoff between the time spent sleeping per week and the time spent in paid work. We could use either variable as the dependent variable. For concreteness, estimate the model $$sleep = \beta_0 + \beta_1 totwrk + u$$ where `sleep` is minutes spent sleeping at night per week and `totwrk` is total minutes worked during the week.
+
 ```{r}
 #| label: c3_data
 
@@ -173,7 +178,7 @@ c3 <- sleep75
 kable(head(c3))
 ```
 
-> (i)
+> (i) Report your results in equation form along with the number of observations and $R^2$. What does the intercept in this equation mean?
 
 ```{r}
 #| label: c3_i
@@ -197,7 +202,7 @@ modelsummary(
 A jobless person is predicted to sleep **3586** minutes per week \[**8.54** hours of daily sleep\].\
 For every 100 minutes worked, 15 minutes of sleep are lost.
 
-> (ii)
+> (ii) If `totwrk` increases by 2 hours, by how much is `sleep` estimated to fall? Do you find this to be a large effect?
 
 ```{r}
 #| label: c3_ii
@@ -208,7 +213,7 @@ cat("Estimated change in sleep:", round(sleep_fall, 2), "minutes")
 ```
 
 | Model | Regression Equation | Interpretation of $\hat \beta_1$ | Name |
-|------------------|------------------|-------------------|------------------|
+|-----------------|-----------------|--------------------|-----------------|
 | Level-Level | $y = \hat \beta_0 + \hat \beta_1 x$ | $\Delta \hat y = \hat \beta \Delta x$ | Marginal Effect |
 | Log-Level | $\log(y) = \hat \beta_0 + \hat \beta_1 x$ | $\% \Delta \hat y \approx (100\hat \beta_1) \Delta x$ | Semi-elasticity |
 | Level-Log | $y = \hat \beta_0 + \hat \beta_1 \log(x)$ | $\Delta \hat y \approx (\hat \beta_1)/100 \% \Delta x$ | \- |
@@ -220,6 +225,8 @@ Working an extra two hours per week will reduce weekly sleep by **18** minutes \
 
 ## C4 \[WAGE2\]
 
+> Use the data in WAGE2 to estimate a simple regression explaining monthly salary (`wage`) in terms of IQ score (`IQ`).
+
 ```{r}
 #| label: c4_data
 
@@ -227,7 +234,7 @@ c4 <- wage2
 kable(head(c4))
 ```
 
-> (i)
+> (i) Find the average salary and average IQ in the sample. What is the sample standard deviation of IQ? (IQ scores are standardized so that the average in the population is 100 with a standard deviation equal to 15).
 
 ```{r}
 #| label: c4_i
@@ -245,7 +252,7 @@ c4 |>
 
 The sample average wage ($\overline{wage}$) is **957.95**, with an average IQ ($\overline{IQ}$) of **101.28**. The sample standard deviation for IQ $\hat \sigma_{IQ}$ is **15.05**
 
-> (ii)
+> (ii) Estimate a simple regression model where a one-point increase in `IQ` changes `wage` by a constant dollar amount. Use this model to find the predicted increase in `wage` for an increase in `IQ` of 15 points. Does `IQ` explain most of the variation in `wage`?
 
 ```{r}
 #| label: c4_ii
@@ -275,7 +282,7 @@ cat("Estimated change in wage:", round(IQ_inc, 2), "dollars")
 
 An increase in IQ by 15 is associated with an in increase in predicted wage by **\$124.55**. IQ explains only **9.6%** of the variation in wage ; the remaining variation is unexplained by the model.
 
-> (iii)
+> (iii) Now, estimate a model where each one-point increase in `IQ` has the same percentage effect on `wage`. If `IQ` increases by 15 points, what is the approximate percentage increase in predicted `wage`?
 
 ```{r}
 #| label: c4_iii
@@ -307,6 +314,8 @@ Each point increase is associated with an increase in wage by **0.9%**; 15 point
 
 ## C5 \[RDCHEM\]
 
+> For the population of firms in the chemical industry, let `rd` denote annual expenditures on research and development, and let `sales` denote annual sales (both are in millions of dollars).
+
 ```{r}
 #| label: c5_data
 
@@ -314,7 +323,7 @@ c5 <- rdchem
 kable(head(c5))
 ```
 
-> (i)
+> (i) Write down a model (not an estimated equation) that implies a constant elasticity between `rd` and `sales`. Which parameter is the elasticity?
 
 $$\log(rd) = \beta_0 + \beta_1 \log(sales) + u$$
 
@@ -322,7 +331,7 @@ $$\log(rd) = \beta_0 + \beta_1 \log(sales) + u$$
 
 The parameter $\beta_1$ represents elasticity
 
-> (ii)
+> (ii) Now, estimate the model using the data in RDCHEM. Write out the estimated equation in the usual form. What is the estimated elasticity of `rd` with respect to `sales`? Explain in words what this elasticity means.
 
 ```{r}
 #| label: c5_i
@@ -345,314 +354,18 @@ modelsummary(
 
 A **1%** change in sales is associated with a *1.08%* change in expenditures.
 
-## C6 \[MEAP93\]
+## C6 [MEAP93]
 
-```{r}
-#| label: c6_data
 
-c6 <- meap93
-kable(head(meap93))
-```
 
-> (i)
+## C7 [CHARITY]
 
-**Interpretation:**
+## C8 [Simulation]
 
-I believe dollar has a diminishing effect on passing rate. Most students with limited source can pass, but scoring maximum mark takes very high resources. Also a constant effect may predict students can pass the maximum score.
+## C9 [COUNTYMURDERS]
 
-> (ii)
+## C10 [CATHOLIC]
 
-**Interpretation:**
+## C11 [GPA1]
 
-$$\begin{align}
-\Delta math10 &= \beta_1 \cdot \Delta \log(expend) \\
-\Delta math10 &\approx \beta_1 \cdot \left( \frac{\Delta expend}{expend} \right) \\
-\Delta math10 &\approx \beta_1 \cdot (0.10) \\
-\Delta math10 &\approx \frac{\beta_1}{10}
-\end{align}$$
-
-> (iii)
-
-```{r}
-#| label: c6_iii
-
-c6m <- lm(math10 ~ lexpend, data = c6)
-
-modelsummary(
-  c6m,
-  fmt = 2,
-  statistic = NULL,
-  gof_map = c("nobs", "r.squared"),
-  coef_rename = c(
-    "(Intercept)" = "Constant",
-    "lexpend" = "Student Spending"
-  )
-)
-```
-
-> (iv)
-
-**Interpretation:**
-
-Estimated effect for spending effect is **11.16**. If spending increases by 10%, math pass rate increase by **1.116** percentage points.
-
-> (v)
-
-```{r}
-#| label: c6_v
-
-c6m |>
-  augment() |>
-  select(math10, .fitted) |>
-  pivot_longer(everything()) |>
-  ggplot(aes(x = value)) +
-  geom_histogram(bins = 40) +
-  facet_wrap(~name)
-```
-
-**Interpretation:**
-
-We don't have to worry about passing maximum rate because predicted rates are between the interval **\[20, 30\]** while original rates had maximum rate below 80.
-
-## C7 \[CHARITY\]
-
-```{r}
-#| label: c7_data
-
-c7 <- charity
-kable(head(c7))
-```
-
-> (i)
-
-```{r}
-#| label: c7_i
-
-c7 |>
-  summarise(
-    Avg_Gift = mean(gift),
-    No_Gift_Pct = mean(gift == 0) * 100
-  ) |>
-  round(2)
-```
-
-**Interpretation:**
-
-Average gift in the sample is **7.44** with **60%** of the sample having no gifts.
-
-> (ii)
-
-```{r}
-#| label: c7_ii
-
-c7 |>
-  summarise(
-    Min_Mailing = min(mailsyear),
-    Avg_Mailing = mean(mailsyear),
-    Max_Mailing = max(mailsyear)
-  ) |>
-  round(2)
-```
-
-**Interpretation:**
-
-Minimum number of mailings per year is **0.25**. The average is **2.05** and maximum is **3.05**
-
-> (iii)
-
-```{r}
-#| label: c7_iii
-
-c7m <- lm(gift ~ mailsyear, data = c7)
-
-modelsummary(
-  c7m,
-  fmt = 2,
-  statistic = NULL,
-  gof_map = c("nobs", "r.squared"),
-  coef_rename = c(
-    "(Intercept)" = "Constant",
-    "mailsyear" = "Mailings per Year"
-  )
-)
-```
-
-> (iv)
-
-**Interpretation:** For each extra mailing per year, gift is predicted to increase by **2.65**. If each mailing costs 1 guilder, net gain on each mail is **2.65 - 1 = 1.65**. This does not mean that charity makes a net gain on every mailing, it means that, on average, net gain will be 1.65.
-
-> (v)
-
-```{r}
-#| label: c7_v
-
-c7m |>
-  augment() |>
-  summarise(
-    Min_Prediction = min(.fitted)
-  ) |>
-  round(2)
-```
-
-**Interpretation:**
-
-Minimum predicted gift is **2.68** coming from the observation with 0.25 mailings per year ($2.01 + 2.65(0.25) = 2.68$). Predicting a zero is impossible with this model because $\hat \beta_0$ and $\hat \beta_1$ are both greater than zero; least possible value is $\hat \beta_0 = 2.01$
-
-## C8 \[Simulation\]
-
-> (i)
-
-```{r}
-#| label: c8_i
-
-set.seed(42)
-
-x_i <- runif(500, min = 0, max = 10)
-
-cat(round(mean(x_i), 2), round(sd(x_i), 2))
-```
-
-**Interpretation:**
-
-The sample mean of $x_i$ is 4.9 and the sample standard deviation is 2.89. These values are close to, but not exactly equal to, the theoretical population mean ($E[x] = 5$) and population standard deviation ($\sigma_x \approx 2.93$) of a Uniform(0,10) distribution due to finite sampling variance.
-
-> (ii)
-
-```{r}
-#| label: c8_ii
-
-set.seed(42)
-
-u_i <- rnorm(500, mean = 0, sd = 6)
-
-cat(round(mean(u_i), 2), round(sd(u_i), 2))
-```
-
-**Interpretation:**
-
-The sample average of $u_i$ is -0.18, which is not exactly zero. While the population expectation is exactly zero ($E[u] = 0$), a finite sample of 500 random draws will inherently contain sampling error, preventing the sample mean from perfectly matching the population mean. The sample standard deviation is 5.83, which closely approximates the population standard deviation of 6.
-
-> (iii)
-
-```{r}
-#| label: c8_iii
-
-y_i <- 1 + (2 * x_i) + u_i
-
-c8m <- lm(y_i ~ x_i)
-
-modelsummary(
-  c8m,
-  statistic = NULL,
-  gof_map = list(),
-  coef_rename = c(
-    "(Intercept)" = "Constant",
-    "x_i" = "x"
-  )
-)
-```
-
-**Interpretation**
-
-$\hat{\beta}_0$ is estimated to be 0.901 and $\hat{\beta}_1$ is estimated to be 1.983. They differ from the true population parameters ($\beta_0 = 1, \beta_1 = 2$) due to sampling error. The intercept deviates because the sample mean of the errors ($\bar{u}$) is not exactly zero. More importantly, the slope deviates because the sample covariance between $x_i$ and $u_i$ is not exactly zero.
-
-> (iv)
-
-```{r}
-#| label: c8_iv
-
-c8m |>
-  augment() |>
-  summarise(
-    Sum_Resid = sum(.resid),
-    Sum_x_resid = sum(x_i * .resid)
-  ) |>
-  round(2)
-```
-
-**Interpretation**
-
-The sum of the residuals ($\sum \hat{u}_i$) and the sum of the product of the regressors and residuals ($\sum x_i \hat{u}_i$) are both effectively zero. This confirms that the algebraic properties of OLS hold perfectly in the sample.
-
-> (v)
-
-```{r}
-#| label: c8_v
-
-c8m |>
-  augment() |>
-  summarise(
-    Sum_Error = sum(u_i),
-    Sum_x_Error = sum(x_i * u_i)
-  ) |>
-  round(2)
-```
-
-**Interpretation:**
-
-When using the unobserved population errors ($u_i$) instead of the OLS residuals ($\hat{u}_i$), the sums are far from zero ($\sum u_i = -90.14$ and $\sum x_i u_i = -512.34$). This highlights the fundamental mechanical difference between errors and residuals: OLS residuals are mathematically forced by the regression algorithm to sum to zero and be uncorrelated with $x$, whereas population errors are unobserved random variables that will not perfectly satisfy these orthogonal conditions in a finite sample.
-
-> (vi)
-
-```{r}
-#| label: c8_vi
-
-set.seed(43)
-
-x_i <- runif(500, min = 0, max = 10)
-u_i <- rnorm(500, mean = 0, sd = 6)
-y_i <- 1 + (2 * x_i) + u_i
-
-c8m2 <- lm(y_i ~ x_i)
-
-modelsummary(
-  c8m2,
-  statistic = NULL,
-  gof_map = list(),
-  coef_rename = c(
-    "(Intercept)" = "Constant",
-    "x_i" = "x"
-  )
-)
-```
-
-**Interpretation:**
-
-With a new random sample, the estimates change to $\hat{\beta}_0 = 1.022$ and $\hat{\beta}_1 = 2.040$. These differ from the estimates in part (iii) because every new sample draws a unique set of $x_i$ and $u_i$ values. Consequently, the new sample mean of $u_i$ and the new sample covariance between $x_i$ and $u_i$ have changed. The OLS estimator processes this new random sample variation, resulting in different deviations from the true population parameters.
-
-::: callout-caution
-Formula for the slope $\hat \beta_1$:
-
-$$
-\hat \beta_1 = \beta_1 + \dfrac{Cov(x,u)}{Var(x)}
-$$
-
-To be equal to the parameter, covariance must be = zero
-
-Formula for $\hat \beta_0$:
-
-$$
-\hat \beta_0 = \beta_0 + (\beta_1 - \hat \beta_1) \bar x + \bar u
-$$
-
-To be equal to the parameter, average of error term must be exactly zero, and $\hat \beta_1 = \beta_1$
-:::
-
-## C9 \[COUNTYMURDERS\]
-
-```{r}
-#| label: c9_data
-
-c9 <- countymurders |>
-  filter(year == 1996)
-
-kable(head(c9))
-```
-
-> (i)
-
-## C10 \[CATHOLIC\]
-
-## C11 \[GPA1\]
-
-## C12 \[LOANAPP\]
+## C12 [LOANAPP]
