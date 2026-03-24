@@ -22,7 +22,7 @@ df_vote1 <- wooldridge::vote1
 knitr::kable(head(df_vote1))
 ```
 
-> (i) To study whether campaign expenditures affect election outcomes: voteA is the percentage of the vote received by Candidate A, expendA and expendB are campaign expenditures by Candidates A and B, and prtystrA is a measure of party strength for Candidate A $$ voteA = \beta_0 + \beta_1 \log(expendA) + \beta_2 \log(expendB) + \beta_3 prtystrA + u$$ Interpret $\beta_1$
+> (i)
 
 ```{r}
 #| label: c1_i
@@ -54,7 +54,7 @@ $\beta_1 = 7.23$, a 1% increase in candidate A's expenditures is associated with
 If the absolute estimate is at least \*\*twice as large\*\* as its standard error, it is statistically significant
 :::
 
-> (ii) In terms of the parameters, state the null hypothesis that a 1% increase in A’s expenditures is offset by a 1% increase in B’s expenditures.
+> (ii)
 
 **Interpretation:**
 
@@ -63,7 +63,7 @@ H_0: \beta_1 + \beta_2 &= 0\\
 H_1: \beta_1 + \beta_2 &\neq 0
 \end{align}$$
 
-> (iii) Estimate the given model using the data in VOTE1 and report the results in usual form. Do A’s expenditures affect the outcome? What about B’s expenditures? Can you use these results to test the hypothesis in part (ii)?
+> (iii)
 
 **Interpretation:**
 
@@ -73,7 +73,7 @@ $$
 se(\hat \beta_1 + \hat \beta_2) = \sqrt{Var(\hat \beta_1) + Var(\hat \beta_2) + 2 Cov(\hat \beta_1, \hat \beta_2)}
 $$
 
-> (iv) Estimate a model that directly gives the t statistic for testing the hypothesis in part (ii). What do you conclude? (Use a two-sided alternative.)
+> (iv)
 
 The easy way:
 
@@ -133,7 +133,7 @@ df_lawsch85 <- wooldridge::lawsch85
 knitr::kable(head(df_lawsch85))
 ```
 
-> (i) State and test the null hypothesis that the rank of law schools has no ceteris paribus effect on median starting salary. $$ \log(salary) = \beta_0 + \beta_1 LSAT + \beta_2 GPA + \beta_3 \log(libvol) + \beta_4 \log(cost) + \beta_5 rank + u $$
+> (i)
 
 **Interpretation:**
 
@@ -170,7 +170,7 @@ modelsummary(
 
 Law School Rank is estimated to have a coefficient of -0.003 with a very low p value indicating rejection of null hypothesis. Moving down one spot in the law school rankings (e.g., from 10th to 11th) is associated with an estimated 0.3% reduction in median starting salary, holding all else constant.
 
-> \(ii\) Are features of the incoming class of students—namely, LSAT and GPA—individually or jointly significant for explaining salary?
+> (ii)
 
 ```{r}
 #| label: c2_ii
@@ -184,7 +184,7 @@ print(joint_test)
 
 Individually, GPA is highly significant while LSAT is not (likely due to collinearity with school rank). However, the joint F-test yields a highly significant p-value, meaning we reject the null hypothesis; together, the incoming class characteristics are jointly significant.
 
-> \(iii\) Test whether the size of the entering class (clsize) or the size of the faculty (faculty) needs to be added to this equation; carry out a single test
+> (iii)
 
 ```{r}
 #| label: c2_iii
@@ -201,7 +201,7 @@ print(joint_test)
 
 Restricted model shows no significant difference from unrestricted model (p = 0.39). We fail to reject the null hypothesis, class size and faculty provide no additional explanatory power
 
-> \(iv\) What factors might influence the rank of the law school that are not included in the salary regression?
+> (iv)
 
 **Interpretation:**
 
@@ -215,11 +215,7 @@ df_hprice1 <- wooldridge::hprice1
 knitr::kable(head(df_hprice1))
 ```
 
-> \(i\) Estimate and obtain a confidence interval for the percentage change in price when a 150 square foot bedroom is added to a house
->
-> $$
-> \log(price) = \beta_0 + \beta_1 sqrft + \beta_2 bdrms + u
-> $$
+> (i)
 
 ```{r}
 #| label: c3_i
@@ -254,7 +250,7 @@ deltaMethod(model_hprice1, "150 * sqrft + bdrms")
 
 Adding a 150 square foot bedroom is associated with an estimated **8.58%** increase in price. We are 95% sure the true value lies in the interval **\[3.33%, 13.83%\]**
 
-> \(ii\) write $\beta_2$ in terms of $\theta$ and $\beta_1$
+> (ii)
 
 **The Math Way:**
 
@@ -268,7 +264,7 @@ $$
 \end{align}
 $$
 
-> (iii) Obtain standard error for $\hat \theta$ and construct a 95% confidence Interval
+> (iii)
 
 We run regression to obtain its standard error and confidence interval
 

@@ -21,21 +21,19 @@ df_bwght <- wooldridge::bwght
 knitr::kable(head(df_bwght))
 ```
 
-> (i) What is the most likely sign for $\beta_2$? $$
->     bwght = \beta_0 + \beta_1 cigs + \beta_2 faminc + u
->     $$
+> (i)
 
 **Interpretation:**
 
 $\beta_2$ is expected to be **positive**. Higher family income $\rightarrow$ better nutrition $\rightarrow$ higher birth weight
 
-> (ii) Do you think cigs and faminc are likely to be correlated?
+> (ii)
 
 **Interpretation:**
 
 Yes, **negative** correlation. smoking rates is higher among lower-income demographics. Omitting family income will cause Omitted Variable Bias (OVB).
 
-> (iii) Estimate the equation with and without faminc
+> (iii)
 
 ```{r}
 #| label: c1_iii
@@ -63,9 +61,8 @@ modelsummary(
 
 **Interpretation:**
 
-Including income reduces the smoking coefficient from approximately $-0.514$ to $-0.463$. This indicates that the simple regression suffered from omitted variable bias. $$
-\text{Bias} = \beta_2 \times \tilde \delta_1
-$$
+Including income reduces the smoking coefficient from approximately $-0.514$ to $-0.463$. This indicates that the simple regression suffered from omitted variable bias. 
+$$\text{Bias} = \beta_2 \times \tilde \delta_1$$
 
 1\. $\beta_2$: Positive, rich people have heavier babies.
 
@@ -83,7 +80,7 @@ df_hprice1 <- wooldridge::hprice1
 knitr::kable(head(df_hprice1))
 ```
 
-> (i) Estimate the model $$ price = \beta_0 + \beta_1 sqrft + \beta_2 bdrms + u$$
+> (i)
 
 ```{r}
 #| label: c2_i
@@ -102,13 +99,13 @@ modelsummary(
 )
 ```
 
-> (ii) What is the estimated increase in price for a house with one more bedroom, holding square footage constant?
+> (ii)
 
 **Interpretation:**
 
 Holding square footage constant, adding one more bedroom increases price by \$15,200. This estimate is not useful because adding small rooms without adding square footage will make it feel cramped.
 
-> (iii) What is the estimated increase in price for a house with an additional bedroom that is 140 square feet in size?
+> (iii)
 
 ```{r}
 #| label: c2_iii
@@ -125,17 +122,16 @@ paste(round(price_increase, 2))
 
 **Interpretation:**
 
-The estimates increase is **\$33,120**. This represents the combined value of adding a room that is 140 square feet $$
-140 \times 0.13 + 15.2 = 33.2
-$$
+The estimates increase is **\$33,120**. This represents the combined value of adding a room that is 140 square feet 
+$$140 \times 0.13 + 15.2 = 33.2$$
 
-> (iv) What percentage of the variation in price is explained by square footage and number of bedrooms?
+> (iv)
 
 **Interpretation:**
 
 **63.2%** of the variation in house prices are explained by the two variables.
 
-> (v) The first house in the sample has sqrft = 2,438 and bdrms = 4. Find the predicted selling price
+> (v)
 
 ```{r}
 #| label: c2_v
@@ -167,7 +163,7 @@ paste(round(price, 2))
 
 Predicted selling price is **\$354,000**
 
-> (vi) The actual selling price of the first house in the sample was \$300,000 Find the residual for this house.
+> (vi)
 
 ```{r}
 #| label: cs_vi
@@ -185,7 +181,7 @@ df_ceosal2 <- wooldridge::ceosal2
 knitr::kable(head(df_ceosal2))
 ```
 
-> (i) Estimate a model relating annual salary to firm sales and market value. Make the model of the constant elasticity variety for both independent variables
+> (i)
 
 ```{r}
 #| label: c3_i
@@ -204,7 +200,7 @@ modelsummary(
 )
 ```
 
-> (ii) Add profits to the model from part (i). Why can this variable not be included in logarithmic form? Would you say that these firm performance variables explain most of the variation in CEO salaries?
+> (ii)
 
 ```{r}
 #| label: c3_ii
@@ -234,7 +230,7 @@ modelsummary(
 
 Profits can't be added in log form because it has non positive values. The model explains **30%** of the variation in the salaries. The remaining 70% is determined by other factors like tenure, unobserved CEO talent, or corporate politics.
 
-> (iii) Add the variable ceoten to the model in part (ii).
+> (iii)
 
 ```{r}
 #| label: c3_iii
@@ -260,7 +256,7 @@ modelsummary(
 
 $\beta_4$ = 0.01, one additional year of tenure is associated with **1%** increase in salary, holding firm performance constant.
 
-> (iv) Find the sample correlation coefficient between the variables log(mktval) and profits.
+> (iv)
 
 ```{r}
 #| label: c3_iv
