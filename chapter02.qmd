@@ -12,6 +12,7 @@ library(tidyverse)
 library(wooldridge)
 library(knitr)
 library(modelsummary)
+library(broom)
 ```
 
 ## C1 \[401K\]
@@ -654,6 +655,18 @@ $
 :::
 
 ## C9 \[COUNTYMURDERS\]
+
+> Use the data in COUNTYMURDERS to answer these questions. Use only the data for 1996.
+
+```{r}
+c9 <- countymurders|>
+  filter(year == 1996)
+
+kable(head(c9))
+```
+
+> (i) How many counties had zero murders in 1996? How many counties had at least one execution? What is the largest number of executions?
+
 
 ## C10 \[CATHOLIC\]
 
