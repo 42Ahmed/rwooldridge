@@ -1,6 +1,6 @@
 # Preface {.unnumbered}
 
-Welcome to **A Modern R-proach to Econometrics**.
+
 
 This digital book serves as a comprehensive computational companion to Jeffrey Wooldridge's *Introductory Econometrics: A Modern Approach*. As a Teaching Assistant at **Alexandria University**, I developed this resource to bridge the gap between theoretical econometric concepts and practical data analysis using the **R programming language**.
 
@@ -30,7 +30,7 @@ library(gtExtras)
 progress_data <- tribble(
   ~Chapter, ~Questions, ~Solved,
   1, 9, 9,
-  2, 12, 4,
+  2, 12, 8,
   3, 14, 3,
   4, 15, 3,
   5, 7, 3,
