@@ -651,6 +651,13 @@ kable(head(c9))
 
 > (i)
 
+```{r}
+#| label: c9_i
+
+c9 |>
+```
+
+
 ## C10 \[CATHOLIC\]
 
 ## C11 \[GPA1\]
