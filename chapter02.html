@@ -546,13 +546,11 @@ window.Quarto = {
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wooldridge)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="c1-401k" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="c1-401k"><span class="header-section-number">2.1</span> C1 [401K]</h2>
-<blockquote class="blockquote">
-<p>The data in 401K are a subset of data analyzed by Papke (1995) to study the relationship between participation in a 401(k) pension plan and the generosity of the plan. The variable <code>prate</code> is the percentage of eligible workers with an active account; this is the variable we would like to explain. The measure of generosity is the plan match rate, <code>mrate</code>. This variable gives the average amount the firm contributes to each worker’s plan for each $1 contribution by the worker. For example, if <code>mrate</code> = 0 50. , then a $1 contribution by the worker is matched by a 50¢ contribution by the firm.</p>
-</blockquote>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>c1 <span class="ot">&lt;-</span> k401k</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(c1))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -637,7 +635,7 @@ window.Quarto = {
 </div>
 <blockquote class="blockquote">
 <ol type="i">
-<li>Find the average participation rate and the average match rate in the sample of plans.</li>
+<li></li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -655,7 +653,9 @@ window.Quarto = {
 <p><strong>Interpretation:</strong></p>
 <p>On average, <strong>87.36%</strong> of eligible employees participate in their company’s 401(k) plan. Their company matches <em>$0.73</em> for every dollar an employee contributes.</p>
 <blockquote class="blockquote">
-<p>estimate the simple regression equation <span class="math display">\[\widehat{prate} = \hat \beta_0 + \hat \beta_1 mrate\]</span> and report the results along with the sample size and R-squared.</p>
+<ol start="2" type="i">
+<li></li>
+</ol>
 </blockquote>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>c1m <span class="ot">&lt;-</span> <span class="fu">lm</span>(prate <span class="sc">~</span> mrate, <span class="at">data =</span> c1)</span>
@@ -674,25 +674,25 @@ window.Quarto = {
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_4lamfqpmi5bqrootytvg = TinyTable.createTableFunctions("tinytable_4lamfqpmi5bqrootytvg");
+      const tableFns_g15fiqf57hc7v9w3ywaf = TinyTable.createTableFunctions("tinytable_g15fiqf57hc7v9w3ywaf");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '4', j: 2 } ], css_id: 'tinytable_css_7q9udjwg93uybswx0w8e',}, 
-          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_hj7mey7gn23duilh4jg6',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '3', j: 2 } ], css_id: 'tinytable_css_5qs0a8wdik1722gc0mol',}, 
-          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_3w779iihmz2q92nbzcmg',}, 
-          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_68tk5yo735bpg0niu0ph',}, 
-          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_vn1rwznrpsqpo4lyqrkg',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '3', j: 1 } ], css_id: 'tinytable_css_vcvw0rm015dij902npjd',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_0gf2rbfz2b2l2kxmndy4',}, 
+          { positions: [ { i: '4', j: 2 } ], css_id: 'tinytable_css_5kixkbl51a148qqskiqn',}, 
+          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_5q94t79jup0l7lzt835d',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '3', j: 2 } ], css_id: 'tinytable_css_i5geli7fvsyl17n2842l',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_of1p2131bw4ts6s65ft9',}, 
+          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_kwvml8rypn2bykcj310h',}, 
+          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_ja8odyo74zz0jh0lgokm',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '3', j: 1 } ], css_id: 'tinytable_css_7gols5jez1ous5fn0moh',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_e7gr07229il5ndtc3e6n',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_4lamfqpmi5bqrootytvg.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_g15fiqf57hc7v9w3ywaf.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -701,17 +701,17 @@ window.Quarto = {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_4lamfqpmi5bqrootytvg td.tinytable_css_7q9udjwg93uybswx0w8e, #tinytable_4lamfqpmi5bqrootytvg th.tinytable_css_7q9udjwg93uybswx0w8e {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_4lamfqpmi5bqrootytvg td.tinytable_css_hj7mey7gn23duilh4jg6, #tinytable_4lamfqpmi5bqrootytvg th.tinytable_css_hj7mey7gn23duilh4jg6 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_4lamfqpmi5bqrootytvg td.tinytable_css_5qs0a8wdik1722gc0mol, #tinytable_4lamfqpmi5bqrootytvg th.tinytable_css_5qs0a8wdik1722gc0mol { text-align: center }
-    #tinytable_4lamfqpmi5bqrootytvg td.tinytable_css_3w779iihmz2q92nbzcmg, #tinytable_4lamfqpmi5bqrootytvg th.tinytable_css_3w779iihmz2q92nbzcmg {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_4lamfqpmi5bqrootytvg td.tinytable_css_68tk5yo735bpg0niu0ph, #tinytable_4lamfqpmi5bqrootytvg th.tinytable_css_68tk5yo735bpg0niu0ph {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_4lamfqpmi5bqrootytvg td.tinytable_css_vn1rwznrpsqpo4lyqrkg, #tinytable_4lamfqpmi5bqrootytvg th.tinytable_css_vn1rwznrpsqpo4lyqrkg {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_4lamfqpmi5bqrootytvg td.tinytable_css_vcvw0rm015dij902npjd, #tinytable_4lamfqpmi5bqrootytvg th.tinytable_css_vcvw0rm015dij902npjd { text-align: left }
-    #tinytable_4lamfqpmi5bqrootytvg td.tinytable_css_0gf2rbfz2b2l2kxmndy4, #tinytable_4lamfqpmi5bqrootytvg th.tinytable_css_0gf2rbfz2b2l2kxmndy4 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_g15fiqf57hc7v9w3ywaf td.tinytable_css_5kixkbl51a148qqskiqn, #tinytable_g15fiqf57hc7v9w3ywaf th.tinytable_css_5kixkbl51a148qqskiqn {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_g15fiqf57hc7v9w3ywaf td.tinytable_css_5q94t79jup0l7lzt835d, #tinytable_g15fiqf57hc7v9w3ywaf th.tinytable_css_5q94t79jup0l7lzt835d {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_g15fiqf57hc7v9w3ywaf td.tinytable_css_i5geli7fvsyl17n2842l, #tinytable_g15fiqf57hc7v9w3ywaf th.tinytable_css_i5geli7fvsyl17n2842l { text-align: center }
+    #tinytable_g15fiqf57hc7v9w3ywaf td.tinytable_css_of1p2131bw4ts6s65ft9, #tinytable_g15fiqf57hc7v9w3ywaf th.tinytable_css_of1p2131bw4ts6s65ft9 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_g15fiqf57hc7v9w3ywaf td.tinytable_css_kwvml8rypn2bykcj310h, #tinytable_g15fiqf57hc7v9w3ywaf th.tinytable_css_kwvml8rypn2bykcj310h {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_g15fiqf57hc7v9w3ywaf td.tinytable_css_ja8odyo74zz0jh0lgokm, #tinytable_g15fiqf57hc7v9w3ywaf th.tinytable_css_ja8odyo74zz0jh0lgokm {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_g15fiqf57hc7v9w3ywaf td.tinytable_css_7gols5jez1ous5fn0moh, #tinytable_g15fiqf57hc7v9w3ywaf th.tinytable_css_7gols5jez1ous5fn0moh { text-align: left }
+    #tinytable_g15fiqf57hc7v9w3ywaf td.tinytable_css_e7gr07229il5ndtc3e6n, #tinytable_g15fiqf57hc7v9w3ywaf th.tinytable_css_e7gr07229il5ndtc3e6n {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_4lamfqpmi5bqrootytvg" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_g15fiqf57hc7v9w3ywaf" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -752,14 +752,14 @@ R^2 &amp;= 0.075 &amp; n &amp;= 1534
 \]</span></p>
 <blockquote class="blockquote">
 <ol start="3" type="i">
-<li>Interpret the intercept in your equation. Interpret the coefficient on <code>mrate</code>.</li>
+<li></li>
 </ol>
 </blockquote>
 <p><strong>Interpretation:</strong></p>
 <p>If the match rate is 0, predicted participation rate is <strong>83.08%</strong>. For ever $1 increase in match rate, participation is associated by an increase of <strong>5.86 percentage points</strong>.</p>
 <blockquote class="blockquote">
 <ol start="4" type="i">
-<li>Find the predicted prate when <code>mrate</code> = 3.5. Is this a reasonable prediction? Explain what is happening here.</li>
+<li></li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -791,7 +791,7 @@ R^2 &amp;= 0.075 &amp; n &amp;= 1534
 <p>Model predicts a participation rate of <strong>103.59</strong> which exceeds the maximum possible value of 100.</p>
 <blockquote class="blockquote">
 <ol start="22" type="a">
-<li>How much of the variation in <code>prate</code> is explained by <code>mrate</code>? Is this a lot in your opinion?</li>
+<li></li>
 </ol>
 </blockquote>
 <p><strong>Interpretation:</strong></p>
@@ -799,9 +799,6 @@ R^2 &amp;= 0.075 &amp; n &amp;= 1534
 </section>
 <section id="c2-ceosal2" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="c2-ceosal2"><span class="header-section-number">2.2</span> C2 [CEOSAL2]</h2>
-<blockquote class="blockquote">
-<p>The data set in CEOSAL2 contains information on chief executive officers for U.S. corporations. The variable <code>salary</code> is annual compensation, in thousands of dollars, and <code>ceoten</code> is prior number of years as company CEO.</p>
-</blockquote>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>c2 <span class="ot">&lt;-</span> ceosal2</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(c2))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -952,7 +949,7 @@ R^2 &amp;= 0.075 &amp; n &amp;= 1534
 </div>
 <blockquote class="blockquote">
 <ol type="i">
-<li>Find the average salary and the average tenure in the sample.</li>
+<li></li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -971,7 +968,7 @@ R^2 &amp;= 0.075 &amp; n &amp;= 1534
 <p>Average salary is <strong>$865,860</strong> with an average tenure of <strong>7.95</strong> years.</p>
 <blockquote class="blockquote">
 <ol start="2" type="i">
-<li>How many CEOs are in their first year as CEO (that is, <code>ceoten</code> = 0)? What is the longest tenure as a CEO?</li>
+<li></li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -989,7 +986,7 @@ R^2 &amp;= 0.075 &amp; n &amp;= 1534
 <p>There are <strong>5</strong> CEOs in their first year, and the longest serving CEO has been in charge for <strong>37</strong> years.</p>
 <blockquote class="blockquote">
 <ol start="3" type="i">
-<li>Estimate the regression model <span class="math display">\[ \log(salary) = \beta_0 + \beta_1 ceoten + u\]</span> and report your results in the usual form. What is the (approximate) predicted percentage increase in salary given one more year as a CEO?</li>
+<li></li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -1009,25 +1006,25 @@ R^2 &amp;= 0.075 &amp; n &amp;= 1534
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_wytwddkdg9r1ooenhk56 = TinyTable.createTableFunctions("tinytable_wytwddkdg9r1ooenhk56");
+      const tableFns_gqudl49p7na60t9vcxsp = TinyTable.createTableFunctions("tinytable_gqudl49p7na60t9vcxsp");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '4', j: 2 } ], css_id: 'tinytable_css_9vtaai33suloqat6f9ox',}, 
-          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_r3k7gtmvwe53b9l1c3ou',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '3', j: 2 } ], css_id: 'tinytable_css_t13ksstzsrg5uln9k5c0',}, 
-          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_kwrrkkgdnwl8twpgc3au',}, 
-          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_6fv5ptouq7yqhdx6q1ki',}, 
-          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_533kd37slnrkl5at5721',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '3', j: 1 } ], css_id: 'tinytable_css_m6l72oz63qew8cvkbn5m',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_m1pu3vistt2n2zf6n5rr',}, 
+          { positions: [ { i: '4', j: 2 } ], css_id: 'tinytable_css_hs97i129b2xjc89n8m9z',}, 
+          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_vwdnxt4cmkvte0xhdik8',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '3', j: 2 } ], css_id: 'tinytable_css_jpgyscm3x5dyg5937esi',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_xps02s8dtvtj23vofcb0',}, 
+          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_jevefbl7nz5ta8fnxnoe',}, 
+          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_ptq4a7o1hxc78h6a1dcp',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '3', j: 1 } ], css_id: 'tinytable_css_o40sa0wdxdw7iwuv9b0m',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_gaeihio7ssnsfg7otwf8',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_wytwddkdg9r1ooenhk56.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_gqudl49p7na60t9vcxsp.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1036,17 +1033,17 @@ R^2 &amp;= 0.075 &amp; n &amp;= 1534
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_wytwddkdg9r1ooenhk56 td.tinytable_css_9vtaai33suloqat6f9ox, #tinytable_wytwddkdg9r1ooenhk56 th.tinytable_css_9vtaai33suloqat6f9ox {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_wytwddkdg9r1ooenhk56 td.tinytable_css_r3k7gtmvwe53b9l1c3ou, #tinytable_wytwddkdg9r1ooenhk56 th.tinytable_css_r3k7gtmvwe53b9l1c3ou {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_wytwddkdg9r1ooenhk56 td.tinytable_css_t13ksstzsrg5uln9k5c0, #tinytable_wytwddkdg9r1ooenhk56 th.tinytable_css_t13ksstzsrg5uln9k5c0 { text-align: center }
-    #tinytable_wytwddkdg9r1ooenhk56 td.tinytable_css_kwrrkkgdnwl8twpgc3au, #tinytable_wytwddkdg9r1ooenhk56 th.tinytable_css_kwrrkkgdnwl8twpgc3au {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_wytwddkdg9r1ooenhk56 td.tinytable_css_6fv5ptouq7yqhdx6q1ki, #tinytable_wytwddkdg9r1ooenhk56 th.tinytable_css_6fv5ptouq7yqhdx6q1ki {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_wytwddkdg9r1ooenhk56 td.tinytable_css_533kd37slnrkl5at5721, #tinytable_wytwddkdg9r1ooenhk56 th.tinytable_css_533kd37slnrkl5at5721 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_wytwddkdg9r1ooenhk56 td.tinytable_css_m6l72oz63qew8cvkbn5m, #tinytable_wytwddkdg9r1ooenhk56 th.tinytable_css_m6l72oz63qew8cvkbn5m { text-align: left }
-    #tinytable_wytwddkdg9r1ooenhk56 td.tinytable_css_m1pu3vistt2n2zf6n5rr, #tinytable_wytwddkdg9r1ooenhk56 th.tinytable_css_m1pu3vistt2n2zf6n5rr {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_gqudl49p7na60t9vcxsp td.tinytable_css_hs97i129b2xjc89n8m9z, #tinytable_gqudl49p7na60t9vcxsp th.tinytable_css_hs97i129b2xjc89n8m9z {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_gqudl49p7na60t9vcxsp td.tinytable_css_vwdnxt4cmkvte0xhdik8, #tinytable_gqudl49p7na60t9vcxsp th.tinytable_css_vwdnxt4cmkvte0xhdik8 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_gqudl49p7na60t9vcxsp td.tinytable_css_jpgyscm3x5dyg5937esi, #tinytable_gqudl49p7na60t9vcxsp th.tinytable_css_jpgyscm3x5dyg5937esi { text-align: center }
+    #tinytable_gqudl49p7na60t9vcxsp td.tinytable_css_xps02s8dtvtj23vofcb0, #tinytable_gqudl49p7na60t9vcxsp th.tinytable_css_xps02s8dtvtj23vofcb0 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_gqudl49p7na60t9vcxsp td.tinytable_css_jevefbl7nz5ta8fnxnoe, #tinytable_gqudl49p7na60t9vcxsp th.tinytable_css_jevefbl7nz5ta8fnxnoe {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_gqudl49p7na60t9vcxsp td.tinytable_css_ptq4a7o1hxc78h6a1dcp, #tinytable_gqudl49p7na60t9vcxsp th.tinytable_css_ptq4a7o1hxc78h6a1dcp {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_gqudl49p7na60t9vcxsp td.tinytable_css_o40sa0wdxdw7iwuv9b0m, #tinytable_gqudl49p7na60t9vcxsp th.tinytable_css_o40sa0wdxdw7iwuv9b0m { text-align: left }
+    #tinytable_gqudl49p7na60t9vcxsp td.tinytable_css_gaeihio7ssnsfg7otwf8, #tinytable_gqudl49p7na60t9vcxsp th.tinytable_css_gaeihio7ssnsfg7otwf8 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_wytwddkdg9r1ooenhk56" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_gqudl49p7na60t9vcxsp" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -1083,9 +1080,6 @@ R^2 &amp;= 0.075 &amp; n &amp;= 1534
 </section>
 <section id="c3-sleep75" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="c3-sleep75"><span class="header-section-number">2.3</span> C3 [SLEEP75]</h2>
-<blockquote class="blockquote">
-<p>Use the data in SLEEP75 from Biddle and Hamermesh (1990) to study whether there is a tradeoff between the time spent sleeping per week and the time spent in paid work. We could use either variable as the dependent variable. For concreteness, estimate the model <span class="math display">\[sleep = \beta_0 + \beta_1 totwrk + u\]</span> where <code>sleep</code> is minutes spent sleeping at night per week and <code>totwrk</code> is total minutes worked during the week.</p>
-</blockquote>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>c3 <span class="ot">&lt;-</span> sleep75</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(c3))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1388,7 +1382,7 @@ R^2 &amp;= 0.075 &amp; n &amp;= 1534
 </div>
 <blockquote class="blockquote">
 <ol type="i">
-<li>Report your results in equation form along with the number of observations and <span class="math inline">\(R^2\)</span>. What does the intercept in this equation mean?</li>
+<li></li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -1411,25 +1405,25 @@ R^2 &amp;= 0.075 &amp; n &amp;= 1534
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_9kcj0jhu928gb6aehzky = TinyTable.createTableFunctions("tinytable_9kcj0jhu928gb6aehzky");
+      const tableFns_kgr65pnujkqniimfppfz = TinyTable.createTableFunctions("tinytable_kgr65pnujkqniimfppfz");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '4', j: 2 } ], css_id: 'tinytable_css_hk6qgikawalakrc51mg6',}, 
-          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_dr55yb1f61ng0o8lf4qb',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '3', j: 2 } ], css_id: 'tinytable_css_3c3hi9f2lgzy6iwkxq47',}, 
-          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_w6dc0y66ljm4vrnvjm0i',}, 
-          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_rgf9tfj3vornex93h850',}, 
-          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_x9icv9yz4nyaxnlonulp',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '3', j: 1 } ], css_id: 'tinytable_css_eo76lwb3plbqqivt9k4v',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_5y5w19lax9bdy761y4hq',}, 
+          { positions: [ { i: '4', j: 2 } ], css_id: 'tinytable_css_iqtco1e7p4m7ton7ff76',}, 
+          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_1csb46dtb0obj6f8wn4o',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '3', j: 2 } ], css_id: 'tinytable_css_xgj8v8p1t14wsbxbwycx',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_09ajrz2dx3d6qgyppdkb',}, 
+          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_0ggruwpirot4eeazi4c1',}, 
+          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_h82kf9s7lut6j88ag1tc',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '3', j: 1 } ], css_id: 'tinytable_css_hkrsjwamcnj25k0zyd2h',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_tl1v5vt0jr9ex53we7xn',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_9kcj0jhu928gb6aehzky.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_kgr65pnujkqniimfppfz.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1438,17 +1432,17 @@ R^2 &amp;= 0.075 &amp; n &amp;= 1534
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_9kcj0jhu928gb6aehzky td.tinytable_css_hk6qgikawalakrc51mg6, #tinytable_9kcj0jhu928gb6aehzky th.tinytable_css_hk6qgikawalakrc51mg6 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_9kcj0jhu928gb6aehzky td.tinytable_css_dr55yb1f61ng0o8lf4qb, #tinytable_9kcj0jhu928gb6aehzky th.tinytable_css_dr55yb1f61ng0o8lf4qb {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_9kcj0jhu928gb6aehzky td.tinytable_css_3c3hi9f2lgzy6iwkxq47, #tinytable_9kcj0jhu928gb6aehzky th.tinytable_css_3c3hi9f2lgzy6iwkxq47 { text-align: center }
-    #tinytable_9kcj0jhu928gb6aehzky td.tinytable_css_w6dc0y66ljm4vrnvjm0i, #tinytable_9kcj0jhu928gb6aehzky th.tinytable_css_w6dc0y66ljm4vrnvjm0i {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_9kcj0jhu928gb6aehzky td.tinytable_css_rgf9tfj3vornex93h850, #tinytable_9kcj0jhu928gb6aehzky th.tinytable_css_rgf9tfj3vornex93h850 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_9kcj0jhu928gb6aehzky td.tinytable_css_x9icv9yz4nyaxnlonulp, #tinytable_9kcj0jhu928gb6aehzky th.tinytable_css_x9icv9yz4nyaxnlonulp {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_9kcj0jhu928gb6aehzky td.tinytable_css_eo76lwb3plbqqivt9k4v, #tinytable_9kcj0jhu928gb6aehzky th.tinytable_css_eo76lwb3plbqqivt9k4v { text-align: left }
-    #tinytable_9kcj0jhu928gb6aehzky td.tinytable_css_5y5w19lax9bdy761y4hq, #tinytable_9kcj0jhu928gb6aehzky th.tinytable_css_5y5w19lax9bdy761y4hq {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_kgr65pnujkqniimfppfz td.tinytable_css_iqtco1e7p4m7ton7ff76, #tinytable_kgr65pnujkqniimfppfz th.tinytable_css_iqtco1e7p4m7ton7ff76 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_kgr65pnujkqniimfppfz td.tinytable_css_1csb46dtb0obj6f8wn4o, #tinytable_kgr65pnujkqniimfppfz th.tinytable_css_1csb46dtb0obj6f8wn4o {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_kgr65pnujkqniimfppfz td.tinytable_css_xgj8v8p1t14wsbxbwycx, #tinytable_kgr65pnujkqniimfppfz th.tinytable_css_xgj8v8p1t14wsbxbwycx { text-align: center }
+    #tinytable_kgr65pnujkqniimfppfz td.tinytable_css_09ajrz2dx3d6qgyppdkb, #tinytable_kgr65pnujkqniimfppfz th.tinytable_css_09ajrz2dx3d6qgyppdkb {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_kgr65pnujkqniimfppfz td.tinytable_css_0ggruwpirot4eeazi4c1, #tinytable_kgr65pnujkqniimfppfz th.tinytable_css_0ggruwpirot4eeazi4c1 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_kgr65pnujkqniimfppfz td.tinytable_css_h82kf9s7lut6j88ag1tc, #tinytable_kgr65pnujkqniimfppfz th.tinytable_css_h82kf9s7lut6j88ag1tc {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_kgr65pnujkqniimfppfz td.tinytable_css_hkrsjwamcnj25k0zyd2h, #tinytable_kgr65pnujkqniimfppfz th.tinytable_css_hkrsjwamcnj25k0zyd2h { text-align: left }
+    #tinytable_kgr65pnujkqniimfppfz td.tinytable_css_tl1v5vt0jr9ex53we7xn, #tinytable_kgr65pnujkqniimfppfz th.tinytable_css_tl1v5vt0jr9ex53we7xn {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_9kcj0jhu928gb6aehzky" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_kgr65pnujkqniimfppfz" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -1485,7 +1479,7 @@ R^2 &amp;= 0.075 &amp; n &amp;= 1534
 For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 <blockquote class="blockquote">
 <ol start="2" type="i">
-<li>If <code>totwrk</code> increases by 2 hours, by how much is <code>sleep</code> estimated to fall? Do you find this to be a large effect?</li>
+<li></li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -1498,10 +1492,10 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 </div>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 23%">
-<col style="width: 23%">
-<col style="width: 28%">
-<col style="width: 23%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 26%">
+<col style="width: 24%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1543,9 +1537,6 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 </section>
 <section id="c4-wage2" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="c4-wage2"><span class="header-section-number">2.4</span> C4 [WAGE2]</h2>
-<blockquote class="blockquote">
-<p>Use the data in WAGE2 to estimate a simple regression explaining monthly salary (<code>wage</code>) in terms of IQ score (<code>IQ</code>).</p>
-</blockquote>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>c4 <span class="ot">&lt;-</span> wage2</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(c4))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1712,7 +1703,7 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 </div>
 <blockquote class="blockquote">
 <ol type="i">
-<li>Find the average salary and average IQ in the sample. What is the sample standard deviation of IQ? (IQ scores are standardized so that the average in the population is 100 with a standard deviation equal to 15).</li>
+<li></li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -1732,7 +1723,7 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 <p>The sample average wage (<span class="math inline">\(\overline{wage}\)</span>) is <strong>957.95</strong>, with an average IQ (<span class="math inline">\(\overline{IQ}\)</span>) of <strong>101.28</strong>. The sample standard deviation for IQ <span class="math inline">\(\hat \sigma_{IQ}\)</span> is <strong>15.05</strong></p>
 <blockquote class="blockquote">
 <ol start="2" type="i">
-<li>Estimate a simple regression model where a one-point increase in <code>IQ</code> changes <code>wage</code> by a constant dollar amount. Use this model to find the predicted increase in <code>wage</code> for an increase in <code>IQ</code> of 15 points. Does <code>IQ</code> explain most of the variation in <code>wage</code>?</li>
+<li></li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -1754,25 +1745,25 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_93g6ryk5oxvapmp0tr59 = TinyTable.createTableFunctions("tinytable_93g6ryk5oxvapmp0tr59");
+      const tableFns_7ostzzk4zhzpu0n0mt4p = TinyTable.createTableFunctions("tinytable_7ostzzk4zhzpu0n0mt4p");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '4', j: 2 } ], css_id: 'tinytable_css_7vgjbvw7lns01vjzyqk4',}, 
-          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_derxhqq9rjpt5sxsdhcc',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '3', j: 2 } ], css_id: 'tinytable_css_q7ihy91maemts183l9ba',}, 
-          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_24wvc6xyjgnc7758d05v',}, 
-          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_cwgkfvrhde38kxsj9ajp',}, 
-          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_349ocrbiylbx4p8yf98t',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '3', j: 1 } ], css_id: 'tinytable_css_ztpx6qvh4iunlgsabvt6',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_oi2nwhd2eyj8xrsthbam',}, 
+          { positions: [ { i: '4', j: 2 } ], css_id: 'tinytable_css_s2n7gw8xnp7io32y42v9',}, 
+          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_6v7x3lq5r2asy7gyitck',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '3', j: 2 } ], css_id: 'tinytable_css_lwsejtxxeyp5n7iyrbe1',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_b1ucrlr5pqe6tv5svlfa',}, 
+          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_ipzz2tzyca8y4c70d0rf',}, 
+          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_r4or44oe48zf5p30i7vm',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '3', j: 1 } ], css_id: 'tinytable_css_qkst9e8e2mcj6eff9sh1',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_12b077gt96qjwq2ft81n',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_93g6ryk5oxvapmp0tr59.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_7ostzzk4zhzpu0n0mt4p.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1781,17 +1772,17 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_93g6ryk5oxvapmp0tr59 td.tinytable_css_7vgjbvw7lns01vjzyqk4, #tinytable_93g6ryk5oxvapmp0tr59 th.tinytable_css_7vgjbvw7lns01vjzyqk4 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_93g6ryk5oxvapmp0tr59 td.tinytable_css_derxhqq9rjpt5sxsdhcc, #tinytable_93g6ryk5oxvapmp0tr59 th.tinytable_css_derxhqq9rjpt5sxsdhcc {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_93g6ryk5oxvapmp0tr59 td.tinytable_css_q7ihy91maemts183l9ba, #tinytable_93g6ryk5oxvapmp0tr59 th.tinytable_css_q7ihy91maemts183l9ba { text-align: center }
-    #tinytable_93g6ryk5oxvapmp0tr59 td.tinytable_css_24wvc6xyjgnc7758d05v, #tinytable_93g6ryk5oxvapmp0tr59 th.tinytable_css_24wvc6xyjgnc7758d05v {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_93g6ryk5oxvapmp0tr59 td.tinytable_css_cwgkfvrhde38kxsj9ajp, #tinytable_93g6ryk5oxvapmp0tr59 th.tinytable_css_cwgkfvrhde38kxsj9ajp {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_93g6ryk5oxvapmp0tr59 td.tinytable_css_349ocrbiylbx4p8yf98t, #tinytable_93g6ryk5oxvapmp0tr59 th.tinytable_css_349ocrbiylbx4p8yf98t {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_93g6ryk5oxvapmp0tr59 td.tinytable_css_ztpx6qvh4iunlgsabvt6, #tinytable_93g6ryk5oxvapmp0tr59 th.tinytable_css_ztpx6qvh4iunlgsabvt6 { text-align: left }
-    #tinytable_93g6ryk5oxvapmp0tr59 td.tinytable_css_oi2nwhd2eyj8xrsthbam, #tinytable_93g6ryk5oxvapmp0tr59 th.tinytable_css_oi2nwhd2eyj8xrsthbam {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_7ostzzk4zhzpu0n0mt4p td.tinytable_css_s2n7gw8xnp7io32y42v9, #tinytable_7ostzzk4zhzpu0n0mt4p th.tinytable_css_s2n7gw8xnp7io32y42v9 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_7ostzzk4zhzpu0n0mt4p td.tinytable_css_6v7x3lq5r2asy7gyitck, #tinytable_7ostzzk4zhzpu0n0mt4p th.tinytable_css_6v7x3lq5r2asy7gyitck {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_7ostzzk4zhzpu0n0mt4p td.tinytable_css_lwsejtxxeyp5n7iyrbe1, #tinytable_7ostzzk4zhzpu0n0mt4p th.tinytable_css_lwsejtxxeyp5n7iyrbe1 { text-align: center }
+    #tinytable_7ostzzk4zhzpu0n0mt4p td.tinytable_css_b1ucrlr5pqe6tv5svlfa, #tinytable_7ostzzk4zhzpu0n0mt4p th.tinytable_css_b1ucrlr5pqe6tv5svlfa {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_7ostzzk4zhzpu0n0mt4p td.tinytable_css_ipzz2tzyca8y4c70d0rf, #tinytable_7ostzzk4zhzpu0n0mt4p th.tinytable_css_ipzz2tzyca8y4c70d0rf {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_7ostzzk4zhzpu0n0mt4p td.tinytable_css_r4or44oe48zf5p30i7vm, #tinytable_7ostzzk4zhzpu0n0mt4p th.tinytable_css_r4or44oe48zf5p30i7vm {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_7ostzzk4zhzpu0n0mt4p td.tinytable_css_qkst9e8e2mcj6eff9sh1, #tinytable_7ostzzk4zhzpu0n0mt4p th.tinytable_css_qkst9e8e2mcj6eff9sh1 { text-align: left }
+    #tinytable_7ostzzk4zhzpu0n0mt4p td.tinytable_css_12b077gt96qjwq2ft81n, #tinytable_7ostzzk4zhzpu0n0mt4p th.tinytable_css_12b077gt96qjwq2ft81n {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_93g6ryk5oxvapmp0tr59" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_7ostzzk4zhzpu0n0mt4p" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -1835,7 +1826,7 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 <p>An increase in IQ by 15 is associated with an in increase in predicted wage by <strong>$124.55</strong>. IQ explains only <strong>9.6%</strong> of the variation in wage ; the remaining variation is unexplained by the model.</p>
 <blockquote class="blockquote">
 <ol start="3" type="i">
-<li>Now, estimate a model where each one-point increase in <code>IQ</code> has the same percentage effect on <code>wage</code>. If <code>IQ</code> increases by 15 points, what is the approximate percentage increase in predicted <code>wage</code>?</li>
+<li></li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -1857,25 +1848,25 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_2iyme1w15va368r93mjx = TinyTable.createTableFunctions("tinytable_2iyme1w15va368r93mjx");
+      const tableFns_l7u0rvuy5da6jx78b18p = TinyTable.createTableFunctions("tinytable_l7u0rvuy5da6jx78b18p");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '4', j: 2 } ], css_id: 'tinytable_css_y0g26qusohftw5eh20kg',}, 
-          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_w108ggdludyhcvd0ip42',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '3', j: 2 } ], css_id: 'tinytable_css_msp10rlx5w1pr2wg8hni',}, 
-          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_cpsnjibf12jjkzk41qeh',}, 
-          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_hl4jqq57rjo12j13lb6m',}, 
-          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_24oi7ixenxehlpi5l2j0',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '3', j: 1 } ], css_id: 'tinytable_css_z6rct4ikg2cj6wah14n4',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_628phsr4wnnvfbzv6o1m',}, 
+          { positions: [ { i: '4', j: 2 } ], css_id: 'tinytable_css_spkpvaouzejbydfpbfhv',}, 
+          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_je2t9er5at4xbpyd8xv2',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '3', j: 2 } ], css_id: 'tinytable_css_96oeclfuovwbq79zfr1o',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_3o4n481prpejr80gh017',}, 
+          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_5g6bkvk7k2dbhmytfot9',}, 
+          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_uojg4ibgl55icqisihe6',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '3', j: 1 } ], css_id: 'tinytable_css_y8xqfdheofjc8fcwle73',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_f3918lpuk4rpz58pjbw7',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_2iyme1w15va368r93mjx.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_l7u0rvuy5da6jx78b18p.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1884,17 +1875,17 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_2iyme1w15va368r93mjx td.tinytable_css_y0g26qusohftw5eh20kg, #tinytable_2iyme1w15va368r93mjx th.tinytable_css_y0g26qusohftw5eh20kg {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_2iyme1w15va368r93mjx td.tinytable_css_w108ggdludyhcvd0ip42, #tinytable_2iyme1w15va368r93mjx th.tinytable_css_w108ggdludyhcvd0ip42 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_2iyme1w15va368r93mjx td.tinytable_css_msp10rlx5w1pr2wg8hni, #tinytable_2iyme1w15va368r93mjx th.tinytable_css_msp10rlx5w1pr2wg8hni { text-align: center }
-    #tinytable_2iyme1w15va368r93mjx td.tinytable_css_cpsnjibf12jjkzk41qeh, #tinytable_2iyme1w15va368r93mjx th.tinytable_css_cpsnjibf12jjkzk41qeh {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_2iyme1w15va368r93mjx td.tinytable_css_hl4jqq57rjo12j13lb6m, #tinytable_2iyme1w15va368r93mjx th.tinytable_css_hl4jqq57rjo12j13lb6m {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_2iyme1w15va368r93mjx td.tinytable_css_24oi7ixenxehlpi5l2j0, #tinytable_2iyme1w15va368r93mjx th.tinytable_css_24oi7ixenxehlpi5l2j0 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_2iyme1w15va368r93mjx td.tinytable_css_z6rct4ikg2cj6wah14n4, #tinytable_2iyme1w15va368r93mjx th.tinytable_css_z6rct4ikg2cj6wah14n4 { text-align: left }
-    #tinytable_2iyme1w15va368r93mjx td.tinytable_css_628phsr4wnnvfbzv6o1m, #tinytable_2iyme1w15va368r93mjx th.tinytable_css_628phsr4wnnvfbzv6o1m {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_l7u0rvuy5da6jx78b18p td.tinytable_css_spkpvaouzejbydfpbfhv, #tinytable_l7u0rvuy5da6jx78b18p th.tinytable_css_spkpvaouzejbydfpbfhv {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_l7u0rvuy5da6jx78b18p td.tinytable_css_je2t9er5at4xbpyd8xv2, #tinytable_l7u0rvuy5da6jx78b18p th.tinytable_css_je2t9er5at4xbpyd8xv2 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_l7u0rvuy5da6jx78b18p td.tinytable_css_96oeclfuovwbq79zfr1o, #tinytable_l7u0rvuy5da6jx78b18p th.tinytable_css_96oeclfuovwbq79zfr1o { text-align: center }
+    #tinytable_l7u0rvuy5da6jx78b18p td.tinytable_css_3o4n481prpejr80gh017, #tinytable_l7u0rvuy5da6jx78b18p th.tinytable_css_3o4n481prpejr80gh017 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_l7u0rvuy5da6jx78b18p td.tinytable_css_5g6bkvk7k2dbhmytfot9, #tinytable_l7u0rvuy5da6jx78b18p th.tinytable_css_5g6bkvk7k2dbhmytfot9 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_l7u0rvuy5da6jx78b18p td.tinytable_css_uojg4ibgl55icqisihe6, #tinytable_l7u0rvuy5da6jx78b18p th.tinytable_css_uojg4ibgl55icqisihe6 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_l7u0rvuy5da6jx78b18p td.tinytable_css_y8xqfdheofjc8fcwle73, #tinytable_l7u0rvuy5da6jx78b18p th.tinytable_css_y8xqfdheofjc8fcwle73 { text-align: left }
+    #tinytable_l7u0rvuy5da6jx78b18p td.tinytable_css_f3918lpuk4rpz58pjbw7, #tinytable_l7u0rvuy5da6jx78b18p th.tinytable_css_f3918lpuk4rpz58pjbw7 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_2iyme1w15va368r93mjx" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_l7u0rvuy5da6jx78b18p" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -1939,9 +1930,6 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 </section>
 <section id="c5-rdchem" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="c5-rdchem"><span class="header-section-number">2.5</span> C5 [RDCHEM]</h2>
-<blockquote class="blockquote">
-<p>For the population of firms in the chemical industry, let <code>rd</code> denote annual expenditures on research and development, and let <code>sales</code> denote annual sales (both are in millions of dollars).</p>
-</blockquote>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>c5 <span class="ot">&lt;-</span> rdchem</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(c5))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -2036,7 +2024,7 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 </div>
 <blockquote class="blockquote">
 <ol type="i">
-<li>Write down a model (not an estimated equation) that implies a constant elasticity between <code>rd</code> and <code>sales</code>. Which parameter is the elasticity?</li>
+<li></li>
 </ol>
 </blockquote>
 <p><span class="math display">\[\log(rd) = \beta_0 + \beta_1 \log(sales) + u\]</span></p>
@@ -2044,7 +2032,7 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 <p>The parameter <span class="math inline">\(\beta_1\)</span> represents elasticity</p>
 <blockquote class="blockquote">
 <ol start="2" type="i">
-<li>Now, estimate the model using the data in RDCHEM. Write out the estimated equation in the usual form. What is the estimated elasticity of <code>rd</code> with respect to <code>sales</code>? Explain in words what this elasticity means.</li>
+<li></li>
 </ol>
 </blockquote>
 <div class="cell">
@@ -2067,25 +2055,25 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_wju2k18k0zwiboel4hnk = TinyTable.createTableFunctions("tinytable_wju2k18k0zwiboel4hnk");
+      const tableFns_2quqmbgtnithkqj2z1jo = TinyTable.createTableFunctions("tinytable_2quqmbgtnithkqj2z1jo");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '4', j: 2 } ], css_id: 'tinytable_css_hjf3b1egrkn33uc93lgh',}, 
-          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_0nynz7o6qvxpevqa3dxh',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '3', j: 2 } ], css_id: 'tinytable_css_h8leg3su0zbvntjg8vhs',}, 
-          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_q346bejlyrv0yzh89a15',}, 
-          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_swss3n7autmg2oe6ddde',}, 
-          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_c8sc01vvq4nrc9h1s9kb',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '3', j: 1 } ], css_id: 'tinytable_css_qgr25nj2sa1due3tau3h',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_e9c9efqbvmslxrt88zcd',}, 
+          { positions: [ { i: '4', j: 2 } ], css_id: 'tinytable_css_kor6tow49laazyxivv4o',}, 
+          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_dkgowdhyvvnoancxlyv7',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '3', j: 2 } ], css_id: 'tinytable_css_nqzk2iiyfjdzi4a9v927',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_ife696fyurel28p7re7a',}, 
+          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_yz12401fcoyyjowe4fbe',}, 
+          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_ajm9lwwwa31m6aaflasg',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '3', j: 1 } ], css_id: 'tinytable_css_jazs7cx1vbqnu2ep4r30',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_hyp02kecriu9ah56i8gy',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_wju2k18k0zwiboel4hnk.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_2quqmbgtnithkqj2z1jo.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -2094,17 +2082,17 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_wju2k18k0zwiboel4hnk td.tinytable_css_hjf3b1egrkn33uc93lgh, #tinytable_wju2k18k0zwiboel4hnk th.tinytable_css_hjf3b1egrkn33uc93lgh {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_wju2k18k0zwiboel4hnk td.tinytable_css_0nynz7o6qvxpevqa3dxh, #tinytable_wju2k18k0zwiboel4hnk th.tinytable_css_0nynz7o6qvxpevqa3dxh {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_wju2k18k0zwiboel4hnk td.tinytable_css_h8leg3su0zbvntjg8vhs, #tinytable_wju2k18k0zwiboel4hnk th.tinytable_css_h8leg3su0zbvntjg8vhs { text-align: center }
-    #tinytable_wju2k18k0zwiboel4hnk td.tinytable_css_q346bejlyrv0yzh89a15, #tinytable_wju2k18k0zwiboel4hnk th.tinytable_css_q346bejlyrv0yzh89a15 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_wju2k18k0zwiboel4hnk td.tinytable_css_swss3n7autmg2oe6ddde, #tinytable_wju2k18k0zwiboel4hnk th.tinytable_css_swss3n7autmg2oe6ddde {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_wju2k18k0zwiboel4hnk td.tinytable_css_c8sc01vvq4nrc9h1s9kb, #tinytable_wju2k18k0zwiboel4hnk th.tinytable_css_c8sc01vvq4nrc9h1s9kb {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_wju2k18k0zwiboel4hnk td.tinytable_css_qgr25nj2sa1due3tau3h, #tinytable_wju2k18k0zwiboel4hnk th.tinytable_css_qgr25nj2sa1due3tau3h { text-align: left }
-    #tinytable_wju2k18k0zwiboel4hnk td.tinytable_css_e9c9efqbvmslxrt88zcd, #tinytable_wju2k18k0zwiboel4hnk th.tinytable_css_e9c9efqbvmslxrt88zcd {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_2quqmbgtnithkqj2z1jo td.tinytable_css_kor6tow49laazyxivv4o, #tinytable_2quqmbgtnithkqj2z1jo th.tinytable_css_kor6tow49laazyxivv4o {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_2quqmbgtnithkqj2z1jo td.tinytable_css_dkgowdhyvvnoancxlyv7, #tinytable_2quqmbgtnithkqj2z1jo th.tinytable_css_dkgowdhyvvnoancxlyv7 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_2quqmbgtnithkqj2z1jo td.tinytable_css_nqzk2iiyfjdzi4a9v927, #tinytable_2quqmbgtnithkqj2z1jo th.tinytable_css_nqzk2iiyfjdzi4a9v927 { text-align: center }
+    #tinytable_2quqmbgtnithkqj2z1jo td.tinytable_css_ife696fyurel28p7re7a, #tinytable_2quqmbgtnithkqj2z1jo th.tinytable_css_ife696fyurel28p7re7a {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_2quqmbgtnithkqj2z1jo td.tinytable_css_yz12401fcoyyjowe4fbe, #tinytable_2quqmbgtnithkqj2z1jo th.tinytable_css_yz12401fcoyyjowe4fbe {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_2quqmbgtnithkqj2z1jo td.tinytable_css_ajm9lwwwa31m6aaflasg, #tinytable_2quqmbgtnithkqj2z1jo th.tinytable_css_ajm9lwwwa31m6aaflasg {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_2quqmbgtnithkqj2z1jo td.tinytable_css_jazs7cx1vbqnu2ep4r30, #tinytable_2quqmbgtnithkqj2z1jo th.tinytable_css_jazs7cx1vbqnu2ep4r30 { text-align: left }
+    #tinytable_2quqmbgtnithkqj2z1jo td.tinytable_css_hyp02kecriu9ah56i8gy, #tinytable_2quqmbgtnithkqj2z1jo th.tinytable_css_hyp02kecriu9ah56i8gy {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_wju2k18k0zwiboel4hnk" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_2quqmbgtnithkqj2z1jo" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -2141,15 +2129,1043 @@ For every 100 minutes worked, 15 minutes of sleep are lost.</p>
 </section>
 <section id="c6-meap93" class="level2" data-number="2.6">
 <h2 data-number="2.6" class="anchored" data-anchor-id="c6-meap93"><span class="header-section-number">2.6</span> C6 [MEAP93]</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>c6 <span class="ot">&lt;-</span> meap93</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(meap93))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 5%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 7%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">lnchprg</th>
+<th style="text-align: right;">enroll</th>
+<th style="text-align: right;">staff</th>
+<th style="text-align: right;">expend</th>
+<th style="text-align: right;">salary</th>
+<th style="text-align: right;">benefits</th>
+<th style="text-align: right;">droprate</th>
+<th style="text-align: right;">gradrate</th>
+<th style="text-align: right;">math10</th>
+<th style="text-align: right;">sci11</th>
+<th style="text-align: right;">totcomp</th>
+<th style="text-align: right;">ltotcomp</th>
+<th style="text-align: right;">lexpend</th>
+<th style="text-align: right;">lenroll</th>
+<th style="text-align: right;">lstaff</th>
+<th style="text-align: right;">bensal</th>
+<th style="text-align: right;">lsalary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1.4</td>
+<td style="text-align: right;">1862</td>
+<td style="text-align: right;">112.6</td>
+<td style="text-align: right;">5765</td>
+<td style="text-align: right;">37498</td>
+<td style="text-align: right;">7420</td>
+<td style="text-align: right;">2.9</td>
+<td style="text-align: right;">89.2</td>
+<td style="text-align: right;">56.4</td>
+<td style="text-align: right;">67.9</td>
+<td style="text-align: right;">44918</td>
+<td style="text-align: right;">10.71259</td>
+<td style="text-align: right;">8.659560</td>
+<td style="text-align: right;">7.529407</td>
+<td style="text-align: right;">4.723842</td>
+<td style="text-align: right;">0.1978772</td>
+<td style="text-align: right;">10.53204</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2.3</td>
+<td style="text-align: right;">11355</td>
+<td style="text-align: right;">101.2</td>
+<td style="text-align: right;">6601</td>
+<td style="text-align: right;">48722</td>
+<td style="text-align: right;">10370</td>
+<td style="text-align: right;">1.3</td>
+<td style="text-align: right;">91.4</td>
+<td style="text-align: right;">42.7</td>
+<td style="text-align: right;">65.3</td>
+<td style="text-align: right;">59092</td>
+<td style="text-align: right;">10.98685</td>
+<td style="text-align: right;">8.794976</td>
+<td style="text-align: right;">9.337414</td>
+<td style="text-align: right;">4.617099</td>
+<td style="text-align: right;">0.2128402</td>
+<td style="text-align: right;">10.79389</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2.7</td>
+<td style="text-align: right;">7685</td>
+<td style="text-align: right;">114.0</td>
+<td style="text-align: right;">6834</td>
+<td style="text-align: right;">44541</td>
+<td style="text-align: right;">7313</td>
+<td style="text-align: right;">3.5</td>
+<td style="text-align: right;">91.4</td>
+<td style="text-align: right;">43.8</td>
+<td style="text-align: right;">54.3</td>
+<td style="text-align: right;">51854</td>
+<td style="text-align: right;">10.85619</td>
+<td style="text-align: right;">8.829665</td>
+<td style="text-align: right;">8.947025</td>
+<td style="text-align: right;">4.736198</td>
+<td style="text-align: right;">0.1641858</td>
+<td style="text-align: right;">10.70417</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3.4</td>
+<td style="text-align: right;">1148</td>
+<td style="text-align: right;">85.4</td>
+<td style="text-align: right;">3586</td>
+<td style="text-align: right;">31566</td>
+<td style="text-align: right;">5989</td>
+<td style="text-align: right;">3.6</td>
+<td style="text-align: right;">86.6</td>
+<td style="text-align: right;">25.3</td>
+<td style="text-align: right;">60.0</td>
+<td style="text-align: right;">37555</td>
+<td style="text-align: right;">10.53356</td>
+<td style="text-align: right;">8.184793</td>
+<td style="text-align: right;">7.045776</td>
+<td style="text-align: right;">4.447346</td>
+<td style="text-align: right;">0.1897295</td>
+<td style="text-align: right;">10.35984</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3.4</td>
+<td style="text-align: right;">1572</td>
+<td style="text-align: right;">96.1</td>
+<td style="text-align: right;">3847</td>
+<td style="text-align: right;">29781</td>
+<td style="text-align: right;">5545</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">100.0</td>
+<td style="text-align: right;">15.3</td>
+<td style="text-align: right;">65.8</td>
+<td style="text-align: right;">35326</td>
+<td style="text-align: right;">10.47237</td>
+<td style="text-align: right;">8.255049</td>
+<td style="text-align: right;">7.360104</td>
+<td style="text-align: right;">4.565389</td>
+<td style="text-align: right;">0.1861925</td>
+<td style="text-align: right;">10.30163</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3.4</td>
+<td style="text-align: right;">2496</td>
+<td style="text-align: right;">101.1</td>
+<td style="text-align: right;">5070</td>
+<td style="text-align: right;">36801</td>
+<td style="text-align: right;">5895</td>
+<td style="text-align: right;">2.7</td>
+<td style="text-align: right;">89.2</td>
+<td style="text-align: right;">46.0</td>
+<td style="text-align: right;">60.5</td>
+<td style="text-align: right;">42696</td>
+<td style="text-align: right;">10.66186</td>
+<td style="text-align: right;">8.531097</td>
+<td style="text-align: right;">7.822445</td>
+<td style="text-align: right;">4.616110</td>
+<td style="text-align: right;">0.1601859</td>
+<td style="text-align: right;">10.51328</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<blockquote class="blockquote">
+<ol type="i">
+<li></li>
+</ol>
+</blockquote>
+<p><strong>Interpretation:</strong></p>
+<p>I believe dollar has a diminishing effect on passing rate. Most students with limited source can pass, but scoring maximum mark takes very high resources. Also a constant effect may predict students can pass the maximum score.</p>
+<blockquote class="blockquote">
+<ol start="2" type="i">
+<li></li>
+</ol>
+</blockquote>
+<p><strong>Interpretation:</strong></p>
+<p><span class="math display">\[\begin{align}
+\Delta math10 &amp;= \beta_1 \cdot \Delta \log(expend) \\
+\Delta math10 &amp;\approx \beta_1 \cdot \left( \frac{\Delta expend}{expend} \right) \\
+\Delta math10 &amp;\approx \beta_1 \cdot (0.10) \\
+\Delta math10 &amp;\approx \frac{\beta_1}{10}
+\end{align}\]</span></p>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li></li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>c6m <span class="ot">&lt;-</span> <span class="fu">lm</span>(math10 <span class="sc">~</span> lexpend, <span class="at">data =</span> c6)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  c6m,</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">fmt =</span> <span class="dv">2</span>,</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">statistic =</span> <span class="cn">NULL</span>,</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">gof_map =</span> <span class="fu">c</span>(<span class="st">"nobs"</span>, <span class="st">"r.squared"</span>),</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">coef_rename =</span> <span class="fu">c</span>(</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"(Intercept)"</span> <span class="ot">=</span> <span class="st">"Constant"</span>,</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"lexpend"</span> <span class="ot">=</span> <span class="st">"Student Spending"</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<!-- preamble start -->
+
+    <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script>
+
+    <script>
+      // Create table-specific functions using external factory
+      const tableFns_z4sl3qyuwtx6hye4rc6y = TinyTable.createTableFunctions("tinytable_z4sl3qyuwtx6hye4rc6y");
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: '4', j: 2 } ], css_id: 'tinytable_css_m4fbaxq8jw9atc0t1wot',}, 
+          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_10s35rdloxp872vuftzq',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '3', j: 2 } ], css_id: 'tinytable_css_4e9d974myu3zmz98slwi',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_uryyrz3bg0r7ogbxz8jf',}, 
+          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_b1gbvm55lw0zkf7pdrxr',}, 
+          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_771afof8ywp414lr9842',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '3', j: 1 } ], css_id: 'tinytable_css_f4077x115ovj4df553cp',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_pf3wyjgnygm749nnsxjx',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  tableFns_z4sl3qyuwtx6hye4rc6y.styleCell(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
+    <style>
+    /* tinytable css entries after */
+    #tinytable_z4sl3qyuwtx6hye4rc6y td.tinytable_css_m4fbaxq8jw9atc0t1wot, #tinytable_z4sl3qyuwtx6hye4rc6y th.tinytable_css_m4fbaxq8jw9atc0t1wot {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_z4sl3qyuwtx6hye4rc6y td.tinytable_css_10s35rdloxp872vuftzq, #tinytable_z4sl3qyuwtx6hye4rc6y th.tinytable_css_10s35rdloxp872vuftzq {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_z4sl3qyuwtx6hye4rc6y td.tinytable_css_4e9d974myu3zmz98slwi, #tinytable_z4sl3qyuwtx6hye4rc6y th.tinytable_css_4e9d974myu3zmz98slwi { text-align: center }
+    #tinytable_z4sl3qyuwtx6hye4rc6y td.tinytable_css_uryyrz3bg0r7ogbxz8jf, #tinytable_z4sl3qyuwtx6hye4rc6y th.tinytable_css_uryyrz3bg0r7ogbxz8jf {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_z4sl3qyuwtx6hye4rc6y td.tinytable_css_b1gbvm55lw0zkf7pdrxr, #tinytable_z4sl3qyuwtx6hye4rc6y th.tinytable_css_b1gbvm55lw0zkf7pdrxr {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_z4sl3qyuwtx6hye4rc6y td.tinytable_css_771afof8ywp414lr9842, #tinytable_z4sl3qyuwtx6hye4rc6y th.tinytable_css_771afof8ywp414lr9842 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_z4sl3qyuwtx6hye4rc6y td.tinytable_css_f4077x115ovj4df553cp, #tinytable_z4sl3qyuwtx6hye4rc6y th.tinytable_css_f4077x115ovj4df553cp { text-align: left }
+    #tinytable_z4sl3qyuwtx6hye4rc6y td.tinytable_css_pf3wyjgnygm749nnsxjx, #tinytable_z4sl3qyuwtx6hye4rc6y th.tinytable_css_pf3wyjgnygm749nnsxjx {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    </style>
+    <div class="container">
+      <table class="tinytable" id="tinytable_z4sl3qyuwtx6hye4rc6y" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        
+        <thead>
+              <tr>
+                <th scope="col" data-row="0" data-col="1"> </th>
+                <th scope="col" data-row="0" data-col="2">(1)</th>
+              </tr>
+        </thead>
+        
+        <tbody>
+                <tr>
+                  <td data-row="1" data-col="1">Constant</td>
+                  <td data-row="1" data-col="2">-69.34</td>
+                </tr>
+                <tr>
+                  <td data-row="2" data-col="1">Student Spending</td>
+                  <td data-row="2" data-col="2">11.16</td>
+                </tr>
+                <tr>
+                  <td data-row="3" data-col="1">Num.Obs.</td>
+                  <td data-row="3" data-col="2">408</td>
+                </tr>
+                <tr>
+                  <td data-row="4" data-col="1">R2</td>
+                  <td data-row="4" data-col="2">0.030</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+</div>
+<blockquote class="blockquote">
+<ol start="4" type="i">
+<li></li>
+</ol>
+</blockquote>
+<p><strong>Interpretation:</strong></p>
+<p>Estimated effect for spending effect is <strong>11.16</strong>. If spending increases by 10%, math pass rate increase by <strong>1.116</strong> percentage points.</p>
+<blockquote class="blockquote">
+<ol start="22" type="a">
+<li></li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>c6m <span class="sc">|&gt;</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">augment</span>() <span class="sc">|&gt;</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(math10, .fitted) <span class="sc">|&gt;</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> value)) <span class="sc">+</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">40</span>) <span class="sc">+</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>name)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chapter02_files/figure-html/c6_v-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>We don’t have to worry about passing maximum rate because predicted rates are between the interval <strong>[20, 30]</strong> while original rates had maximum rate below 80.</p>
 </section>
 <section id="c7-charity" class="level2" data-number="2.7">
 <h2 data-number="2.7" class="anchored" data-anchor-id="c7-charity"><span class="header-section-number">2.7</span> C7 [CHARITY]</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>c7 <span class="ot">&lt;-</span> charity</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(c7))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 7%">
+<col style="width: 13%">
+<col style="width: 14%">
+<col style="width: 13%">
+<col style="width: 14%">
+<col style="width: 13%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">respond</th>
+<th style="text-align: right;">gift</th>
+<th style="text-align: right;">resplast</th>
+<th style="text-align: right;">weekslast</th>
+<th style="text-align: right;">propresp</th>
+<th style="text-align: right;">mailsyear</th>
+<th style="text-align: right;">giftlast</th>
+<th style="text-align: right;">avggift</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">143.00000</td>
+<td style="text-align: right;">0.3</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">65.42857</td>
+<td style="text-align: right;">0.3</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">13.14286</td>
+<td style="text-align: right;">0.3</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">120.14286</td>
+<td style="text-align: right;">0.3</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">103.85714</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">129.14285</td>
+<td style="text-align: right;">0.3</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">10</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<blockquote class="blockquote">
+<ol type="i">
+<li></li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>c7 <span class="sc">|&gt;</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_Gift =</span> <span class="fu">mean</span>(gift),</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">No_Gift_Pct =</span> <span class="fu">mean</span>(gift <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Avg_Gift No_Gift_Pct
+1     7.44          60</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>Average gift in the sample is <strong>7.44</strong> with <strong>60%</strong> of the sample having no gifts.</p>
+<blockquote class="blockquote">
+<ol start="2" type="i">
+<li></li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>c7 <span class="sc">|&gt;</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Min_Mailing =</span> <span class="fu">min</span>(mailsyear),</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_Mailing =</span> <span class="fu">mean</span>(mailsyear),</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Max_Mailing =</span> <span class="fu">max</span>(mailsyear)</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Min_Mailing Avg_Mailing Max_Mailing
+1        0.25        2.05         3.5</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>Minimum number of mailings per year is <strong>0.25</strong>. The average is <strong>2.05</strong> and maximum is <strong>3.05</strong></p>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li></li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>c7m <span class="ot">&lt;-</span> <span class="fu">lm</span>(gift <span class="sc">~</span> mailsyear, <span class="at">data =</span> c7)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  c7m,</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">fmt =</span> <span class="dv">2</span>,</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">statistic =</span> <span class="cn">NULL</span>,</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">gof_map =</span> <span class="fu">c</span>(<span class="st">"nobs"</span>, <span class="st">"r.squared"</span>),</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">coef_rename =</span> <span class="fu">c</span>(</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"(Intercept)"</span> <span class="ot">=</span> <span class="st">"Constant"</span>,</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mailsyear"</span> <span class="ot">=</span> <span class="st">"Mailings per Year"</span></span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<!-- preamble start -->
+
+    <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script>
+
+    <script>
+      // Create table-specific functions using external factory
+      const tableFns_lb76cmwjvyrkt3rajk53 = TinyTable.createTableFunctions("tinytable_lb76cmwjvyrkt3rajk53");
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: '4', j: 2 } ], css_id: 'tinytable_css_gu32f7w29bmk5v8pi5wn',}, 
+          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_o0cu8ryaqm13854aw2ho',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '3', j: 2 } ], css_id: 'tinytable_css_bwwxpozz2ahdmmwt520q',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_n6gbivyvh0izhexikekh',}, 
+          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_xbjsjitu6t9tv5n530om',}, 
+          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_xjtz39j661067zmbzlga',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '3', j: 1 } ], css_id: 'tinytable_css_a84fz04qig5pk3puj5ah',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_qoxwu3xhyzt4q7kdh7ui',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  tableFns_lb76cmwjvyrkt3rajk53.styleCell(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
+    <style>
+    /* tinytable css entries after */
+    #tinytable_lb76cmwjvyrkt3rajk53 td.tinytable_css_gu32f7w29bmk5v8pi5wn, #tinytable_lb76cmwjvyrkt3rajk53 th.tinytable_css_gu32f7w29bmk5v8pi5wn {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_lb76cmwjvyrkt3rajk53 td.tinytable_css_o0cu8ryaqm13854aw2ho, #tinytable_lb76cmwjvyrkt3rajk53 th.tinytable_css_o0cu8ryaqm13854aw2ho {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_lb76cmwjvyrkt3rajk53 td.tinytable_css_bwwxpozz2ahdmmwt520q, #tinytable_lb76cmwjvyrkt3rajk53 th.tinytable_css_bwwxpozz2ahdmmwt520q { text-align: center }
+    #tinytable_lb76cmwjvyrkt3rajk53 td.tinytable_css_n6gbivyvh0izhexikekh, #tinytable_lb76cmwjvyrkt3rajk53 th.tinytable_css_n6gbivyvh0izhexikekh {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_lb76cmwjvyrkt3rajk53 td.tinytable_css_xbjsjitu6t9tv5n530om, #tinytable_lb76cmwjvyrkt3rajk53 th.tinytable_css_xbjsjitu6t9tv5n530om {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_lb76cmwjvyrkt3rajk53 td.tinytable_css_xjtz39j661067zmbzlga, #tinytable_lb76cmwjvyrkt3rajk53 th.tinytable_css_xjtz39j661067zmbzlga {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_lb76cmwjvyrkt3rajk53 td.tinytable_css_a84fz04qig5pk3puj5ah, #tinytable_lb76cmwjvyrkt3rajk53 th.tinytable_css_a84fz04qig5pk3puj5ah { text-align: left }
+    #tinytable_lb76cmwjvyrkt3rajk53 td.tinytable_css_qoxwu3xhyzt4q7kdh7ui, #tinytable_lb76cmwjvyrkt3rajk53 th.tinytable_css_qoxwu3xhyzt4q7kdh7ui {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    </style>
+    <div class="container">
+      <table class="tinytable" id="tinytable_lb76cmwjvyrkt3rajk53" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        
+        <thead>
+              <tr>
+                <th scope="col" data-row="0" data-col="1"> </th>
+                <th scope="col" data-row="0" data-col="2">(1)</th>
+              </tr>
+        </thead>
+        
+        <tbody>
+                <tr>
+                  <td data-row="1" data-col="1">Constant</td>
+                  <td data-row="1" data-col="2">2.01</td>
+                </tr>
+                <tr>
+                  <td data-row="2" data-col="1">Mailings per Year</td>
+                  <td data-row="2" data-col="2">2.65</td>
+                </tr>
+                <tr>
+                  <td data-row="3" data-col="1">Num.Obs.</td>
+                  <td data-row="3" data-col="2">4268</td>
+                </tr>
+                <tr>
+                  <td data-row="4" data-col="1">R2</td>
+                  <td data-row="4" data-col="2">0.014</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+</div>
+<blockquote class="blockquote">
+<ol start="4" type="i">
+<li></li>
+</ol>
+</blockquote>
+<p><strong>Interpretation:</strong> For each extra mailing per year, gift is predicted to increase by <strong>2.65</strong>. If each mailing costs 1 guilder, net gain on each mail is <strong>2.65 - 1 = 1.65</strong>. This does not mean that charity makes a net gain on every mailing, it means that, on average, net gain will be 1.65.</p>
+<blockquote class="blockquote">
+<ol start="22" type="a">
+<li></li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>c7m <span class="sc">|&gt;</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">augment</span>() <span class="sc">|&gt;</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Min_Prediction =</span> <span class="fu">min</span>(.fitted)</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  Min_Prediction
+           &lt;dbl&gt;
+1           2.68</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>Minimum predicted gift is <strong>2.68</strong> coming from the observation with 0.25 mailings per year (<span class="math inline">\(2.01 + 2.65(0.25) = 2.68\)</span>). Predicting a zero is impossible with this model because <span class="math inline">\(\hat \beta_0\)</span> and <span class="math inline">\(\hat \beta_1\)</span> are both greater than zero; least possible value is <span class="math inline">\(\hat \beta_0 = 2.01\)</span></p>
 </section>
 <section id="c8-simulation" class="level2" data-number="2.8">
 <h2 data-number="2.8" class="anchored" data-anchor-id="c8-simulation"><span class="header-section-number">2.8</span> C8 [Simulation]</h2>
+<blockquote class="blockquote">
+<ol type="i">
+<li></li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>x_i <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">500</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">10</span>)</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">round</span>(<span class="fu">mean</span>(x_i), <span class="dv">2</span>), <span class="fu">round</span>(<span class="fu">sd</span>(x_i), <span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>4.9 2.93</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>The sample mean of <span class="math inline">\(x_i\)</span> is 4.9 and the sample standard deviation is 2.89. These values are close to, but not exactly equal to, the theoretical population mean (<span class="math inline">\(E[x] = 5\)</span>) and population standard deviation (<span class="math inline">\(\sigma_x \approx 2.93\)</span>) of a Uniform(0,10) distribution due to finite sampling variance.</p>
+<blockquote class="blockquote">
+<ol start="2" type="i">
+<li></li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>u_i <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">500</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">6</span>)</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">round</span>(<span class="fu">mean</span>(u_i), <span class="dv">2</span>), <span class="fu">round</span>(<span class="fu">sd</span>(u_i), <span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>-0.18 5.83</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>The sample average of <span class="math inline">\(u_i\)</span> is -0.18, which is not exactly zero. While the population expectation is exactly zero (<span class="math inline">\(E[u] = 0\)</span>), a finite sample of 500 random draws will inherently contain sampling error, preventing the sample mean from perfectly matching the population mean. The sample standard deviation is 5.83, which closely approximates the population standard deviation of 6.</p>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li></li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>y_i <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">2</span> <span class="sc">*</span> x_i) <span class="sc">+</span> u_i</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>c8m <span class="ot">&lt;-</span> <span class="fu">lm</span>(y_i <span class="sc">~</span> x_i)</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>  c8m,</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">statistic =</span> <span class="cn">NULL</span>,</span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">gof_map =</span> <span class="fu">list</span>(),</span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">coef_rename =</span> <span class="fu">c</span>(</span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"(Intercept)"</span> <span class="ot">=</span> <span class="st">"Constant"</span>,</span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"x_i"</span> <span class="ot">=</span> <span class="st">"x"</span></span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<!-- preamble start -->
+
+    <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script>
+
+    <script>
+      // Create table-specific functions using external factory
+      const tableFns_gfvo2d88n2zywl3sq7b8 = TinyTable.createTableFunctions("tinytable_gfvo2d88n2zywl3sq7b8");
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_cm0xmzb5g0jpi2ijudxw',}, 
+          { positions: [ { i: '1', j: 2 } ], css_id: 'tinytable_css_t8gjzx2gna7jrmwif99i',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_mq2x2lw2df9q7m8yxxto',}, 
+          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_04g0nwh245fcw9dxfg1e',}, 
+          { positions: [ { i: '1', j: 1 } ], css_id: 'tinytable_css_dq9m9k5r7upnijaq63uy',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_n22p6qmvejyqi1lw3hyo',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  tableFns_gfvo2d88n2zywl3sq7b8.styleCell(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
+    <style>
+    /* tinytable css entries after */
+    #tinytable_gfvo2d88n2zywl3sq7b8 td.tinytable_css_cm0xmzb5g0jpi2ijudxw, #tinytable_gfvo2d88n2zywl3sq7b8 th.tinytable_css_cm0xmzb5g0jpi2ijudxw {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_gfvo2d88n2zywl3sq7b8 td.tinytable_css_t8gjzx2gna7jrmwif99i, #tinytable_gfvo2d88n2zywl3sq7b8 th.tinytable_css_t8gjzx2gna7jrmwif99i { text-align: center }
+    #tinytable_gfvo2d88n2zywl3sq7b8 td.tinytable_css_mq2x2lw2df9q7m8yxxto, #tinytable_gfvo2d88n2zywl3sq7b8 th.tinytable_css_mq2x2lw2df9q7m8yxxto {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_gfvo2d88n2zywl3sq7b8 td.tinytable_css_04g0nwh245fcw9dxfg1e, #tinytable_gfvo2d88n2zywl3sq7b8 th.tinytable_css_04g0nwh245fcw9dxfg1e {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_gfvo2d88n2zywl3sq7b8 td.tinytable_css_dq9m9k5r7upnijaq63uy, #tinytable_gfvo2d88n2zywl3sq7b8 th.tinytable_css_dq9m9k5r7upnijaq63uy { text-align: left }
+    #tinytable_gfvo2d88n2zywl3sq7b8 td.tinytable_css_n22p6qmvejyqi1lw3hyo, #tinytable_gfvo2d88n2zywl3sq7b8 th.tinytable_css_n22p6qmvejyqi1lw3hyo {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    </style>
+    <div class="container">
+      <table class="tinytable" id="tinytable_gfvo2d88n2zywl3sq7b8" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        
+        <thead>
+              <tr>
+                <th scope="col" data-row="0" data-col="1"> </th>
+                <th scope="col" data-row="0" data-col="2">(1)</th>
+              </tr>
+        </thead>
+        
+        <tbody>
+                <tr>
+                  <td data-row="1" data-col="1">Constant</td>
+                  <td data-row="1" data-col="2">0.901</td>
+                </tr>
+                <tr>
+                  <td data-row="2" data-col="1">x</td>
+                  <td data-row="2" data-col="2">1.983</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+</div>
+<p><strong>Interpretation</strong></p>
+<p><span class="math inline">\(\hat{\beta}_0\)</span> is estimated to be 0.901 and <span class="math inline">\(\hat{\beta}_1\)</span> is estimated to be 1.983. They differ from the true population parameters (<span class="math inline">\(\beta_0 = 1, \beta_1 = 2\)</span>) due to sampling error. The intercept deviates because the sample mean of the errors (<span class="math inline">\(\bar{u}\)</span>) is not exactly zero. More importantly, the slope deviates because the sample covariance between <span class="math inline">\(x_i\)</span> and <span class="math inline">\(u_i\)</span> is not exactly zero.</p>
+<blockquote class="blockquote">
+<ol start="4" type="i">
+<li></li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>c8m <span class="sc">|&gt;</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">augment</span>() <span class="sc">|&gt;</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Sum_Resid =</span> <span class="fu">sum</span>(.resid),</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Sum_x_resid =</span> <span class="fu">sum</span>(x_i <span class="sc">*</span> .resid)</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  Sum_Resid Sum_x_resid
+      &lt;dbl&gt;       &lt;dbl&gt;
+1         0           0</code></pre>
+</div>
+</div>
+<p><strong>Interpretation</strong></p>
+<p>The sum of the residuals (<span class="math inline">\(\sum \hat{u}_i\)</span>) and the sum of the product of the regressors and residuals (<span class="math inline">\(\sum x_i \hat{u}_i\)</span>) are both effectively zero. This confirms that the algebraic properties of OLS hold perfectly in the sample.</p>
+<blockquote class="blockquote">
+<ol start="22" type="a">
+<li></li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>c8m <span class="sc">|&gt;</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">augment</span>() <span class="sc">|&gt;</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Sum_Error =</span> <span class="fu">sum</span>(u_i),</span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Sum_x_Error =</span> <span class="fu">sum</span>(x_i <span class="sc">*</span> u_i)</span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  Sum_Error Sum_x_Error
+      &lt;dbl&gt;       &lt;dbl&gt;
+1     -90.1       -512.</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>When using the unobserved population errors (<span class="math inline">\(u_i\)</span>) instead of the OLS residuals (<span class="math inline">\(\hat{u}_i\)</span>), the sums are far from zero (<span class="math inline">\(\sum u_i = -90.14\)</span> and <span class="math inline">\(\sum x_i u_i = -512.34\)</span>). This highlights the fundamental mechanical difference between errors and residuals: OLS residuals are mathematically forced by the regression algorithm to sum to zero and be uncorrelated with <span class="math inline">\(x\)</span>, whereas population errors are unobserved random variables that will not perfectly satisfy these orthogonal conditions in a finite sample.</p>
+<blockquote class="blockquote">
+<ol start="6" type="i">
+<li></li>
+</ol>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">43</span>)</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>x_i <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">500</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">10</span>)</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>u_i <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">500</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">6</span>)</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>y_i <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">2</span> <span class="sc">*</span> x_i) <span class="sc">+</span> u_i</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>c8m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y_i <span class="sc">~</span> x_i)</span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(</span>
+<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>  c8m2,</span>
+<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">statistic =</span> <span class="cn">NULL</span>,</span>
+<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">gof_map =</span> <span class="fu">list</span>(),</span>
+<span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">coef_rename =</span> <span class="fu">c</span>(</span>
+<span id="cb49-14"><a href="#cb49-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"(Intercept)"</span> <span class="ot">=</span> <span class="st">"Constant"</span>,</span>
+<span id="cb49-15"><a href="#cb49-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"x_i"</span> <span class="ot">=</span> <span class="st">"x"</span></span>
+<span id="cb49-16"><a href="#cb49-16" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb49-17"><a href="#cb49-17" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<!-- preamble start -->
+
+    <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script>
+
+    <script>
+      // Create table-specific functions using external factory
+      const tableFns_ms7xn1m5v284yx79l045 = TinyTable.createTableFunctions("tinytable_ms7xn1m5v284yx79l045");
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_rjusi4qr7slryzpels0b',}, 
+          { positions: [ { i: '1', j: 2 } ], css_id: 'tinytable_css_ewkkk6z8qxch7dw2od70',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_3r84z8x3qesqktgh3m6i',}, 
+          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_oudt826i3j6p2lthxc8r',}, 
+          { positions: [ { i: '1', j: 1 } ], css_id: 'tinytable_css_zil3dmupn8f8sc0r1iad',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_9l1tvg3x08zkeyppu9eu',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  tableFns_ms7xn1m5v284yx79l045.styleCell(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
+    <style>
+    /* tinytable css entries after */
+    #tinytable_ms7xn1m5v284yx79l045 td.tinytable_css_rjusi4qr7slryzpels0b, #tinytable_ms7xn1m5v284yx79l045 th.tinytable_css_rjusi4qr7slryzpels0b {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_ms7xn1m5v284yx79l045 td.tinytable_css_ewkkk6z8qxch7dw2od70, #tinytable_ms7xn1m5v284yx79l045 th.tinytable_css_ewkkk6z8qxch7dw2od70 { text-align: center }
+    #tinytable_ms7xn1m5v284yx79l045 td.tinytable_css_3r84z8x3qesqktgh3m6i, #tinytable_ms7xn1m5v284yx79l045 th.tinytable_css_3r84z8x3qesqktgh3m6i {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_ms7xn1m5v284yx79l045 td.tinytable_css_oudt826i3j6p2lthxc8r, #tinytable_ms7xn1m5v284yx79l045 th.tinytable_css_oudt826i3j6p2lthxc8r {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_ms7xn1m5v284yx79l045 td.tinytable_css_zil3dmupn8f8sc0r1iad, #tinytable_ms7xn1m5v284yx79l045 th.tinytable_css_zil3dmupn8f8sc0r1iad { text-align: left }
+    #tinytable_ms7xn1m5v284yx79l045 td.tinytable_css_9l1tvg3x08zkeyppu9eu, #tinytable_ms7xn1m5v284yx79l045 th.tinytable_css_9l1tvg3x08zkeyppu9eu {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    </style>
+    <div class="container">
+      <table class="tinytable" id="tinytable_ms7xn1m5v284yx79l045" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        
+        <thead>
+              <tr>
+                <th scope="col" data-row="0" data-col="1"> </th>
+                <th scope="col" data-row="0" data-col="2">(1)</th>
+              </tr>
+        </thead>
+        
+        <tbody>
+                <tr>
+                  <td data-row="1" data-col="1">Constant</td>
+                  <td data-row="1" data-col="2">1.022</td>
+                </tr>
+                <tr>
+                  <td data-row="2" data-col="1">x</td>
+                  <td data-row="2" data-col="2">2.040</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>With a new random sample, the estimates change to <span class="math inline">\(\hat{\beta}_0 = 1.022\)</span> and <span class="math inline">\(\hat{\beta}_1 = 2.040\)</span>. These differ from the estimates in part (iii) because every new sample draws a unique set of <span class="math inline">\(x_i\)</span> and <span class="math inline">\(u_i\)</span> values. Consequently, the new sample mean of <span class="math inline">\(u_i\)</span> and the new sample covariance between <span class="math inline">\(x_i\)</span> and <span class="math inline">\(u_i\)</span> have changed. The OLS estimator processes this new random sample variation, resulting in different deviations from the true population parameters.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Formula for the slope <span class="math inline">\(\hat \beta_1\)</span>:</p>
+<p><span class="math display">\[
+\hat \beta_1 = \beta_1 + \dfrac{Cov(x,u)}{Var(x)}
+\]</span></p>
+<p>To be equal to the parameter, covariance must be = zero</p>
+<p>Formula for <span class="math inline">\(\hat \beta_0\)</span>:</p>
+<p><span class="math display">\[
+\hat \beta_0 = \beta_0 + (\beta_1 - \hat \beta_1) \bar x + \bar u
+\]</span></p>
+<p>To be equal to the parameter, average of error term must be exactly zero, and <span class="math inline">\(\hat \beta_1 = \beta_1\)</span></p>
+</div>
+</div>
 </section>
 <section id="c9-countymurders" class="level2" data-number="2.9">
 <h2 data-number="2.9" class="anchored" data-anchor-id="c9-countymurders"><span class="header-section-number">2.9</span> C9 [COUNTYMURDERS]</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>c9 <span class="ot">&lt;-</span> countymurders <span class="sc">|&gt;</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1996</span>)</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(c9))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 4%">
+<col style="width: 6%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 2%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 3%">
+<col style="width: 5%">
+<col style="width: 4%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">arrests</th>
+<th style="text-align: right;">countyid</th>
+<th style="text-align: right;">density</th>
+<th style="text-align: right;">popul</th>
+<th style="text-align: right;">perc1019</th>
+<th style="text-align: right;">perc2029</th>
+<th style="text-align: right;">percblack</th>
+<th style="text-align: right;">percmale</th>
+<th style="text-align: right;">rpcincmaint</th>
+<th style="text-align: right;">rpcpersinc</th>
+<th style="text-align: right;">rpcunemins</th>
+<th style="text-align: right;">year</th>
+<th style="text-align: right;">murders</th>
+<th style="text-align: right;">murdrate</th>
+<th style="text-align: right;">arrestrate</th>
+<th style="text-align: right;">statefips</th>
+<th style="text-align: right;">countyfips</th>
+<th style="text-align: right;">execs</th>
+<th style="text-align: right;">lpopul</th>
+<th style="text-align: right;">execrate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">1001</td>
+<td style="text-align: right;">67.21535</td>
+<td style="text-align: right;">40061</td>
+<td style="text-align: right;">15.89077</td>
+<td style="text-align: right;">13.17491</td>
+<td style="text-align: right;">20.975510</td>
+<td style="text-align: right;">48.70073</td>
+<td style="text-align: right;">192.038</td>
+<td style="text-align: right;">11852.760</td>
+<td style="text-align: right;">26.796</td>
+<td style="text-align: right;">1996</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1.7473350</td>
+<td style="text-align: right;">1.9969550</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10.598160</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">1003</td>
+<td style="text-align: right;">77.05643</td>
+<td style="text-align: right;">123023</td>
+<td style="text-align: right;">13.93886</td>
+<td style="text-align: right;">11.63929</td>
+<td style="text-align: right;">13.496660</td>
+<td style="text-align: right;">48.83233</td>
+<td style="text-align: right;">139.084</td>
+<td style="text-align: right;">13583.020</td>
+<td style="text-align: right;">28.710</td>
+<td style="text-align: right;">1996</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.4877137</td>
+<td style="text-align: right;">0.4877137</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">11.720130</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1005</td>
+<td style="text-align: right;">29.91548</td>
+<td style="text-align: right;">26475</td>
+<td style="text-align: right;">15.06327</td>
+<td style="text-align: right;">13.69972</td>
+<td style="text-align: right;">46.190750</td>
+<td style="text-align: right;">49.15203</td>
+<td style="text-align: right;">405.768</td>
+<td style="text-align: right;">10760.510</td>
+<td style="text-align: right;">63.162</td>
+<td style="text-align: right;">1996</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.3777148</td>
+<td style="text-align: right;">0.3777148</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10.183960</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1009</td>
+<td style="text-align: right;">67.20457</td>
+<td style="text-align: right;">43392</td>
+<td style="text-align: right;">14.17542</td>
+<td style="text-align: right;">12.99318</td>
+<td style="text-align: right;">1.415007</td>
+<td style="text-align: right;">48.97446</td>
+<td style="text-align: right;">184.382</td>
+<td style="text-align: right;">11094.820</td>
+<td style="text-align: right;">21.692</td>
+<td style="text-align: right;">1996</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.4609145</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10.678030</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1011</td>
+<td style="text-align: right;">17.89899</td>
+<td style="text-align: right;">11188</td>
+<td style="text-align: right;">14.98927</td>
+<td style="text-align: right;">14.13121</td>
+<td style="text-align: right;">72.756520</td>
+<td style="text-align: right;">49.91956</td>
+<td style="text-align: right;">485.518</td>
+<td style="text-align: right;">8349.506</td>
+<td style="text-align: right;">63.162</td>
+<td style="text-align: right;">1996</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.8938148</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9.322598</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1013</td>
+<td style="text-align: right;">27.71148</td>
+<td style="text-align: right;">21530</td>
+<td style="text-align: right;">15.68509</td>
+<td style="text-align: right;">11.25871</td>
+<td style="text-align: right;">41.384110</td>
+<td style="text-align: right;">46.81839</td>
+<td style="text-align: right;">357.918</td>
+<td style="text-align: right;">9947.058</td>
+<td style="text-align: right;">54.868</td>
+<td style="text-align: right;">1996</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.9289364</td>
+<td style="text-align: right;">0.9289364</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9.977202</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<blockquote class="blockquote">
+<ol type="i">
+<li></li>
+</ol>
+</blockquote>
 </section>
 <section id="c10-catholic" class="level2" data-number="2.10">
 <h2 data-number="2.10" class="anchored" data-anchor-id="c10-catholic"><span class="header-section-number">2.10</span> C10 [CATHOLIC]</h2>
