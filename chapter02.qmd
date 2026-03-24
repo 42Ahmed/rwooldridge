@@ -356,6 +356,8 @@ A **1%** change in sales is associated with a *1.08%* change in expenditures.
 
 ## C6 \[MEAP93\]
 
+> We used the data in MEAP93 for Example 2.12. In this exercise, we want to explore the relationship between the math pass rate (`math10`) and spending per student (`expend`).
+
 ```{r}
 #| label: c6_data
 
@@ -363,13 +365,13 @@ c6 <- meap93
 kable(head(meap93))
 ```
 
-> (i) 
+> (i)  Do you think each additional dollar spent has the same effect on the pass rate, or does a diminishing effect seem more appropriate? Explain.
 
 **Interpretation:**
 
 I believe dollar has a diminishing effect on passing rate. Most students with limited source can pass, but scoring maximum mark takes very high resources. Also a constant effect may predict students can pass the maximum score.
 
-> (ii) 
+> (ii) In the population model $$math10 = \beta_0 + \beta_1 \log(expend) + u$$ argue that $β_1 / 10$ is approximately the percentage point change in `math10` given a 10% increase in `expend`.
 
 **Interpretation:**
 
@@ -382,7 +384,7 @@ $$
 \end{align}
 $$
 
-> (iii) 
+> (iii) Use the data in MEAP93 to estimate the model from part (ii). Report the estimated equation in the usual way, including the sample size and R-squared.
 
 ```{r}
 #| label: c6_iii
@@ -401,11 +403,13 @@ modelsummary(
 )
 ```
 
+> (iv) How big is the estimated spending effect? Namely, if spending increases by 10%, what is the estimated percentage point increase in `math10`?
+
 **Interpretation:**
 
-Estimated effect for spending effect is 11.16. If spending increases by 10%, math pass rate increase by 1.116 percentage points.
+Estimated effect for spending effect is **11.16**. If spending increases by 10%, math pass rate increase by **1.116** percentage points.
 
-> (v) 
+> (v)  One might worry that regression analysis can produce fitted values for `math10` that are greater than 100. Why is this not much of a worry in this data set?
 
 ```{r}
 #| label: c6_v
@@ -421,9 +425,11 @@ c6m |>
 
 **Interpretation:**
 
-We don’t have to worry about passing maximum rate because predicted rates are between the interval \[20, 30\] while original rates had maximum rate below 80.
+We don’t have to worry about passing maximum rate because predicted rates are between the interval **\[20, 30\]** while original rates had maximum rate below 80.
 
 ## C7 \[CHARITY\]
+
+> Use the data in CHARITY [obtained from Franses and Paap (2001)] to answer the following questions:
 
 ```{r}
 #| label: c7_data
@@ -432,7 +438,7 @@ c7 <- charity
 kable(head(c7))
 ```
 
-> (i) 
+> (i) What is the average gift in the sample of 4,268 people (in Dutch guilders)? What percentage of people gave no gift?
 
 ```{r}
 #| label: c7_i
@@ -447,9 +453,9 @@ c7 |>
 
 **Interpretation:**
 
-Average gift in the sample is 7.44 with 60% of the sample having no gifts.
+Average gift in the sample is 7.44 with **60%** of the sample having no gifts.
 
-> (ii) 
+> (ii)  What is the average mailings per year? What are the minimum and maximum values?
 
 ```{r}
 #| label: c7_ii
@@ -465,9 +471,9 @@ c7 |>
 
 **Interpretation:**
 
-Minimum number of mailings per year is 0.25. The average is 2.05 and maximum is 3.05.
+Minimum number of mailings per year is 0.25. The average is **2.05** and maximum is **3.05**.
 
-> (iii) 
+> (iii) Estimate the model $$gift = \beta_0 + \beta_1 mailsyear + u$$ by OLS and report the results in the usual way, including the sample size and R-squared.
 
 ```{r}
 #| label: c7_iii
@@ -486,13 +492,14 @@ modelsummary(
 )
 ```
 
-> (iv) 
+> (iv)  Interpret the slope coefficient. If each mailing costs one guilder, is the charity expected to make a net gain on each mailing? Does this mean the charity makes a net gain on every
+mailing? Explain.
 
 **Interpretation:**
 
-For each extra mailing per year, gift is predicted to increase by 2.65. If each mailing costs 1 guilder, net gain on each mail is 2.65 - 1 = 1.65. This does not mean that charity makes a net gain on every mailing, it means that, on average, net gain will be 1.65.
+For each extra mailing per year, gift is predicted to increase by **2.65**. If each mailing costs 1 guilder, net gain on each mail is **2.65 - 1 = 1.65**. This does not mean that charity makes a net gain on every mailing, it means that, on average, net gain will be 1.65.
 
-> (v) 
+> (v)  What is the smallest predicted charitable contribution in the sample? Using this simple regression analysis, can you ever predict zero for `gift`?
 
 ```{r}
 #| label: c7_v
@@ -508,11 +515,12 @@ c7m |>
 
 **Interpretation:**
 
-Minimum predicted gift is 2.68 coming from the observation with 0.25 mailings per year ( ). Predicting a zero is impossible with this model because and are both greater than zero; least possible value is .
+Minimum predicted gift is **2.68** coming from the observation with 0.25 mailings per year ($2.01 + 2.65(0.25) = 2.68$). Predicting a zero is impossible with this model because $\hat \beta_0$ and $\hat \beta_1$ are both greater than zero; least possible value is$\hat \beta_0 = 2.01$.
 
 ## C8 \[Simulation\]
 
-> (i) 
+> (i) Start by generating 500 observations on $x_i$—the explanatory variable—from the uniform distribution with range [0,10]. (Most statistical packages have a command for the
+Uniform(0,1) distribution; just multiply those observations by 10.) What are the sample mean and sample standard deviation of the $x_i$?
 
 ```{r}
 #| label: c8_i
@@ -526,9 +534,9 @@ cat(round(mean(x_i), 2), round(sd(x_i), 2))
 
 **Interpretation:**
 
-The sample mean of is 4.9 and the sample standard deviation is 2.89. These values are close to, but not exactly equal to, the theoretical population mean ( ) and population standard deviation ( ) of a Uniform(0,10) distribution due to finite sampling variance.
+The sample mean of $x_i$ is 4.9 and the sample standard deviation is 2.89. These values are close to, but not exactly equal to, the theoretical population mean ($E[x] = 5$) and population standard deviation ($\sigma_x \approx 2.93$) of a Uniform(0,10) distribution due to finite sampling variance.
 
-> (ii) 
+> (ii)  Randomly generate 500 errors, $u_i$, from the Normal(0,36) distribution. (If you generate a Normal(0,1), as is commonly available, simply multiply the outcomes by six.) Is the sample average of the $u_i$ exactly zero? Why or why not? What is the sample standard deviation of the $u_i$?
 
 ```{r}
 #| label: c8_ii
@@ -542,9 +550,9 @@ cat(round(mean(u_i), 2), round(sd(u_i), 2))
 
 **Interpretation:**
 
-The sample average of is -0.18, which is not exactly zero. While the population expectation is exactly zero ( ), a finite sample of 500 random draws will inherently contain sampling error, preventing the sample mean from perfectly matching the population mean. The sample standard deviation is 5.83, which closely approximates the population standard deviation of 6.
+The sample average of $u_i$ is -0.18, which is not exactly zero. While the population expectation is exactly zero ($E[u] = 0$), a finite sample of 500 random draws will inherently contain sampling error, preventing the sample mean from perfectly matching the population mean. The sample standard deviation is 5.83, which closely approximates the population standard deviation of 6.
 
-> (iii) 
+> (iii) Now generate $y_i$ as $$y_i = 1+2x_i + u_i \equiv \beta_0 + \beta_1 + u_i$$ that is, the population intercept is one and the population slope is two. Use the data to run the regression of $y_i$ on $x_i$. What are your estimates of the intercept and slope? Are they equal to the population values in the above equation? Explain.
 
 ```{r}
 #| label: c8_iii
@@ -566,9 +574,9 @@ modelsummary(
 
 **Interpretation:**
 
-is estimated to be 0.901 and is estimated to be 1.983. They differ from the true population parameters ( ) due to sampling error. The intercept deviates because the sample mean of the errors ( ) is not exactly zero. More importantly, the slope deviates because the sample covariance between and is not exactly zero.
+$\hat \beta_0$is estimated to be 0.901 and $\hat \beta_1$ is estimated to be 1.983. They differ from the true population parameters ($\beta_0 = 1, \beta_1 = 2$) due to sampling error. The intercept deviates because the sample mean of the errors ($\bar u$) is not exactly zero. More importantly, the slope deviates because the sample covariance between $x_i$ and $u_i$ is not exactly zero.
 
-> (iv) 
+> (iv) Obtain the OLS residuals, $u_i$, and verify that equation (2.60) holds (subject to rounding error).
 
 ```{r}
 #| label: c8_iv
@@ -584,9 +592,9 @@ c8m |>
 
 **Interpretation:**
 
-The sum of the residuals ( ) and the sum of the product of the regressors and residuals ( ) are both effectively zero. This confirms that the algebraic properties of OLS hold perfectly in the sample.
+The sum of the residuals ($\sum \hat{u}_i$) and the sum of the product of the regressors and residuals ($\sum x_i \hat{u}_i$) are both effectively zero. This confirms that the algebraic properties of OLS hold perfectly in the sample.
 
-> (v) 
+> (v) Compute the same quantities in equation (2.60) but use the errors $u_i$ in place of the residuals. Now what do you conclude?
 
 ```{r}
 #| label: c8_v
@@ -602,9 +610,9 @@ c8m |>
 
 **Interpretation:**
 
-When using the unobserved population errors ( ) instead of the OLS residuals ( ), the sums are far from zero ( and ). This highlights the fundamental mechanical difference between errors and residuals: OLS residuals are mathematically forced by the regression algorithm to sum to zero and be uncorrelated with , whereas population errors are unobserved random variables that will not perfectly satisfy these orthogonal conditions in a finite sample.
+When using the unobserved population errors ($u_i$) instead of the OLS residuals ($\hat u_i$), the sums are far from zero ($\sum u_i = -90.14$ and $\sum x_i u_i = -512.34$). This highlights the fundamental mechanical difference between errors and residuals: OLS residuals are mathematically forced by the regression algorithm to sum to zero and be uncorrelated with , whereas population errors are unobserved random variables that will not perfectly satisfy these orthogonal conditions in a finite sample.
 
-> (vi) 
+> (vi)  Repeat parts (i), (ii), and (iii) with a new sample of data, starting with generating the $x_i$.Now what do you obtain for $\hat \beta_0, \hat \beta_1$? Why are these different from what you obtained in part (iii)?
 
 ```{r}
 #| label: c7_vi
@@ -630,9 +638,10 @@ modelsummary(
 
 **Interpretation:**
 
-With a new random sample, the estimates change to and . These differ from the estimates in part (iii) because every new sample draws a unique set of and values. Consequently, the new sample mean of and the new sample covariance between and have changed. The OLS estimator processes this new random sample variation, resulting in different deviations from the true population parameters.
+With a new random sample, the estimates change to $\hat{\beta}_0 = 1.022$ and $\hat{\beta}_1 = 2.040$. These differ from the estimates in part (iii) because every new sample draws a unique set of $x_i$ and $u_i$ values. Consequently, the new sample mean of and the new sample covariance between and have changed. The OLS estimator processes this new random sample variation, resulting in different deviations from the true population parameters.
 
 ::: callout-caution
+### When estimate equals parameter
 Formula for the slope $\hat \beta_1$:
 $$\hat \beta_1 = \beta_1 + \dfrac{Cov(x,u)}{Var(x)}$$
 To be equal to the parameter, covariance must be = zero
