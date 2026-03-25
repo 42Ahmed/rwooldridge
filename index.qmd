@@ -2,16 +2,32 @@
 
 
 
-This digital book serves as a comprehensive computational companion to Jeffrey Wooldridge's *Introductory Econometrics: A Modern Approach*. As a Teaching Assistant at **Alexandria University**, I developed this resource to bridge the gap between theoretical econometric concepts and practical data analysis using the **R programming language**.
+This digital book serves as a comprehensive computational companion to Jeffrey Wooldridge’s Introductory Econometrics: A Modern Approach. As a Teaching Assistant at Alexandria University, I developed this resource to bridge the gap between theoretical econometric concepts and practical data analysis using the R programming language.
+
+This project features detailed solutions to 279 end-of-chapter exercises, providing a rigorous application of econometric theory to real-world datasets. The scope of this work covers a diverse range of modeling frameworks, including:
+
+Linear Regression: From Simple OLS to Multiple Regression Analysis.
+
+Qualitative Variables: Binary (Dummy) variables and Linear Probability Models (LPM).
+
+Limited Dependent Variables: Logit, Probit, and Tobit models.
+
+Time Series Analysis: Static models, Finite DLMs, and Serial Correlation.
+
+Panel Data Methods: Pooled OLS, Fixed Effects, and Random Effects.
+
+Causal Inference: Instrumental Variables (IV), Two-Stage Least Squares (2SLS), and Difference-in-Differences (DiD).
 
 ## About the Author
+I am Ahmed H. Darwish, a Teaching Assistant with a Bachelor’s degree in Business Administration, majoring in Applied Statistics. Currently, I am pursuing my Master’s degree and conducting research in the field of econometrics.
 
-I am **Ahmed H. Darwish**, a Teaching Assistant with a Bachelor’s degree in Business Administration, majoring in **Applied Statistics**. Currently, I am pursuing my Master’s degree and conducting research in the field of econometrics.
+My work focuses on:
 
-My work focuses on:\
-\* **Applied Econometrics:** Replicating complex academic models to ensure reproducibility.\
-\* **Causal Inference:** Applying modern frameworks from "The Effect" to real-world data.\
-\* **Open Source Contribution:** I am a contributor to the `wooldridge` Python library, and I bring that same rigor to this R-based project.
+Applied Econometrics: Replicating complex academic models to ensure reproducibility.
+
+Causal Inference: Applying modern frameworks from The Effect to real-world data.
+
+Open Source Contribution: I am a contributor to the `wooldridge` Python library.
 
 ## Exercises Solved
 
@@ -30,7 +46,7 @@ library(gtExtras)
 progress_data <- tribble(
   ~Chapter, ~Questions, ~Solved,
   1, 9, 9,
-  2, 12, 8,
+  2, 12, 12,
   3, 14, 3,
   4, 15, 3,
   5, 7, 3,
