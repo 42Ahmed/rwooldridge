@@ -829,4 +829,190 @@ So it is measuring correlation at the end of the day, except if zero conditional
 
 ## C11 \[GPA1\]
 
+>  Use the data in GPA1 to answer these questions. It is a sample of Michigan State University undergraduates from the mid-1990s, and includes current college GPA, `colGPA`, and a binary variable indicating whether the student owned a personal computer `PC`.
+
+```{r}
+#| label: c11_data
+
+c11 <- gpa1
+kable(head(c11))
+```
+
+> (i) How many students are in the sample? Find the average and highest college GPAs.
+
+```{r}
+#| label: c11_i
+
+c11 |>
+  summarise(
+    Count = n(),
+    Avg_GPA = mean(colGPA),
+    Max_GPA = max(colGPA)
+  ) |>
+  round(2)
+```
+
+**Interpretation:**
+
+There are 141 students in the sample, with an average GPA of 3.06. Maximum GPA is 4.
+
+> (ii) How many students owned their own PC?
+
+```{r}
+#| label: c11_ii
+
+c11 |>
+  summarise(
+    Has_PC = sum(PC)
+  )
+```
+
+**Interpretation:**
+
+**56** students have personal computer in the sample.
+
+> (iii) Estimate the simple regression equation $$colGPA = \beta_0 + PC + u$$ Interpret these estimates, including a discussion of the magnitudes.
+
+```{r}
+#| label: c11_iii
+
+c11m <- lm(colGPA ~ PC, data = c11)
+
+modelsummary(
+  c11m,
+  fmt = 2,
+  statistic = NULL,
+  gof_map = c("nobs", "r.squared"),
+  coef_rename = c(
+    "(Intercept)" = "Constant",
+    "PC" = "Own PC"
+  )
+)
+```
+
+**Interpretation:**
+
+A student with no PC is expected to get a GPA of **2.99**. Owning PC is associated with an increase of GPA by **0.17** to be a total of 3.16.
+
+> (iv)  What is the R-squared from the regression? What do you make of its magnitude?
+
+$R^2 = 5\%$; 5% of the variation in GPA is explained by owning a PC. 
+
+> (v) Does your finding in part (iii) imply that owning a PC has a causal effect on colGPA? Explain.
+
+**Interpretation:**
+
+No, PC is associated with many other omitted variables found in the error term like wealth.
+
 ## C12 \[LOANAPP\]
+
+> Use the data in LOANAPP to answer these questions. See also Computer Exercise C9 in Chapter 1. The variable `approve` is a binary variable set to one if an applicant’s mortgage application was approved and zero if not. The variable `white` is equal to one if the applicant is classified as being White and zero if not.
+
+```{r}
+#| label: c12_data
+
+c12 <- loanapp
+kable(head(c12))
+```
+
+> (i) How many mortgage applications are represented in the sample? What percentage of the applicants are classified as being White? Find the approval rates separately for `white = 0` and `white = 1`.
+
+```{r}
+#| label: c12_i
+
+c12 |> 
+  summarise(
+    Total_Applications = n(),
+    Percent_White = mean(white) * 100
+  ) |>
+  round(2)
+```
+
+```{r}
+#| label: c12_i_2
+
+c12 |> 
+  summarise(
+    Approval_Rate = round(mean(approve),2),
+    .by = white
+  ) |> 
+  mutate(Is_White = ifelse(white == 1, "White", "Not White")) |>
+  select(Is_White, Approval_Rate)
+```
+
+**Interpretation:**
+
+The sample has **1989** applicants. **84.5%** of those applicants are classified as white. The approval rate for white is **0.91** while non white applicants have an approval raye of **0.71**
+
+> (ii) Run a simple regression of approve on white and report the results. Note that the OLS method allows `approve` and `white` to both be binary variables.
+
+```{r}
+#| label: c12_ii
+
+c12m <-  lm(approve ~ white, data = c12)
+
+modelsummary(
+  c12m,
+  fmt = 2,
+  statistic = NULL,
+  gof_map = c("nobs", "r.squared"),
+  coef_rename = c(
+    "(Intercept)" = "Constant",
+    "white" = "Is_White"
+  )
+)
+```
+
+> (iii) Interpret your estimate $\hat \beta_0$ in part(ii). How do you interpret $\hat \beta_1$? [Hint: See part(i).]
+
+**Interpretation:**
+
+Probability of getting approved is **0.71**. This probability increases by 0.2 to reach **0.9** if applicant is white.
+
+> (iv)  Describe the variable `loanprc`. What are its average, standard deviation, minimum, and maximum values in the sample?
+
+```{r}
+#| label: c12_c
+
+c12 |>
+  summarise(
+    LTP_Mean = mean(loanprc),
+    LTP_Sd = sd(loanprc),
+    LTP_Max = max(loanprc),
+    LTP_Min = min(loanprc)
+  ) |>
+  round(2)
+```
+
+**Interpretation:**
+
+The variable `loanprc` is loan-to-price ratio $\text{loanprc} = \dfrac{\text{loanamt}}{\text{price}}$. Mean is **0.77** with standard deviation of **0.19**. Minimum loan to price ratio is **0.02** and reaches a maximum of **2.57**.
+
+> (v)  Estimate a simple regression of `loanprc` on `white` and interpret the results.
+
+```{r}
+#| label: c12_v
+
+c12m2 <- lm(loanprc ~ white, data = c12)
+
+modelsummary(
+  c12m2,
+  fmt = 2,
+  statistic = NULL,
+  gof_map = c("nobs", "r.squared"),
+  coef_rename = c(
+    "(Intercept)" = "Constant",
+    "white" = "Is_White"
+  )
+)
+```
+
+**Interpretation:**
+
+The loan to price ratio is predicted to be **0.84**. The ratio decreases by **0.09** if the applicant is white to be 0.75.
+
+> (vi) Does it make sense to think of `loanprc` as a variable that can affect the chance that a loan is approved? Explain.
+
+**Interpretation:**
+
+Yes, `loanprcp` and `white`are correlated. Omitting `loanprcp` will result in an omitted variable bias.
