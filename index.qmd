@@ -42,7 +42,6 @@ library(tidyverse)
 library(gt)
 library(gtExtras)
 
-
 progress_data <- tribble(
   ~Chapter, ~Questions, ~Solved,
   1, 9, 9,
@@ -64,22 +63,57 @@ progress_data <- tribble(
   17, 18, 0,
   18, 18, 0,
   19, 10, 0
-) |> 
+)
+
+stats <- progress_data |>
+  summarise(
+    Total = sum(Questions),
+    Solved = sum(Solved),
+    Percent = (Solved / Total)
+  )
+
+
+ggplot(stats) +
+  geom_rect(aes(xmin = 0, xmax = Total, ymin = 0, ymax = 1), fill = "grey90") +
+  geom_rect(aes(xmin = 0, xmax = Solved, ymin = 0, ymax = 1), fill = "#4CAF50") +
+  geom_text(
+    aes(
+      x = Total / 2, y = 0.5,
+      label = paste0(round(Percent * 100, 1), "% Complete (", Solved, "/", Total, ")")
+    ),
+    fontface = "bold", size = 6
+  ) +
+  theme_void() +
+  labs(title = "Overall Book Progress") +
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 18, margin = margin(b = 10)),
+    plot.margin = margin(20, 20, 20, 20)
+  )
+```
+
+
+```{r}
+#| label: progress
+#| message: false
+#| warning: false
+#| code-fold: true
+#| code-summary: "Click to see how the tracker is generated"
+
+
+progress_data <- progress_data |>
   mutate(
     Percentage = Solved / Questions,
     Status = case_when(
       Percentage == 1 ~ "Finished",
-      Percentage > 0  ~ "In Progress",
-      TRUE            ~ "Pending"
+      Percentage > 0 ~ "In Progress",
+      TRUE ~ "Pending"
     )
   )
 
 
 progress_data |>
   gt() |>
-  
   gt_plt_bar_pct(column = Percentage, scaled = FALSE, fill = "#2c3e50", background = "#ecf0f1") |>
-  
   gt_badge(Status, palette = c("Finished" = "#27ae60", "In Progress" = "#f39c12", "Pending" = "#bdc3c7")) |>
   cols_label(
     Percentage = "Progress",
