@@ -361,6 +361,83 @@
     ]
   },
   {
+    "objectID": "chapter03.html#c8-discrim",
+    "href": "chapter03.html#c8-discrim",
+    "title": "3  Multiple Regression Analysis: Estimation",
+    "section": "3.8 C8 [DISCRIM]",
+    "text": "3.8 C8 [DISCRIM]\n\nUse the data in DISCRIM to answer this question. These are zip code–level data on prices for various items at fast-food restaurants, along with characteristics of the zip code population, in New Jersey and Pennsylvania. The idea is to see whether fast-food restaurants charge higher prices in areas with a larger concentration of blacks.\n\n\n\nFind the average values of prpblck and income in the sample, along with their standard deviations. What are the units of measurement of prpblck and income?\n\n\n\n\nConsider a model to explain the price of soda, psoda, in terms of the proportion of the population that is black and median income: \\[psoda = \\beta_0 + \\beta_1 prpblck + \\beta_2 income + u\\] Estimate this model by OLS and report the results in equation form, including the sample size and R-squared. (Do not use scientific notation when reporting the estimates.) Interpret the coefficient on prpblck. Do you think it is economically large?\n\n\n\n\nCompare the estimate from part (ii) with the simple regression estimate from psoda on prpblck. Is the discrimination effect larger or smaller when you control for income?\n\n\n\n\nA model with a constant price elasticity with respect to income may be more appropriate. Report estimates of the model \\[\\log(psoda) = \\beta_0 + \\beta_1 prpblck + \\beta_2 \\log(income) + u\\] If prpblck increases by 0.20 (20 percentage points), what is the estimated percentage change in psoda? (Hint: The answer is 2.xx, where you fill in the “xx.”)\n\n\n\n\nNow add the variable prppov to the regression in part (iv). What happens to \\(\\hat \\beta_{prpblck}\\)\n\n\n\n\nFind the correlation between log(income) and prppov. Is it roughly what you expected?\n\n\n\n\nEvaluate the following statement: “Because log(income) and prppov are so highly correlated, they have no business being in the same regression.”",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Multiple Regression Analysis: Estimation</span>"
+    ]
+  },
+  {
+    "objectID": "chapter03.html#c9-charity",
+    "href": "chapter03.html#c9-charity",
+    "title": "3  Multiple Regression Analysis: Estimation",
+    "section": "3.9 C9 [CHARITY]",
+    "text": "3.9 C9 [CHARITY]\n\nUse the data in CHARITY to answer the following questions:\n\n\n\nEstimate the equation \\[gift + \\beta_0 + \\beta_1 mailsyear + \\beta_2 giftlast + \\beta_3 propresp + u\\] by OLS and report the results in the usual way, including the sample size and R-squared. How does the R-squared compare with that from the simple regression that omits giftlast and propresp?\n\n\n\n\nInterpret the coefficient on mailsyear. Is it bigger or smaller than the corresponding simple regression coefficient?\n\n\n\n\nInterpret the coefficient on propresp. Be careful to notice the units of measurement of propresp.\n\n\n\n\nNow add the variable avggift to the equation. What happens to the estimated effect of mailsyear?\n\n\n\n\nIn the equation from part (iv), what has happened to the coefficient on giftlast? What do you think is happening?\n\n\n\n\nIn order to guarantee that one gets an unbiased estimator of the causal effect of mailings, what would you recommend to the directors of the charity? Assume that the charity is willing to take some time, and that there is a budget for sending out mailings.",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Multiple Regression Analysis: Estimation</span>"
+    ]
+  },
+  {
+    "objectID": "chapter03.html#c10-htv",
+    "href": "chapter03.html#c10-htv",
+    "title": "3  Multiple Regression Analysis: Estimation",
+    "section": "3.10 C10 [HTV]",
+    "text": "3.10 C10 [HTV]\n\nUse the data in HTV to answer this question. The data set includes information on wages, education, parents’ education, and several other variables for 1,230 working men in 1991.\n\n\n\nWhat is the range of the educ variable in the sample? What percentage of men completed twelfth grade but no higher grade? Do the men or their parents have, on average, higher levels of education?\n\n\n\n\nEstimate the regression model \\[educ = \\beta_1 motheduc + \\beta_2 fatheduc + u\\] by OLS and report the results in the usual form. How much sample variation in educ is explained by parents’ education? Interpret the coefficient on motheduc.\n\n\n\n\nAdd the variable abil (a measure of cognitive ability) to the regression from part (ii), and report the results in equation form. Does “ability” help to explain variations in education, even after controlling for parents’ education? Explain.\n\n\n\n\n(Requires calculus) Now estimate an equation where abil appears in quadratic form: \\[educ = \\beta_0 + \\beta_1 motheduc + \\beta_2 fatheduc + \\beta_3 abil + \\beta_4 abil^2 + u\\] Using the estimated \\(\\hat \\beta_3, \\hat \\beta_4\\), use calculus to find the value of abil, call it abil*, where educ is minimized. (The other coefficients and values of parents’ education variables have no effect; we are holding parents’ education fixed.) Notice that abil is measured so that negative values are permissible. You might also verify that the second derivative is positive so that you do indeed have a minimum.\n\n\n\n\nArgue that only a small fraction of men in the sample have “ability” less than the value calculated in part (iv). Why is this important?\n\n\n\n\nIf you have access to a statistical program that includes graphing capabilities, use the estimates in part (iv) to graph the relationship between the predicted education and abil. Set motheduc and fatheduc at their average values in the sample, 12.18 and 12.45, respectively.",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Multiple Regression Analysis: Estimation</span>"
+    ]
+  },
+  {
+    "objectID": "chapter03.html#c11-meapsingle",
+    "href": "chapter03.html#c11-meapsingle",
+    "title": "3  Multiple Regression Analysis: Estimation",
+    "section": "3.11 C11 [MEAPSINGLE]",
+    "text": "3.11 C11 [MEAPSINGLE]\n\nUse the data in MEAPSINGLE to study the effects of single-parent households on student math performance. These data are for a subset of schools in southeast Michigan for the year 2000. The socioeconomic variables are obtained at the ZIP code level (where ZIP code is assigned to schools based on their mailing addresses).\n\n\n\nRun the simple regression of math4 on pctsgle and report the results in the usual format. Interpret the slope coefficient. Does the effect of single parenthood seem large or small?\n\n\n\n\nAdd the variables lmedinc and free to the equation. What happens to the coefficient on pctsgle? Explain what is happening.\n\n\n\n\nFind the sample correlation between lmedinc and free. Does it have the sign you expect?\n\n\n\n\nDoes the substantial correlation between lmedinc and free mean that you should drop one from the regression to better estimate the causal effect of single parenthood on student performance? Explain.\n\n\n\n\nFind the variance inflation factors (VIFs) for each of the explanatory variables appearing in the regression in part (ii). Which variable has the largest VIF? Does this knowledge affect the model you would use to study the causal effect of single parenthood on math performance?",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Multiple Regression Analysis: Estimation</span>"
+    ]
+  },
+  {
+    "objectID": "chapter03.html#c12-econmath",
+    "href": "chapter03.html#c12-econmath",
+    "title": "3  Multiple Regression Analysis: Estimation",
+    "section": "3.12 C12 [ECONMATH]",
+    "text": "3.12 C12 [ECONMATH]\n\nThe data in ECONMATH contain grade point averages and standardized test scores, along with performance in an introductory economics course, for students at a large public university. The variable to be explained is score, the final score in the course measured as a percentage.\n\n\n\nHow many students received a perfect score for the course? What was the average score? Find the means and standard deviations of actmth and acteng, and discuss how they compare.\n\n\n\n\nEstimate a linear equation relating score to colgpa, actmth, and acteng, where colgpa is measured at the beginning of the term. Report the results in the usual form.\n\n\n\n\nWould you say the math or English ACT score is a better predictor of performance in the economics course? Explain.\n\n\n\n\nDiscuss the size of the R-squared in the regression.",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Multiple Regression Analysis: Estimation</span>"
+    ]
+  },
+  {
+    "objectID": "chapter03.html#c13-gpa1",
+    "href": "chapter03.html#c13-gpa1",
+    "title": "3  Multiple Regression Analysis: Estimation",
+    "section": "3.13 C13 [GPA1]",
+    "text": "3.13 C13 [GPA1]\n\nUse the data in GPA1 to answer this question. We can compare multiple regression estimates, where we control for student achievement and background variables, and compare our findings with the difference-in-means estimate in Computer Exercise C11 in Chapter 2.\n\n\n\nIn the simple regression equation \\[colGPA = \\beta_0 + \\beta_1 PC + u\\]\n\n\n\n\nNow add the controls hsGPA and ACT—that is, run the regression colGPA on PC, hsGPA, and ACT. Does the coefficient on PC change much from part (ii)? Does \\(\\hat \\beta_{colGPA}\\) make sense?\n\n\n\n\nIn the estimation from part (ii), what is worth more: Owning a PC or having 10 more points on the ACT score?\n\n\n\n\nNow to the regression in part (ii) add the two binary indicators for the parents being college graduates. Does the estimate of \\(\\beta_1\\) change much from part (ii)? How much variation are you explaining in colGPA?\n\n\n\n\nSuppose someone looking at your regression from part (iv) says to you, “The variables hsGPA and ACT are probably pretty highly correlated, so you should drop one of them from the regression.” How would you respond?\n\n\n\n\nFor curiosity’s sake, compute the VIFs for hsGPA and ACT. Of what value is this information?",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Multiple Regression Analysis: Estimation</span>"
+    ]
+  },
+  {
+    "objectID": "chapter03.html#c14-apple",
+    "href": "chapter03.html#c14-apple",
+    "title": "3  Multiple Regression Analysis: Estimation",
+    "section": "3.14 C14 [APPLE]",
+    "text": "3.14 C14 [APPLE]\n\nUse the data in APPLE to answer the following questions. These come from a survey where respondents were presented with the characteristics of an “ecologically-friendly” apple. They were also randomly presented with a price pair: the price per lb. of the new apple, ecoprc, and the price per lb. of regular apples, regprc. Each respondent was asked, at the given pair of prices, how many pounds of eco-friendly apples (ecolbs) would they buy (and how many pounds of regular apples).\n\n\n\nHow many respondents are there in the sample? How many report ecolbs of zero? What is the second most common value reported for ecolbs?\n\n\n\n\nConsider a demand equation for the eco-friendly apples: \\[ecolbs = \\beta_0 + \\beta_1 ecoprc + \\beta_2 regprc + u \\]. What does economic theory predict for the signs of \\(\\beta_1, \\beta_2\\)?\n\n\n\n\nEstimate the equation by OLS and report the results in equation form. Are any of the fitted values negative? Does the estimated intercept answer an interesting question? Explain. What is the R-squared?\n\n\n\n\nIf ecoprc increases by 0.10 (10 cents per lb.), what is the estimated change in ecolbs, holding regprc fixed? Do you think this is a practically large effect?\n\n\n\n\nIf ecoprc and regprc both increase by 0.10, argue that the estimated change in ecolbs is close to zero.\n\n\n\n\nSuppose you present your estimated equation to a colleague who says, “I’m concerned about the low R-squared; it probably means the OLS estimators are biased.” How would you respond?\n\n\n\n\nConfirm that ecoprc and regprc are strongly positively correlated. What is the correlation? Does this mean that you should exclude regprc from the regression in order to estimate the own price effect? What happens to your estimate of \\(\\beta_1\\) if you drop regprc and use simple regression?",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Multiple Regression Analysis: Estimation</span>"
+    ]
+  },
+  {
     "objectID": "chapter04.html",
     "href": "chapter04.html",
     "title": "4  Multiple Regression Analysis: Inference",
