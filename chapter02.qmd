@@ -920,7 +920,7 @@ kable(head(c12))
 ```{r}
 #| label: c12_i
 
-c12 |> 
+c12 |>
   summarise(
     Total_Applications = n(),
     Percent_White = mean(white) * 100
@@ -931,11 +931,11 @@ c12 |>
 ```{r}
 #| label: c12_i_2
 
-c12 |> 
+c12 |>
   summarise(
-    Approval_Rate = round(mean(approve),2),
+    Approval_Rate = round(mean(approve), 2),
     .by = white
-  ) |> 
+  ) |>
   mutate(Is_White = ifelse(white == 1, "White", "Not White")) |>
   select(Is_White, Approval_Rate)
 ```
@@ -949,7 +949,7 @@ The sample has **1989** applicants. **84.5%** of those applicants are classified
 ```{r}
 #| label: c12_ii
 
-c12m <-  lm(approve ~ white, data = c12)
+c12m <- lm(approve ~ white, data = c12)
 
 modelsummary(
   c12m,
