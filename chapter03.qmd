@@ -17,11 +17,11 @@ library(broom)
 
 ## C1 \[BWGHT\]
 
-> A problem of interest to health officials (and others) is to determine the effects of smoking during pregnancy on infant health. One measure of infant health is birth weight; a birth weight that is too low can put an infant at risk for contracting various illnesses. Since factors other than cigarette smoking that affect birth weight are likely to be correlated with smoking, we should take those factors into
-account. For example, higher income generally results in access to better prenatal care, as well as better nutrition for the mother. An equation that recognizes this is $$bwght = \beta_0 + \beta_1 cigs + \beta_2 faminc + u$$
+> A problem of interest to health officials (and others) is to determine the effects of smoking during pregnancy on infant health. One measure of infant health is birth weight; a birth weight that is too low can put an infant at risk for contracting various illnesses. Since factors other than cigarette smoking that affect birth weight are likely to be correlated with smoking, we should take those factors into account. For example, higher income generally results in access to better prenatal care, as well as better nutrition for the mother. An equation that recognizes this is $$bwght = \beta_0 + \beta_1 cigs + \beta_2 faminc + u$$
 
 ```{r}
 #| label: c1_data
+
 c1 <- bwght
 kable(head(c1))
 ```
@@ -38,8 +38,7 @@ $\beta_2$ is expected to be **positive**. Higher family income $\rightarrow$ bet
 
 Yes, **negative** correlation. smoking rates is higher among lower-income demographics. Omitting family income will cause Omitted Variable Bias (OVB).
 
-> (iii) Now, estimate the equation with and without `faminc`, using the data in BWGHT. Report the results in equation form, including the sample size and R-squared. Discuss your results,
-focusing on whether adding `faminc` substantially changes the estimated effect of `cigs` on `bwght`.
+> (iii) Now, estimate the equation with and without `faminc`, using the data in BWGHT. Report the results in equation form, including the sample size and R-squared. Discuss your results, focusing on whether adding `faminc` substantially changes the estimated effect of `cigs` on `bwght`.
 
 ```{r}
 #| label: c1_iii
@@ -59,11 +58,10 @@ modelsummary(
   gof_map = c("nobs", "r.squared"),
   coef_rename = c(
     "(Intercept)" = "Constant",
-    "cigs" = "Cigarettes/Day", 
-    "faminc" = "Family Income ($1000s)" 
+    "cigs" = "Cigarettes/Day",
+    "faminc" = "Family Income ($1000s)"
   )
 )
-  
 ```
 
 **Interpretation:**
@@ -84,6 +82,7 @@ Including income reduces the smoking coefficient from approximately $-0.514$ to 
 
 ```{r}
 #| label: c2_data
+
 c2 <- hprice1
 kable(head(c2))
 ```
@@ -119,11 +118,11 @@ Holding square footage constant, adding one more bedroom increases price by \$15
 ```{r}
 #| label: c2_iii
 
-base_house <- data.frame(sqrft  = 140, bdrms = 1)
-upgraded_house <- data.frame(sqrft  = 280, bdrms = 2)
+base_house <- data.frame(sqrft = 140, bdrms = 1)
+upgraded_house <- data.frame(sqrft = 280, bdrms = 2)
 
-price_1 = predict(c2m, newdata = base_house)
-price_2 = predict(c2m, newdata = upgraded_house)
+price_1 <- predict(c2m, newdata = base_house)
+price_2 <- predict(c2m, newdata = upgraded_house)
 
 cat(round(price_2 - price_1, 2))
 ```
@@ -154,7 +153,7 @@ Predicted selling price is **\$354,605**
 > (vi) The actual selling price of the first house in the sample was \$300,000 Find the residual for this house. Does it suggest that the buyer underpaid or overpaid for the house?
 
 ```{r}
-#| label: cs_vi
+#| label: c2_vi
 
 cat(c2m$residuals[1])
 ```
@@ -188,7 +187,7 @@ modelsummary(
   gof_map = c("nobs", "r.squared"),
   coef_rename = c(
     "(Intercept)" = "Constant",
-    "lsales"  = "Log(Sales)",
+    "lsales" = "Log(Sales)",
     "lmktval" = "Log(Market Value)"
   )
 )
@@ -215,7 +214,7 @@ modelsummary(
   gof_map = c("nobs", "r.squared"),
   coef_rename = c(
     "(Intercept)" = "Constant",
-    "lsales"  = "Log(Sales)",
+    "lsales" = "Log(Sales)",
     "lmktval" = "Log(Market Value)",
     "profits" = "Profits"
   )
@@ -232,7 +231,9 @@ Profits can't be added in log form because it has non positive values. The model
 #| label: c3_iii
 
 c3m3 <- lm(
-  lsalary ~ lsales + lmktval + profits + ceoten, data = c3)
+  lsalary ~ lsales + lmktval + profits + ceoten,
+  data = c3
+)
 
 modelsummary(
   c3m3,
@@ -241,7 +242,7 @@ modelsummary(
   gof_map = c("nobs", "r.squared"),
   coef_rename = c(
     "(Intercept)" = "Constant",
-    "lsales"  = "Log(Sales)",
+    "lsales" = "Log(Sales)",
     "lmktval" = "Log(Market Value)",
     "profits" = "Profits",
     "ceoten" = "Tenure"
@@ -269,4 +270,175 @@ c3 |>
 
 Correlation = **0.78**. This high correlation between market value and profits indicates multicollinearity. While this does not bias our estimates or inflate the overall $R^2$, it makes it difficult to isolate the individual partial effects of profits versus market value.
 
-## C4 [ATTEND]
+## C4 \[ATTEND\]
+
+> Use the data in ATTEND for this exercise.
+
+```{r}
+#| label: c4_data
+
+c4 <- attend
+kable(head(c4))
+```
+
+> (i) Obtain the minimum, maximum, and average values for the variables `atndrte`, `priGPA`, and `ACT`.
+
+```{r}
+#| label: c4_i
+
+c4 |>
+  summarise(
+    across(
+      c(atndrte, priGPA, ACT),
+      list(
+        min = \(x) min(x, na.rm = TRUE),
+        max = \(x) max(x, na.rm = TRUE),
+        avg = \(x) mean(x, na.rm = TRUE)
+      )
+    )
+  ) |>
+  round(2)
+```
+
+**Interpretation:**
+
+Attendance rate lies in the range \[6.25, 100\] with an average of 81.71. Prior GPA is in the interval \[0.86, 3.93\] with an average of 2.59. ACT score is in the interval \[13, 32\] with an average of 22.51.
+
+> (ii) Estimate the model $$atndrte = \beta_0 + \beta_1 priGPA + \beta_2 ACT + u$$ and write the results in equation form. Interpret the intercept. Does it have a useful meaning?
+
+```{r}
+#| label: c4_ii
+
+c4m <- lm(atndrte ~ priGPA + ACT, data = c4)
+
+modelsummary(
+  c4m,
+  fmt = 2,
+  statistic = NULL,
+  gof_map = c("nobs", "r.squared"),
+  coef_map = c(
+    "(Intercept)" = "Constant",
+    "priGPA"      = "Prior GPA",
+    "ACT"         = "ACT Score"
+  )
+)
+```
+
+```{r}
+#| label: c4_ii_2
+
+c4 |>
+  select(atndrte, priGPA, ACT) |>
+  pivot_longer(cols = c(priGPA, ACT), names_to = "variable", values_to = "value") |>
+  ggplot(aes(x = value, fill = atndrte > 80)) +
+  geom_histogram(bins = 20, position = "identity", alpha = 0.6) +
+  facet_wrap(~variable, scales = "free") +
+  theme_minimal() +
+  scale_x_continuous(n.breaks = 10) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 1, hjust = 1))
+```
+
+**Interpretation:**
+
+$\hat \beta_0 = 75.7$. A student with zero ACT score and zero prior GPA is expected to have attendance rate = **75.7**. The intercept has no useful meaning because regression is extrapolating.
+
+> (iii) Discuss the estimated slope coefficients. Are there any surprises?
+
+**Interpretation**
+
+ACT score has a slope of **-1.72**. This is surprising as a higher score is usually correlated with higher attendance.
+
+> (iv) What is the predicted atndrte if `priGPA` = 3.65. and `ACT` = 20? What do you make of this result? Are there any students in the sample with these values of the explanatory variables?
+
+```{r}
+#| label: c4_iv
+
+c4 |>
+  filter(ACT == 20 & priGPA == 3.65) |>
+  summarise(
+    Count = n()
+  )
+```
+
+```{r}
+#| label: c4_iv_2
+
+df <- data.frame(priGPA = 3.65, ACT = 20)
+
+prediction <- predict(c4m, newdata = df)
+cat(prediction)
+```
+
+**Interpretation:**
+
+A student with prior GPA of 3.65 and ACT score of 20 is predicted to have attendance rate of **104**; which passes maximum value of 100. The model has no students with such values so it is extrapolating.
+
+> (v) If Student A has `priGPA` = 3 1. and `ACT` = 21 and Student B has `priGPA = 2.1`. and `ACT = 26`, what is the predicted difference in their attendance rates?
+
+```{r}
+#| label: c4_v
+
+dfA <- data.frame(priGPA = 3.1, ACT = 21)
+dfB <- data.frame(priGPA = 2.1, ACT = 26)
+
+predictionA <- predict(c4m, newdata = dfA)
+predictionB <- predict(c4m, newdata = dfB)
+
+cat(predictionA - predictionB)
+```
+
+**Interpretation:**
+
+The expected difference in attendance rate between the two students is **25.8**.
+
+## C5 \[WAGE1\]
+
+> (i) Confirm the partialling out interpretation of the OLS estimates by explicitly doing the partialling out for Example 3.2. $$\widehat{\log(wage)} = 0.284 + 0.092 educ + 0.0041 exper + 0.022 tenure$$ This first requires regressing `educ` on `exper` and `tenure` and saving the residuals, $\hat u$ Then, regress `log(wage)` on $\hat u$. Compare the coefficient on $\hat u$ with the coefficient on educ in the regression of log(wage) on educ, exper, and tenure.
+
+```{r}
+#| label: c5_data
+
+c5 <- wage1
+kable(head(c5))
+```
+
+```{r}
+#| label: c5_i
+
+c5m <- lm(educ ~ exper + tenure, data = c5)
+
+c5 <- c5 |>
+  mutate(
+    u_hat = resid(c5m)
+  )
+
+c5m2 <- lm(lwage ~ u_hat, data = c5)
+
+modelsummary(
+  c5m2,
+  fmt = 2,
+  statistic = NULL,
+  gof_map = c("nobs", "R.square"),
+  coef_map = c(
+    "(Intercept)" = "Constant",
+    "u_hat" = "Residuals"
+  )
+)
+```
+
+**Interpretation:**
+
+Slope of the residual term is same as that of education **(0.09)**. This proves that multiple regression computes partial effect of each independent variable.
+
+::: callout-note
+### Frisch-Waugh-Lovell Theorem
+
+In a multiple regression, the coefficient for $x_1$ represents partial effect of $x_1$ on $y$ after removing overlop with other variables:
+
+1.  Regress: $x_1 = \alpha_0 + \alpha_1 x_2 + \alpha_2 x_3 + u$
+2.  Extract: $\hat{u}$ (This is "$x_1$" that is completely uncorrelated with $x_2$ and $x_3$).
+3.  Result: The slope $\beta_1$ from $y = \beta_0 + \beta_1 \hat{u} + e$ is identical to the coefficient in the full multiple regression.
+4.  The Formula$$\hat{\beta}_{x_1} = \frac{\sum \hat{u}_i y_i}{\sum \hat{u}_i^2}$$
+:::
+
+## C6 [WAGE2]
