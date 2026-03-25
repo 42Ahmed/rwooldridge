@@ -504,12 +504,10 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#computer-exercises" id="toc-computer-exercises" class="nav-link active" data-scroll-target="#computer-exercises"><span class="header-section-number">3.1</span> Computer Exercises</a>
-  <ul class="collapse">
-  <li><a href="#c1-bwght" id="toc-c1-bwght" class="nav-link" data-scroll-target="#c1-bwght"><span class="header-section-number">3.1.1</span> C1 [BWGHT]</a></li>
-  <li><a href="#c2-hprice1" id="toc-c2-hprice1" class="nav-link" data-scroll-target="#c2-hprice1"><span class="header-section-number">3.1.2</span> C2 [HPRICE1]</a></li>
-  <li><a href="#c3-ceosal2" id="toc-c3-ceosal2" class="nav-link" data-scroll-target="#c3-ceosal2"><span class="header-section-number">3.1.3</span> C3 [CEOSAL2]</a></li>
-  </ul></li>
+  <li><a href="#c1-bwght" id="toc-c1-bwght" class="nav-link active" data-scroll-target="#c1-bwght"><span class="header-section-number">3.1</span> C1 [BWGHT]</a></li>
+  <li><a href="#c2-hprice1" id="toc-c2-hprice1" class="nav-link" data-scroll-target="#c2-hprice1"><span class="header-section-number">3.2</span> C2 [HPRICE1]</a></li>
+  <li><a href="#c3-ceosal2" id="toc-c3-ceosal2" class="nav-link" data-scroll-target="#c3-ceosal2"><span class="header-section-number">3.3</span> C3 [CEOSAL2]</a></li>
+  <li><a href="#c4-attend" id="toc-c4-attend" class="nav-link" data-scroll-target="#c4-attend"><span class="header-section-number">3.4</span> C4 [ATTEND]</a></li>
   </ul>
 </nav>
     </div>
@@ -536,13 +534,21 @@ window.Quarto = {
 </header>
 
 
-<section id="computer-exercises" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="computer-exercises"><span class="header-section-number">3.1</span> Computer Exercises</h2>
-<section id="c1-bwght" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="c1-bwght"><span class="header-section-number">3.1.1</span> C1 [BWGHT]</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df_bwght <span class="ot">&lt;-</span> wooldridge<span class="sc">::</span>bwght</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(df_bwght))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wooldridge)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="c1-bwght" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="c1-bwght"><span class="header-section-number">3.1</span> C1 [BWGHT]</h2>
+<blockquote class="blockquote">
+<p>A problem of interest to health officials (and others) is to determine the effects of smoking during pregnancy on infant health. One measure of infant health is birth weight; a birth weight that is too low can put an infant at risk for contracting various illnesses. Since factors other than cigarette smoking that affect birth weight are likely to be correlated with smoking, we should take those factors into account. For example, higher income generally results in access to better prenatal care, as well as better nutrition for the mother. An equation that recognizes this is <span class="math display">\[bwght = \beta_0 + \beta_1 cigs + \beta_2 faminc + u\]</span></p>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>c1 <span class="ot">&lt;-</span> bwght</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(c1))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
@@ -682,45 +688,43 @@ window.Quarto = {
 </div>
 <blockquote class="blockquote">
 <ol type="i">
-<li>What is the most likely sign for <span class="math inline">\(\beta_2\)</span>? <span class="math display">\[
-bwght = \beta_0 + \beta_1 cigs + \beta_2 faminc + u
-\]</span></li>
+<li>What is the most likely sign for <span class="math inline">\(\beta_2\)</span>?</li>
 </ol>
 </blockquote>
 <p><strong>Interpretation:</strong></p>
 <p><span class="math inline">\(\beta_2\)</span> is expected to be <strong>positive</strong>. Higher family income <span class="math inline">\(\rightarrow\)</span> better nutrition <span class="math inline">\(\rightarrow\)</span> higher birth weight</p>
 <blockquote class="blockquote">
 <ol start="2" type="i">
-<li>Do you think cigs and faminc are likely to be correlated?</li>
+<li>Do you think <code>cigs</code> and <code>faminc</code> are likely to be correlated? Explain why the correlation might be positive or negative.</li>
 </ol>
 </blockquote>
 <p><strong>Interpretation:</strong></p>
 <p>Yes, <strong>negative</strong> correlation. smoking rates is higher among lower-income demographics. Omitting family income will cause Omitted Variable Bias (OVB).</p>
 <blockquote class="blockquote">
 <ol start="3" type="i">
-<li>Estimate the equation with and without faminc</li>
+<li>Now, estimate the equation with and without <code>faminc</code>, using the data in BWGHT. Report the results in equation form, including the sample size and R-squared. Discuss your results, focusing on whether adding <code>faminc</code> substantially changes the estimated effect of <code>cigs</code> on <code>bwght</code>.</li>
 </ol>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>model_bwght_simple <span class="ot">&lt;-</span> <span class="fu">lm</span>(bwght <span class="sc">~</span> cigs, <span class="at">data =</span> df_bwght)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>model_bwght_multiple <span class="ot">&lt;-</span> <span class="fu">lm</span>(bwght <span class="sc">~</span> cigs <span class="sc">+</span> faminc, <span class="at">data =</span> df_bwght)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>models_bwght <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Without Income"</span> <span class="ot">=</span> model_bwght_simple,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"With Income"</span> <span class="ot">=</span> model_bwght_multiple</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  models_bwght,</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">fmt =</span> <span class="dv">2</span>,</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">statistic =</span> <span class="cn">NULL</span>,</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">gof_map =</span> <span class="fu">c</span>(<span class="st">"nobs"</span>, <span class="st">"r.squared"</span>),</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">coef_rename =</span> <span class="fu">c</span>(</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"cigs"</span> <span class="ot">=</span> <span class="st">"Cigarettes/Day"</span>, </span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"faminc"</span> <span class="ot">=</span> <span class="st">"Family Income ($1000s)"</span>, </span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"(Intercept)"</span> <span class="ot">=</span> <span class="st">"Constant"</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>c1m <span class="ot">&lt;-</span> <span class="fu">lm</span>(bwght <span class="sc">~</span> cigs, <span class="at">data =</span> c1)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>c1m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(bwght <span class="sc">~</span> cigs <span class="sc">+</span> faminc, <span class="at">data =</span> c1)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>c1models <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Without Income"</span> <span class="ot">=</span> c1m,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"With Income"</span> <span class="ot">=</span> c1m2</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  c1models,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">fmt =</span> <span class="dv">2</span>,</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">statistic =</span> <span class="cn">NULL</span>,</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">gof_map =</span> <span class="fu">c</span>(<span class="st">"nobs"</span>, <span class="st">"r.squared"</span>),</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">coef_rename =</span> <span class="fu">c</span>(</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"(Intercept)"</span> <span class="ot">=</span> <span class="st">"Constant"</span>,</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"cigs"</span> <span class="ot">=</span> <span class="st">"Cigarettes/Day"</span>, </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"faminc"</span> <span class="ot">=</span> <span class="st">"Family Income ($1000s)"</span> </span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <!-- preamble start -->
 
@@ -728,25 +732,25 @@ bwght = \beta_0 + \beta_1 cigs + \beta_2 faminc + u
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_x1gtsuat3mqnf093ni5l = TinyTable.createTableFunctions("tinytable_x1gtsuat3mqnf093ni5l");
+      const tableFns_lot3krgsm9ztyzcypwnb = TinyTable.createTableFunctions("tinytable_lot3krgsm9ztyzcypwnb");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '5', j: 2 }, { i: '5', j: 3 } ], css_id: 'tinytable_css_yikrebfrc28p20lopbww',}, 
-          { positions: [ { i: '3', j: 2 }, { i: '3', j: 3 } ], css_id: 'tinytable_css_zoz6ohtt7dwwq9yfts7p',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '4', j: 2 }, { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '4', j: 3 } ], css_id: 'tinytable_css_m9d9nh9irzxrwa5o7ajq',}, 
-          { positions: [ { i: '0', j: 2 }, { i: '0', j: 3 } ], css_id: 'tinytable_css_bxlfej7hxove48it2lg0',}, 
-          { positions: [ { i: '5', j: 1 } ], css_id: 'tinytable_css_d7skm07mwgzkwty90jzq',}, 
-          { positions: [ { i: '3', j: 1 } ], css_id: 'tinytable_css_dll3bdzb6odrmmuuve1h',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '4', j: 1 } ], css_id: 'tinytable_css_wasmyw4rfzsboxib0iw4',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_9wcll0fvpenynqi2376g',}, 
+          { positions: [ { i: '5', j: 2 }, { i: '5', j: 3 } ], css_id: 'tinytable_css_fd1buwlyqfvhnibz4jof',}, 
+          { positions: [ { i: '3', j: 2 }, { i: '3', j: 3 } ], css_id: 'tinytable_css_3cniubhyn3hejaum8zey',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '4', j: 2 }, { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '4', j: 3 } ], css_id: 'tinytable_css_mdloxfw3x2e74858o7ng',}, 
+          { positions: [ { i: '0', j: 2 }, { i: '0', j: 3 } ], css_id: 'tinytable_css_4k384inqnd70swap8183',}, 
+          { positions: [ { i: '5', j: 1 } ], css_id: 'tinytable_css_1w3422ffr3d57mvljzxv',}, 
+          { positions: [ { i: '3', j: 1 } ], css_id: 'tinytable_css_ak11c8yc9eqt25n4jti7',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '4', j: 1 } ], css_id: 'tinytable_css_dlcpnicxjq21hpx1vr35',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_ju5cxspff2chzfxsxcaj',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_x1gtsuat3mqnf093ni5l.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_lot3krgsm9ztyzcypwnb.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -755,17 +759,17 @@ bwght = \beta_0 + \beta_1 cigs + \beta_2 faminc + u
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_x1gtsuat3mqnf093ni5l td.tinytable_css_yikrebfrc28p20lopbww, #tinytable_x1gtsuat3mqnf093ni5l th.tinytable_css_yikrebfrc28p20lopbww {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_x1gtsuat3mqnf093ni5l td.tinytable_css_zoz6ohtt7dwwq9yfts7p, #tinytable_x1gtsuat3mqnf093ni5l th.tinytable_css_zoz6ohtt7dwwq9yfts7p {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_x1gtsuat3mqnf093ni5l td.tinytable_css_m9d9nh9irzxrwa5o7ajq, #tinytable_x1gtsuat3mqnf093ni5l th.tinytable_css_m9d9nh9irzxrwa5o7ajq { text-align: center }
-    #tinytable_x1gtsuat3mqnf093ni5l td.tinytable_css_bxlfej7hxove48it2lg0, #tinytable_x1gtsuat3mqnf093ni5l th.tinytable_css_bxlfej7hxove48it2lg0 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_x1gtsuat3mqnf093ni5l td.tinytable_css_d7skm07mwgzkwty90jzq, #tinytable_x1gtsuat3mqnf093ni5l th.tinytable_css_d7skm07mwgzkwty90jzq {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_x1gtsuat3mqnf093ni5l td.tinytable_css_dll3bdzb6odrmmuuve1h, #tinytable_x1gtsuat3mqnf093ni5l th.tinytable_css_dll3bdzb6odrmmuuve1h {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_x1gtsuat3mqnf093ni5l td.tinytable_css_wasmyw4rfzsboxib0iw4, #tinytable_x1gtsuat3mqnf093ni5l th.tinytable_css_wasmyw4rfzsboxib0iw4 { text-align: left }
-    #tinytable_x1gtsuat3mqnf093ni5l td.tinytable_css_9wcll0fvpenynqi2376g, #tinytable_x1gtsuat3mqnf093ni5l th.tinytable_css_9wcll0fvpenynqi2376g {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_lot3krgsm9ztyzcypwnb td.tinytable_css_fd1buwlyqfvhnibz4jof, #tinytable_lot3krgsm9ztyzcypwnb th.tinytable_css_fd1buwlyqfvhnibz4jof {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_lot3krgsm9ztyzcypwnb td.tinytable_css_3cniubhyn3hejaum8zey, #tinytable_lot3krgsm9ztyzcypwnb th.tinytable_css_3cniubhyn3hejaum8zey {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_lot3krgsm9ztyzcypwnb td.tinytable_css_mdloxfw3x2e74858o7ng, #tinytable_lot3krgsm9ztyzcypwnb th.tinytable_css_mdloxfw3x2e74858o7ng { text-align: center }
+    #tinytable_lot3krgsm9ztyzcypwnb td.tinytable_css_4k384inqnd70swap8183, #tinytable_lot3krgsm9ztyzcypwnb th.tinytable_css_4k384inqnd70swap8183 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_lot3krgsm9ztyzcypwnb td.tinytable_css_1w3422ffr3d57mvljzxv, #tinytable_lot3krgsm9ztyzcypwnb th.tinytable_css_1w3422ffr3d57mvljzxv {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_lot3krgsm9ztyzcypwnb td.tinytable_css_ak11c8yc9eqt25n4jti7, #tinytable_lot3krgsm9ztyzcypwnb th.tinytable_css_ak11c8yc9eqt25n4jti7 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_lot3krgsm9ztyzcypwnb td.tinytable_css_dlcpnicxjq21hpx1vr35, #tinytable_lot3krgsm9ztyzcypwnb th.tinytable_css_dlcpnicxjq21hpx1vr35 { text-align: left }
+    #tinytable_lot3krgsm9ztyzcypwnb td.tinytable_css_ju5cxspff2chzfxsxcaj, #tinytable_lot3krgsm9ztyzcypwnb th.tinytable_css_ju5cxspff2chzfxsxcaj {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_x1gtsuat3mqnf093ni5l" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_lot3krgsm9ztyzcypwnb" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -808,19 +812,20 @@ bwght = \beta_0 + \beta_1 cigs + \beta_2 faminc + u
 </div>
 </div>
 <p><strong>Interpretation:</strong></p>
-<p>Including income reduces the smoking coefficient from approximately <span class="math inline">\(-0.514\)</span> to <span class="math inline">\(-0.463\)</span>. This indicates that the simple regression suffered from omitted variable bias. <span class="math display">\[
-\text{Bias} = \beta_2 \times \tilde \delta_1
-\]</span></p>
+<p>Including income reduces the smoking coefficient from approximately <span class="math inline">\(-0.514\)</span> to <span class="math inline">\(-0.463\)</span>. This indicates that the simple regression suffered from omitted variable bias.<span class="math display">\[ \text{Bias} = \beta_2 \times \tilde \delta_1\]</span></p>
 <p>1. <span class="math inline">\(\beta_2\)</span>: Positive, rich people have heavier babies.</p>
 <p>2. <span class="math inline">\(\tilde \delta_1\)</span>: Negative, poor people smoke more</p>
 <p>3. Effect: Positive <span class="math inline">\(\times\)</span> Negative = <strong>Negative Bias</strong></p>
 <p>4. <span class="math inline">\(\beta_1\)</span> is negative, negative bias will increase it from -0.46 to -0.51</p>
 </section>
-<section id="c2-hprice1" class="level3" data-number="3.1.2">
-<h3 data-number="3.1.2" class="anchored" data-anchor-id="c2-hprice1"><span class="header-section-number">3.1.2</span> C2 [HPRICE1]</h3>
+<section id="c2-hprice1" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="c2-hprice1"><span class="header-section-number">3.2</span> C2 [HPRICE1]</h2>
+<blockquote class="blockquote">
+<p>Use the data in HPRICE1 to estimate the model <span class="math display">\[price = \beta_0 + \beta_1sqrft + \beta_2bdrms + u\]</span> where <code>price</code> is the house price measured in thousands of dollars.</p>
+</blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df_hprice1 <span class="ot">&lt;-</span> wooldridge<span class="sc">::</span>hprice1</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(df_hprice1))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>c2 <span class="ot">&lt;-</span> hprice1</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(c2))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
@@ -928,23 +933,23 @@ bwght = \beta_0 + \beta_1 cigs + \beta_2 faminc + u
 </div>
 <blockquote class="blockquote">
 <ol type="i">
-<li>Estimate the model <span class="math display">\[ price = \beta_0 + \beta_1 sqrft + \beta_2 bdrms + u\]</span></li>
+<li>Write out the results in equation form.</li>
 </ol>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>model_hprice <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> sqrft <span class="sc">+</span> bdrms, <span class="at">data =</span> df_hprice1)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  model_hprice,</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">fmt =</span> <span class="dv">2</span>,</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">statistic =</span> <span class="cn">NULL</span>,</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">gof_map =</span> <span class="fu">c</span>(<span class="st">"nobs"</span>, <span class="st">"r.squared"</span>),</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">coef_rename =</span> <span class="fu">c</span>(</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"(Intercept)"</span> <span class="ot">=</span> <span class="st">"Constant"</span>,</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"sqrft"</span>       <span class="ot">=</span> <span class="st">"Size (sq. ft.)"</span>,</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"bdrms"</span>       <span class="ot">=</span> <span class="st">"Number of Bedrooms"</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>c2m <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> sqrft <span class="sc">+</span> bdrms, <span class="at">data =</span> c2)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  c2m,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">fmt =</span> <span class="dv">2</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">statistic =</span> <span class="cn">NULL</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">gof_map =</span> <span class="fu">c</span>(<span class="st">"nobs"</span>, <span class="st">"r.squared"</span>),</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">coef_rename =</span> <span class="fu">c</span>(</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"(Intercept)"</span> <span class="ot">=</span> <span class="st">"Constant"</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"sqrft"</span>       <span class="ot">=</span> <span class="st">"Size (sq. ft.)"</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"bdrms"</span>       <span class="ot">=</span> <span class="st">"Number of Bedrooms"</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <!-- preamble start -->
 
@@ -952,25 +957,25 @@ bwght = \beta_0 + \beta_1 cigs + \beta_2 faminc + u
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_4ijzut5odv6lcwdrlqyh = TinyTable.createTableFunctions("tinytable_4ijzut5odv6lcwdrlqyh");
+      const tableFns_kw9co7382ehnd3z83ln9 = TinyTable.createTableFunctions("tinytable_kw9co7382ehnd3z83ln9");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '5', j: 2 } ], css_id: 'tinytable_css_yypus62p6uv0abb888zq',}, 
-          { positions: [ { i: '3', j: 2 } ], css_id: 'tinytable_css_zs019yc8bth95f4c49f1',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '4', j: 2 } ], css_id: 'tinytable_css_r6iymtbvz1nafwhsj7pk',}, 
-          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_ooh67xl6o4zr270c10u1',}, 
-          { positions: [ { i: '5', j: 1 } ], css_id: 'tinytable_css_yus26t8oyhok4zcbslgd',}, 
-          { positions: [ { i: '3', j: 1 } ], css_id: 'tinytable_css_rhdpjthu04o17e3rr85r',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '4', j: 1 } ], css_id: 'tinytable_css_pcbfhz6kaps7hbl6r58k',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_oej5rq1i9kjx7i8y5ba3',}, 
+          { positions: [ { i: '5', j: 2 } ], css_id: 'tinytable_css_u05wg4yttgkaztmwrjzo',}, 
+          { positions: [ { i: '3', j: 2 } ], css_id: 'tinytable_css_bk44wgaksrolc0ux72is',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '4', j: 2 } ], css_id: 'tinytable_css_fej7ia71iqqv39i3srvn',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_vc1wu3mi1gtdq3tuwndd',}, 
+          { positions: [ { i: '5', j: 1 } ], css_id: 'tinytable_css_jupa7pnm1ndznnqfuj5c',}, 
+          { positions: [ { i: '3', j: 1 } ], css_id: 'tinytable_css_104tmt9cl7xw2wgz9inw',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '4', j: 1 } ], css_id: 'tinytable_css_xc7eabho1zok8bbnq91z',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_bju3aeklnzpxtkmk6xmo',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_4ijzut5odv6lcwdrlqyh.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_kw9co7382ehnd3z83ln9.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -979,17 +984,17 @@ bwght = \beta_0 + \beta_1 cigs + \beta_2 faminc + u
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_4ijzut5odv6lcwdrlqyh td.tinytable_css_yypus62p6uv0abb888zq, #tinytable_4ijzut5odv6lcwdrlqyh th.tinytable_css_yypus62p6uv0abb888zq {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_4ijzut5odv6lcwdrlqyh td.tinytable_css_zs019yc8bth95f4c49f1, #tinytable_4ijzut5odv6lcwdrlqyh th.tinytable_css_zs019yc8bth95f4c49f1 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_4ijzut5odv6lcwdrlqyh td.tinytable_css_r6iymtbvz1nafwhsj7pk, #tinytable_4ijzut5odv6lcwdrlqyh th.tinytable_css_r6iymtbvz1nafwhsj7pk { text-align: center }
-    #tinytable_4ijzut5odv6lcwdrlqyh td.tinytable_css_ooh67xl6o4zr270c10u1, #tinytable_4ijzut5odv6lcwdrlqyh th.tinytable_css_ooh67xl6o4zr270c10u1 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_4ijzut5odv6lcwdrlqyh td.tinytable_css_yus26t8oyhok4zcbslgd, #tinytable_4ijzut5odv6lcwdrlqyh th.tinytable_css_yus26t8oyhok4zcbslgd {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_4ijzut5odv6lcwdrlqyh td.tinytable_css_rhdpjthu04o17e3rr85r, #tinytable_4ijzut5odv6lcwdrlqyh th.tinytable_css_rhdpjthu04o17e3rr85r {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_4ijzut5odv6lcwdrlqyh td.tinytable_css_pcbfhz6kaps7hbl6r58k, #tinytable_4ijzut5odv6lcwdrlqyh th.tinytable_css_pcbfhz6kaps7hbl6r58k { text-align: left }
-    #tinytable_4ijzut5odv6lcwdrlqyh td.tinytable_css_oej5rq1i9kjx7i8y5ba3, #tinytable_4ijzut5odv6lcwdrlqyh th.tinytable_css_oej5rq1i9kjx7i8y5ba3 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_kw9co7382ehnd3z83ln9 td.tinytable_css_u05wg4yttgkaztmwrjzo, #tinytable_kw9co7382ehnd3z83ln9 th.tinytable_css_u05wg4yttgkaztmwrjzo {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_kw9co7382ehnd3z83ln9 td.tinytable_css_bk44wgaksrolc0ux72is, #tinytable_kw9co7382ehnd3z83ln9 th.tinytable_css_bk44wgaksrolc0ux72is {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_kw9co7382ehnd3z83ln9 td.tinytable_css_fej7ia71iqqv39i3srvn, #tinytable_kw9co7382ehnd3z83ln9 th.tinytable_css_fej7ia71iqqv39i3srvn { text-align: center }
+    #tinytable_kw9co7382ehnd3z83ln9 td.tinytable_css_vc1wu3mi1gtdq3tuwndd, #tinytable_kw9co7382ehnd3z83ln9 th.tinytable_css_vc1wu3mi1gtdq3tuwndd {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_kw9co7382ehnd3z83ln9 td.tinytable_css_jupa7pnm1ndznnqfuj5c, #tinytable_kw9co7382ehnd3z83ln9 th.tinytable_css_jupa7pnm1ndznnqfuj5c {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_kw9co7382ehnd3z83ln9 td.tinytable_css_104tmt9cl7xw2wgz9inw, #tinytable_kw9co7382ehnd3z83ln9 th.tinytable_css_104tmt9cl7xw2wgz9inw {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_kw9co7382ehnd3z83ln9 td.tinytable_css_xc7eabho1zok8bbnq91z, #tinytable_kw9co7382ehnd3z83ln9 th.tinytable_css_xc7eabho1zok8bbnq91z { text-align: left }
+    #tinytable_kw9co7382ehnd3z83ln9 td.tinytable_css_bju3aeklnzpxtkmk6xmo, #tinytable_kw9co7382ehnd3z83ln9 th.tinytable_css_bju3aeklnzpxtkmk6xmo {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_4ijzut5odv6lcwdrlqyh" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_kw9co7382ehnd3z83ln9" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -1034,27 +1039,24 @@ bwght = \beta_0 + \beta_1 cigs + \beta_2 faminc + u
 <p>Holding square footage constant, adding one more bedroom increases price by $15,200. This estimate is not useful because adding small rooms without adding square footage will make it feel cramped.</p>
 <blockquote class="blockquote">
 <ol start="3" type="i">
-<li>What is the estimated increase in price for a house with an additional bedroom that is 140 square feet in size?</li>
+<li>What is the estimated increase in price for a house with an additional bedroom that is 140 square feet in size? Compare this to your answer in part (ii).</li>
 </ol>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>base_house <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">sqrft  =</span> <span class="dv">140</span>, <span class="at">bdrms =</span> <span class="dv">1</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>upgraded_house <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">sqrft  =</span> <span class="dv">280</span>, <span class="at">bdrms =</span> <span class="dv">2</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>price_1 <span class="ot">=</span> <span class="fu">predict</span>(model_hprice, <span class="at">newdata =</span> base_house)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>price_2 <span class="ot">=</span> <span class="fu">predict</span>(model_hprice, <span class="at">newdata =</span> upgraded_house)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>price_increase <span class="ot">&lt;-</span> price_2 <span class="sc">-</span> price_1</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="fu">round</span>(price_increase, <span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>base_house <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">sqrft  =</span> <span class="dv">140</span>, <span class="at">bdrms =</span> <span class="dv">1</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>upgraded_house <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">sqrft  =</span> <span class="dv">280</span>, <span class="at">bdrms =</span> <span class="dv">2</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>price_1 <span class="ot">=</span> <span class="fu">predict</span>(c2m, <span class="at">newdata =</span> base_house)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>price_2 <span class="ot">=</span> <span class="fu">predict</span>(c2m, <span class="at">newdata =</span> upgraded_house)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">round</span>(price_2 <span class="sc">-</span> price_1, <span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "33.18"</code></pre>
+<pre><code>33.18</code></pre>
 </div>
 </div>
 <p><strong>Interpretation:</strong></p>
-<p>The estimates increase is <strong>$33,120</strong>. This represents the combined value of adding a room that is 140 square feet <span class="math display">\[
-140 \times 0.13 + 15.2 = 33.2
-\]</span></p>
+<p>The estimates increase is <strong>$33,180</strong>. This represents the combined value of adding a room that is 140 square feet <span class="math display">\[
+140 \times 0.13 + 15.2 = 33.2\]</span></p>
 <blockquote class="blockquote">
 <ol start="4" type="i">
 <li>What percentage of the variation in price is explained by square footage and number of bedrooms?</li>
@@ -1064,56 +1066,39 @@ bwght = \beta_0 + \beta_1 cigs + \beta_2 faminc + u
 <p><strong>63.2%</strong> of the variation in house prices are explained by the two variables.</p>
 <blockquote class="blockquote">
 <ol start="22" type="a">
-<li>The first house in the sample has sqrft = 2,438 and bdrms = 4. Find the predicted selling price</li>
+<li>The first house in the sample has <code>sqrft</code> = 2,438 and <code>bdrms</code> = 4. Find the predicted selling price</li>
 </ol>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>new_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">sqrft =</span> <span class="dv">2438</span>, <span class="at">bdrms =</span> <span class="dv">4</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>price <span class="ot">=</span> <span class="fu">predict</span>(model_hprice, <span class="at">newdata =</span> new_data)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="fu">round</span>(price, <span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(c2m<span class="sc">$</span>fitted.values[<span class="dv">1</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "354.61"</code></pre>
-</div>
-</div>
-<p>or</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> model_hprice<span class="sc">$</span>fitted.values[<span class="dv">1</span>]</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="fu">round</span>(result, <span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "354.61"</code></pre>
-</div>
-</div>
-<p>or</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>price <span class="ot">=</span> <span class="fu">coef</span>(model_hprice)[<span class="st">"(Intercept)"</span>] <span class="sc">+</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  (<span class="fu">coef</span>(model_hprice)[<span class="st">"sqrft"</span>] <span class="sc">*</span> <span class="dv">2438</span>) <span class="sc">+</span> </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  (<span class="fu">coef</span>(model_hprice)[<span class="st">"bdrms"</span>] <span class="sc">*</span> <span class="dv">4</span>)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="fu">round</span>(price, <span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "354.61"</code></pre>
+<pre><code>354.6052</code></pre>
 </div>
 </div>
 <p><strong>Interpretation:</strong></p>
-<p>Predicted selling price is <strong>$354,000</strong></p>
+<p>Predicted selling price is <strong>$354,605</strong></p>
 <blockquote class="blockquote">
 <ol start="6" type="i">
-<li>The actual selling price of the first house in the sample was $300,000 Find the residual for this house.</li>
+<li>The actual selling price of the first house in the sample was $300,000 Find the residual for this house. Does it suggest that the buyer underpaid or overpaid for the house?</li>
 </ol>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>residual <span class="ot">&lt;-</span> model_hprice<span class="sc">$</span>residuals[<span class="dv">1</span>]</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="fu">round</span>(residual, <span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(c2m<span class="sc">$</span>residuals[<span class="dv">1</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "-54.61"</code></pre>
+<pre><code>-54.60525</code></pre>
 </div>
 </div>
-<p><strong>Interpretation:</strong>&nbsp; Residual is <strong>$-54,610</strong>. The buyer underpaid for the house.</p>
+<p><strong>Interpretation:</strong></p>
+<p>Residual is <strong>$-54,605</strong>. The buyer underpaid for the house.</p>
 </section>
-<section id="c3-ceosal2" class="level3" data-number="3.1.3">
-<h3 data-number="3.1.3" class="anchored" data-anchor-id="c3-ceosal2"><span class="header-section-number">3.1.3</span> C3 [CEOSAL2]</h3>
+<section id="c3-ceosal2" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="c3-ceosal2"><span class="header-section-number">3.3</span> C3 [CEOSAL2]</h2>
+<blockquote class="blockquote">
+<p>The file CEOSAL2 contains data on 177 chief executive officers and can be used to examine the effects of firm performance on CEO salary.</p>
+</blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df_ceosal2 <span class="ot">&lt;-</span> wooldridge<span class="sc">::</span>ceosal2</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(df_ceosal2))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>c3 <span class="ot">&lt;-</span> ceosal2</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(c3))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
@@ -1261,23 +1246,23 @@ bwght = \beta_0 + \beta_1 cigs + \beta_2 faminc + u
 </div>
 <blockquote class="blockquote">
 <ol type="i">
-<li>Estimate a model relating annual salary to firm sales and market value. Make the model of the constant elasticity variety for both independent variables</li>
+<li>Estimate a model relating annual salary to firm sales and market value. Make the model of the constant elasticity variety for both independent variables.</li>
 </ol>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>model_ceosal2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(lsalary <span class="sc">~</span> lsales <span class="sc">+</span> lmktval, <span class="at">data =</span> df_ceosal2)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  model_ceosal2,</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">fmt =</span> <span class="dv">2</span>,</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">statistic =</span> <span class="cn">NULL</span>,</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">gof_map =</span> <span class="fu">c</span>(<span class="st">"nobs"</span>, <span class="st">"r.squared"</span>),</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">coef_rename =</span> <span class="fu">c</span>(</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"(Intercept)"</span> <span class="ot">=</span> <span class="st">"Constant"</span>,</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"lsales"</span>  <span class="ot">=</span> <span class="st">"Log(Sales)"</span>,</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"lmktval"</span> <span class="ot">=</span> <span class="st">"Log(Market Value)"</span></span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>c3m <span class="ot">&lt;-</span> <span class="fu">lm</span>(lsalary <span class="sc">~</span> lsales <span class="sc">+</span> lmktval, <span class="at">data =</span> c3)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  c3m,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">fmt =</span> <span class="dv">2</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">statistic =</span> <span class="cn">NULL</span>,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">gof_map =</span> <span class="fu">c</span>(<span class="st">"nobs"</span>, <span class="st">"r.squared"</span>),</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">coef_rename =</span> <span class="fu">c</span>(</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"(Intercept)"</span> <span class="ot">=</span> <span class="st">"Constant"</span>,</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"lsales"</span>  <span class="ot">=</span> <span class="st">"Log(Sales)"</span>,</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"lmktval"</span> <span class="ot">=</span> <span class="st">"Log(Market Value)"</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <!-- preamble start -->
 
@@ -1285,25 +1270,25 @@ bwght = \beta_0 + \beta_1 cigs + \beta_2 faminc + u
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_mw4rh13sfritoky7bo8q = TinyTable.createTableFunctions("tinytable_mw4rh13sfritoky7bo8q");
+      const tableFns_xfmnqbtcrhmtmmllhhlu = TinyTable.createTableFunctions("tinytable_xfmnqbtcrhmtmmllhhlu");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '5', j: 2 } ], css_id: 'tinytable_css_sf9maof29e0gjadtuw3m',}, 
-          { positions: [ { i: '3', j: 2 } ], css_id: 'tinytable_css_t6ellkl3dcrvpeuyobst',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '4', j: 2 } ], css_id: 'tinytable_css_d6e80ohozy81z7iueioa',}, 
-          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_xs6fuclvt8e1jur2zhbn',}, 
-          { positions: [ { i: '5', j: 1 } ], css_id: 'tinytable_css_v6lrnzlgdw959qhotgkm',}, 
-          { positions: [ { i: '3', j: 1 } ], css_id: 'tinytable_css_18smpqvqmnrc4lv0kmlm',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '4', j: 1 } ], css_id: 'tinytable_css_k0caeu41dlcz006olj9n',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_xdzpdxk3p8aq9bjpdgq6',}, 
+          { positions: [ { i: '5', j: 2 } ], css_id: 'tinytable_css_s36lmzipdvgtjwfcpdft',}, 
+          { positions: [ { i: '3', j: 2 } ], css_id: 'tinytable_css_yywujs6n9a9nu0uwlxci',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '4', j: 2 } ], css_id: 'tinytable_css_sh9mi46pt25sz7qdil2y',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_vdwh9w2gxtpegwo78p3j',}, 
+          { positions: [ { i: '5', j: 1 } ], css_id: 'tinytable_css_8clp2iauxpah63w1o3jx',}, 
+          { positions: [ { i: '3', j: 1 } ], css_id: 'tinytable_css_3imvrxnndz94is45ifdr',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '4', j: 1 } ], css_id: 'tinytable_css_910k5cgl69ny0ldjq1nm',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_qpm1bl71vti3wh6gx9f7',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_mw4rh13sfritoky7bo8q.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_xfmnqbtcrhmtmmllhhlu.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1312,17 +1297,17 @@ bwght = \beta_0 + \beta_1 cigs + \beta_2 faminc + u
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_mw4rh13sfritoky7bo8q td.tinytable_css_sf9maof29e0gjadtuw3m, #tinytable_mw4rh13sfritoky7bo8q th.tinytable_css_sf9maof29e0gjadtuw3m {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_mw4rh13sfritoky7bo8q td.tinytable_css_t6ellkl3dcrvpeuyobst, #tinytable_mw4rh13sfritoky7bo8q th.tinytable_css_t6ellkl3dcrvpeuyobst {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_mw4rh13sfritoky7bo8q td.tinytable_css_d6e80ohozy81z7iueioa, #tinytable_mw4rh13sfritoky7bo8q th.tinytable_css_d6e80ohozy81z7iueioa { text-align: center }
-    #tinytable_mw4rh13sfritoky7bo8q td.tinytable_css_xs6fuclvt8e1jur2zhbn, #tinytable_mw4rh13sfritoky7bo8q th.tinytable_css_xs6fuclvt8e1jur2zhbn {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_mw4rh13sfritoky7bo8q td.tinytable_css_v6lrnzlgdw959qhotgkm, #tinytable_mw4rh13sfritoky7bo8q th.tinytable_css_v6lrnzlgdw959qhotgkm {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_mw4rh13sfritoky7bo8q td.tinytable_css_18smpqvqmnrc4lv0kmlm, #tinytable_mw4rh13sfritoky7bo8q th.tinytable_css_18smpqvqmnrc4lv0kmlm {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_mw4rh13sfritoky7bo8q td.tinytable_css_k0caeu41dlcz006olj9n, #tinytable_mw4rh13sfritoky7bo8q th.tinytable_css_k0caeu41dlcz006olj9n { text-align: left }
-    #tinytable_mw4rh13sfritoky7bo8q td.tinytable_css_xdzpdxk3p8aq9bjpdgq6, #tinytable_mw4rh13sfritoky7bo8q th.tinytable_css_xdzpdxk3p8aq9bjpdgq6 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_xfmnqbtcrhmtmmllhhlu td.tinytable_css_s36lmzipdvgtjwfcpdft, #tinytable_xfmnqbtcrhmtmmllhhlu th.tinytable_css_s36lmzipdvgtjwfcpdft {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_xfmnqbtcrhmtmmllhhlu td.tinytable_css_yywujs6n9a9nu0uwlxci, #tinytable_xfmnqbtcrhmtmmllhhlu th.tinytable_css_yywujs6n9a9nu0uwlxci {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_xfmnqbtcrhmtmmllhhlu td.tinytable_css_sh9mi46pt25sz7qdil2y, #tinytable_xfmnqbtcrhmtmmllhhlu th.tinytable_css_sh9mi46pt25sz7qdil2y { text-align: center }
+    #tinytable_xfmnqbtcrhmtmmllhhlu td.tinytable_css_vdwh9w2gxtpegwo78p3j, #tinytable_xfmnqbtcrhmtmmllhhlu th.tinytable_css_vdwh9w2gxtpegwo78p3j {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_xfmnqbtcrhmtmmllhhlu td.tinytable_css_8clp2iauxpah63w1o3jx, #tinytable_xfmnqbtcrhmtmmllhhlu th.tinytable_css_8clp2iauxpah63w1o3jx {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_xfmnqbtcrhmtmmllhhlu td.tinytable_css_3imvrxnndz94is45ifdr, #tinytable_xfmnqbtcrhmtmmllhhlu th.tinytable_css_3imvrxnndz94is45ifdr {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_xfmnqbtcrhmtmmllhhlu td.tinytable_css_910k5cgl69ny0ldjq1nm, #tinytable_xfmnqbtcrhmtmmllhhlu th.tinytable_css_910k5cgl69ny0ldjq1nm { text-align: left }
+    #tinytable_xfmnqbtcrhmtmmllhhlu td.tinytable_css_qpm1bl71vti3wh6gx9f7, #tinytable_xfmnqbtcrhmtmmllhhlu th.tinytable_css_qpm1bl71vti3wh6gx9f7 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_mw4rh13sfritoky7bo8q" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_xfmnqbtcrhmtmmllhhlu" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -1360,12 +1345,12 @@ bwght = \beta_0 + \beta_1 cigs + \beta_2 faminc + u
 </div>
 <blockquote class="blockquote">
 <ol start="2" type="i">
-<li>Add profits to the model from part (i). Why can this variable not be included in logarithmic form? Would you say that these firm performance variables explain most of the variation in CEO salaries?</li>
+<li>Add <code>profits</code> to the model from part (i). Why can this variable not be included in logarithmic form? Would you say that these firm performance variables explain most of the variation in CEO salaries?</li>
 </ol>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_ceosal2, <span class="fu">aes</span>(<span class="at">x =</span> profits)) <span class="sc">+</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">30</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(c3, <span class="fu">aes</span>(<span class="at">x =</span> profits)) <span class="sc">+</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">30</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1375,20 +1360,20 @@ bwght = \beta_0 + \beta_1 cigs + \beta_2 faminc + u
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>model_ceosal2_2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(lsalary <span class="sc">~</span> lsales <span class="sc">+</span> lmktval <span class="sc">+</span> profits, <span class="at">data =</span> df_ceosal2)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  model_ceosal2_2,</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">fmt =</span> <span class="dv">2</span>,</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">statistic =</span> <span class="cn">NULL</span>,</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">gof_map =</span> <span class="fu">c</span>(<span class="st">"nobs"</span>, <span class="st">"r.squared"</span>),</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">coef_rename =</span> <span class="fu">c</span>(</span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"(Intercept)"</span> <span class="ot">=</span> <span class="st">"Constant"</span>,</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"lsales"</span>  <span class="ot">=</span> <span class="st">"Log(Sales)"</span>,</span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"lmktval"</span> <span class="ot">=</span> <span class="st">"Log(Market Value)"</span>,</span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"profits"</span> <span class="ot">=</span> <span class="st">"Profits"</span></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>c3m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(lsalary <span class="sc">~</span> lsales <span class="sc">+</span> lmktval <span class="sc">+</span> profits, <span class="at">data =</span> c3)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  c3m2,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">fmt =</span> <span class="dv">2</span>,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">statistic =</span> <span class="cn">NULL</span>,</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">gof_map =</span> <span class="fu">c</span>(<span class="st">"nobs"</span>, <span class="st">"r.squared"</span>),</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">coef_rename =</span> <span class="fu">c</span>(</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"(Intercept)"</span> <span class="ot">=</span> <span class="st">"Constant"</span>,</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"lsales"</span>  <span class="ot">=</span> <span class="st">"Log(Sales)"</span>,</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"lmktval"</span> <span class="ot">=</span> <span class="st">"Log(Market Value)"</span>,</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"profits"</span> <span class="ot">=</span> <span class="st">"Profits"</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <!-- preamble start -->
 
@@ -1396,25 +1381,25 @@ bwght = \beta_0 + \beta_1 cigs + \beta_2 faminc + u
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_98o8ndxq7lip0lfbti28 = TinyTable.createTableFunctions("tinytable_98o8ndxq7lip0lfbti28");
+      const tableFns_k2pxj4lou4vpghhapthn = TinyTable.createTableFunctions("tinytable_k2pxj4lou4vpghhapthn");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '6', j: 2 } ], css_id: 'tinytable_css_na0w3l78uenflque4xqb',}, 
-          { positions: [ { i: '4', j: 2 } ], css_id: 'tinytable_css_btm5ybt1quw8uzlv7mp1',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '5', j: 2 } ], css_id: 'tinytable_css_jumntb3knspwmi51u9jr',}, 
-          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_hj2af052npt2v0a8tbqq',}, 
-          { positions: [ { i: '6', j: 1 } ], css_id: 'tinytable_css_4s9qls21ujy0lz5g9s9m',}, 
-          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_07jejxda079yljs2ud8w',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '5', j: 1 } ], css_id: 'tinytable_css_021ecbp2cac6a6idfpwf',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_60nomp86rpjs7wcbec3z',}, 
+          { positions: [ { i: '6', j: 2 } ], css_id: 'tinytable_css_j05gagx74j55rr0c4xfp',}, 
+          { positions: [ { i: '4', j: 2 } ], css_id: 'tinytable_css_4pkx2o6scpb5y7kr1c1i',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '5', j: 2 } ], css_id: 'tinytable_css_hujvs7pi5hngyapky9ic',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_3bz4ntq9swpyfu0ru405',}, 
+          { positions: [ { i: '6', j: 1 } ], css_id: 'tinytable_css_y3zrwu3700ev332ga3fl',}, 
+          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_9c5oqyn4q6o6eeqcr0zm',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '5', j: 1 } ], css_id: 'tinytable_css_kq12o71y4vcftvcir0cb',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_os8h9r5qp9nkdfsrdgl6',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_98o8ndxq7lip0lfbti28.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_k2pxj4lou4vpghhapthn.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1423,17 +1408,17 @@ bwght = \beta_0 + \beta_1 cigs + \beta_2 faminc + u
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_98o8ndxq7lip0lfbti28 td.tinytable_css_na0w3l78uenflque4xqb, #tinytable_98o8ndxq7lip0lfbti28 th.tinytable_css_na0w3l78uenflque4xqb {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_98o8ndxq7lip0lfbti28 td.tinytable_css_btm5ybt1quw8uzlv7mp1, #tinytable_98o8ndxq7lip0lfbti28 th.tinytable_css_btm5ybt1quw8uzlv7mp1 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_98o8ndxq7lip0lfbti28 td.tinytable_css_jumntb3knspwmi51u9jr, #tinytable_98o8ndxq7lip0lfbti28 th.tinytable_css_jumntb3knspwmi51u9jr { text-align: center }
-    #tinytable_98o8ndxq7lip0lfbti28 td.tinytable_css_hj2af052npt2v0a8tbqq, #tinytable_98o8ndxq7lip0lfbti28 th.tinytable_css_hj2af052npt2v0a8tbqq {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_98o8ndxq7lip0lfbti28 td.tinytable_css_4s9qls21ujy0lz5g9s9m, #tinytable_98o8ndxq7lip0lfbti28 th.tinytable_css_4s9qls21ujy0lz5g9s9m {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_98o8ndxq7lip0lfbti28 td.tinytable_css_07jejxda079yljs2ud8w, #tinytable_98o8ndxq7lip0lfbti28 th.tinytable_css_07jejxda079yljs2ud8w {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_98o8ndxq7lip0lfbti28 td.tinytable_css_021ecbp2cac6a6idfpwf, #tinytable_98o8ndxq7lip0lfbti28 th.tinytable_css_021ecbp2cac6a6idfpwf { text-align: left }
-    #tinytable_98o8ndxq7lip0lfbti28 td.tinytable_css_60nomp86rpjs7wcbec3z, #tinytable_98o8ndxq7lip0lfbti28 th.tinytable_css_60nomp86rpjs7wcbec3z {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_k2pxj4lou4vpghhapthn td.tinytable_css_j05gagx74j55rr0c4xfp, #tinytable_k2pxj4lou4vpghhapthn th.tinytable_css_j05gagx74j55rr0c4xfp {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_k2pxj4lou4vpghhapthn td.tinytable_css_4pkx2o6scpb5y7kr1c1i, #tinytable_k2pxj4lou4vpghhapthn th.tinytable_css_4pkx2o6scpb5y7kr1c1i {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_k2pxj4lou4vpghhapthn td.tinytable_css_hujvs7pi5hngyapky9ic, #tinytable_k2pxj4lou4vpghhapthn th.tinytable_css_hujvs7pi5hngyapky9ic { text-align: center }
+    #tinytable_k2pxj4lou4vpghhapthn td.tinytable_css_3bz4ntq9swpyfu0ru405, #tinytable_k2pxj4lou4vpghhapthn th.tinytable_css_3bz4ntq9swpyfu0ru405 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_k2pxj4lou4vpghhapthn td.tinytable_css_y3zrwu3700ev332ga3fl, #tinytable_k2pxj4lou4vpghhapthn th.tinytable_css_y3zrwu3700ev332ga3fl {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_k2pxj4lou4vpghhapthn td.tinytable_css_9c5oqyn4q6o6eeqcr0zm, #tinytable_k2pxj4lou4vpghhapthn th.tinytable_css_9c5oqyn4q6o6eeqcr0zm {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_k2pxj4lou4vpghhapthn td.tinytable_css_kq12o71y4vcftvcir0cb, #tinytable_k2pxj4lou4vpghhapthn th.tinytable_css_kq12o71y4vcftvcir0cb { text-align: left }
+    #tinytable_k2pxj4lou4vpghhapthn td.tinytable_css_os8h9r5qp9nkdfsrdgl6, #tinytable_k2pxj4lou4vpghhapthn th.tinytable_css_os8h9r5qp9nkdfsrdgl6 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_98o8ndxq7lip0lfbti28" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_k2pxj4lou4vpghhapthn" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -1477,26 +1462,26 @@ bwght = \beta_0 + \beta_1 cigs + \beta_2 faminc + u
 <p>Profits can’t be added in log form because it has non positive values. The model explains <strong>30%</strong> of the variation in the salaries. The remaining 70% is determined by other factors like tenure, unobserved CEO talent, or corporate politics.</p>
 <blockquote class="blockquote">
 <ol start="3" type="i">
-<li>Add the variable ceoten to the model in part (ii).</li>
+<li>Add the variable <code>ceoten</code> to the model in part (ii). What is the estimated percentage return for another year of CEO tenure, holding other factors fixed?</li>
 </ol>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>model_ceosal2_2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  lsalary <span class="sc">~</span> lsales <span class="sc">+</span> lmktval <span class="sc">+</span> profits <span class="sc">+</span> ceoten, <span class="at">data =</span> df_ceosal2)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  model_ceosal2_2,</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">fmt =</span> <span class="dv">2</span>,</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">statistic =</span> <span class="cn">NULL</span>,</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">gof_map =</span> <span class="fu">c</span>(<span class="st">"nobs"</span>, <span class="st">"r.squared"</span>),</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">coef_rename =</span> <span class="fu">c</span>(</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"(Intercept)"</span> <span class="ot">=</span> <span class="st">"Constant"</span>,</span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"lsales"</span>  <span class="ot">=</span> <span class="st">"Log(Sales)"</span>,</span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"lmktval"</span> <span class="ot">=</span> <span class="st">"Log(Market Value)"</span>,</span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"profits"</span> <span class="ot">=</span> <span class="st">"Profits"</span>,</span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ceoten"</span> <span class="ot">=</span> <span class="st">"Tenure"</span></span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>c3m3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  lsalary <span class="sc">~</span> lsales <span class="sc">+</span> lmktval <span class="sc">+</span> profits <span class="sc">+</span> ceoten, <span class="at">data =</span> c3)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  c3m3,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">fmt =</span> <span class="dv">2</span>,</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">statistic =</span> <span class="cn">NULL</span>,</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">gof_map =</span> <span class="fu">c</span>(<span class="st">"nobs"</span>, <span class="st">"r.squared"</span>),</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">coef_rename =</span> <span class="fu">c</span>(</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"(Intercept)"</span> <span class="ot">=</span> <span class="st">"Constant"</span>,</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"lsales"</span>  <span class="ot">=</span> <span class="st">"Log(Sales)"</span>,</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"lmktval"</span> <span class="ot">=</span> <span class="st">"Log(Market Value)"</span>,</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"profits"</span> <span class="ot">=</span> <span class="st">"Profits"</span>,</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ceoten"</span> <span class="ot">=</span> <span class="st">"Tenure"</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <!-- preamble start -->
 
@@ -1504,25 +1489,25 @@ bwght = \beta_0 + \beta_1 cigs + \beta_2 faminc + u
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_5491lg6vibz50vzwjxi7 = TinyTable.createTableFunctions("tinytable_5491lg6vibz50vzwjxi7");
+      const tableFns_o896ukybxvx1eagzfkrg = TinyTable.createTableFunctions("tinytable_o896ukybxvx1eagzfkrg");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '7', j: 2 } ], css_id: 'tinytable_css_x2m515iok6xupy64jewu',}, 
-          { positions: [ { i: '5', j: 2 } ], css_id: 'tinytable_css_u2jq2shf29g65yaulwus',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_x05bjocysjfmsjucg3ld',}, 
-          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_8bps3agi7cwj4rx4wskt',}, 
-          { positions: [ { i: '7', j: 1 } ], css_id: 'tinytable_css_5b5ox3wxscf824tuhnuw',}, 
-          { positions: [ { i: '5', j: 1 } ], css_id: 'tinytable_css_6x07p06k5unqxya9nn6w',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '6', j: 1 } ], css_id: 'tinytable_css_s2hkbjiv58gpj1wmsr94',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_ptf285a20skdkzaktggs',}, 
+          { positions: [ { i: '7', j: 2 } ], css_id: 'tinytable_css_ddmt73yig7u661oq9dli',}, 
+          { positions: [ { i: '5', j: 2 } ], css_id: 'tinytable_css_79tyrmzizxlqlfgn2k9y',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_bn9kx4cikmqvm3bw2un1',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_jvw905vscvxlscojdi01',}, 
+          { positions: [ { i: '7', j: 1 } ], css_id: 'tinytable_css_1lkedyj9nqyt5ja4d1aa',}, 
+          { positions: [ { i: '5', j: 1 } ], css_id: 'tinytable_css_nslpawr2w5mrd37u3af6',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '6', j: 1 } ], css_id: 'tinytable_css_xpjxfs660nw5jsf0sub8',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_ogbw3bzf63dttw18jv1q',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_5491lg6vibz50vzwjxi7.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_o896ukybxvx1eagzfkrg.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1531,17 +1516,17 @@ bwght = \beta_0 + \beta_1 cigs + \beta_2 faminc + u
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_5491lg6vibz50vzwjxi7 td.tinytable_css_x2m515iok6xupy64jewu, #tinytable_5491lg6vibz50vzwjxi7 th.tinytable_css_x2m515iok6xupy64jewu {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_5491lg6vibz50vzwjxi7 td.tinytable_css_u2jq2shf29g65yaulwus, #tinytable_5491lg6vibz50vzwjxi7 th.tinytable_css_u2jq2shf29g65yaulwus {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_5491lg6vibz50vzwjxi7 td.tinytable_css_x05bjocysjfmsjucg3ld, #tinytable_5491lg6vibz50vzwjxi7 th.tinytable_css_x05bjocysjfmsjucg3ld { text-align: center }
-    #tinytable_5491lg6vibz50vzwjxi7 td.tinytable_css_8bps3agi7cwj4rx4wskt, #tinytable_5491lg6vibz50vzwjxi7 th.tinytable_css_8bps3agi7cwj4rx4wskt {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_5491lg6vibz50vzwjxi7 td.tinytable_css_5b5ox3wxscf824tuhnuw, #tinytable_5491lg6vibz50vzwjxi7 th.tinytable_css_5b5ox3wxscf824tuhnuw {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_5491lg6vibz50vzwjxi7 td.tinytable_css_6x07p06k5unqxya9nn6w, #tinytable_5491lg6vibz50vzwjxi7 th.tinytable_css_6x07p06k5unqxya9nn6w {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_5491lg6vibz50vzwjxi7 td.tinytable_css_s2hkbjiv58gpj1wmsr94, #tinytable_5491lg6vibz50vzwjxi7 th.tinytable_css_s2hkbjiv58gpj1wmsr94 { text-align: left }
-    #tinytable_5491lg6vibz50vzwjxi7 td.tinytable_css_ptf285a20skdkzaktggs, #tinytable_5491lg6vibz50vzwjxi7 th.tinytable_css_ptf285a20skdkzaktggs {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_o896ukybxvx1eagzfkrg td.tinytable_css_ddmt73yig7u661oq9dli, #tinytable_o896ukybxvx1eagzfkrg th.tinytable_css_ddmt73yig7u661oq9dli {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_o896ukybxvx1eagzfkrg td.tinytable_css_79tyrmzizxlqlfgn2k9y, #tinytable_o896ukybxvx1eagzfkrg th.tinytable_css_79tyrmzizxlqlfgn2k9y {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_o896ukybxvx1eagzfkrg td.tinytable_css_bn9kx4cikmqvm3bw2un1, #tinytable_o896ukybxvx1eagzfkrg th.tinytable_css_bn9kx4cikmqvm3bw2un1 { text-align: center }
+    #tinytable_o896ukybxvx1eagzfkrg td.tinytable_css_jvw905vscvxlscojdi01, #tinytable_o896ukybxvx1eagzfkrg th.tinytable_css_jvw905vscvxlscojdi01 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_o896ukybxvx1eagzfkrg td.tinytable_css_1lkedyj9nqyt5ja4d1aa, #tinytable_o896ukybxvx1eagzfkrg th.tinytable_css_1lkedyj9nqyt5ja4d1aa {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_o896ukybxvx1eagzfkrg td.tinytable_css_nslpawr2w5mrd37u3af6, #tinytable_o896ukybxvx1eagzfkrg th.tinytable_css_nslpawr2w5mrd37u3af6 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_o896ukybxvx1eagzfkrg td.tinytable_css_xpjxfs660nw5jsf0sub8, #tinytable_o896ukybxvx1eagzfkrg th.tinytable_css_xpjxfs660nw5jsf0sub8 { text-align: left }
+    #tinytable_o896ukybxvx1eagzfkrg td.tinytable_css_ogbw3bzf63dttw18jv1q, #tinytable_o896ukybxvx1eagzfkrg th.tinytable_css_ogbw3bzf63dttw18jv1q {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_5491lg6vibz50vzwjxi7" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_o896ukybxvx1eagzfkrg" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -1589,15 +1574,15 @@ bwght = \beta_0 + \beta_1 cigs + \beta_2 faminc + u
 <p><span class="math inline">\(\beta_4\)</span> = 0.01, one additional year of tenure is associated with <strong>1%</strong> increase in salary, holding firm performance constant.</p>
 <blockquote class="blockquote">
 <ol start="4" type="i">
-<li>Find the sample correlation coefficient between the variables log(mktval) and profits.</li>
+<li>Find the sample correlation coefficient between the variables <code>log(mktval)</code> and <code>profits</code>. Are these variables highly correlated? What does this say about the OLS estimators?</li>
 </ol>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df_ceosal2 <span class="sc">|&gt;</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Correlation =</span> <span class="fu">cor</span>(lmktval, profits)</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>c3 <span class="sc">|&gt;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Correlation =</span> <span class="fu">cor</span>(lmktval, profits)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Correlation
 1        0.78</code></pre>
@@ -1605,9 +1590,11 @@ bwght = \beta_0 + \beta_1 cigs + \beta_2 faminc + u
 </div>
 <p><strong>Interpretation:</strong></p>
 <p>Correlation = <strong>0.78</strong>. This high correlation between market value and profits indicates multicollinearity. While this does not bias our estimates or inflate the overall <span class="math inline">\(R^2\)</span>, it makes it difficult to isolate the individual partial effects of profits versus market value.</p>
-
-
 </section>
+<section id="c4-attend" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="c4-attend"><span class="header-section-number">3.4</span> C4 [ATTEND]</h2>
+
+
 </section>
 
 </main> <!-- /main -->
