@@ -32,7 +32,7 @@ Open Source Contribution: I am a contributor to the `wooldridge` Python library.
 ## Exercises Solved
 
 ```{r}
-#| label: progress
+#| label: complete_progress
 #| message: false
 #| warning: false
 #| code-fold: true
