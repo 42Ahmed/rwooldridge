@@ -3,59 +3,64 @@ title: "Multiple Regression Analysis: Estimation"
 format: html
 ---
 
-## Computer Exercises
-
 ```{r}
 #| label: 'setup'
-#| include: false
+#| message: false
+#| warning: false
+
 library(tidyverse)
 library(wooldridge)
+library(knitr)
 library(modelsummary)
+library(broom)
 ```
 
-### C1 \[BWGHT\]
+## C1 \[BWGHT\]
+
+> A problem of interest to health officials (and others) is to determine the effects of smoking during pregnancy on infant health. One measure of infant health is birth weight; a birth weight that is too low can put an infant at risk for contracting various illnesses. Since factors other than cigarette smoking that affect birth weight are likely to be correlated with smoking, we should take those factors into
+account. For example, higher income generally results in access to better prenatal care, as well as better nutrition for the mother. An equation that recognizes this is $$bwght = \beta_0 + \beta_1 cigs + \beta_2 faminc + u$$
 
 ```{r}
 #| label: c1_data
-df_bwght <- wooldridge::bwght
-knitr::kable(head(df_bwght))
+c1 <- bwght
+kable(head(c1))
 ```
 
-> (i) What is the most likely sign for $\beta_2$? $$
->     bwght = \beta_0 + \beta_1 cigs + \beta_2 faminc + u
->     $$
+> (i) What is the most likely sign for $\beta_2$?
 
 **Interpretation:**
 
 $\beta_2$ is expected to be **positive**. Higher family income $\rightarrow$ better nutrition $\rightarrow$ higher birth weight
 
-> (ii) Do you think cigs and faminc are likely to be correlated?
+> (ii) Do you think `cigs` and `faminc` are likely to be correlated? Explain why the correlation might be positive or negative.
 
 **Interpretation:**
 
 Yes, **negative** correlation. smoking rates is higher among lower-income demographics. Omitting family income will cause Omitted Variable Bias (OVB).
 
-> (iii) Estimate the equation with and without faminc
+> (iii) Now, estimate the equation with and without `faminc`, using the data in BWGHT. Report the results in equation form, including the sample size and R-squared. Discuss your results,
+focusing on whether adding `faminc` substantially changes the estimated effect of `cigs` on `bwght`.
 
 ```{r}
 #| label: c1_iii
-model_bwght_simple <- lm(bwght ~ cigs, data = df_bwght)
-model_bwght_multiple <- lm(bwght ~ cigs + faminc, data = df_bwght)
 
-models_bwght <- list(
-  "Without Income" = model_bwght_simple,
-  "With Income" = model_bwght_multiple
+c1m <- lm(bwght ~ cigs, data = c1)
+c1m2 <- lm(bwght ~ cigs + faminc, data = c1)
+
+c1models <- list(
+  "Without Income" = c1m,
+  "With Income" = c1m2
 )
 
 modelsummary(
-  models_bwght,
+  c1models,
   fmt = 2,
   statistic = NULL,
   gof_map = c("nobs", "r.squared"),
   coef_rename = c(
+    "(Intercept)" = "Constant",
     "cigs" = "Cigarettes/Day", 
-    "faminc" = "Family Income ($1000s)", 
-    "(Intercept)" = "Constant"
+    "faminc" = "Family Income ($1000s)" 
   )
 )
   
@@ -63,9 +68,7 @@ modelsummary(
 
 **Interpretation:**
 
-Including income reduces the smoking coefficient from approximately $-0.514$ to $-0.463$. This indicates that the simple regression suffered from omitted variable bias. $$
-\text{Bias} = \beta_2 \times \tilde \delta_1
-$$
+Including income reduces the smoking coefficient from approximately $-0.514$ to $-0.463$. This indicates that the simple regression suffered from omitted variable bias.$$ \text{Bias} = \beta_2 \times \tilde \delta_1$$
 
 1\. $\beta_2$: Positive, rich people have heavier babies.
 
@@ -75,22 +78,25 @@ $$
 
 4\. $\beta_1$ is negative, negative bias will increase it from -0.46 to -0.51
 
-### C2 \[HPRICE1\]
+## C2 \[HPRICE1\]
+
+> Use the data in HPRICE1 to estimate the model $$price = \beta_0 + \beta_1sqrft + \beta_2bdrms + u$$ where `price` is the house price measured in thousands of dollars.
 
 ```{r}
 #| label: c2_data
-df_hprice1 <- wooldridge::hprice1
-knitr::kable(head(df_hprice1))
+c2 <- hprice1
+kable(head(c2))
 ```
 
-> (i) Estimate the model $$ price = \beta_0 + \beta_1 sqrft + \beta_2 bdrms + u$$
+> (i) Write out the results in equation form.
 
 ```{r}
 #| label: c2_i
-model_hprice <- lm(price ~ sqrft + bdrms, data = df_hprice1)
+
+c2m <- lm(price ~ sqrft + bdrms, data = c2)
 
 modelsummary(
-  model_hprice,
+  c2m,
   fmt = 2,
   statistic = NULL,
   gof_map = c("nobs", "r.squared"),
@@ -108,26 +114,24 @@ modelsummary(
 
 Holding square footage constant, adding one more bedroom increases price by \$15,200. This estimate is not useful because adding small rooms without adding square footage will make it feel cramped.
 
-> (iii) What is the estimated increase in price for a house with an additional bedroom that is 140 square feet in size?
+> (iii) What is the estimated increase in price for a house with an additional bedroom that is 140 square feet in size? Compare this to your answer in part (ii).
 
 ```{r}
 #| label: c2_iii
+
 base_house <- data.frame(sqrft  = 140, bdrms = 1)
 upgraded_house <- data.frame(sqrft  = 280, bdrms = 2)
 
-price_1 = predict(model_hprice, newdata = base_house)
-price_2 = predict(model_hprice, newdata = upgraded_house)
+price_1 = predict(c2m, newdata = base_house)
+price_2 = predict(c2m, newdata = upgraded_house)
 
-price_increase <- price_2 - price_1
-
-paste(round(price_increase, 2))
+cat(round(price_2 - price_1, 2))
 ```
 
 **Interpretation:**
 
-The estimates increase is **\$33,120**. This represents the combined value of adding a room that is 140 square feet $$
-140 \times 0.13 + 15.2 = 33.2
-$$
+The estimates increase is **\$33,180**. This represents the combined value of adding a room that is 140 square feet $$
+140 \times 0.13 + 15.2 = 33.2$$
 
 > (iv) What percentage of the variation in price is explained by square footage and number of bedrooms?
 
@@ -135,64 +139,50 @@ $$
 
 **63.2%** of the variation in house prices are explained by the two variables.
 
-> (v) The first house in the sample has sqrft = 2,438 and bdrms = 4. Find the predicted selling price
+> (v) The first house in the sample has `sqrft` = 2,438 and `bdrms` = 4. Find the predicted selling price
 
 ```{r}
 #| label: c2_v
-new_data <- data.frame(sqrft = 2438, bdrms = 4)
-price = predict(model_hprice, newdata = new_data)
-paste(round(price, 2))
-```
 
-or
-
-```{r}
-#| label: c2_v2
-result <- model_hprice$fitted.values[1]
-paste(round(result, 2))
-```
-
-or
-
-```{r}
-#| label: c2_v3
-price = coef(model_hprice)["(Intercept)"] +
-  (coef(model_hprice)["sqrft"] * 2438) + 
-  (coef(model_hprice)["bdrms"] * 4)
-paste(round(price, 2))
-
+cat(c2m$fitted.values[1])
 ```
 
 **Interpretation:**
 
-Predicted selling price is **\$354,000**
+Predicted selling price is **\$354,605**
 
-> (vi) The actual selling price of the first house in the sample was \$300,000 Find the residual for this house.
+> (vi) The actual selling price of the first house in the sample was \$300,000 Find the residual for this house. Does it suggest that the buyer underpaid or overpaid for the house?
 
 ```{r}
 #| label: cs_vi
-residual <- model_hprice$residuals[1]
-paste(round(residual, 2))
+
+cat(c2m$residuals[1])
 ```
 
-**Interpretation:**  Residual is **\$-54,610**. The buyer underpaid for the house.
+**Interpretation:**
 
-### C3 \[CEOSAL2\]
+Residual is **\$-54,605**. The buyer underpaid for the house.
+
+## C3 \[CEOSAL2\]
+
+> The file CEOSAL2 contains data on 177 chief executive officers and can be used to examine the effects of firm performance on CEO salary.
 
 ```{r}
 #| label: c3_data
-df_ceosal2 <- wooldridge::ceosal2
-knitr::kable(head(df_ceosal2))
+
+c3 <- ceosal2
+kable(head(c3))
 ```
 
-> (i) Estimate a model relating annual salary to firm sales and market value. Make the model of the constant elasticity variety for both independent variables
+> (i) Estimate a model relating annual salary to firm sales and market value. Make the model of the constant elasticity variety for both independent variables.
 
 ```{r}
 #| label: c3_i
-model_ceosal2 <- lm(lsalary ~ lsales + lmktval, data = df_ceosal2)
+
+c3m <- lm(lsalary ~ lsales + lmktval, data = c3)
 
 modelsummary(
-  model_ceosal2,
+  c3m,
   fmt = 2,
   statistic = NULL,
   gof_map = c("nobs", "r.squared"),
@@ -204,20 +194,22 @@ modelsummary(
 )
 ```
 
-> (ii) Add profits to the model from part (i). Why can this variable not be included in logarithmic form? Would you say that these firm performance variables explain most of the variation in CEO salaries?
+> (ii) Add `profits` to the model from part (i). Why can this variable not be included in logarithmic form? Would you say that these firm performance variables explain most of the variation in CEO salaries?
 
 ```{r}
 #| label: c3_ii
-ggplot(df_ceosal2, aes(x = profits)) +
+
+ggplot(c3, aes(x = profits)) +
   geom_histogram(bins = 30)
 ```
 
 ```{r}
 #| label: c3_ii2
-model_ceosal2_2 <- lm(lsalary ~ lsales + lmktval + profits, data = df_ceosal2)
+
+c3m2 <- lm(lsalary ~ lsales + lmktval + profits, data = c3)
 
 modelsummary(
-  model_ceosal2_2,
+  c3m2,
   fmt = 2,
   statistic = NULL,
   gof_map = c("nobs", "r.squared"),
@@ -234,15 +226,16 @@ modelsummary(
 
 Profits can't be added in log form because it has non positive values. The model explains **30%** of the variation in the salaries. The remaining 70% is determined by other factors like tenure, unobserved CEO talent, or corporate politics.
 
-> (iii) Add the variable ceoten to the model in part (ii).
+> (iii) Add the variable `ceoten` to the model in part (ii). What is the estimated percentage return for another year of CEO tenure, holding other factors fixed?
 
 ```{r}
 #| label: c3_iii
-model_ceosal2_2 <- lm(
-  lsalary ~ lsales + lmktval + profits + ceoten, data = df_ceosal2)
+
+c3m3 <- lm(
+  lsalary ~ lsales + lmktval + profits + ceoten, data = c3)
 
 modelsummary(
-  model_ceosal2_2,
+  c3m3,
   fmt = 2,
   statistic = NULL,
   gof_map = c("nobs", "r.squared"),
@@ -260,11 +253,12 @@ modelsummary(
 
 $\beta_4$ = 0.01, one additional year of tenure is associated with **1%** increase in salary, holding firm performance constant.
 
-> (iv) Find the sample correlation coefficient between the variables log(mktval) and profits.
+> (iv) Find the sample correlation coefficient between the variables `log(mktval)` and `profits`. Are these variables highly correlated? What does this say about the OLS estimators?
 
 ```{r}
 #| label: c3_iv
-df_ceosal2 |>
+
+c3 |>
   summarise(
     Correlation = cor(lmktval, profits)
   ) |>
@@ -274,3 +268,5 @@ df_ceosal2 |>
 **Interpretation:**
 
 Correlation = **0.78**. This high correlation between market value and profits indicates multicollinearity. While this does not bias our estimates or inflate the overall $R^2$, it makes it difficult to isolate the individual partial effects of profits versus market value.
+
+## C4 [ATTEND]
