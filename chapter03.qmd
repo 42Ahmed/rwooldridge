@@ -566,3 +566,69 @@ kable(head(c7))
 
 > (i) Estimate the model $$math10 = \beta_0 + \beta_1 \log(expend) + \beta_2 lnchprg + u$$ and report the results in the usual form, including the sample size and R-squared. Are the signs of the slope coefficients what you expected? Explain.
 
+```{r}
+#| label: c7_i
+
+c7m <- lm(math10 ~ lexpend + lnchprg, data = c7)
+
+modelsummary(
+  c7m,
+  fmt = 3,
+  statistic = NULL,
+  gof_map = c("nobs", "r.squared"),
+  coef_map = c(
+    "(Intercept)" = "Constant",
+    "lexpend" = "Log(Spending per Pupil)",
+    "lnchprg" = "% Eligible for Free Lunch"
+  )
+)
+```
+
+**Interpretation:**
+
+Free lunch program has a negative sign. It may be acting as a proxy variable for poverty. The constant has a negative score which is also below the minimum range of 0.
+
+> (ii) What do you make of the intercept you estimated in part (i)? In particular, does it make sense to set the two explanatory variables to zero? [Hint: Recall that log(1) 0 = 0.]
+
+The intercept is predicting the math score will be negative if students spend exactly one dollar and no one is eligible for lunch programs. The regression is extrapolating.
+
+> (iii)  Now run the simple regression of `math10` on `log(expend)`, and compare the slope coefficient with the estimate obtained in part (i). Is the estimated spending effect now larger or smaller than in part (i)?
+
+```{r}
+#| label: c7_iii
+
+c7m2 <- lm(math10 ~ lexpend, data = c7)
+
+modelsummary(
+  c7m2,
+  fmt = 3,
+  statistic = NULL,
+  gof_map = c("nobs", "r.squared"),
+  coef_map = c(
+    "(Intercept)" = "Constant",
+    "lexpend" = "Log(Spending per Pupil)"
+  )
+)
+```
+
+**Interpretation:**
+
+Estimated spending now is 11.16 after it was 6.23.
+
+> (iv) Find the correlation between `lexpend` = log(expend) and `lnchprg`. Does its sign make sense to you?
+
+```{r}
+cor(c7$lexpend, c7$lnchprg)
+```
+
+**Interpretation:**
+
+Student spending and eligibility for lunch program are negatively correlated (-0.2). It makes sense if lunch program is a proxy for poverty.
+
+> (v) Use part (iv) to explain your findings in part (iii).
+
+**Interpretation:**
+
+$$Bias = \beta_2 \times Correlation(X_1, X_2)$$
+
+Estimate of lunch program on math score $\hat \beta_2$ is negative. And the correlation between  the two independent variables is negative; resulting in a positive bias that is added on $\hat \beta_1$
