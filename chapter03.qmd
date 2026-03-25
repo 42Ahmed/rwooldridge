@@ -418,7 +418,7 @@ modelsummary(
   c5m2,
   fmt = 2,
   statistic = NULL,
-  gof_map = c("nobs", "R.square"),
+  gof_map = c("nobs", "r.squared"),
   coef_map = c(
     "(Intercept)" = "Constant",
     "u_hat" = "Residuals"
@@ -441,4 +441,128 @@ In a multiple regression, the coefficient for $x_1$ represents partial effect of
 4.  The Formula$$\hat{\beta}_{x_1} = \frac{\sum \hat{u}_i y_i}{\sum \hat{u}_i^2}$$
 :::
 
-## C6 [WAGE2]
+## C6 \[WAGE2\]
+
+> Use the data set in WAGE2 for this problem. As usual, be sure all of the following regressions contain an intercept.
+
+```{r}
+#| label: c6_data
+
+c6 <- wage2
+kable(head(c6))
+```
+
+> (i) Run a simple regression of `IQ` on `educ` to obtain the slope coefficient, say, $\tilde \delta_1$
+
+```{r}
+#| label: c6_i
+
+c6m <- lm(IQ ~ educ, data = c6)
+
+modelsummary(
+  c6m,
+  fmt = 3,
+  statistic = NULL,
+  gof_map = c("nobs", "r.squared"),
+  coef_map = c(
+    "(Intercept)" = "Constant",
+    "educ" = "Education"
+  )
+)
+```
+
+**Interpretation:**
+
+The slope coefficient $\tilde \delta_1$ is 3.534.
+
+> (ii) Run the simple regression of `log(wage)` on `educ` and obtain the slope coefficient $\tilde \beta_1$
+
+```{r}
+#| label: c6_ii
+
+c6m2 <- lm(lwage ~ educ, data = c6)
+
+modelsummary(
+  c6m2,
+  fmt = 3,
+  statistic = NULL,
+  gof_map = c("nobs", "r.squared"),
+  coef_map = c(
+    "(Intercept)" = "Constant",
+    "educ" = "Education"
+  )
+)
+```
+
+**Interpretation:**
+
+The slope coefficient $\tilde \beta_1$ is 0.060.
+
+> (iii) Run the multiple regression of `log(wage)` on `educ` and `IQ`, and obtain the slope coefficients, $\hat \beta_1, \hat \beta_2$ respectively.
+
+```{r}
+#| label: c6_iii
+
+c6m3 <- lm(lwage ~ educ + IQ, data = c6)
+
+modelsummary(
+  c6m3,
+  fmt = 3,
+  statistic = NULL,
+  gof_map = c("nobs", "r.squared"),
+  coef_map = c(
+    "(Intercept)" = "Constant",
+    "educ" = "Education",
+    "IQ" = "IQ"
+  )
+)
+```
+
+**Interpretation:**
+
+$\hat \beta_1$ is 0.039, while $\hat \beta_2$ is 0.006
+
+> (iv) Verify that $\tilde \beta_1 = \hat \beta_1 + \hat \beta_2 \tilde \delta_1$
+
+$$\begin{align*}
+\tilde \beta_1 &= \hat \beta_1 + \hat \beta_2 \tilde \delta_1\\
+&= 0.039 + 0.006 * 3.534\\
+&= 0.06
+\end{align*}$$
+
+**Interpretation:** 
+
+From simple regression, we had effect of education on wage to be $\tilde \beta_1$ = 0.06. This estimate suffers from omitted variable bias and can be calculated as: education partial effect $\hat \beta\_1 $ = 0.039, IQ effect on wage $\hat \beta\_2$ = 0.006, how much IQ varies with education $\tilde \delta_1$ = 3.534
+
+::: callout-important
+
+### Omitted Variable Decomposition
+
+$$
+\tilde \beta_1 = \hat \beta_1 + \hat \beta_2 \tilde \delta_1
+$$
+
+Where:
+
+-   $\tilde \beta_1$ is the simple regression estimate for independent variable
+
+-   $\tilde \delta_1$ is the simple regression estimate for omitted variable on independent variable
+
+-   $\hat \beta_1$ is the partial effect estimate from multiple regression for independent variable
+
+-   $\hat \beta_2$ is the omitted variable effect from multiple regression on dependent variable
+:::
+
+## C7 [MEAP93]
+
+> Use the data in MEAP93 to answer this question.
+
+```{r}
+#| label: c7_data
+
+c7 <- meap93
+kable(head(c7))
+```
+
+> (i) Estimate the model $$math10 = \beta_0 + \beta_1 \log(expend) + \beta_2 lnchprg + u$$ and report the results in the usual form, including the sample size and R-squared. Are the signs of the slope coefficients what you expected? Explain.
+
