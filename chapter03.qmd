@@ -618,6 +618,8 @@ Estimated spending now is 11.16 after it was 6.23.
 > (iv) Find the correlation between `lexpend` = log(expend) and `lnchprg`. Does its sign make sense to you?
 
 ```{r}
+#| label: c7_iv
+
 cor(c7$lexpend, c7$lnchprg)
 ```
 
@@ -632,3 +634,113 @@ Student spending and eligibility for lunch program are negatively correlated (-0
 $$Bias = \beta_2 \times Correlation(X_1, X_2)$$
 
 Estimate of lunch program on math score $\hat \beta_2$ is negative. And the correlation between  the two independent variables is negative; resulting in a positive bias that is added on $\hat \beta_1$
+
+## C8 [DISCRIM]
+
+> Use the data in DISCRIM to answer this question. These are zip code–level data on prices for various items at fast-food restaurants, along with characteristics of the zip code population, in New Jersey and Pennsylvania. The idea is to see whether fast-food restaurants charge higher prices in areas with a larger concentration of blacks.
+
+> (i) Find the average values of `prpblck` and `income` in the sample, along with their standard deviations. What are the units of measurement of `prpblck` and `income`?
+
+> (ii) Consider a model to explain the price of soda, `psoda`, in terms of the proportion of the population that is black and median income: $$psoda = \beta_0 + \beta_1 prpblck + \beta_2 income + u$$ Estimate this model by OLS and report the results in equation form, including the sample size and R-squared. (Do not use scientific notation when reporting the estimates.) Interpret the coefficient on `prpblck`. Do you think it is economically large?
+
+> (iii) Compare the estimate from part (ii) with the simple regression estimate from `psoda` on `prpblck`. Is the discrimination effect larger or smaller when you control for income?
+
+> (iv) A model with a constant price elasticity with respect to income may be more appropriate. Report estimates of the model $$\log(psoda) = \beta_0 + \beta_1 prpblck + \beta_2 \log(income) + u$$ If `prpblck` increases by 0.20 (20 percentage points), what is the estimated percentage change in `psoda`? (Hint: The answer is 2.xx, where you fill in the “xx.”)
+
+> (v) Now add the variable `prppov` to the regression in part (iv). What happens to $\hat \beta_{prpblck}$
+
+> (vi) Find the correlation between log(`income`) and `prppov`. Is it roughly what you expected?
+
+> (vii) Evaluate the following statement: “Because log(`income`) and `prppov` are so highly correlated, they have no business being in the same regression.”
+
+## C9 [CHARITY]
+
+> Use the data in CHARITY to answer the following questions:
+
+> (i) Estimate the equation $$gift + \beta_0 + \beta_1 mailsyear + \beta_2 giftlast + \beta_3 propresp + u$$ by OLS and report the results in the usual way, including the sample size and R-squared. How does the R-squared compare with that from the simple regression that omits `giftlast` and `propresp`?
+
+> (ii) Interpret the coefficient on `mailsyear`. Is it bigger or smaller than the corresponding simple regression coefficient?
+
+> (iii) Interpret the coefficient on `propresp`. Be careful to notice the units of measurement of `propresp`.
+
+> (iv) Now add the variable `avggift` to the equation. What happens to the estimated effect of `mailsyear`?
+
+> (v) In the equation from part (iv), what has happened to the coefficient on `giftlast`? What do you think is happening?
+
+> (vi) In order to guarantee that one gets an unbiased estimator of the causal effect of mailings, what would you recommend to the directors of the charity? Assume that the charity is willing to take some time, and that there is a budget for sending out mailings.
+
+## C10 [HTV]
+
+> Use the data in HTV to answer this question. The data set includes information on wages, education, parents’ education, and several other variables for 1,230 working men in 1991.
+
+> (i) What is the range of the `educ` variable in the sample? What percentage of men completed twelfth grade but no higher grade? Do the men or their parents have, on average, higher levels of education?
+
+> (ii) Estimate the regression model $$educ = \beta_1 motheduc + \beta_2 fatheduc + u$$ by OLS and report the results in the usual form. How much sample variation in `educ` is explained by parents’ education? Interpret the coefficient on `motheduc`.
+
+> (iii) Add the variable `abil` (a measure of cognitive ability) to the regression from part (ii), and report the results in equation form. Does “ability” help to explain variations in education, even after controlling for parents’ education? Explain.
+
+> (iv) (Requires calculus) Now estimate an equation where `abil` appears in quadratic form: $$educ = \beta_0 + \beta_1 motheduc + \beta_2 fatheduc + \beta_3 abil + \beta_4 abil^2 + u$$ Using the estimated $\hat \beta_3, \hat \beta_4$, use calculus to find the value of `abil`, call it `abil*`, where educ is minimized. (The other coefficients and values of parents’ education variables have no effect; we are holding parents’ education fixed.) Notice that `abil` is measured so that negative values are permissible. You might also verify that the second derivative is positive so that you do indeed have a minimum.
+
+> (v) Argue that only a small fraction of men in the sample have “ability” less than the value calculated in part (iv). Why is this important?
+
+> (vi) If you have access to a statistical program that includes graphing capabilities, use the estimates in part (iv) to graph the relationship between the predicted education and `abil`. Set `motheduc` and `fatheduc` at their average values in the sample, 12.18 and 12.45, respectively.
+
+## C11 [MEAPSINGLE]
+
+> Use the data in MEAPSINGLE to study the effects of single-parent households on student math performance. These data are for a subset of schools in southeast Michigan for the year 2000. The socioeconomic variables are obtained at the ZIP code level (where ZIP code is assigned to schools based on their mailing addresses).
+
+> (i) Run the simple regression of `math4` on `pctsgle` and report the results in the usual format. Interpret the slope coefficient. Does the effect of single parenthood seem large or small?
+
+> (ii) Add the variables `lmedinc` and `free` to the equation. What happens to the coefficient on `pctsgle`? Explain what is happening.
+
+> (iii) Find the sample correlation between `lmedinc` and `free`. Does it have the sign you expect?
+
+> (iv) Does the substantial correlation between `lmedinc` and `free` mean that you should drop one from the regression to better estimate the causal effect of single parenthood on student performance? Explain.
+
+> (v) Find the variance inflation factors (VIFs) for each of the explanatory variables appearing in the regression in part (ii). Which variable has the largest VIF? Does this knowledge affect the model you would use to study the causal effect of single parenthood on math performance?
+
+## C12 [ECONMATH]
+
+> The data in ECONMATH contain grade point averages and standardized test scores, along with performance in an introductory economics course, for students at a large public university. The variable to be explained is `score`, the final score in the course measured as a percentage.
+
+> (i) How many students received a perfect score for the course? What was the average score? Find the means and standard deviations of `actmth` and `acteng`, and discuss how they compare.
+
+> (ii) Estimate a linear equation relating `score` to `colgpa`, `actmth`, and `acteng`, where `colgpa` is measured at the beginning of the term. Report the results in the usual form.
+
+> (iii) Would you say the math or English ACT score is a better predictor of performance in the economics course? Explain.
+
+> (iv) Discuss the size of the R-squared in the regression.
+
+## C13 [GPA1]
+
+> Use the data in GPA1 to answer this question. We can compare multiple regression estimates, where we control for student achievement and background variables, and compare our findings with the difference-in-means estimate in Computer Exercise C11 in Chapter 2.
+
+> (i) In the simple regression equation $$colGPA = \beta_0 + \beta_1 PC + u$$
+
+> (ii) Now add the controls `hsGPA` and `ACT`—that is, run the regression `colGPA` on `PC`, `hsGPA`, and `ACT`. Does the coefficient on PC change much from part (ii)? Does $\hat \beta_{colGPA}$ make sense?
+
+> (iii) In the estimation from part (ii), what is worth more: Owning a PC or having 10 more points on the ACT score?
+
+> (iv) Now to the regression in part (ii) add the two binary indicators for the parents being college graduates. Does the estimate of $\beta_1$ change much from part (ii)? How much variation are you explaining in `colGPA`?
+
+> (v) Suppose someone looking at your regression from part (iv) says to you, “The variables `hsGPA` and `ACT` are probably pretty highly correlated, so you should drop one of them from the regression.” How would you respond?
+
+> (vi) For curiosity’s sake, compute the VIFs for hsGPA and ACT. Of what value is this information?
+
+## C14 [APPLE]
+
+> Use the data in APPLE to answer the following questions. These come from a survey where respondents were presented with the characteristics of an “ecologically-friendly” apple. They were also randomly presented with a price pair: the price per lb. of the new apple, `ecoprc`, and the price per lb. of regular apples, `regprc`. Each respondent was asked, at the given pair of prices, how many pounds of eco-friendly apples (`ecolbs`) would they buy (and how many pounds of regular apples).
+
+> (i) How many respondents are there in the sample? How many report `ecolbs` of zero? What is the second most common value reported for `ecolbs`?
+
+> (ii) Consider a demand equation for the eco-friendly apples: $$ecolbs = \beta_0 + \beta_1 ecoprc + \beta_2 regprc + u $$. What does economic theory predict for the signs of $\beta_1, \beta_2$?
+
+> (iii) Estimate the equation by OLS and report the results in equation form. Are any of the fitted values negative? Does the estimated intercept answer an interesting question? Explain. What is the R-squared?
+
+> (iv) If `ecoprc` increases by 0.10 (10 cents per lb.), what is the estimated change in `ecolbs`, holding `regprc` fixed? Do you think this is a practically large effect?
+
+> (v) If `ecoprc` and `regprc` both increase by 0.10, argue that the estimated change in `ecolbs` is close to zero.
+
+> (vi) Suppose you present your estimated equation to a colleague who says, “I’m concerned about the low R-squared; it probably means the OLS estimators are biased.” How would you respond?
+
+> (vii) Confirm that `ecoprc` and `regprc` are strongly positively correlated. What is the correlation? Does this mean that you should exclude `regprc` from the regression in order to estimate the own price effect? What happens to your estimate of $\beta_1$ if you drop `regprc` and use simple regression?
