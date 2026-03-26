@@ -46,9 +46,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-44ee0976171e9be92e6ebe9be850cd66.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-553af08a658bbaf7848ab84c12977b10.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-44ee0976171e9be92e6ebe9be850cd66.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-66c9649715f74f1e4324758aa2390964.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-b44ccea540e06768bee7c3f9d372997f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-66c9649715f74f1e4324758aa2390964.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -77,6 +77,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -435,8 +464,33 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#c1-rental" id="toc-c1-rental" class="nav-link active" data-scroll-target="#c1-rental"><span class="header-section-number">14.1</span> C1 [RENTAL]</a></li>
+  <li><a href="#c2-crime4" id="toc-c2-crime4" class="nav-link" data-scroll-target="#c2-crime4"><span class="header-section-number">14.2</span> C2 [CRIME4]</a></li>
+  <li><a href="#c3-jtrain" id="toc-c3-jtrain" class="nav-link" data-scroll-target="#c3-jtrain"><span class="header-section-number">14.3</span> C3 [JTRAIN]</a></li>
+  <li><a href="#c4" id="toc-c4" class="nav-link" data-scroll-target="#c4"><span class="header-section-number">14.4</span> C4</a></li>
+  <li><a href="#c5" id="toc-c5" class="nav-link" data-scroll-target="#c5"><span class="header-section-number">14.5</span> C5</a></li>
+  <li><a href="#c6" id="toc-c6" class="nav-link" data-scroll-target="#c6"><span class="header-section-number">14.6</span> C6</a></li>
+  <li><a href="#c7-murder" id="toc-c7-murder" class="nav-link" data-scroll-target="#c7-murder"><span class="header-section-number">14.7</span> C7 [MURDER]</a></li>
+  <li><a href="#c8-mathpnl" id="toc-c8-mathpnl" class="nav-link" data-scroll-target="#c8-mathpnl"><span class="header-section-number">14.8</span> C8 [MATHPNL]</a></li>
+  <li><a href="#c9-pension" id="toc-c9-pension" class="nav-link" data-scroll-target="#c9-pension"><span class="header-section-number">14.9</span> C9 [PENSION]</a></li>
+  <li><a href="#c10-airfare" id="toc-c10-airfare" class="nav-link" data-scroll-target="#c10-airfare"><span class="header-section-number">14.10</span> C10 [AIRFARE]</a></li>
+  <li><a href="#c11" id="toc-c11" class="nav-link" data-scroll-target="#c11"><span class="header-section-number">14.11</span> C11</a></li>
+  <li><a href="#c12-elem94_95" id="toc-c12-elem94_95" class="nav-link" data-scroll-target="#c12-elem94_95"><span class="header-section-number">14.12</span> C12 [ELEM94_95]</a></li>
+  <li><a href="#c13-driving" id="toc-c13-driving" class="nav-link" data-scroll-target="#c13-driving"><span class="header-section-number">14.13</span> C13 [DRIVING]</a></li>
+  <li><a href="#c14-airfare" id="toc-c14-airfare" class="nav-link" data-scroll-target="#c14-airfare"><span class="header-section-number">14.14</span> C14 [AIRFARE]</a></li>
+  <li><a href="#c15-countymurders" id="toc-c15-countymurders" class="nav-link" data-scroll-target="#c15-countymurders"><span class="header-section-number">14.15</span> C15 [COUNTYMURDERS]</a></li>
+  <li><a href="#c16-wagepan" id="toc-c16-wagepan" class="nav-link" data-scroll-target="#c16-wagepan"><span class="header-section-number">14.16</span> C16 [WAGEPAN]</a></li>
+  <li><a href="#c17-school93_98" id="toc-c17-school93_98" class="nav-link" data-scroll-target="#c17-school93_98"><span class="header-section-number">14.17</span> C17 [SCHOOL93_98]</a></li>
+  <li><a href="#c18-cardkrueger" id="toc-c18-cardkrueger" class="nav-link" data-scroll-target="#c18-cardkrueger"><span class="header-section-number">14.18</span> C18 [CARDKRUEGER]</a></li>
+  <li><a href="#c19-oppzone" id="toc-c19-oppzone" class="nav-link" data-scroll-target="#c19-oppzone"><span class="header-section-number">14.19</span> C19 [OPPZONE]</a></li>
+  <li><a href="#c20-thefts.dta" id="toc-c20-thefts.dta" class="nav-link" data-scroll-target="#c20-thefts.dta"><span class="header-section-number">14.20</span> C20 [THEFTS.DTA]</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -461,8 +515,240 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>My apologies for missing the template earlier. I appreciate you calling me out on it. Here is the text extracted from the image, formatted exactly to your specifications.</p>
+<section id="c1-rental" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="c1-rental"><span class="header-section-number">14.1</span> C1 [RENTAL]</h2>
+<blockquote class="blockquote">
+<p>Use the data in RENTAL for this exercise. The data on rental prices and other variables for college towns are for the years 1980 and 1990. The idea is to see whether a stronger presence of students affects rental rates. The unobserved effects model is</p>
+<p><span class="math display">\[\log(rent_{it}) = \beta_0 + \delta_0 y90_t + \beta_1 \log(pop_{it}) + \beta_2 \log(avginc_{it}) + \beta_3 pctstu_{it} + a_i + u_{it},\]</span></p>
+<p>where <code>pop</code> is city population, <code>avginc</code> is average income, and <code>pctstu</code> is student population as a percentage of city population (during the school year).</p>
+<ol type="i">
+<li><p>Estimate the equation by pooled OLS and report the results in standard form. What do you make of the estimate on the 1990 dummy variable? What do you get for <span class="math inline">\(\hat{\beta}_{pctstu}\)</span>?</p></li>
+<li><p>Are the standard errors you report in part (i) valid? Explain.</p></li>
+<li><p>Now, difference the equation and estimate by OLS. Compare your estimate of <span class="math inline">\(\beta_{pctstu}\)</span> with that from part (i). Does the relative size of the student population appear to affect rental prices?</p></li>
+<li><p>Estimate the model by fixed effects to verify that you get identical estimates and standard errors to those in part (iii).</p></li>
+</ol>
+</blockquote>
+</section>
+<section id="c2-crime4" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="c2-crime4"><span class="header-section-number">14.2</span> C2 [CRIME4]</h2>
+<blockquote class="blockquote">
+<p>Use CRIME4 for this exercise.</p>
+<ol type="i">
+<li><p>Reestimate the unobserved effects model for crime in Example 13.9 but use fixed effects rather than differencing. Are there any notable sign or magnitude changes in the coefficients? What about statistical significance?</p></li>
+<li><p>Add the logs of each wage variable in the data set and estimate the model by fixed effects. How does including these variables affect the coefficients on the criminal justice variables in part (i)?</p></li>
+<li><p>Do the wage variables in part (ii) all have the expected sign? Explain. Are they jointly significant?</p></li>
+</ol>
+</blockquote>
+</section>
+<section id="c3-jtrain" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="c3-jtrain"><span class="header-section-number">14.3</span> C3 [JTRAIN]</h2>
+<blockquote class="blockquote">
+<p>For this exercise, we use JTRAIN to determine the effect of the job training grant on hours of job training per employee. The basic model for the three years is</p>
+<p><span class="math display">\[hrsemp_{it} = \beta_0 + \delta_1 d88_t + \delta_2 d89_t + \beta_1 grant_{it} + \beta_2 grant_{i,t-1} + \beta_3 \log(employ_{it}) + a_i + u_{it}.\]</span></p>
+<ol type="i">
+<li><p>Estimate the equation using fixed effects. How many firms are used in the FE estimation? How many total observations would be used if each firm had data on all variables (in particular, <code>hrsemp</code>) for all three years?</p></li>
+<li><p>Interpret the coefficient on <code>grant</code> and comment on its significance.</p></li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li>Is it surprising that <span class="math inline">\(grant_{-1}\)</span> is insignificant? Explain.</li>
+<li>Do larger firms provide their employees with more or less training, on average? How big are the differences? (For example, if a firm has 10% more employees, what is the change in average hours of training?)</li>
+</ol>
+</blockquote>
+</section>
+<section id="c4" class="level2" data-number="14.4">
+<h2 data-number="14.4" class="anchored" data-anchor-id="c4"><span class="header-section-number">14.4</span> C4</h2>
+<blockquote class="blockquote">
+<p>In Example 13.8, we used the unemployment claims data from Papke (1994) to estimate the effect of enterprise zones on unemployment claims. Papke also uses a model that allows each city to have its own time trend:</p>
+<p><span class="math display">\[\log(uclms_{it}) = a_i + c_i t + \beta_1 ez_{it} + u_{it},\]</span></p>
+<p>where <span class="math inline">\(a_i\)</span> and <span class="math inline">\(c_i\)</span> are both unobserved effects. This allows for more heterogeneity across cities. (i) Show that, when the previous equation is first differenced, we obtain</p>
+<p><span class="math display">\[\Delta \log(uclms_{it}) = c_i + \beta_1 \Delta ez_{it} + \Delta u_{it}, \quad t = 2, \dots, T.\]</span></p>
+<p>Notice that the differenced equation contains a fixed effect, <span class="math inline">\(c_i\)</span>. (ii) Estimate the differenced equation by fixed effects. What is the estimate of <span class="math inline">\(\beta_1\)</span>? Is it very different from the estimate obtained in Example 13.8? Is the effect of enterprise zones still statistically significant? (iii) Add a full set of year dummies to the estimation in part (ii). What happens to the estimate of <span class="math inline">\(\beta_1\)</span>?</p>
+</blockquote>
+</section>
+<section id="c5" class="level2" data-number="14.5">
+<h2 data-number="14.5" class="anchored" data-anchor-id="c5"><span class="header-section-number">14.5</span> C5</h2>
+<blockquote class="blockquote">
+<ol type="i">
+<li>In the wage equation in Example 14.4, explain why dummy variables for occupation might be important omitted variables for estimating the union wage premium.</li>
+<li>If every man in the sample stayed in the same occupation from 1981 through 1987, would you need to include the occupation dummies in a fixed effects estimation? Explain.</li>
+<li>Using the data in WAGEPAN include eight of the occupation dummy variables in the equation and estimate the equation using fixed effects. Does the coefficient on <code>union</code> change by much? What about its statistical significance?</li>
+</ol>
+</blockquote>
+</section>
+<section id="c6" class="level2" data-number="14.6">
+<h2 data-number="14.6" class="anchored" data-anchor-id="c6"><span class="header-section-number">14.6</span> C6</h2>
+<blockquote class="blockquote">
+<p>Add the interaction term <span class="math inline">\(union_{it} \cdot t\)</span> to the equation estimated in Table 14.2 to see if wage <em>growth</em> depends on union status. Estimate the equation by random and fixed effects and compare the results.</p>
+</blockquote>
+</section>
+<section id="c7-murder" class="level2" data-number="14.7">
+<h2 data-number="14.7" class="anchored" data-anchor-id="c7-murder"><span class="header-section-number">14.7</span> C7 [MURDER]</h2>
+<blockquote class="blockquote">
+<p>Use the state-level data on murder rates and executions in MURDER for the following exercise. (i) Consider the unobserved effects model</p>
+<p><span class="math display">\[mrdrte_{it} = \eta_t + \beta_1 exec_{it} + \beta_2 unem_{it} + a_i + u_{it},\]</span></p>
+<p>where <span class="math inline">\(\eta_t\)</span> simply denotes different year intercepts and <span class="math inline">\(a_i\)</span> is the unobserved state effect. If past executions of convicted murderers have a deterrent effect, what should be the sign of <span class="math inline">\(\beta_1\)</span>? What sign do you think <span class="math inline">\(\beta_2\)</span> should have? Explain. (ii) Using just the years 1990 and 1993, estimate the equation from part (i) by pooled OLS. Ignore the serial correlation problem in the composite errors. Do you find any evidence for a deterrent effect? (iii) Now, using 1990 and 1993, estimate the equation by fixed effects. You may use first differencing because you are only using two years of data. Is there evidence of a deterrent effect? How strong? (iv) Compute the heteroskedasticity-robust standard error for the estimation in part (ii). (v) Find the state that has the largest number for the execution variable in 1993. (The variable <code>exec</code> is total executions in 1991, 1992, and 1993.) How much bigger is this value than the next highest value? (vi) Estimate the equation using first differencing, dropping Texas from the analysis. Compute the usual and heteroskedasticity-robust standard errors. Now, what do you find? What is going on? (vii) Use all three years of data and estimate the model by fixed effects. Include Texas in the analysis. Discuss the size and statistical significance of the deterrent effect compared with only using 1990 and 1993.</p>
+</blockquote>
+</section>
+<section id="c8-mathpnl" class="level2" data-number="14.8">
+<h2 data-number="14.8" class="anchored" data-anchor-id="c8-mathpnl"><span class="header-section-number">14.8</span> C8 [MATHPNL]</h2>
+<blockquote class="blockquote">
+<p>Use the data in MATHPNL for this exercise. You will do a fixed effects version of the first differencing done in Computer Exercise 11 in Chapter 13. The model of interest is</p>
+<p><span class="math display">\[math4_{it} = \delta_1 y94_t + \dots + \delta_5 y98_t + \gamma_1 \log(rexpp_{it}) + \gamma_2 \log(rexpp_{i,t-1}) + \psi_1 \log(enrol_{it}) + \psi_2 lunch_{it} + a_i + u_{it},\]</span></p>
+<p>where the first available year (the base year) is 1993 because of the lagged spending variable.</p>
+<ol type="i">
+<li><p>Estimate the model by pooled OLS and report the usual standard errors. You should include an intercept along with the year dummies to allow <span class="math inline">\(a_i\)</span> to have a nonzero expected value. What are the estimated effects of the spending variables? Obtain the OLS residuals, <span class="math inline">\(\hat{v}_{it}\)</span>.</p></li>
+<li><p>Is the sign of the <span class="math inline">\(lunch_{it}\)</span> coefficient what you expected? Interpret the magnitude of the coefficient. Would you say that the district poverty rate has a big effect on test pass rates?</p></li>
+<li><p>Compute a test for AR(1) serial correlation using the regression <span class="math inline">\(\hat{v}_{it}\)</span> on <span class="math inline">\(\hat{v}_{i,t-1}\)</span>. You should use the years 1994 through 1998 in the regression. Verify that there is strong positive serial correlation and discuss why.</p></li>
+<li><p>Now, estimate the equation by fixed effects. Is the lagged spending variable still significant?</p></li>
+<li><p>Why do you think, in the fixed effects estimation, the enrollment and lunch program variables are jointly insignificant?</p></li>
+<li><p>Define the total, or long-run, effect of spending as <span class="math inline">\(\theta_1 = \gamma_1 + \gamma_2\)</span>. Use the substitution <span class="math inline">\(\gamma_1 = \theta_1 - \gamma_2\)</span> to obtain a standard error for <span class="math inline">\(\hat{\theta}_1\)</span>. [<em>Hint</em>: Standard fixed effects estimation using <span class="math inline">\(\log(rexpp_{it})\)</span> and <span class="math inline">\(z_{it} = \log(rexpp_{i,t-1}) - \log(rexpp_{it})\)</span> as explanatory variables should do it.]</p></li>
+</ol>
+</blockquote>
+</section>
+<section id="c9-pension" class="level2" data-number="14.9">
+<h2 data-number="14.9" class="anchored" data-anchor-id="c9-pension"><span class="header-section-number">14.9</span> C9 [PENSION]</h2>
+<blockquote class="blockquote">
+<p>The file PENSION contains information on participant-directed pension plans for U.S. workers. Some of the observations are for couples within the same family, so this data set constitutes a small cluster sample (with cluster sizes of two).</p>
+<ol type="i">
+<li>Ignoring the clustering by family, use OLS to estimate the model</li>
+</ol>
+<p><span class="math display">\[pctstck = \beta_0 + \beta_1 choice + \beta_2 prftshr + \beta_3 female + \beta_4 age + \beta_5 educ + \beta_6 finc25 + \beta_7 finc35 + \beta_8 finc50 + \beta_9 finc75 + \beta_{10} finc100 + \beta_{11} finc101 + \beta_{12} wealth89 + \beta_{13} stckin89 + \beta_{14} irain89 + u,\]</span></p>
+<p>where the variables are defined in the data set. The variable of most interest is <code>choice</code>, which is a dummy variable equal to one if the worker has a choice in how to allocate pension funds among different investments. What is the estimated effect of <code>choice</code>? Is it statistically significant?</p>
+<ol start="2" type="i">
+<li><p>Are the income, wealth, stock holding, and IRA holding control variables important? Explain.</p></li>
+<li><p>Determine how many different families there are in the data set.</p></li>
+<li><p>Now, obtain the standard errors for OLS that are robust to cluster correlation within a family. Do they differ much from the usual OLS standard errors? Are you surprised?</p></li>
+<li><p>Estimate the equation by differencing across only the spouses within a family. Why do the explanatory variables asked about in part (ii) drop out in the first-differenced estimation?</p></li>
+<li><p>Are any of the remaining explanatory variables in part (v) significant? Are you surprised?</p></li>
+</ol>
+</blockquote>
+</section>
+<section id="c10-airfare" class="level2" data-number="14.10">
+<h2 data-number="14.10" class="anchored" data-anchor-id="c10-airfare"><span class="header-section-number">14.10</span> C10 [AIRFARE]</h2>
+<blockquote class="blockquote">
+<p>Use the data in AIRFARE for this exercise. We are interested in estimating the model</p>
+<p><span class="math display">\[\log(fare_{it}) = \eta_t + \beta_1 concen_{it} + \beta_2 \log(dist_i) + \beta_3 [\log(dist_i)]^2 + a_i + u_{it}, \quad t = 1, \dots, 4,\]</span></p>
+<p>where <span class="math inline">\(\eta_t\)</span> means that we allow for different year intercepts.</p>
+<ol type="i">
+<li><p>Estimate the above equation by pooled OLS, being sure to include year dummies. If <span class="math inline">\(\Delta concen = 0.10\)</span>, what is the estimated percentage increase in <code>fare</code>?</p></li>
+<li><p>What is the usual OLS 95% confidence interval for <span class="math inline">\(\beta_1\)</span>? Why is it probably not reliable? If you have access to a statistical package that computes fully robust standard errors, find the fully robust 95% CI for <span class="math inline">\(\beta_1\)</span>. Compare it to the usual CI and comment.</p></li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li>Describe what is happening with the quadratic in <span class="math inline">\(\log(dist)\)</span>. In particular, for what value of <span class="math inline">\(dist\)</span> does the relationship between <span class="math inline">\(\log(fare)\)</span> and <span class="math inline">\(dist\)</span> become positive? [<em>Hint</em>: First figure out the turning point value for <span class="math inline">\(\log(dist)\)</span>, and then exponentiate.] Is the turning point outside the range of the data?</li>
+<li>Now estimate the equation using random effects. How does the estimate of <span class="math inline">\(\beta_1\)</span> change?</li>
+<li>Now estimate the equation using fixed effects. What is the FE estimate of <span class="math inline">\(\beta_1\)</span>? Why is it fairly similar to the RE estimate? (<em>Hint</em>: What is <span class="math inline">\(\hat{\theta}\)</span> for RE estimation?)</li>
+<li>Name two characteristics of a route (other than distance between stops) that are captured by <span class="math inline">\(a_i\)</span>. Might these be correlated with <span class="math inline">\(concen_{it}\)</span>?</li>
+<li>Are you convinced that higher concentration on a route increases airfares? What is your best estimate?</li>
+</ol>
+</blockquote>
+</section>
+<section id="c11" class="level2" data-number="14.11">
+<h2 data-number="14.11" class="anchored" data-anchor-id="c11"><span class="header-section-number">14.11</span> C11</h2>
+<blockquote class="blockquote">
+<p>This question assumes that you have access to a statistical package that computes standard errors robust to arbitrary serial correlation and heteroskedasticity for panel data methods. (i) For the pooled OLS estimates in Table 14.1, obtain the standard errors that allow for arbitrary serial correlation (in the composite errors, <span class="math inline">\(v_{it} = a_i + u_{it}\)</span>) and heteroskedasticity. How do the robust standard errors for <code>educ</code>, <code>married</code>, and <code>union</code> compare with the nonrobust ones? (ii) Now obtain the robust standard errors for the fixed effects estimates that allow arbitrary serial correlation and heteroskedasticity in the idiosyncratic errors, <span class="math inline">\(u_{it}\)</span>. How do these compare with the nonrobust FE standard errors? (iii) For which method, pooled OLS or FE, is adjusting the standard errors for serial correlation more important? Why?</p>
+</blockquote>
+</section>
+<section id="c12-elem94_95" class="level2" data-number="14.12">
+<h2 data-number="14.12" class="anchored" data-anchor-id="c12-elem94_95"><span class="header-section-number">14.12</span> C12 [ELEM94_95]</h2>
+<blockquote class="blockquote">
+<p>Use the data in ELEM94_95 to answer this question. The data are on elementary schools in Michigan. In this exercise, we view the data as a cluster sample, where each school is part of a district cluster. (i) What are the smallest and largest number of schools in a district? What is the average number of schools per district? (ii) Using pooled OLS (that is, pooling across all 1,848 schools), estimate a model relating <code>lavgsal</code> to <code>bs</code>, <code>lenrol</code>, <code>lstaff</code>, and <code>lunch</code>; see Computer Exercise 11 from Chapter 9. What are the coefficient and standard error on <code>bs</code>? (iii) Obtain the standard errors that are robust to cluster correlation within district (and also heteroskedasticity). What happens to the <span class="math inline">\(t\)</span> statistic for <code>bs</code>? (iv) Still using pooled OLS, drop the four observations with <span class="math inline">\(bs &gt; 0.5\)</span> and obtain <span class="math inline">\(\hat{\beta}_{bs}\)</span> and its cluster-robust standard error. Now is there much evidence for a salary-benefits tradeoff? (v) Estimate the equation by fixed effects, allowing for a common district effect for schools within a district. Again drop the observations with <span class="math inline">\(bs &gt; 0.5\)</span>. Now what do you conclude about the salary-benefits tradeoff? (vi) In light of your estimates from parts (iv) and (v), discuss the importance of allowing teacher compensation to vary systematically across districts via a district fixed effect.</p>
+</blockquote>
+</section>
+<section id="c13-driving" class="level2" data-number="14.13">
+<h2 data-number="14.13" class="anchored" data-anchor-id="c13-driving"><span class="header-section-number">14.13</span> C13 [DRIVING]</h2>
+<blockquote class="blockquote">
+<p>The data set DRIVING includes state-level panel data (for the 48 continental U.S. states) from 1980 through 2004, for a total of 25 years. Various driving laws are indicated in the data set, including the alcohol level at which drivers are considered legally intoxicated. There are also indicators for “per se” laws—where licenses can be revoked without a trial—and seat belt laws. Some economic and demographic variables are also included. (i) How is the variable <code>totfatrte</code> defined? What is the average of this variable in the years 1980, 1992, and 2004? Run a regression of <code>totfatrte</code> on dummy variables for the years 1981 through 2004, and describe what you find. Did driving become safer over this period? Explain. (ii) Add the variables <code>bac08</code>, <code>bac10</code>, <code>perse</code>, <code>sbprim</code>, <code>sbsecon</code>, <code>sl70plus</code>, <code>gdl</code>, <code>perc14_24</code>, <code>unem</code>, and <code>vehicmilespc</code> to the regression from part (i). Interpret the coefficients on <code>bac8</code> and <code>bac10</code>. Do per se laws have a negative effect on the fatality rate? What about having a primary seat belt law? (Note that if a law was enacted sometime within a year the fraction of the year is recorded in place of the zero-one indicator.)</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li>Reestimate the model from part (ii) using fixed effects (at the state level). How do the coefficients on <span class="math inline">\(bac08\)</span>, <span class="math inline">\(bac10\)</span>, <span class="math inline">\(perse\)</span>, and <span class="math inline">\(sbprim\)</span> compare with the pooled OLS estimates? Which set of estimates do you think is more reliable?</li>
+<li>Suppose that <span class="math inline">\(vehicmilespc\)</span>, the number of miles driven per capita, increases by 1,000. Using the FE estimates, what is the estimated effect on <span class="math inline">\(totfatrte\)</span>? Be sure to interpret the estimate as if explaining to a layperson.</li>
+<li>If there is serial correlation or heteroskedasticity in the idiosyncratic errors of the model then the standard errors in part (iii) are invalid. If possible, use “cluster” robust standard errors for the fixed effects estimates. What happens to the statistical significance of the policy variables in part (iii)?</li>
+</ol>
+</blockquote>
+</section>
+<section id="c14-airfare" class="level2" data-number="14.14">
+<h2 data-number="14.14" class="anchored" data-anchor-id="c14-airfare"><span class="header-section-number">14.14</span> C14 [AIRFARE]</h2>
+<blockquote class="blockquote">
+<p>Use the data set in AIRFARE to answer this question. The estimates can be compared with those in Computer Exercise 10, in this chapter. (i) Compute the time averages of the variable <span class="math inline">\(concen\)</span>; call these <span class="math inline">\(concenbar\)</span>. How many different time averages can there be? Report the smallest and the largest. (ii) Estimate the equation</p>
+<p><span class="math display">\[lfare_{it} = \beta_0 + \delta_1 y98_t + \delta_2 y99_t + \delta_3 y00_t + \beta_1 concen_{it} + \beta_2 ldist_i + \beta_3 ldistsq_i + \gamma_1 concenbar_i + a_i + u_{it}\]</span></p>
+<p>by random effects. Verify that <span class="math inline">\(\hat{\beta}_1\)</span> is identical to the FE estimate computed in C10. (iii) If you drop <span class="math inline">\(ldist\)</span> and <span class="math inline">\(ldistsq\)</span> from the estimation in part (i) but still include <span class="math inline">\(concenbar_i\)</span>, what happens to the estimate of <span class="math inline">\(\beta_1\)</span>? What happens to the estimate of <span class="math inline">\(\gamma_1\)</span>? (iv) Using the equation in part (ii) and the usual RE standard error, test <span class="math inline">\(H_0: \gamma_1 = 0\)</span> against the two-sided alternative. Report the <span class="math inline">\(p\)</span>-value. What do you conclude about RE versus FE for estimating <span class="math inline">\(\beta_1\)</span> in this application? (v) If possible, for the test in part (iv) obtain a <span class="math inline">\(t\)</span>-statistic (and, therefore, <span class="math inline">\(p\)</span>-value) that is robust to arbitrary serial correlation and heteroskedasticity. Does this change the conclusion reached in part (iv)?</p>
+</blockquote>
+</section>
+<section id="c15-countymurders" class="level2" data-number="14.15">
+<h2 data-number="14.15" class="anchored" data-anchor-id="c15-countymurders"><span class="header-section-number">14.15</span> C15 [COUNTYMURDERS]</h2>
+<blockquote class="blockquote">
+<p>Use the data in COUNTYMURDERS to answer this question. The data set covers murders and executions (capital punishment) for 2,197 counties in the United States. See also Computer Exercise C16 in Chapter 13. (i) Consider the model</p>
+<p><span class="math display">\[murdrate_{it} = \theta_t + \delta_0 execs_{it} + \delta_1 execs_{i,t-1} + \delta_2 execs_{i,t-2} + \delta_3 execs_{i,t-3} + \beta_5 percblack_{it} + \beta_6 percmale_{it} + \beta_7 perc1019_{it} + \beta_8 perc2029_{it} + a_i + u_{it},\]</span></p>
+<p>where <span class="math inline">\(\theta_t\)</span> represents a different intercept for each time period, <span class="math inline">\(a_i\)</span> is the county fixed effect, and <span class="math inline">\(u_{it}\)</span> is the idiosyncratic error. Why does it make sense to include lags of the key variable, <span class="math inline">\(execs\)</span>, in the equation? (ii) Apply OLS to the equation from part (i) and report the estimates of <span class="math inline">\(\delta_0, \delta_1, \delta_2,\)</span> and <span class="math inline">\(\delta_3\)</span>, along with the usual pooled OLS standard errors. Do you estimate that executions have a deterrent effect on murders? Provide an explanation that involves <span class="math inline">\(a_i\)</span>. (iii) Now estimate the equation in part (i) using fixed effects to remove <span class="math inline">\(a_i\)</span>. What are the new estimates of the <span class="math inline">\(\delta_j\)</span>? Are they very different from the estimates from part (ii)? (iv) Obtain the long-run propensity from estimates in part (iii). Using the usual FE standard errors, is the LRP statistically different from zero? (v) If possible, obtain the standard errors for the FE estimates that are robust to arbitrary heteroskedasticity and serial correlation in the <span class="math inline">\(\{u_{it}\}\)</span>. What happens to the statistical significance of the <span class="math inline">\(\delta_j\)</span>? What about the estimated LRP?</p>
+</blockquote>
+</section>
+<section id="c16-wagepan" class="level2" data-number="14.16">
+<h2 data-number="14.16" class="anchored" data-anchor-id="c16-wagepan"><span class="header-section-number">14.16</span> C16 [WAGEPAN]</h2>
+<blockquote class="blockquote">
+<p>Use the data in WAGEPAN.DTA to answer the following questions. (i) Using <span class="math inline">\(lwage\)</span> as the dependent variable, estimate a model that only contains an intercept and the year dummies <span class="math inline">\(d81\)</span> through <span class="math inline">\(d87\)</span>. Use pooled OLS, RE, FE, and FD (where in the latter…</p>
+</blockquote>
+<p>…case you difference the year dummies, along with <span class="math inline">\(lwage\)</span>, and omit an overall constant in the FD regression). What do you conclude about the coefficients on the year dummies? &gt; (ii) Add the time-constant variables <span class="math inline">\(educ\)</span>, <span class="math inline">\(black\)</span>, and <span class="math inline">\(hisp\)</span> to the model, and estimate it by OLS and RE. How do the coefficients compare? What happens if you estimate the equation by FE? &gt; (iii) What do you conclude about the four estimation methods when the model includes only variables that change just across <span class="math inline">\(t\)</span> or just across <span class="math inline">\(i\)</span>? &gt; (iv) Now estimate the equation &gt; &gt; <span class="math display">\[lwage_{it} = \alpha_1 + \beta_1 union_{it} + \beta_2 married_{it} + \beta_3 educ_i + \beta_4 black_i + \beta_5 hisp_i + c_i + u_{it}\]</span> &gt; &gt; by random effects. Do the coefficients seem reasonable? How do the nonrobust and cluster-robust standard errors compare? &gt; (v) Now estimate the equation &gt; &gt; <span class="math display">\[lwage_{it} = \alpha_1 + \beta_1 union_{it} + \beta_2 married_{it} + c_i + u_{it}\]</span> &gt; &gt; by fixed effects, being sure to include the full set of time dummies to reflect the different intercepts. How do the estimates of <span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\beta_2\)</span> compare with those in part (iv)? Compute the usual FE standard errors and the cluster-robust standard errors. How do they compare? &gt; (vi) Obtain the time averages <span class="math inline">\(\overline{union}_i\)</span> and <span class="math inline">\(\overline{married}_i\)</span>. Along with <span class="math inline">\(educ\)</span>, <span class="math inline">\(black\)</span>, and <span class="math inline">\(hisp\)</span>, add these to the equation from part (iv). Verify that the CRE estimates of <span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\beta_2\)</span> are identical to the FE estimates. &gt; (vii) Obtain the robust, variable addition Hausman test. What do you conclude about RE versus FE? &gt; (viii) Let <span class="math inline">\(educ\)</span> have an interactive effect with both <span class="math inline">\(union\)</span> and <span class="math inline">\(married\)</span> and estimate the model by fixed effects. Are the interactions individually or jointly significant? Why are the coefficients on <span class="math inline">\(union\)</span> and <span class="math inline">\(married\)</span> now imprecisely estimated? &gt; (ix) Estimate the average partial effects of <span class="math inline">\(union\)</span> and <span class="math inline">\(married\)</span> for the model estimated in part (viii). How do these compare with the FE estimates from part (v)? &gt; (x) Verify that for the model in part (viii) the CRE estimates are the same as the FE estimates when they should be. (Hint: You need to include <span class="math inline">\(\overline{union}_i\)</span>, <span class="math inline">\(\overline{married}_i\)</span>, <span class="math inline">\(educ_i \cdot \overline{union}_i\)</span>, and <span class="math inline">\(educ_i \cdot \overline{married}_i\)</span> in the CRE estimation.)</p>
+</section>
+<section id="c17-school93_98" class="level2" data-number="14.17">
+<h2 data-number="14.17" class="anchored" data-anchor-id="c17-school93_98"><span class="header-section-number">14.17</span> C17 [SCHOOL93_98]</h2>
+<blockquote class="blockquote">
+<p>Use the data in SCHOOL93_98 to answer the following questions. You should declare that the data set is a panel data set with <code>schid</code> as the cross-sectional identifier and <code>year</code> as the time identifier. (i) How many schools are there? Does each school have a record for each of the six years? Verify that <code>lavgrexpp</code> is missing for all schools in 1993. (ii) Create a selection indicator, <span class="math inline">\(s\)</span>, that is equal to one if and only if you have nonmissing data on <code>math4</code>, <code>lavgrexpp</code>, <code>lunch</code>, and <code>lenrol</code>. Next, define a variable <code>tobs</code> to be the number of complete time periods per school. How many schools have all given years of available data (noting that 1993 is not available for any school when we use <code>lavgrexpp</code>)? Drop all schools with <span class="math inline">\(tobs = 0\)</span>. (iii) Use random effects to estimate a model relating <code>math4</code> to <code>lavgrexpp</code>, <code>lunch</code>, and <code>lenrol</code>. Be sure to include a full set of year dummies. What is the estimated effect of school spending on <code>math4</code>? What is its cluster-robust <span class="math inline">\(t\)</span> statistic? (iv) Now estimate the model from part (iii) by fixed effects. What is the estimated spending effect and its robust confidence interval? How does it compare to the RE estimate from part (iii)? (v) Create the time averages of all of the explanatory variables in the RE/FE estimation, including the time dummies. You need to use the selection indicator constructed in part (ii). Verify that when you add these and estimate the equation by RE you obtain the FE estimates on the time-varying explanatory variables. What happens if you drop the time averages for <span class="math inline">\(y95\)</span>, <span class="math inline">\(y96\)</span>, <span class="math inline">\(y97\)</span>, and <span class="math inline">\(y98\)</span>? (vi) Is the random effects estimator rejected in favor of fixed effects? Explain.</p>
+</blockquote>
+</section>
+<section id="c18-cardkrueger" class="level2" data-number="14.18">
+<h2 data-number="14.18" class="anchored" data-anchor-id="c18-cardkrueger"><span class="header-section-number">14.18</span> C18 [CARDKRUEGER]</h2>
+<blockquote class="blockquote">
+<p>Use the data in CARDKRUEGER for this exercise. The data set comes from the well-known study by Card and Krueger (1994) concerning the effect of an increase in New Jersey’s minimum wage on employment at fast food restaurants. On April 1, 1992, New Jersey increased its minimum wage from $4.25 to $5.05. The data set is a two-period panel data set with the same set of restaurants in Pennsylvania (PA, serving as the control) and New Jersey (NJ) in both periods. The before period is February 1992 and the after period is November 1992.</p>
+<ol type="i">
+<li><p>How many different restaurants are in the data set? How many of them are located in New Jersey?</p></li>
+<li><p>What is the range of values taken on by the variable <code>fte</code> (full-time equivalent employees)? What is the average value of <code>fte</code> across the entire sample? In February, what is the difference in average <code>fte</code> between PA and NJ?</p></li>
+<li><p>If you use November data to estimate the difference in mean <code>fte</code> between NJ and PA, what do you find? Is the difference statistically significant?</p></li>
+<li><p>Now obtain the difference-in-difference estimate of the effect of the minimum wage increase. Do this by regressing <span class="math inline">\(\Delta fte\)</span> on a constant and <code>nj</code>. Is the sign of the estimate what you expected? Is the estimate statistically different from zero?</p></li>
+<li><p>In part (iv), add interactions between <code>nj</code> and each of <code>kfc</code>, <code>roys</code>, and <code>wendys</code>. Does it appear the effect of the minimum wage increase varies across type of restaurant?</p></li>
+</ol>
+</blockquote>
+</section>
+<section id="c19-oppzone" class="level2" data-number="14.19">
+<h2 data-number="14.19" class="anchored" data-anchor-id="c19-oppzone"><span class="header-section-number">14.19</span> C19 [OPPZONE]</h2>
+<blockquote class="blockquote">
+<p>Use the data in OPPZONE to answer the following questions. These data are at the census tract level for the state of Michigan. The years 2012 and 2015 act as control periods, prior to the passage of the Tax Cuts and Jobs Act, signed into law in December 2017. Many of the census tracts were designated to have an opportunity zone (OZ) prior to 2020. The idea is to use data from 2012, 2015, and 2020 to measure the effect of OZ designation on poverty rates measured at the census tract level. The binary variable <code>oppzone</code> does not change over time; it indicates if the tract is eventually designated an OZ in 2020. The variable <code>treat</code> is zero in all three years for a control tract. For a treated tract, it is zero in the first two years and equals one in 2020.</p>
+<ol type="i">
+<li><p>How many total census tracts are in the data set? How many include an OZ in 2020?</p></li>
+<li><p>Use just the year 2012 and run a regression with <code>poverty</code> as the dependent variable and <code>oppzone</code> as the only explanatory variable. What do you make of the positive coefficient on <code>oppzone</code>? Is its magnitude practical large? Is it statistically significant?</p></li>
+<li><p>What does part (ii) tell you about how OZs were designated? In particular, were OZs randomly assigned to census tracts?</p></li>
+<li><p>Use all three years to estimate an equation for <code>poverty</code> by fixed effects. You should include the year dummies <code>f2015</code> and <code>f2020</code> along with the variable <code>treat</code>. What is the estimated treatment effect? Is it practically large? Statistically significant? You should obtain standard errors that are robust to heteroskedasticity and any serial correlation.</p></li>
+<li><p>Rather than use TWFE, use pooled OLS and include <code>oppzone</code>. Verify that the treatment effect is identical to that in part (iv). What does the large, positive coefficient on <code>oppzone</code> tell you? What do you make of the coefficient on <code>f2020</code>?</p></li>
+<li><p>Add <span class="math inline">\(oppzone \cdot f2012\)</span> to the regression in part (v) [or, equivalently, part (iv)]. This is an event-study regression. Is there evidence of pre-trends? What is the estimated treatment effect, and how does it compare with part (v)?</p></li>
+<li><p>To the analysis in part (v), add the interaction <span class="math inline">\(oppzone \cdot (year - 2012)\)</span>, where the centering of <code>year</code> about 2012 is not needed but makes it easier to interpret the coefficient on <code>oppzone</code>. Now what is the estimated treatment effect? Is it smaller or larger in magnitude than in part (v)?</p></li>
+<li><p>What does the sign of the coefficient on <span class="math inline">\(oppzone \cdot (year - 2012)\)</span> indicate? Is this variable statistically significant at the 15% level? (You should use a cluster-robust standard error.)</p></li>
+</ol>
+</blockquote>
+</section>
+<section id="c20-thefts.dta" class="level2" data-number="14.20">
+<h2 data-number="14.20" class="anchored" data-anchor-id="c20-thefts.dta"><span class="header-section-number">14.20</span> C20 [THEFTS.DTA]</h2>
+<blockquote class="blockquote">
+<p>Use the data in THEFTS.DTA to answer the following questions. These data come from Di Tella and Schargrodsky (2004). Drop the data for <span class="math inline">\(month = 7\)</span> because the theft data are only for part of the month. This way, the pre-intervention period is <span class="math inline">\(month \le 6\)</span> and the post-intervention period is <span class="math inline">\(month \ge 8\)</span>. The treatment in this case is whether a block includes a Jewish institution building because…</p>
+</blockquote>
+<p>…extra police were assigned to such blocks after a terrorist attack on a main Jewish center in Buenos Aires in July 1994.</p>
+<blockquote class="blockquote">
+<ol type="i">
+<li><p>With the month of July dropped, how many months are there prior to the intervention? How many months post intervention? How many blocks are there in total? How many treated blocks, as indicated by the variable <code>sameblock</code>?</p></li>
+<li><p>Across all blocks and months, what is the most likely outcome of the variable <code>thefts</code>? What is the largest outcome? The average? Is it obvious that a linear model for <code>thefts</code> will be the most natural?</p></li>
+<li><p>Define the variable <span class="math inline">\(treat_{it} = sameblock_i \cdot post_t\)</span>, where <span class="math inline">\(post_t\)</span> indicates being a post-intervention month. Run a pooled OLS regression of <span class="math inline">\(thefts_{it}\)</span> on 1, <span class="math inline">\(sameblock_i\)</span>, <span class="math inline">\(post_t\)</span>, <span class="math inline">\(treat_{it}\)</span> and report the estimated effect on monthly thefts on having more police assigned to a block. How large is the effect from a practical perspective? Report the usual OLS standard error and one that is robust to serial correlation and heteroskedasticity. Report a valid 95% confidence interval and discuss the statistical significance of the estimate.</p></li>
+<li><p>Verify that the two-way fixed effects estimate on <span class="math inline">\(treat_{it}\)</span> is the same as the POLS estimate.</p></li>
+<li><p>Now allow the treatment effect to change in each of the post-treatment periods. You should estimate five different effects. Use the two-way fixed effects estimator in obtaining the five estimates. Do the estimates appear to vary a lot? Are they statistically different from one another? How does the average of the five effects compare with the single estimate in part (ii)?</p></li>
+<li><p>Without any controls, and using <span class="math inline">\(month = 6\)</span> as the control period, estimate the two pre-treatment effects along with the five treatment effects. Do you see evidence of pre-trends? How do the estimated effects and precisions compare with those in part (v)? (Hint: This can be done with a single regression by interacting <code>sameblock</code> with a suitable set of monthly indicators.)</p></li>
+</ol>
+</blockquote>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

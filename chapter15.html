@@ -46,9 +46,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-44ee0976171e9be92e6ebe9be850cd66.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-553af08a658bbaf7848ab84c12977b10.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-44ee0976171e9be92e6ebe9be850cd66.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-66c9649715f74f1e4324758aa2390964.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-b44ccea540e06768bee7c3f9d372997f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-66c9649715f74f1e4324758aa2390964.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -77,6 +77,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -435,8 +464,28 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#c1-wage2" id="toc-c1-wage2" class="nav-link active" data-scroll-target="#c1-wage2"><span class="header-section-number">15.1</span> C1 [WAGE2]</a></li>
+  <li><a href="#c2-fertil2" id="toc-c2-fertil2" class="nav-link" data-scroll-target="#c2-fertil2"><span class="header-section-number">15.2</span> C2 [FERTIL2]</a></li>
+  <li><a href="#c3-card" id="toc-c3-card" class="nav-link" data-scroll-target="#c3-card"><span class="header-section-number">15.3</span> C3 [CARD]</a></li>
+  <li><a href="#c4-intdef" id="toc-c4-intdef" class="nav-link" data-scroll-target="#c4-intdef"><span class="header-section-number">15.4</span> C4 [INTDEF]</a></li>
+  <li><a href="#c5-card" id="toc-c5-card" class="nav-link" data-scroll-target="#c5-card"><span class="header-section-number">15.5</span> C5 [CARD]</a></li>
+  <li><a href="#c6-murder" id="toc-c6-murder" class="nav-link" data-scroll-target="#c6-murder"><span class="header-section-number">15.6</span> C6 [MURDER]</a></li>
+  <li><a href="#c7-phillips" id="toc-c7-phillips" class="nav-link" data-scroll-target="#c7-phillips"><span class="header-section-number">15.7</span> C7 [PHILLIPS]</a></li>
+  <li><a href="#c8-401ksubs" id="toc-c8-401ksubs" class="nav-link" data-scroll-target="#c8-401ksubs"><span class="header-section-number">15.8</span> C8 [401KSUBS]</a></li>
+  <li><a href="#c9" id="toc-c9" class="nav-link" data-scroll-target="#c9"><span class="header-section-number">15.9</span> C9</a></li>
+  <li><a href="#c10-htv" id="toc-c10-htv" class="nav-link" data-scroll-target="#c10-htv"><span class="header-section-number">15.10</span> C10 [HTV]</a></li>
+  <li><a href="#c11-voucher" id="toc-c11-voucher" class="nav-link" data-scroll-target="#c11-voucher"><span class="header-section-number">15.11</span> C11 [VOUCHER]</a></li>
+  <li><a href="#c12-catholic" id="toc-c12-catholic" class="nav-link" data-scroll-target="#c12-catholic"><span class="header-section-number">15.12</span> C12 [CATHOLIC]</a></li>
+  <li><a href="#c13-labsup" id="toc-c13-labsup" class="nav-link" data-scroll-target="#c13-labsup"><span class="header-section-number">15.13</span> C13 [LABSUP]</a></li>
+  <li><a href="#c14-vietnam" id="toc-c14-vietnam" class="nav-link" data-scroll-target="#c14-vietnam"><span class="header-section-number">15.14</span> C14 [VIETNAM]</a></li>
+  <li><a href="#c15-401ksubs" id="toc-c15-401ksubs" class="nav-link" data-scroll-target="#c15-401ksubs"><span class="header-section-number">15.15</span> C15 [401KSUBS]</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -461,8 +510,501 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="c1-wage2" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="c1-wage2"><span class="header-section-number">15.1</span> C1 [WAGE2]</h2>
+<blockquote class="blockquote">
+<p>Use the data in WAGE2 for this exercise.</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol type="i">
+<li>In Example 15.2, if <code>sibs</code> is used as an instrument for <code>educ</code>, the IV estimate of the return to education is 0.122. To convince yourself that using <code>sibs</code> as an IV for <code>educ</code> is not the same as just plugging <code>sibs</code> in for <code>educ</code> and running an OLS regression, run the regression of <span class="math inline">\(\log(wage)\)</span> on <code>sibs</code> and explain your findings.</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="2" type="i">
+<li>The variable <code>brthord</code> is birth order (<code>brthord</code> is one for a first-born child, two for a second-born child, and so on). Explain why <code>educ</code> and <code>brthord</code> might be negatively correlated. Regress <code>educ</code> on <code>brthord</code> to determine whether there is a statistically significant negative correlation.</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li>Use <code>brthord</code> as an IV for <code>educ</code> in equation (15.1). Report and interpret the results.</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="4" type="i">
+<li>Now, suppose that we include number of siblings as an explanatory variable in the wage equation; this controls for family background, to some extent: <span class="math display">\[\log(wage) = \beta_0 + \beta_1 educ + \beta_2 sibs + u.\]</span> Suppose that we want to use <code>brthord</code> as an IV for <code>educ</code>, assuming that <code>sibs</code> is exogenous. The reduced form for <code>educ</code> is <span class="math display">\[educ = \pi_0 + \pi_1 sibs + \pi_2 brthord + v.\]</span> State and test the identification assumption.</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="22" type="a">
+<li>Estimate the equation from part (iv) using <code>brthord</code> as an IV for <code>educ</code> (and <code>sibs</code> as its own IV). Comment on the standard errors for <span class="math inline">\(\hat{\beta}_{educ}\)</span> and <span class="math inline">\(\hat{\beta}_{sibs}\)</span>.</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="6" type="i">
+<li>Using the fitted values from part (iv), <span class="math inline">\(\widehat{educ}\)</span>, compute the correlation between <span class="math inline">\(\widehat{educ}\)</span> and <code>sibs</code>. Use this result to explain your findings from part (v).</li>
+</ol>
+</blockquote>
+</section>
+<section id="c2-fertil2" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="c2-fertil2"><span class="header-section-number">15.2</span> C2 [FERTIL2]</h2>
+<blockquote class="blockquote">
+<p>The data in FERTIL2 include, for women in Botswana during 1988, information on number of children, years of education, age, and religious and economic status variables.</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol type="i">
+<li>Estimate the model <span class="math display">\[children = \beta_0 + \beta_1 educ + \beta_2 age + \beta_3 age^2 + u\]</span> by OLS and interpret the estimates. In particular, holding <code>age</code> fixed, what is the estimated effect of another year of education on fertility? If 100 women receive another year of education, how many fewer children are they expected to have?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="2" type="i">
+<li>The variable <code>frsthalf</code> is a dummy variable equal to one if the woman was born during the first six months of the year. Assuming that <code>frsthalf</code> is uncorrelated with the error term from part (i), show that <code>frsthalf</code> is a reasonable IV candidate for <code>educ</code>. (<em>Hint</em>: You need to do a regression.)</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li>Estimate the model from part (i) by using <code>frsthalf</code> as an IV for <code>educ</code>. Compare the estimated effect of education with the OLS estimate from part (i). (iv) Add the binary variables <code>electric</code>, <code>tv</code>, and <code>bicycle</code> to the model and assume these are exogenous. Estimate the equation by OLS and 2SLS and compare the estimated coefficients on <code>educ</code>. Interpret the coefficient on <code>tv</code> and explain why television ownership has a negative effect on fertility.</li>
+</ol>
+</blockquote>
+</section>
+<section id="c3-card" class="level2" data-number="15.3">
+<h2 data-number="15.3" class="anchored" data-anchor-id="c3-card"><span class="header-section-number">15.3</span> C3 [CARD]</h2>
+<blockquote class="blockquote">
+<p>Use the data in CARD for this exercise.</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol type="i">
+<li>The equation we estimated in Example 15.4 can be written as <span class="math display">\[\log(wage) = \beta_0 + \beta_1 educ + \beta_2 exper + \dots + u,\]</span> where the other explanatory variables are listed in Table 15.1. In order for IV to be consistent, the IV for <code>educ</code>, <code>nearc4</code>, must be uncorrelated with <span class="math inline">\(u\)</span>. Could <code>nearc4</code> be correlated with things in the error term, such as unobserved ability? Explain.</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="2" type="i">
+<li>For a subsample of the men in the data set, an IQ score is available. Regress <code>IQ</code> on <code>nearc4</code> to check whether average IQ scores vary by whether each man grew up near a four-year college. What do you conclude?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li>Now, regress <code>IQ</code> on <code>nearc4</code>, <code>smsa66</code>, and the 1966 regional dummy variables <code>reg662, \dots, reg669</code>. Are <code>IQ</code> and <code>nearc4</code> related after the geographic dummy variables have been partialled out? Reconcile this with your findings from part (ii).</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="4" type="i">
+<li>From parts (ii) and (iii), what do you conclude about the importance of controlling for <code>smsa66</code> and the 1966 regional dummies in the <span class="math inline">\(\log(wage)\)</span> equation?</li>
+</ol>
+</blockquote>
+</section>
+<section id="c4-intdef" class="level2" data-number="15.4">
+<h2 data-number="15.4" class="anchored" data-anchor-id="c4-intdef"><span class="header-section-number">15.4</span> C4 [INTDEF]</h2>
+<blockquote class="blockquote">
+<p>Use the data in INTDEF for this exercise. A simple equation relating the three-month T-bill rate to the inflation rate (constructed from the Consumer Price Index) is <span class="math display">\[i3_t = \beta_0 + \beta_1 inf_t + u_t.\]</span></p>
+</blockquote>
+<blockquote class="blockquote">
+<ol type="i">
+<li>Estimate this equation by OLS, omitting the first time period for later comparisons. Report the results in the usual form.</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="2" type="i">
+<li>Some economists think that the Consumer Price Index mismeasures the true rate of inflation, so that the OLS from part (i) suffers from measurement error bias. Reestimate the equation from part (i), using <span class="math inline">\(inf_{t-1}\)</span> as an IV for <span class="math inline">\(inf_t\)</span>. How does the IV estimate of <span class="math inline">\(\beta_1\)</span> compare with the OLS estimate?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li>Now, first difference the equation: <span class="math display">\[\Delta i3_t = \beta_0 + \beta_1 \Delta inf_t + \Delta u_t.\]</span> Estimate this by OLS and compare the estimate of <span class="math inline">\(\beta_1\)</span> with the previous estimates.</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="4" type="i">
+<li>Can you use <span class="math inline">\(\Delta inf_{t-1}\)</span> as an IV for <span class="math inline">\(\Delta inf_t\)</span> in the differenced equation in part (iii)? Explain. (<em>Hint</em>: Are <span class="math inline">\(\Delta inf_t\)</span> and <span class="math inline">\(\Delta inf_{t-1}\)</span> sufficiently correlated?)</li>
+</ol>
+</blockquote>
+</section>
+<section id="c5-card" class="level2" data-number="15.5">
+<h2 data-number="15.5" class="anchored" data-anchor-id="c5-card"><span class="header-section-number">15.5</span> C5 [CARD]</h2>
+<blockquote class="blockquote">
+<p>Use the data in CARD for this exercise.</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol type="i">
+<li>In Table 15.1, the difference between the IV and OLS estimates of the return to education is economically important. Obtain the reduced form residuals, <span class="math inline">\(\hat{v}_2\)</span>, from the reduced form regression <code>educ</code> on <code>nearc4</code>, <code>exper</code>, <code>exper^2</code>, <code>black</code>, <code>smsa</code>, <code>south</code>, <code>smsa66</code>, <code>reg662</code>, …, <code>reg669</code>—see Table 15.1. Use these to test whether <code>educ</code> is exogenous; that is, determine if the difference between OLS and IV is <em>statistically</em> significant.</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="2" type="i">
+<li>Estimate the equation by 2SLS, adding <code>nearc2</code> as an instrument. Does the coefficient on <code>educ</code> change much?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li>Test the single overidentifying restriction from part (ii).</li>
+</ol>
+</blockquote>
+</section>
+<section id="c6-murder" class="level2" data-number="15.6">
+<h2 data-number="15.6" class="anchored" data-anchor-id="c6-murder"><span class="header-section-number">15.6</span> C6 [MURDER]</h2>
+<blockquote class="blockquote">
+<p>Use the data in MURDER for this exercise. The variable <code>mrdrte</code> is the murder rate, that is, the number of murders per 100,000 people. The variable <code>exec</code> is the total number of prisoners executed for the current and prior two years; <code>unem</code> is the state unemployment rate.</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol type="i">
+<li>How many states executed at least one prisoner in 1991, 1992, or 1993? Which state had the most executions?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="2" type="i">
+<li>Using the two years 1990 and 1993, do a pooled regression of <code>mrdrte</code> on <span class="math inline">\(d93\)</span>, <code>exec</code>, and <code>unem</code>. What do you make of the coefficient on <code>exec</code>?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li>Using the changes from 1990 to 1993 only (for a total of 51 observations), estimate the equation <span class="math display">\[\Delta mrdrte = \delta_0 + \beta_1 \Delta exec + \beta_2 \Delta unem + \Delta u\]</span> by OLS and report the results in the usual form. Now, does capital punishment appear to have a deterrent effect?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="4" type="i">
+<li>The change in executions may be at least partly related to changes in the expected murder rate, so that <span class="math inline">\(\Delta exec\)</span> is correlated with <span class="math inline">\(\Delta u\)</span> in part (iii). It might be reasonable to assume that <span class="math inline">\(\Delta exec_{-1}\)</span> is uncorrelated with <span class="math inline">\(\Delta u\)</span>. (After all, <span class="math inline">\(\Delta exec_{-1}\)</span> depends on executions that occurred three or more years ago.) Regress <span class="math inline">\(\Delta exec\)</span> on <span class="math inline">\(\Delta exec_{-1}\)</span> to see if they are sufficiently correlated; interpret the coefficient on <span class="math inline">\(\Delta exec_{-1}\)</span>.</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="22" type="a">
+<li>Reestimate the equation from part (iii), using <span class="math inline">\(\Delta exec_{-1}\)</span> as an IV for <span class="math inline">\(\Delta exec\)</span>. Assume that <span class="math inline">\(\Delta unem\)</span> is exogenous. How do your conclusions change from part (iii)?</li>
+</ol>
+</blockquote>
+</section>
+<section id="c7-phillips" class="level2" data-number="15.7">
+<h2 data-number="15.7" class="anchored" data-anchor-id="c7-phillips"><span class="header-section-number">15.7</span> C7 [PHILLIPS]</h2>
+<blockquote class="blockquote">
+<p>Use the data in PHILLIPS for this exercise.</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol type="i">
+<li>In Example 11.5, we estimated an expectations augmented Phillips curve of the form <span class="math display">\[\Delta inf_t = \beta_0 + \beta_1 unem_t + e_t,\]</span> where <span class="math inline">\(\Delta inf_t = inf_t - inf_{t-1}\)</span>. In estimating this equation by OLS, we assumed that the supply shock, <span class="math inline">\(e_t\)</span>, was uncorrelated with <span class="math inline">\(unem_t\)</span>. If this is false, what can be said about the OLS estimator of <span class="math inline">\(\beta_1\)</span>?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="2" type="i">
+<li>Suppose that <span class="math inline">\(e_t\)</span> is unpredictable given all past information: <span class="math inline">\(\text{E}(e_t | inf_{t-1}, unem_{t-1}, \dots) = 0\)</span>. Explain why this makes <span class="math inline">\(unem_{t-1}\)</span> a good IV candidate for <span class="math inline">\(unem_t\)</span>.</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li>Regress <span class="math inline">\(unem_t\)</span> on <span class="math inline">\(unem_{t-1}\)</span>. Are <span class="math inline">\(unem_t\)</span> and <span class="math inline">\(unem_{t-1}\)</span> significantly correlated?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="4" type="i">
+<li>Estimate the expectations augmented Phillips curve by IV. Report the results in the usual form and compare them with the OLS estimates from Example 11.5.</li>
+</ol>
+</blockquote>
+</section>
+<section id="c8-401ksubs" class="level2" data-number="15.8">
+<h2 data-number="15.8" class="anchored" data-anchor-id="c8-401ksubs"><span class="header-section-number">15.8</span> C8 [401KSUBS]</h2>
+<blockquote class="blockquote">
+<p>Use the data in 401KSUBS for this exercise. The equation of interest is a linear probability model: <span class="math display">\[pira = \beta_0 + \beta_1 p401k + \beta_2 inc + \beta_3 inc^2 + \beta_4 age + \beta_5 age^2 + u.\]</span> The goal is to test whether there is a tradeoff between participating in a 401(k) plan and having an individual retirement account (IRA). Therefore, we want to estimate <span class="math inline">\(\beta_1\)</span>.</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol type="i">
+<li>Estimate the equation by OLS and discuss the estimated effect of <code>p401k</code>.</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="2" type="i">
+<li>For the purposes of estimating the ceteris paribus tradeoff between participation in two different types of retirement savings plans, what might be a problem with ordinary least squares?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li>The variable <code>e401k</code> is a binary variable equal to one if a worker is <em>eligible</em> to participate in a 401(k) plan. Explain what is required for <code>e401k</code> to be a valid IV for <code>p401k</code>. Do these assumptions seem reasonable?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="4" type="i">
+<li>Estimate the reduced form for <code>p401k</code> and verify that <code>e401k</code> has significant partial correlation with <code>p401k</code>. Since the reduced form is also a linear probability model, use a heteroskedasticity-robust standard error.</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="22" type="a">
+<li>Now, estimate the structural equation by IV and compare the estimate of <span class="math inline">\(\beta_1\)</span> with the OLS estimate. Again, you should obtain heteroskedasticity-robust standard errors.</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="6" type="i">
+<li>Test the null hypothesis that <code>p401k</code> is in fact exogenous, using a heteroskedasticity-robust test.</li>
+</ol>
+</blockquote>
+</section>
+<section id="c9" class="level2" data-number="15.9">
+<h2 data-number="15.9" class="anchored" data-anchor-id="c9"><span class="header-section-number">15.9</span> C9</h2>
+<blockquote class="blockquote">
+<p>The purpose of this exercise is to compare the estimates and standard errors obtained by correctly using 2SLS with those obtained using inappropriate procedures. Use the data file WAGE2.</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol type="i">
+<li>Use a 2SLS routine to estimate the equation <span class="math display">\[\log(wage) = \beta_0 + \beta_1 educ + \beta_2 exper + \beta_3 tenure + \beta_4 black + u,\]</span> where <code>sibs</code> is the IV for <code>educ</code>. Report the results in the usual form.</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="2" type="i">
+<li>Now, manually carry out 2SLS. That is, first regress <span class="math inline">\(educ_i\)</span> on <span class="math inline">\(sibs_i, exper_i, tenure_i,\)</span> and <span class="math inline">\(black_i\)</span> and obtain the fitted values, <span class="math inline">\(\widehat{educ}_i, i = 1, \dots, n\)</span>. Then, run the second stage regression <span class="math inline">\(\log(wage_i)\)</span> on <span class="math inline">\(\widehat{educ}_i, exper_i, tenure_i,\)</span> and <span class="math inline">\(black_i, i = 1, \dots, n\)</span>. Verify that the <span class="math inline">\(\hat{\beta}_j\)</span> are identical to those obtained from part (i), but that the standard errors are somewhat different. The standard errors obtained from the second stage regression when manually carrying out 2SLS are generally inappropriate.</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li>Now, use the following two-step procedure, which generally yields inconsistent parameter estimates of the <span class="math inline">\(\beta_j\)</span>, and not just inconsistent standard errors. In step one, regress <span class="math inline">\(educ_i\)</span> on <span class="math inline">\(sibs_i\)</span> only and obtain the fitted values, say <span class="math inline">\(\widetilde{educ}_i\)</span>. (Note that this is an incorrect first stage regression.) Then, in the second step, run the regression of <span class="math inline">\(\log(wage_i)\)</span> on <span class="math inline">\(\widetilde{educ}_i, exper_i, tenure_i,\)</span> and <span class="math inline">\(black_i, i = 1, \dots, n\)</span>. How does the estimate from this incorrect, two-step procedure compare with the correct 2SLS estimate of the return to education?</li>
+</ol>
+</blockquote>
+</section>
+<section id="c10-htv" class="level2" data-number="15.10">
+<h2 data-number="15.10" class="anchored" data-anchor-id="c10-htv"><span class="header-section-number">15.10</span> C10 [HTV]</h2>
+<blockquote class="blockquote">
+<p>Use the data in HTV for this exercise.</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol type="i">
+<li>Run a simple OLS regression of <span class="math inline">\(\log(wage)\)</span> on <code>educ</code>. Without controlling for other factors, what is the 95% confidence interval for the return to another year of education?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="2" type="i">
+<li>The variable <code>ctuit</code>, in thousands of dollars, is the change in college tuition facing students from age 17 to age 18. Show that <code>educ</code> and <code>ctuit</code> are essentially uncorrelated. What does this say about <code>ctuit</code> as a possible IV for <code>educ</code> in a simple regression analysis?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li>Now, add to the simple regression model in part (i) a quadratic in experience and a full set of regional dummy variables for current residence and residence at age 18. Also include the urban indicators for current and age 18 residences. What is the estimated return to a year of education?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="4" type="i">
+<li>Again using <code>ctuit</code> as a potential IV for <code>educ</code>, estimate the reduced form for <code>educ</code>. [Naturally, the reduced form for <code>educ</code> now includes the explanatory variables in part (iii).] Show that <code>ctuit</code> is now statistically significant in the reduced form for <code>educ</code>.</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="22" type="a">
+<li>Estimate the model from part (iii) by IV, using <code>ctuit</code> as an IV for <code>educ</code>. How does the confidence interval for the return to education compare with the OLS CI from part (iii)?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="6" type="i">
+<li>Do you think the IV procedure from part (v) is convincing?</li>
+</ol>
+</blockquote>
+</section>
+<section id="c11-voucher" class="level2" data-number="15.11">
+<h2 data-number="15.11" class="anchored" data-anchor-id="c11-voucher"><span class="header-section-number">15.11</span> C11 [VOUCHER]</h2>
+<blockquote class="blockquote">
+<p>The data set in VOUCHER, which is a subset of the data used in Rouse (1998), can be used to estimate the effect of school choice on academic achievement. Attendance at a choice school was paid for by a voucher, which was determined by a lottery among those who applied. The data subset was chosen so that any student in the sample has a valid 1994 math test score (the last year available in Rouse’s sample). Unfortunately, as pointed out by Rouse, many students have missing test scores, possibly due to attrition (that is, leaving the Milwaukee public school district). These data include students who applied to the voucher program and were accepted, students who applied and were not accepted, and students who did not apply. Therefore, even though the vouchers were chosen by lottery among those who applied, we do not necessarily have a random sample from a population where being selected for a voucher has been randomly determined. (An important consideration is that students who never applied to the program may be systematically different from those who did—and in ways that we cannot know based on the data.)</p>
+<p>Rouse (1998) uses panel data methods of the kind we discussed in Chapter 14 to allow student fixed effects; she also uses instrumental variables methods. This problem asks you to do a cross-sectional analysis in which winning the lottery for a voucher acts as an instrumental variable for attending a choice school. Actually, because we have multiple years of data on each student, we construct two variables. The first, <code>choiceyrs</code>, is the number of years from 1991 to 1994 that a student attended a choice school; this variable ranges from zero to four. The variable <code>selectyrs</code> indicates the number of years a student was selected for a voucher. If the student applied for the program in 1990 and received a voucher then <code>selectyrs = 4</code>; if he or she applied in 1991 and received a voucher then <code>selectyrs = 3</code>; and so on. The outcome of interest is <code>mnce</code>, the student’s percentile score on a math test administered in 1994.</p>
+<ol type="i">
+<li>Of the 990 students in the sample, how many were never awarded a voucher? How many had a voucher available for four years? How many students actually attended a choice school for four years?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="2" type="i">
+<li>Run a simple regression of <code>choiceyrs</code> on <code>selectyrs</code>. Are these variables related in the direction you expected? How strong is the relationship? Is <code>selectyrs</code> a sensible IV candidate for <code>choiceyrs</code>?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li>Run a simple regression of <code>mnce</code> on <code>choiceyrs</code>. What do you find? Is this what you expected? What happens if you add the variables <code>black</code>, <code>hispanic</code>, and <code>female</code>?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="4" type="i">
+<li>Why might <code>choiceyrs</code> be endogenous in an equation such as <span class="math display">\[mnce = \beta_0 + \beta_1 choiceyrs + \beta_2 black + \beta_3 hispanic + \beta_4 female + u_1?\]</span></li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="22" type="a">
+<li>Estimate the equation in part (iv) by instrumental variables, using <code>selectyrs</code> as the IV for <code>choiceyrs</code>. Does using IV produce a positive effect of attending a choice school? What do you make of the coefficients on the other explanatory variables?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="6" type="i">
+<li>To control for the possibility that prior achievement affects participating in the lottery (as well as predicting attrition), add <code>mnce90</code>—the math score in 1990—to the equation in part (iv). Estimate the equation by OLS and IV, and compare the results for <span class="math inline">\(\beta_1\)</span>. For the IV estimate, how much is each year in a choice school worth on the math percentile score? Is this a practically large effect?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="7" type="i">
+<li>Why is the analysis from part (vi) not entirely convincing? [<em>Hint</em>: Compared with part (v), what happens to the number of observations, and why?]</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="8" type="i">
+<li>The variables <code>choiceyrs1</code>, <code>choiceyrs2</code>, and so on are dummy variables indicating the different number of years a student could have been in a choice school (from 1991 to 1994). The dummy variables <code>selectyrs1</code>, <code>selectyrs2</code>, and so on have a similar definition, but for being selected from the lottery. Estimate the equation</li>
+</ol>
+<p><span class="math display">\[mnce = \beta_0 + \beta_1 choiceyrs1 + \beta_2 choiceyrs2 + \beta_3 choiceyrs3 + \beta_4 choiceyrs4 + \beta_5 black + \beta_6 hispanic + \beta_7 female + \beta_8 mnce90 + u_1\]</span></p>
+<p>by IV, using as instruments the four <code>selectyrs</code> dummy variables. (As before, the variables <code>black</code>, <code>hispanic</code>, and <code>female</code> act as their own IVs.) Describe your findings. Do they make sense?</p>
+</blockquote>
+</section>
+<section id="c12-catholic" class="level2" data-number="15.12">
+<h2 data-number="15.12" class="anchored" data-anchor-id="c12-catholic"><span class="header-section-number">15.12</span> C12 [CATHOLIC]</h2>
+<blockquote class="blockquote">
+<p>Use the data in CATHOLIC to answer this question. The model of interest is</p>
+<p><span class="math display">\[math12 = \beta_0 + \beta_1 cathhs + \beta_2 lfaminc + \beta_3 motheduc + \beta_4 fatheduc + u,\]</span></p>
+<p>where <code>cathhs</code> is a binary indicator for whether a student attends a Catholic high school.</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol type="i">
+<li>How many students are in the sample? What percentage of these students attend a Catholic high school?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="2" type="i">
+<li>Estimate the above equation by OLS. What is the estimate of <span class="math inline">\(\beta_1\)</span>? What is its 95% confidence interval?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li>Using <code>parcath</code> as an instrument for <code>cathhs</code>, estimate the reduced form for <code>cathhs</code>. What is the <span class="math inline">\(t\)</span> statistic for <code>parcath</code>? Is there evidence of a weak instrument problem?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="4" type="i">
+<li>Estimate the above equation by IV, using <code>parcath</code> as an IV for <code>cathhs</code>. How does the estimate and 95% CI compare with the OLS quantities?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="22" type="a">
+<li>Test the null hypothesis that <code>cathhs</code> is exogenous. What is the <span class="math inline">\(p\)</span>-value of the test?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="6" type="i">
+<li>Suppose you add the interaction between <span class="math inline">\(cathhs \cdot motheduc\)</span> to the above model. Why is it generally endogenous? Why is <span class="math inline">\(parcath \cdot motheduc\)</span> a good IV candidate for <span class="math inline">\(cathhs \cdot motheduc\)</span>?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="7" type="i">
+<li>Before you create the interactions in part (vi), first find the sample average of <code>motheduc</code> and create <span class="math inline">\(cathhs \cdot (motheduc - \overline{motheduc})\)</span> and <span class="math inline">\(parcath \cdot (motheduc - \overline{motheduc})\)</span>. Add the first interaction to the model and use the second as an IV. Of course, <code>cathhs</code> is also instrumented. Is the interaction term statistically significant?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="8" type="i">
+<li>Compare the coefficient on <code>cathhs</code> in (vii) to that in part (iv). Is including the interaction important for estimating the average partial effect?</li>
+</ol>
+</blockquote>
+</section>
+<section id="c13-labsup" class="level2" data-number="15.13">
+<h2 data-number="15.13" class="anchored" data-anchor-id="c13-labsup"><span class="header-section-number">15.13</span> C13 [LABSUP]</h2>
+<blockquote class="blockquote">
+<p>Use the data in LABSUP to answer the following questions. These are data on almost 32,000 black or Hispanic women. Every woman in the sample is married. It is a subset of the data used in Angrist and Evans (1998). Our interest here is in determining how weekly hours worked, <code>hours</code>, changes with number of children (<code>kids</code>). All women in the sample have at least two children. The two potential instrumental variables for <code>kids</code>, which is suspected as being endogenous, work to generate exogenous variation starting with two children. See the original article for further discussion.</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol type="i">
+<li>Estimate the equation</li>
+</ol>
+<p><span class="math display">\[hours = \beta_0 + \beta_1 kids + \beta_2 nonmomi + \beta_3 educ + \beta_4 age + \beta_5 age^2 + \beta_6 black + \beta_7 hispan + u\]</span></p>
+<p>by OLS and obtain the heteroskedasticity-robust standard errors. Interpret the coefficient on <code>kids</code>. Discuss its statistical significance.</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="2" type="i">
+<li>A variable that Angrist and Evans propose as an instrument is <code>samesex</code>, a binary variable equal to one if the first two children are the same biological sex. What do you think is the argument for why it is a relevant instrument for <code>kids</code>?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li>Run the regression <span class="math display">\[kids_i \text{ on } samesex_i, nonmomi_i, educ_i, age_i, age_i^2, black_i, hispan_i\]</span> and see if the story from part (ii) holds up. In particular, interpret the coefficient on <code>samesex</code>. How statistically significant is <code>samesex</code>?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="4" type="i">
+<li>Can you think of mechanisms by which <code>samesex</code> is correlated with <span class="math inline">\(u\)</span> in the equation in part (i)? (It is fine to assume that biological sex is randomly determined.) [<em>Hint</em>: How might a family’s finances be affected based on whether they have two children of the same sex or two children of opposite sex?]</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="22" type="a">
+<li>Is it legitimate to check for exogeneity of <code>samesex</code> by adding it to the regression in part (i) and testing its significance? Explain.</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="6" type="i">
+<li>Using <code>samesex</code> as an IV for <code>kids</code>, obtain the IV estimates of the equation in part (i). How does the <code>kids</code> coefficient compare with the OLS estimate? Is the IV estimate precise?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="7" type="i">
+<li>Now add <code>multi2nd</code> as an instrument. Obtain the <span class="math inline">\(F\)</span> statistic from the first stage regression and determining whether <code>samesex</code> and <code>multi2nd</code> are sufficiently strong.</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="8" type="i">
+<li>Using <code>samesex</code> and <code>multi2nd</code> both as instruments for <code>kids</code>, how does the 2SLS estimate compare with the OLS and IV estimates from the previous parts?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="9" type="i">
+<li>Using the estimation from part (viii), is there strong evidence that <code>kids</code> is endogenous in the <code>hours</code> equation?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="24" type="a">
+<li>In part (viii), how many overidentification restrictions are there? Does the overidentification test pass?</li>
+</ol>
+</blockquote>
+</section>
+<section id="c14-vietnam" class="level2" data-number="15.14">
+<h2 data-number="15.14" class="anchored" data-anchor-id="c14-vietnam"><span class="header-section-number">15.14</span> C14 [VIETNAM]</h2>
+<blockquote class="blockquote">
+<p>Use the data in VIETNAM to answer the following questions. The data come from Angrist (1991), who used the draft lottery implemented in the United States during the Vietnam War in the 1960s and 1970s. Eventually, the lottery was randomized by assigning draft numbers based on birth date. Naturally, having a selected draft number increased the probability of serving in the military. Angrist was interested in estimating the causal effect of serving in the military on subsequent wages.</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol type="i">
+<li>How many men served in the Viet Nam war? What percentage is this of the total sample? Of those men whose draft lottery number was selected, what percentage wound up serving?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="2" type="i">
+<li>Run a simple regression of <code>lwage</code> on <code>vietnam</code>, and report the coefficient on <code>vietnam</code> and its heteroskedasticity-robust standard error. Discuss your findings.</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li>To the regression in part (ii), add <code>educ</code>, <code>age</code>, and <code>black</code>. What happens to the estimated effect of <code>vietnam</code>? Do the coefficients on the other variables seem reasonable?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="4" type="i">
+<li>Run the first stage regression <code>vietnam</code> on <code>draft</code>, <code>educ</code>, <code>age</code>, and <code>black</code>. Give a probability interpretation to the coefficient on <code>draft</code>. Do you think <code>draft</code> is a good instrumental variables candidate for <code>vietnam</code>?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="22" type="a">
+<li>Estimate the equation <span class="math display">\[lwage = \beta_0 + \beta_1 vietnam + \beta_2 educ + \beta_3 age + \beta_4 black + u\]</span> by instrumental variables, where <code>draft</code> is the IV for <code>vietnam</code> and all other explanatory variables are assumed to be exogenous. What is the IV estimate of <span class="math inline">\(\beta_1\)</span>? How does it compare with the OLS estimate? Is <span class="math inline">\(\hat{\beta}_{1,IV}\)</span> statistically different from zero?</li>
+</ol>
+</blockquote>
+</section>
+<section id="c15-401ksubs" class="level2" data-number="15.15">
+<h2 data-number="15.15" class="anchored" data-anchor-id="c15-401ksubs"><span class="header-section-number">15.15</span> C15 [401KSUBS]</h2>
+<blockquote class="blockquote">
+<p>Use the data in 401KSUBS for this exercise. The variable <code>p401k</code> is a binary variable equal to one if a worker participates in a 401(k) pension plan; <code>e401k</code> is one if the worker’s firm offers such a plan. The outcome variable is <code>nettfa</code>, net total financial assets. Only use the data with <span class="math inline">\(fsize = 1\)</span>.</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol type="i">
+<li>How many people are able to participate in the plan if <span class="math inline">\(e401k = 0\)</span>? How many do not participate if <span class="math inline">\(e401k = 1\)</span>?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="2" type="i">
+<li>What are the units of measurement of <code>nettfa</code>? What are the average and standard deviation in the sample? Are there any negative values?</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li>Center <code>inc</code> and <code>age</code> about their averages (in the sample with <span class="math inline">\(fsize = 1\)</span>). Call these variables <code>inc_dm</code> and <code>age_dm</code>. Estimate the equation <span class="math display">\[nettfa = \beta_0 + \beta_1 p401k + \beta_2 inc\_dm + \beta_3 inc\_dm^2 + \beta_4 age\_dm + \beta_5 age\_dm^2 + \beta_6 male + u\]</span> by OLS. Interpret <span class="math inline">\(\hat{\beta}_{1,OLS}\)</span>. Is it statistically significant?</li>
+<li>Using <code>e401k</code> as an instrument for <code>p401k</code>, obtain the first-stage regression. Interpret the coefficient on <code>e401k</code>; call it <span class="math inline">\(\hat{\pi}_1\)</span>. Does its sign make sense? Do you think <code>e401k</code> is a sufficiently strong instrument for <code>p401k</code>? Do you think <code>e401k</code> obviously satisfies the exogeneity requirement? Explain.</li>
+<li>Obtain the IV (2SLS) estimate of <span class="math inline">\(\beta_1\)</span>, <span class="math inline">\(\hat{\beta}_{1,IV}\)</span>. Comment on how it compares with <span class="math inline">\(\hat{\beta}_{1,OLS}\)</span> and its statistical significance.</li>
+<li>Verify that you can obtain <span class="math inline">\(\hat{\beta}_{1,IV}\)</span> as follows. (1) Run the regression <code>nettfa</code> on <code>e401k</code>, <code>inc_dm</code>, <span class="math inline">\(inc\_dm^2\)</span>, <code>age_dm</code>, <span class="math inline">\(age\_dm^2\)</span>, and <code>male</code>; obtain <span class="math inline">\(\hat{\gamma}_1\)</span>, the coefficient on <code>e401k</code>. (2) Run the regression <code>p401k</code> on <code>e401k</code>, <code>inc_dm</code>, <span class="math inline">\(inc\_dm^2\)</span>, <code>age_dm</code>, <span class="math inline">\(age\_dm^2\)</span>, and <code>male</code>; obtain the coefficient on <code>e401k</code>, <span class="math inline">\(\hat{\pi}_1\)</span>. (3) Show that <span class="math inline">\(\hat{\beta}_{1,IV} = \hat{\gamma}_1 / \hat{\pi}_1\)</span>.</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="7" type="i">
+<li>After controlling for all of the variables in the model in part (iii), is there a statistically significant difference in <code>nettfa</code> between men and women?</li>
+</ol>
+</blockquote>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
