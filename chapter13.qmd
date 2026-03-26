@@ -2,3 +2,211 @@
 title: "Pooling Cross Sections across Time: Simple Panel Data Methods"
 format: html
 ---
+
+## C1 [FERTIL1]
+
+> Use the data in FERTIL1 for this exercise.
+> (i) In the equation estimated in Example 13.1, test whether living environment at age 16 has an effect on fertility. (The base group is large city.) Report the value of the $F$ statistic and the $p$-value.
+> (ii) Test whether region of the country at age 16 (South is the base group) has an effect on fertility.
+> (iii) Let $u$ be the error term in the population equation. Suppose you think that the variance of $u$ changes over time (but not with `educ`, `age`, and so on). A model that captures this is
+>
+> $$u^2 = \gamma_0 + \gamma_1 y74 + \gamma_2 y76 + \dots + \gamma_6 y84 + v.$$
+>
+> Using this model, test for heteroskedasticity in $u$. (*Hint*: Your $F$ test should have 6 and 1,122 degrees of freedom.)
+> (iv) Add the interaction terms $y74 \cdot educ, y76 \cdot educ, \dots, y84 \cdot educ$ to the model estimated in Table 13.1. Explain what these terms represent. Are they jointly significant? Does your answer depend on whether or not the test is robust to heteroskedasticity?
+
+## C2 [CPS78_85]
+
+> Use the data in CPS78_85 for this exercise.
+> (i) How do you interpret the coefficient on $y85$ in equation (13.2)? Does it have an interesting interpretation? (Be careful here; you must account for the interaction terms $y85 \cdot educ$ and $y85 \cdot female$.)
+
+> (ii) Holding other factors fixed, what is the estimated percent increase in nominal wage for a male with 12 years of education? Propose a regression to obtain a confidence interval for this estimate. [*Hint*: To get the confidence interval, replace $y85 \cdot educ$ with $y85 \cdot (educ - 12)$; refer to Example 6.3.]
+> (iii) Reestimate equation (13.2) but let all wages be measured in 1978 dollars. In particular, define the real wage as $rwage = wage$ for 1978 and as $rwage = wage/1.65$ for 1985. Now, use $\log(rwage)$ in place of $\log(wage)$ in estimating (13.2). Which coefficients differ from those in equation (13.2)?
+> (iv) Explain why the $R$-squared from your regression in part (iii) is not the same as in equation (13.2). (*Hint*: The residuals, and therefore the sum of squared residuals, from the two regressions *are* identical.)
+> (v) Describe how union participation changed from 1978 to 1985.
+> (vi) Starting with equation (13.2), test whether the union wage differential changed over time. (This should be a simple $t$ test.)
+> (vii) Do your findings in parts (v) and (vi) conflict? Explain.
+
+## C3 [KIELMC]
+
+> Use the data in KIELMC for this exercise.
+> (i) The variable `dist` is the distance from each home to the incinerator site, in feet. Consider the model
+>
+> $$\log(price) = \beta_0 + \delta_0 y81 + \beta_1 \log(dist) + \delta_1 y81 \cdot \log(dist) + u.$$
+>
+> If building the incinerator reduces the value of homes closer to the site, what is the sign of $\delta_1$? What does it mean if $\beta_1 > 0$?
+> (ii) Estimate the model from part (i) and report the results in the usual form. Interpret the coefficient on $y81 \cdot \log(dist)$. What do you conclude?
+> (iii) Add `age`, $age^2$, `rooms`, `baths`, $\log(intst)$, $\log(land)$, and $\log(area)$ to the equation. Now, what do you conclude about the effect of the incinerator on housing values?
+> (iv) Why is the coefficient on $\log(dist)$ positive and statistically significant in part (ii) but not in part (iii)? What does this say about the controls used in part (iii)?
+
+## C4 [INJURY]
+
+> Use the data in INJURY for this exercise.
+> (i) Using the data for Kentucky, reestimate equation (13.13), adding as explanatory variables `male`, `married`, and a full set of industry and injury type dummy variables. How does the estimate on $afchnge \cdot highearn$ change when these other factors are controlled for? Is the estimate still statistically significant?
+> (ii) What do you make of the small $R$-squared from part (i)? Does this mean the equation is useless?
+> (iii) Estimate equation (13.13) using the data for Michigan. Compare the estimates on the interaction term for Michigan and Kentucky. Is the Michigan estimate statistically significant? What do you make of this?
+
+## C5 [RENTAL]
+
+> Use the data in RENTAL for this exercise. The data for the years 1980 and 1990 include rental prices and other variables for college towns. The idea is to see whether a stronger presence of students affects rental rates. The unobserved effects model is
+>
+> $$\log(rent_{it}) = \beta_0 + \delta_0 y90_t + \beta_1 \log(pop_{it}) + \beta_2 \log(avginc_{it}) + \beta_3 pctstu_{it} + a_i + u_{it},$$
+>
+> where `pop` is city population, `avginc` is average income, and `pctstu` is student population as a percentage of city population (during the school year).
+> (i) Estimate the equation by pooled OLS and report the results in standard form. What do you make of the estimate on the 1990 dummy variable? What do you get for $\hat{\beta}_{pctstu}$?
+> (ii) Are the standard errors you report in part (i) valid? Explain.
+> (iii) Now, difference the equation and estimate by OLS. Compare your estimate of $\beta_{pctstu}$ with that from part (ii). Does the relative size of the student population appear to affect rental prices?
+> (iv) Obtain the heteroskedasticity-robust standard errors for the first-differenced equation in part (iii). Does this change your conclusions?
+
+## C6 [CRIME3]
+
+> Use CRIME3 for this exercise.
+> (i) In the model of Example 13.6, test the hypothesis $H_0: \beta_1 = \beta_2$. (*Hint*: Define $\theta_1 = \beta_1 - \beta_2$ and write $\beta_1$ in terms of $\theta_1$ and $\beta_2$. Substitute this into the equation and then rearrange. Do a $t$ test on $\theta_1$.)
+> (ii) If $\beta_1 = \beta_2$, show that the differenced equation can be written as
+> 
+> $$\Delta \log(crime_i) = \delta_0 + \delta_1 \Delta avgclr_i + \Delta u_i,$$
+> 
+> where $\delta_1 = 2\beta_1$ and $avgclr_i = (clrprc_{i,-1} + clrprc_{i,-2})/2$ is the average clear-up percentage over the previous two years.
+> (iii) Estimate the equation from part (ii). Compare the adjusted $R$-squared with that in (13.28). Which model would you finally use?
+
+## C7 [GPA3]
+
+> Use GPA3 for this exercise. The data set is for 366 student-athletes from a large university for fall and spring semesters. [A similar analysis is in Maloney and McCormick (1993), but here we use a true panel data set.] Because you have two terms of data for each student, an unobserved effects model is appropriate. The primary question of interest is this: Do athletes perform more poorly in school during the semester their sport is in season?
+> (i) Use pooled OLS to estimate a model with term GPA (`trmgpa`) as the dependent variable. The explanatory variables are `spring`, `sat`, `hsperc`, `female`, `black`, `white`, `frstsem`, `tothrs`, `crsgpa`, and `season`. Interpret the coefficient on `season`. Is it statistically significant?
+> (ii) Most of the athletes who play their sport only in the fall are football players. Suppose the ability levels of football players differ systematically from those of other athletes. If ability is not adequately captured by SAT score and high school percentile, explain why the pooled OLS estimators will be biased.
+> (iii) Now, use the data differenced across the two terms. Which variables drop out? Now, test for an in-season effect.
+> (iv) Can you think of one or more potentially important, time-varying variables that have been omitted from the analysis?
+
+## C8 [VOTE2]
+
+> VOTE2 includes panel data on House of Representatives elections in 1988 and 1990. Only winners from 1988 who are also running in 1990 appear in the sample; these are the incumbents. An unobserved effects model explaining the share of the incumbent's vote in terms of expenditures by both candidates is
+> 
+> $$vote_{it} = \beta_0 + \delta_0 d90_t + \beta_1 \log(inexp_{it}) + \beta_2 \log(chexp_{it}) + \beta_3 incshr_{it} + a_i + u_{it},$$
+> 
+> where $incshr_{it}$ is the incumbent's share of total campaign spending (in percentage form). The unobserved effect $a_i$ contains characteristics of the incumbent—such as "quality"—as well as things about the district that are constant. The incumbent's gender and party are constant over time, so these are subsumed in $a_i$. We are interested in the effect of campaign expenditures on election outcomes.
+> (i) Difference the given equation across the two years and estimate the differenced equation by OLS. Which variables are individually significant at the 5% level against a two-sided alternative? (Use heteroskedasticity-robust standard errors.)
+> (ii) In the equation from part (i), test for joint significance of $\Delta \log(inexp)$ and $\Delta \log(chexp)$. Report the $p$-value of a heteroskedasticity-robust test.
+> (iii) Reestimate the equation from part (i) using $\Delta incshr$ as the only explanatory variable. Interpret the coefficient on $\Delta incshr$. For example, if the incumbent's share of spending increases by 10 percentage points, how is this predicted to affect the incumbent's share of the vote?
+> (iv) Redo part (iii), but now use only the pairs that have repeat challengers. [This allows us to control for characteristics of the challengers as well, which would be in $a_i$. Levitt (1994) conducts a much more extensive analysis.]
+
+## C9 [CRIME4]
+
+> Use CRIME4 for this exercise.
+> (i) Add the logs of each wage variable in the data set and estimate the model by first differencing. How does including these variables affect the coefficients on the criminal justice variables in Example 13.9?
+> (ii) Do the wage variables in (i) all have the expected sign? Are they jointly significant? Explain.
+
+## C10 [JTRAIN]
+
+> For this exercise, we use JTRAIN to determine the effect of the job training grant on hours of job training per employee. The basic model for the three years is
+> 
+> $$hrsemp_{it} = \beta_0 + \delta_1 d88_t + \delta_2 d89_t + \beta_1 grant_{it} + \beta_2 grant_{i,t-1} + \beta_3 \log(employ_{it}) + a_i + u_{it}.$$
+> 
+> (i) Estimate the equation using first differencing. How many firms are used in the estimation? How many total observations would be used if each firm had data on all variables (in particular, `hrsemp`) for all three time periods?
+> (ii) Interpret the coefficient on `grant` and comment on its significance.
+> (iii) Is it surprising that $grant_{-1}$ is insignificant? Explain.
+> (iv) Do larger firms train their employees more or less, on average? How big are the differences in training?
+
+## C11 [MATHPNL]
+
+> The file MATHPNL contains panel data on school districts in Michigan for the years 1992 through 1998. It is the district-level analogue of the school-level data used by Papke (2005). The response variable of interest in this question is `math4`, the percentage of fourth graders in a district receiving a passing score on a standardized math test. The key explanatory variable is `rexpp`, which is real expenditures per pupil in the district. The amounts are in 1997 dollars. The spending variable will appear in logarithmic form.
+> (i) Consider the static unobserved effects model
+> 
+> $$math4_{it} = \delta_1 y93_t + \dots + \delta_6 y98_t + \beta_1 \log(rexpp_{it}) + \beta_2 \log(enrol_{it}) + \beta_3 lunch_{it} + a_i + u_{it},$$
+> 
+> where $enrol_{it}$ is total district enrollment and $lunch_{it}$ is the percentage of students in the district eligible for the school lunch program. (So $lunch_{it}$ is a pretty good measure of the district-wide poverty rate.) Argue that $\beta_1/10$ is the percentage point change in $math4_{it}$ when real per-student spending increases by roughly 10%.
+> (ii) Use first differencing to estimate the model in part (i). The simplest approach is to allow an intercept in the first-differenced equation and to include dummy variables for the years 1994 through 1998. Interpret the coefficient on the spending variable.
+> (iii) Now, add one lag of the spending variable to the model and reestimate using first differencing. Note that you lose another year of data, so you are only using changes starting in 1994. Discuss the coefficients and significance on the current and lagged spending variables.
+> (iv) Obtain heteroskedasticity-robust standard errors for the first-differenced regression in part (iii). How do these standard errors compare with those from part (iii) for the spending variables?
+> (v) Now, obtain standard errors robust to both heteroskedasticity and serial correlation. What does this do to the significance of the lagged spending variable?
+> (vi) Verify that the differenced errors $r_{it} = \Delta u_{it}$ have negative serial correlation by carrying out a test of AR(1) serial correlation.
+> (vii) Based on a fully robust joint test, does it appear necessary to include the enrollment and lunch variables in the model?
+
+## C12 [MURDER]
+
+> Use the data in MURDER for this exercise.
+> (i) Using the years 1990 and 1993, estimate the equation
+> 
+> $$mrdrte_{it} = \delta_0 + \delta_1 d93_t + \beta_1 exec_{it} + \beta_2 unem_{it} + a_i + u_{it}, t = 1, 2$$
+> 
+> by pooled OLS and report the results in the usual form. Do not worry that the usual OLS standard errors are inappropriate because of the presence of $a_i$. Do you estimate a deterrent effect of capital punishment?
+
+> (ii) Compute the FD estimates (use only the differences from 1990 to 1993; you should have 51 observations in the FD regression). Now what do you conclude about a deterrent effect?
+> (iii) In the FD regression from part (ii), obtain the residuals, say, $\hat{e}_i$. Run the Breusch-Pagan regression $\hat{e}_i^2$ on $\Delta exec_i$, $\Delta unem_i$ and compute the $F$ test for heteroskedasticity. Do the same for the special case of the White test [that is, regress $\hat{e}_i^2$ on $\hat{y}_i, \hat{y}_i^2$, where the fitted values are from part (ii)]. What do you conclude about heteroskedasticity in the FD equation?
+> (iv) Run the same regression from part (ii), but obtain the heteroskedasticity-robust $t$ statistics. What happens?
+> (v) Which $t$ statistic on $\Delta exec_i$ do you feel more comfortable relying on, the usual one or the heteroskedasticity-robust one? Why?
+
+## C13 [WAGEPAN]
+
+> Use the data in WAGEPAN for this exercise.
+> (i) Consider the unobserved effects model
+>
+> $$lwage_{it} = \beta_0 + \delta_1 d81_t + \dots + \delta_7 d87_t + \beta_1 educ_i + \gamma_1 d81_t educ_i + \dots + \delta_7 d87_t educ_i + \beta_2 union_{it} + a_i + u_{it},$$
+>
+> where $a_i$ is allowed to be correlated with $educ_i$ and $union_{it}$. Which parameters can you estimate using first differencing?
+> (ii) Estimate the equation from part (i) by FD, and test the null hypothesis that the return to education has not changed over time.
+> (iii) Test the hypothesis from part (ii) using a fully robust test, that is, one that allows arbitrary heteroskedasticity and serial correlation in the FD errors, $\Delta u_{it}$. Does your conclusion change?
+> (iv) Now allow the union differential to change over time (along with education) and estimate the equation by FD. What is the estimated union differential in 1980? What about 1987? Is the difference statistically significant?
+> (v) Test the null hypothesis that the union differential has not changed over time, and discuss your results in light of your answer to part (iv).
+
+## C14 [JTRAIN3]
+
+> Use the data in JTRAIN3 for this exercise.
+> (i) Estimate the simple regression model $re78 = \beta_0 + \beta_1 train + u$, and report the results in the usual form. Based on this regression, does it appear that job training, which took place in 1976 and 1977, had a positive effect on real labor earnings in 1978?
+> (ii) Now use the change in real labor earnings, $cre = re78 - re75$, as the dependent variable. (We need not difference `train` because we assume there was no job training prior to 1975. That is, if we define $ctrain = train78 - train75$ then $ctrain = train78$ because $train75 = 0$.) Now what is the estimated effect of training? Discuss how it compares with the estimate in part (i).
+> (iii) Find the 95% confidence interval for the training effect using the usual OLS standard error and the heteroskedasticity-robust standard error, and describe your findings.
+
+## C15 [HAPPINESS]
+
+> The data set HAPPINESS contains independently pooled cross sections for the even years from 1994 through 2006, obtained from the General Social Survey. The dependent variable for this problem is a measure of “happiness,” `vhappy`, which is a binary variable equal to one if the person reports being “very happy” (as opposed to just “pretty happy” or “not too happy”).
+> (i) Which year has the largest number of observations? Which has the smallest? What is the percentage of people in the sample reporting they are “very happy”?
+> (ii) Regress `vhappy` on all of the year dummies, leaving out $y94$ so that 1994 is the base year. Compute a heteroskedasticity-robust statistic of the null hypothesis that the proportion of very happy people has not changed over time. What is the $p$-value of the test?
+> (iii) To the regression in part (ii), add the dummy variables `occttend` and `regattend`. Interpret their coefficients. (Remember, the coefficients are interpreted relative to a base group.) How would you summarize the effects of church attendance on happiness?
+> (iv) Define a variable, say `highinc`, equal to one if family income is above $25,000. (Unfortunately, the same threshold is used in each year, and so inflation is not accounted for.)
+
+...Also, $25,000 is hardly what one would consider "high income.") Include `highinc`, `unem10`, `educ`, and `teens` in the regression in part (iii). Is the coefficient on `regattend` affected much? What about its statistical significance?
+> (v) Discuss the signs, magnitudes, and statistical significance of the four new variables in part (iv). Do the estimates make sense?
+> (vi) Controlling for the factors in part (iv), do there appear to be differences in happiness by gender or race? Justify your answer.
+
+## C16 [COUNTYMURDERS]
+
+> Use the data in COUNTYMURDERS for this exercise. The data set covers murders and executions (capital punishment) for 2,197 counties in the United States.
+> (i) Find the average value of `murdrate` across all counties and years. What is the standard deviation? For what percentage of the sample is `murdrate` equal to zero?
+> (ii) How many observations have `execs` equal to zero? What is the maximum value of `execs`? Why is the average of `execs` so small?
+> (iii) Consider the model
+> 
+> $$murdrate_{it} = \theta_t + \beta_1 execs_{it} + \beta_2 execs_{i,t-1} + \beta_3 percblack_{it} + \beta_4 percmale_{it} + \beta_5 perc1019_{it} + \beta_6 perc2029_{it} + a_i + u_{it},$$
+> 
+> where $\theta_t$ represents a different intercept for each time period, $a_i$ is the county fixed effect, and $u_{it}$ is the idiosyncratic error. What do we need to assume about $a_i$ and the execution variables in order for pooled OLS to consistently estimate the parameters, in particular, $\beta_1$ and $\beta_2$?
+> (iv) Apply OLS to the equation from part (ii) and report the estimates of $\beta_1$ and $\beta_2$, along with the usual pooled OLS standard errors. Do you estimate that executions have a deterrent effect on murders? What do you think is happening?
+> (v) Even if the pooled OLS estimators are consistent, do you trust the standard errors obtained from part (iv)? Explain.
+> (vi) Now estimate the equation in part (iii) using first differencing to remove $a_i$. What are the new estimates of $\beta_1$ and $\beta_2$? Are they very different from the estimates from part (iv)?
+> (vii) Using the estimates from part (vi), can you say there is evidence of a statistically significant deterrent effect of capital punishment on the murder rate? If possible, in addition to the usual OLS standard errors, use those that are robust to any kind of serial correlation or heteroskedasticity in the FD errors.
+
+## C17 [WAGE_TRAIN]
+
+> Use the data in WAGE_TRAIN to answer the following questions. This is a repeated cross section on two industries, $A$ and $B$, over $T = 3$ time periods. The years 2001 and 2002 are the pre-job training years, and the workers in industry $B$ received training before their earnings were measured in 2003.
+> (i) How many workers are in the data set in each of the three years? What is the average wage across the three years? How many workers received job training in 2003?
+> (ii) Estimate an equation for the log of wage, `lwage`, that includes the time dummies `d2002` and `d2003`, the dummy variable `dB`, and the variable $train = dB \cdot d2003$. What is the estimated effect of the job training program? Report the result in (approximate) percentage terms. Does it seem practically large? Is it statistically significant when you use heteroskedasticity-robust standard errors?
+> (iii) Now use only 2002 and 2003 and run a regression of `lwage` on `d2003`, `indB`, and `train`. Now what is the estimated job training effect? How does its precision compare with part (ii)? Why?
+> (iv) Now use all three years of data, but add $indB \cdot d2001$ to the regression in part (i). This is the so-called event-study regression. How does the estimate on `train` compare with that in part (iii)?
+> (v) In part (iv), do you find statistically significant evidence of pre-trends? Report a statistic and $p$-value to justify your answer.
+> (vi) In part (iv), replace $indB \cdot d2001$ with $indB \cdot t$. Verify that the test statistic for pre-trends is the same in absolute value as that in part (v). How about the estimated treatment effect and its precision?
+
+> (vii) In part (iv), replace $indB \cdot d2001$ with $indB \cdot d2002$ and report the test for pre-trends. Do you notice anything? What about the estimated treatment effect and its precision?
+> (viii) Why do you think the estimator obtained from (ii) has the smallest standard error of all of the estimators of the treatment effect?
+
+## C18 [THEFTS]
+
+> The data set THEFTS comes from the paper by Di Tella and Schargrodsky (2004), who study the effects of increased police presence on automobile thefts at the block level in Buenos Aires, Argentina. After a terrorist attack on the main Jewish center in Buenos Aires in July 1994, all Jewish institutions were provided with additional police protection. Di Tella and Schargrodsky study the effects of the observable police presence on car thefts. For this exercise, use only the two-period panel data set for June (indicated by $month = 6$ in the data set) and August ($month = 8$). The attack happened in July and so that month is skipped in the analysis.
+>
+> (i) How many blocks are included in the data set? Describe the nature of the outcome variable, `thefts`. How come it is not always an integer? How frequently is it zero?
+>
+> (ii) The variable `sameblock` indicates increased police presence after the terrorist attack. (The variable `treat` varies over time for the treated blocks and is zero before the terrorist attack for all blocks. It contains the same information as `sameblock`, but it is a bit easier to use `sameblock` for this exercise.) How many blocks are in the treated group? What percentage is this of the total number of blocks?
+>
+> (iii) Obtain the difference-in-differences estimate by regressing $\Delta thefts_i$ on $sameblock_i$ (including an intercept, as always), where $\Delta thefts_i$ is the change from June to August for block $i$. What is the estimated treatment effect? Does its statistical significance depend on whether you use the usual or heteroskedasticity-robust standard error?
+>
+> (iv) Interpret the estimated effect in part (iii). How does the magnitude of the effect compare with the average thefts in June 1994? Do you think the effect is practically large?
+>
+> (v) What percentage of the blocks include a bank? If you add $bank_i$ to the regression in part (iii), does the estimated treatment effect change much?
+>
+> (vi) How many “treated” blocks also include a bank? If you add the interaction $sameblock_i \cdot bank_i$ to the regression in part (v)—so $sameblock_i$, $bank_i$, and $sameblock_i \cdot bank_i$ are the regressors—is it surprising that the interaction is insignificant? Is the estimated effect practically large?

@@ -3,8 +3,6 @@ title: "Advanced Panel Data Methods"
 format: html
 ---
 
-My apologies for missing the template earlier. I appreciate you calling me out on it. Here is the text extracted from the image, formatted exactly to your specifications.
-
 ## C1 [RENTAL]
 
 > Use the data in RENTAL for this exercise. The data on rental prices and other variables for college towns are for the years 1980 and 1990. The idea is to see whether a stronger presence of students affects rental rates. The unobserved effects model is

@@ -2,3 +2,218 @@
 title: "Multiple Regression Analysis with Qualitative Information"
 format: html
 ---
+
+## C1 [GPA1]
+
+> Use the data in GPA1 for this exercise.
+> (i) Add the variables `mothcoll` and `fathcoll` to the equation estimated in (7.6) and report the results in the usual form. What happens to the estimated effect of PC ownership? Is `PC` still statistically significant?
+> (ii) Test for joint significance of `mothcoll` and `fathcoll` in the equation from part (i) and be sure to report the $p$-value.
+> (iii) Add $hsGPA^2$ to the model from part (i) and decide whether this generalization is needed.
+
+## C2 [WAGE2]
+
+> Use the data in WAGE2 for this exercise.
+> (i) Estimate the model
+> 
+> $$\log(wage) = \beta_0 + \beta_1 educ + \beta_2 exper + \beta_3 tenure + \beta_4 married + \beta_5 black + \beta_6 south + \beta_7 urban + u$$
+> 
+> and report the results in the usual form. Holding other factors fixed, what is the approximate difference in monthly salary between blacks and nonblacks? Is this difference statistically significant?
+> (ii) Add the variables $exper^2$ and $tenure^2$ to the equation and show that they are jointly insignificant at even the 20% level.
+> (iii) Extend the original model to allow the return to education to depend on race and test whether the return to education does depend on race.
+> (iv) Again, start with the original model, but now allow wages to differ across four groups of people: married and black, married and nonblack, single and black, and single and nonblack. What is the estimated wage differential between married blacks and married nonblacks?
+
+## C3 [MLB1]
+
+> A model that allows major league baseball player salary to differ by position is
+> 
+> $$\log(salary) = \beta_0 + \beta_1 years + \beta_2 gamesyr + \beta_3 bavg + \beta_4 hrunsy + \beta_5 rbisyr + \beta_6 runsyr + \beta_7 fldperc + \beta_8 allstar + \beta_9 frstbase + \beta_{10} scndbase + \beta_{11} thrdbase + \beta_{12} shrtstop + \beta_{13} catcher + u,$$
+> 
+> where `outfield` is the base group.
+
+> (i) State the null hypothesis that, controlling for other factors, catchers and outfielders earn, on average, the same amount. Test this hypothesis using the data in MLB1 and comment on the size of the estimated salary differential.
+> (ii) State and test the null hypothesis that there is no difference in average salary across positions, once other factors have been controlled for.
+> (iii) Are the results from parts (i) and (ii) consistent? If not, explain what is happening.
+
+## C4 [GPA2]
+
+> Use the data in GPA2 for this exercise.
+> (i) Consider the equation
+>
+> $$colgpa = \beta_0 + \beta_1 hsize + \beta_2 hsize^2 + \beta_3 hsperc + \beta_4 sat + \beta_5 female + \beta_6 athlete + u,$$
+>
+> where `colgpa` is cumulative college grade point average; `hsize` is size of high school graduating class, in hundreds; `hsperc` is academic percentile in graduating class; `sat` is combined SAT score; `female` is a binary gender variable; and `athlete` is a binary variable, which is equal to one for student athletes. What are your expectations for the coefficients in this equation? Which ones are you unsure about?
+> (ii) Estimate the equation in part (i) and report the results in the usual form. What is the estimated GPA differential between athletes and nonathletes? Is it statistically significant?
+> (iii) Drop `sat` from the model and reestimate the equation. Now, what is the estimated effect of being an athlete? Discuss why the estimate is different than that obtained in part (ii).
+> (iv) In the model from part (i), allow the effect of being an athlete to differ by gender and test the null hypothesis that there is no ceteris paribus difference between women athletes and women nonathletes.
+> (v) Does the effect of `sat` on `colgpa` differ by gender? Justify your answer.
+
+## C5 [CEOSAL1]
+
+> In Problem 2 in Chapter 4, we added the return on the firm’s stock, `ros`, to a model explaining CEO salary; `ros` turned out to be insignificant. Now, define a dummy variable, `rosneg`, which is equal to one if $ros < 0$ and equal to zero if $ros \geq 0$. Use CEOSAL1 to estimate the model
+>
+> $$\log(salary) = \beta_0 + \beta_1 \log(sales) + \beta_2 roe + \beta_3 rosneg + u.$$
+>
+> Discuss the interpretation and statistical significance of $\hat{\beta}_3$.
+
+## C6 [SLEEP75]
+
+> Use the data in SLEEP75 for this exercise. The equation of interest is
+>
+> $$sleep = \beta_0 + \beta_1 totwrk + \beta_2 educ + \beta_3 age + \beta_4 age^2 + \beta_5 yngkid + u.$$
+>
+> (i) Estimate this equation separately for men and women and report the results in the usual form. Are there notable differences in the two estimated equations?
+> (ii) Compute the Chow test for equality of the parameters in the sleep equation for men and women. Use the form of the test that adds `male` and the interaction terms $male \cdot totwrk, \dots, male \cdot yngkid$ and uses the full set of observations. What are the relevant $df$ for the test? Should you reject the null at the 5% level?
+> (iii) Now, allow for a different intercept for males and females and determine whether the interaction terms involving `male` are jointly significant.
+> (iv) Given the results from parts (ii) and (iii), what would be your final model?
+
+## C7 [WAGE1]
+
+> Use the data in WAGE1 for this exercise.
+> (i) Use equation (7.18) to estimate the gender differential when $educ = 12.5$, which is very close to the average education in the sample. Compare this with the estimated differential when $educ = 0$.
+
+> (ii) Run the regression used to obtain (7.18), but with $female \cdot (educ - 12.5)$ replacing $female \cdot educ$. How do you interpret the coefficient on `female` now?
+> (iii) Is the coefficient on `female` in part (ii) statistically significant? Compare this with (7.18) and comment.
+
+## C8 [LOANAPP]
+
+> Use the data in LOANAPP for this exercise. The binary variable to be explained is `approve`, which is equal to one if a mortgage loan to an individual was approved. The key explanatory variable is `white`, a dummy variable equal to one if the applicant was white. The other applicants in the data set are black and Hispanic.
+> To test for discrimination in the mortgage loan market, a linear probability model can be used:
+>
+> $$approve = \beta_0 + \beta_1 white + \text{other factors}.$$
+>
+> (i) If there is discrimination against minorities, and the appropriate factors have been controlled for, what is the sign of $\beta_1$?
+> (ii) Regress `approve` on `white` and report the results in the usual form. Interpret the coefficient on `white`. Is it statistically significant? Is it practically large?
+> (iii) As controls, add the variables `hrat`, `obrat`, `loanprc`, `unem`, `male`, `married`, `dep`, `sch`, `cosign`, `chist`, `pubrec`, `mortlat1`, `mortlat2`, and `vr`. What happens to the coefficient on `white`? Is there still evidence of discrimination against nonwhites?
+> (iv) Now, allow the effect of race to interact with the variable measuring other obligations as a percentage of income (`obrat`). Is the interaction term significant?
+> (v) Using the model from part (iv), what is the effect of being white on the probability of approval when $obrat = 32$, which is roughly the mean value in the sample? Obtain a 95% confidence interval for this effect.
+
+## C9 [401KSUBS]
+
+> There has been much interest in whether the presence of 401(k) pension plans, available to many U.S. workers, increases net savings. The data set 401KSUBS contains information on net financial assets (`nettfa`), family income (`inc`), a binary variable for eligibility in a 401(k) plan (`e401k`), and several other variables.
+> (i) What fraction of the families in the sample are eligible for participation in a 401(k) plan?
+> (ii) Estimate a linear probability model explaining 401(k) eligibility in terms of income, age, and gender. Include income and age in quadratic form, and report the results in the usual form.
+> (iii) Would you say that 401(k) eligibility is independent of income and age? What about gender? Explain.
+> (iv) Obtain the fitted values from the linear probability model estimated in part (ii). Are any fitted values negative or greater than one?
+> (v) Using the fitted values $\hat{e401k}_i$ from part (iv), define $\tilde{e401k}_i = 1$ if $\hat{e401k}_i \geq 0.5$ and $\tilde{e401k}_i = 0$ if $\hat{e401k}_i < 0.5$. Out of 9,275 families, how many are predicted to be eligible for a 401(k) plan?
+> (vi) For the 5,638 families not eligible for a 401(k) plan, what percentage of these are predicted not to be eligible, using the predictor $\tilde{e401k}_i$? For the 3,637 families eligible for a 401(k) plan, what percentage are predicted to be eligible? (It is helpful if your econometrics package has a “tabulate” command.)
+> (vii) The overall percent correctly predicted is about 64.9%. Do you think this is a complete description of how well the model does, given your answers in part (vi)?
+> (viii) Add the variable `pira` as an explanatory variable to the linear probability model. Other things equal, if a family has someone with an individual retirement account, how much higher is the estimated probability that the family is eligible for a 401(k) plan? Is it statistically different from zero at the 10% level?
+
+I have transcribed the content from the provided images, which feature econometrics computer exercises.
+
+## **C10 [NBASAL]**
+Use the data in **NBASAL** for this exercise.
+* **(i)** Estimate a linear regression model relating points per game to experience in the league and position (guard, forward, or center). Include experience in quadratic form and use centers as the base group. Report the results in the usual form.
+* **(ii)** Why do you not include all three position dummy variables in part (i)?
+* **(iii)** Holding experience fixed, does a guard score more than a center? How much more? Is the difference statistically significant?
+* **(iv)** Now, add marital status to the equation. Holding position and experience fixed, are married players more productive (based on points per game)?
+* **(v)** Add interactions of marital status with both experience variables. In this expanded model, is there strong evidence that marital status affects points per game?
+* **(vi)** Estimate the model from part (iv) but use assists per game as the dependent variable. Are there any notable differences from part (iv)? Discuss.
+
+---
+
+## **C11 [401KSUBS]**
+Use the data in **401KSUBS** for this exercise.
+* **(i)** Compute the average, standard deviation, minimum, and maximum values of $netfa$ in the sample.
+* **(ii)** Test the hypothesis that average $netfa$ does not differ by 401(k) eligibility status; use a two-sided alternative. What is the dollar amount of the estimated difference?
+* **(iii)** From part (ii) of Computer Exercise C9, it is clear that $e401k$ is not exogenous in a simple regression model; at a minimum, it changes by income and age. Estimate a multiple linear regression model for $netfa$ that includes income, age, and $e401k$ as explanatory variables. The income and age variables should appear as quadratics. Now, what is the estimated dollar effect of 401(k) eligibility?
+* **(iv)** To the model estimated in part (iii), add the interactions $e401k \cdot (age - 41)$ and $e401k \cdot (age - 41)^2$. Note that the average age in the sample is about 41, so that in the new model, the coefficient on $e401k$ is the estimated effect of 401(k) eligibility at the average age. Which interaction term is significant?
+* **(v)** Comparing the estimates from parts (iii) and (iv), do the estimated effects of 401(k) eligibility at age 41 differ much? Explain.
+* **(vi)** Now, drop the interaction terms from the model, but define five family size dummy variables: $fsize1$, $fsize2$, $fsize3$, $fsize4$, and $fsize5$. The variable $fsize5$ is unity for families with five or more members. Include the family size dummies in the model estimated from part (iii); be sure to choose a base group. Are the family dummies significant at the 1% level?
+* **(vii)** Now, do a Chow test for the model $$nettfa = \beta_0 + \beta_1 inc + \beta_2 inc^2 + \beta_3 age + \beta_4 age^2 + \beta_5 e401k + u$$ across the five family size categories, allowing for intercept differences. The restricted sum of squared residuals, $SSR_r$, is obtained from part (vi) because that regression assumes all slopes are the same. The unrestricted sum of squared residuals is $SSR_{ur} = SSR_1 + SSR_2 + \dots + SSR_5$, where $SSR_f$ is the sum of squared residuals for the equation estimated using only family size $f$. You should convince yourself that there are 30 parameters in the unrestricted model (5 intercepts plus 25 slopes) and 10 parameters in the restricted model (5 intercepts plus 5 slopes). Therefore, the number of restrictions being tested is $q = 20$, and the $df$ for the unrestricted model is $9,275 - 30 = 9,245$.
+
+---
+
+## **C12 [BEAUTY]**
+Use the data set in **BEAUTY**, which contains a subset of the variables (but more usable observations than in the regressions) reported by Hamermesh and Biddle (1994).
+* **(i)** Find the separate fractions of men and women that are classified as having above average looks. Are more people rated as having above average or below average looks?
+* **(ii)** Test the null hypothesis that the population fractions of above-average-looking women and men are the same. Report the one-sided $p$-value that the fraction is higher for women. (*Hint*: Estimating a simple linear probability model is easiest.)
+* **(iii)** Estimate the model $\log(wage) = \beta_0 + \beta_1belavg + \beta_2abvavg + u$ separately for men and women and report the results in the usual form. Interpret the coefficient on $belavg$ in each case. State the hypothesis $H_0: \beta_1 = 0$ against $H_1: \beta_1 < 0$ in words, and find the $p$-values for both men and women.
+* **(iv)** Is there convincing evidence that women with above-average looks earn more than women with average looks? Explain.
+* **(v)** Add explanatory variables including $educ$, $exper$, $exper^2$, $union$, $goodhlth$, $black$, $married$, $south$, $bigcity$, $smllcity$, and $service$ for both men and women. Do the effects of the "looks" variables change in important ways?
+* **(vi)** Use the $SSR$ form of the **Chow $F$ statistic** to test whether the slopes of the regression functions in part (v) differ between men and women, allowing for an intercept shift under the null.
+
+---
+
+### **C13 [APPLE]**
+Use the data in **APPLE** to answer this question.
+* **(i)** Define a binary variable $ecobuy = 1$ if $ecolbs > 0$ and $ecobuy = 0$ if $ecolbs = 0$ (indicating if a family would buy any ecologically friendly apples at the given prices). What fraction of families claim they would buy ecolabeled apples?
+* **(ii)** Estimate the **linear probability model (LPM)**: $ecobuy = \beta_0 + \beta_1ecoprc + \beta_2regprc + \beta_3faminc + \beta_4hhsize + \beta_5educ + \beta_6age + u$. Report the results and carefully interpret the coefficients on the price variables.
+* **(iii)** Test if the nonprice variables are jointly significant in the LPM using the usual $F$ statistic. Which nonprice variable seems to have the most important effect on the decision to buy ecolabeled apples?
+* **(iv)** Replace $faminc$ with $\log(faminc)$ in the previous model. Which model fits the data better? Interpret the coefficient on $\log(faminc)$.
+* **(v)** In the $\log(faminc)$ model, how many estimated probabilities are negative or greater than one? Should you be concerned?
+* **(vi)** Compute the **percent correctly predicted** for each outcome ($ecobuy = 0$ and $ecobuy = 1$) for the model in part (iv). Which outcome is best predicted?
+
+---
+
+### **C14 [CHARITY]**
+Use the data in **CHARITY** to answer this question.
+* **(i)** Estimate an LPM relating $respond$ (dummy for responding with a contribution) to $resplast$ (dummy for responding to the previous mailing) and $avggift$ (average of past gifts). Interpret the coefficient on $resplast$.
+* **(ii)** Does the average value of past gifts affect the probability of responding?
+* **(iii)** Add the variable $propresp$ (proportion of times the person responded to past mailings) to the model. Interpret its coefficient, noting that an increase of one is the largest possible change.
+* **(iv)** What happened to the coefficient on $resplast$ when $propresp$ was added? Does this make sense?
+* **(v)** Add $mailyear$ (number of mailings per year) to the model. How big is its estimated effect? Why might this not be a good estimate of the causal effect of mailings on responding?
+
+## **C15 [FERTIL2]**
+Use the data in **FERTIL2** to answer this question.
+* **(i)** Find the smallest and largest values of *children* in the sample. What is the average of *children*? Does any woman have exactly the average number of children?
+* **(ii)** What percentage of women have electricity in the home?
+* **(iii)** Compute the average of *children* for those without electricity and do the same for those with electricity. Comment on what you find. Test whether the population means are the same using a simple regression.
+* **(iv)** From part (iii), can you infer that having electricity "causes" women to have fewer children? Explain.
+* **(v)** Estimate a multiple regression model of the kind reported in equation (7.47), but add $age^2$, *urban*, and the three religious affiliation dummies. How does the estimated effect of having electricity compare with that in part (iii)? Is it still statistically significant?
+* **(vi)** To the equation in part (v), add an interaction between *electric* and *educ*. Is its coefficient statistically significant? What happens to the coefficient on *electric*?
+* **(vii)** The median and mode value for *educ* is 7. In the equation from part (vi), use the centered interaction term $electric \cdot (educ - 7)$ in place of $electric \cdot educ$. What happens to the coefficient on *electric* compared with part (vi)? Why? How does the coefficient on *electric* compare with that in part (v)?
+
+## **C16 [CATHOLIC]**
+Use the data in **CATHOLIC** to answer this question.
+* **(i)** In the entire sample, what percentage of the students attend a Catholic high school? What is the average of *math12* in the entire sample?
+* **(ii)** Run a simple regression of *math12* on *cathhs* and report the results in the usual way. Interpret what you have found.
+* **(iii)** Now add the variables *lfaminc, motheduc,* and *fatheduc* to the regression from part (ii). How many observations are used in the regression? What happens to the coefficient on *cathhs*, along with its statistical significance?
+* **(iv)** Return to the simple regression of *math12* on *cathhs*, but restrict the regression to observations used in the multiple regression from part (iii). Do any important conclusions change?
+* **(v)** To the multiple regression in part (iii), add interactions between *cathhs* and each of the other explanatory variables. Are the interaction terms individually or jointly significant?
+* **(vi)** What happens to the coefficient on *cathhs* in the regression from part (v)? Explain why this coefficient is not very interesting.
+* **(vii)** Compute the average partial effect of *cathhs* in the model estimated in part (v). How does it compare with the coefficients on *cathhs* in parts (iii) and (v)?
+
+## **C17 [JTRAIN98]**
+Use the data in **JTRAIN98** to answer this question. The variable *unem98* is a binary variable indicating whether a worker was unemployed in 1998. It can be used to measure the effectiveness of the job training program in reducing the probability of being unemployed.
+* **(i)** What percentage of workers was unemployed in 1998, after the job training program? How does this compare with the unemployment rate in 1996?
+* **(ii)** Run the simple regression *unem98* on *train*. How do you interpret the coefficient on *train*? Is it statistically significant? Does it make sense to you?
+* **(iii)** Add to the regression in part (ii) the explanatory variables *earn96, educ, age,* and *married*. Now interpret the estimated training effect. Why does it differ so much from that in part (ii)?
+* **(iv)** Now perform full regression adjustment by running a regression with a full set of interactions, where all variables (except the training indicator) are centered around their sample means:
+$$unem98 \text{ on } train, earn96, educ, age, married, train \cdot (earn96 - \overline{earn96}),$$
+$$train \cdot (educ - \overline{educ}), train \cdot (age - \overline{age}), train \cdot (married - \overline{married}).$$
+
+* **(v)** Are the interaction terms in part (iv) jointly significant?
+* **(vi)** Verify that you obtain exactly the same average treatment effect if you run two separate regressions and use the formula in equation (7.43). That is, run two separate regressions for the control and treated groups, obtain the fitted values $\widehat{unem98}_i(0)$ and $\widehat{unem98}_i(1)$ for everyone in the sample, and then compute:
+    $$\hat{\tau}_{ara} = n^{-1} \sum_{i=1}^{n} [\widehat{unem98}_i(1) - \widehat{unem98}_i(0)]$$
+    Check this with the coefficient on *train* in part (iv). Which approach is more convenient for obtaining a standard error?
+
+---
+
+## C18 [JTRAIN98]
+Use the data in **JTRAIN98** for this exercise. The purpose is to illustrate the effects of changing units of measurement when using $\log(1 + y)$ as the outcome variable.
+* **(i)** What are the units of measurement of the labor market earnings variables *earn98* and *earn96*? What percentage of values of *earn98* equal zero? What percentage of men participated in the job training program?
+* **(ii)** Define two new variables, $earn98dol = 1,000 \cdot earn98$ and $earn96dol = 1,000 \cdot earn96$. How do the averages and standard deviations of these variables compare with the corresponding variables in part (i)? Do your findings make sense?
+* **(iii)** Now define $learn98p1 = \log(1 + earn98)$, $learn96p1 = \log(1 + earn96)$ where “p1” is short for “plus one.” Using the same transformation, generate $learn98dolp1$ and $learn96dolp1$. Is there any obvious relationship between the averages of $learn98p1$ and $learn98dolp1$?
+* **(iv)** Run each of the following regressions:
+    * $learn98p1$ on *train, learn96p1, educ, age, married*
+    * $learn98dolp1$ on *train, learn96dolp1, educ, age, married*
+    How do the coefficients on *train* compare? Is there an easy way, such as comparing the R-squareds, to choose between these regressions?
+* **(v)** Now run the regressions:
+    * $earn98$ on *train, earn96, educ, age, married*
+    * $earn98dol$ on *train, earn96dol, educ, age, married*
+    What is the ratio of the two coefficients on *train*? Does the answer make sense to you?
+* **(vi)** Use the coefficient on *train* from the *earn98* equation, along with the average $earn98_0$ over the control group, to estimate an average percentage increase in earnings due to the job training program. Is it similar to either coefficient on *train* in part (iv)?
+
+---
+
+## C19 [CALOIL]
+Use the data in **CALOIL** to answer the following questions. These are data from a *contingent valuation* (CV) survey, where respondents were provided with a scenario whereby oil spills off the coast of central California could be prevented. After being provided with a scenario that would prevent future oil spills, each respondent was randomly given one of five cost values, often called “bids” in the CV literature. In this study, the bids were $\$5, \$25, \$65, \$120,$ and $\$220$. Given the bid value, respondents were asked whether they were in favor of the program (yes or no) at the given bid value. Therefore, the outcome of interest, *vote*, is binary, with $vote = 1$ meaning a yes vote and $vote = 0$ being no.
+* **(i)** What is the fraction of yes votes over the entire sample? Determine how many individuals were presented each of the five bid values. Note that the five integers you report should sum to 1,085.
+* **(ii)** For each of the bid values, determine the fraction of yes votes. For example, you should find that when $bid = 5$, the fraction of yes votes is 0.6895 (or 68.95%). Do you notice a pattern as the bid value increases?
+* **(iii)** Explain why your findings in part (ii) are consistent with a downward-sloping demand curve for the prevention of oil spills.
+* **(iv)** Run a simple regression where *vote* is the dependent variable and *bid* is the explanatory variable. Interpret the coefficient on *bid*. Replace *bid* with $\log(bid)$ and interpret the coefficient on $\log(bid)$. Does *bid* or $\log(bid)$ explain more of the variation in *vote*? Does either explain much of the variation?
+* **(v)** Run a multiple regression of *vote* on the dummy variables *bid5, bid25, bid65, bid120,* and *bid220*. You should not estimate an intercept because these dummy variables are exhaustive and mutually exclusive. Do the coefficients on the dummy variables look familiar from your earlier analysis?
+* **(vi)** In the regression in part (v), drop *bid5* and instead estimate an intercept. Now how do you interpret the coefficients on *bid25, bid65, bid120,* and *bid220*? Compare the adjusted R-squared with that using $\log(bid)$ in part (iv). Are the adjusted R-squareds very different?
+* **(vii)** To the regression in part (vi), add the variables *notax* (binary, = 1 if opposed to tax increases), *ccoast* (binary, = 1 if visited California coast), and *linc* (log of income). Note that there is missing data on income, and so only 1,046 observations will be used in the regression. Is any of these three variables strongly significant? Interpret the coefficient on *ccoast*.
+* **(viii)** Do the estimated coefficients on *bid25, bid65, bid120,* and *bid22* differ much between (vi) and (vii)? Explain why it makes sense that they are similar.

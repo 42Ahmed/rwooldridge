@@ -2,3 +2,163 @@
 title: "More on Specification and Data Issues"
 format: html
 ---
+
+## C1
+
+> (i) Apply RESET from equation (9.3) to the model estimated in Computer Exercise C5 in Chapter 7. Is there evidence of functional form misspecification in the equation?
+>
+> (ii) Compute a heteroskedasticity-robust form of RESET. Does your conclusion from part (i) change?
+
+## C2 [WAGE2]
+
+> Use the data set WAGE2 for this exercise.
+> (i) Use the variable `KWW` (the “knowledge of the world of work” test score) as a proxy for ability in place of `IQ` in Example 9.3. What is the estimated return to education in this case?
+> (ii) Now, use `IQ` and `KWW` together as proxy variables. What happens to the estimated return to education?
+> (iii) In part (ii), are `IQ` and `KWW` individually significant? Are they jointly significant?
+> (iv) Do your answers in part (iii) practically change if you use heteroskedasticity-robust statistics?
+
+## C3 [JTRAIN]
+
+> Use the data from JTRAIN for this exercise.
+> (i) Consider the simple regression model
+>
+> $$\log(scrap) = \beta_0 + \beta_1 grant + u,$$
+>
+> where `scrap` is the firm scrap rate and `grant` is a dummy variable indicating whether a firm received a job training grant. Can you think of some reasons why the unobserved factors in $u$ might be correlated with `grant`?
+> (ii) Estimate the simple regression model using the data for 1988. (You should have 54 observations.) Does receiving a job training grant significantly lower a firm’s scrap rate?
+> (iii) Now, add as an explanatory variable $\log(scrap_{87})$. How does this change the estimated effect of `grant`? Interpret the coefficient on `grant`. Is it statistically significant at the 5% level against the one-sided alternative $H_1: \beta_{grant} < 0$?
+> (iv) Test the null hypothesis that the parameter on $\log(scrap_{87})$ is one against the two-sided alternative. Report the $p$-value for the test.
+> (v) Repeat parts (iii) and (iv), using heteroskedasticity-robust standard errors, and briefly discuss any notable differences.
+
+## C4 [INFMRT]
+
+> Use the data for the year 1990 in INFMRT for this exercise.
+> (i) Reestimate equation (9.43), but now include a dummy variable for the observation on the District of Columbia (called `DC`). Interpret the coefficient on `DC` and comment on its size and significance.
+> (ii) Compare the estimates and standard errors from part (i) with those from equation (9.44). What do you conclude about including a dummy variable for a single observation?
+
+## C5 [RDCHEM]
+
+> Use the data in RDCHEM to further examine the effects of outliers on OLS estimates and to see how LAD is less sensitive to outliers. The model is
+>
+> $$rdintens = \beta_0 + \beta_1 sales + \beta_2 sales^2 + \beta_3 profmarg + u,$$
+>
+> where you should first change `sales` to be in billions of dollars to make the estimates easier to interpret.
+> (i) Estimate the above equation by OLS, both with and without the firm having annual sales of almost $40 billion. Discuss any notable differences in the estimated coefficients.
+> (ii) Estimate the same equation by LAD, again with and without the largest firm. Discuss any important differences in estimated coefficients.
+> (iii) Based on your findings in parts (i) and (ii), would you say OLS or LAD is more resilient to outliers?
+
+## C6
+
+> Redo Example 4.10 by dropping schools where teacher benefits are less than 1% of salary.
+> (i) How many observations are lost?
+> (ii) Does dropping these observations have any important effects on the estimated trade-off?
+
+## C7 [LOANAPP]
+
+> Use the data in LOANAPP for this exercise.
+> (i) How many observations have $obrat > 40$, that is, other debt obligations more than 40% of total income?
+
+> (ii) Reestimate the model in part (iii) of Computer Exercise C8 in Chapter 7, excluding observations with $obrat > 40$. What happens to the estimate and $t$ statistic on `white`?
+> (iii) Does it appear that the estimate of $\beta_{white}$ is overly sensitive to the sample used?
+
+## C8 [TWOYEAR]
+
+> Use the data in TWOYEAR for this exercise.
+> (i) The variable `stotal` is a standardized test variable, which can act as a proxy variable for unobserved ability. Find the sample mean and standard deviation of `stotal`.
+> (ii) Run simple regressions of `jc` and `univ` on `stotal`. Are both college education variables statistically related to `stotal`? Explain.
+> (iii) Add `stotal` to equation (4.17) and test the hypothesis that the returns to two- and four-year colleges are the same against the alternative that the return to four-year colleges is greater. How do your findings compare with those from Section 4-4?
+> (iv) Add $stotal^2$ to the equation estimated in part (iii). Does a quadratic in the test score variable seem necessary?
+> (v) Add the interaction terms $stotal \cdot jc$ and $stotal \cdot univ$ to the equation from part (iii). Are these terms jointly significant?
+> (vi) What would be your final model that controls for ability through the use of `stotal`? Justify your answer.
+
+## C9
+
+> In this exercise, you are to compare OLS and LAD estimates of the effects of 401(k) plan eligibility on net financial assets. The model is
+>
+> $$nettfa = \beta_0 + \beta_1 inc + \beta_2 inc^2 + \beta_3 age + \beta_4 age^2 + \beta_5 male + \beta_6 e401k + u.$$
+>
+> (i) Use the data in 401KSUBS to estimate the equation by OLS and report the results in the usual form. Interpret the coefficient on `e401k`.
+> (ii) Use the OLS residuals to test for heteroskedasticity using the Breusch-Pagan test. Is $u$ independent of the explanatory variables?
+> (iii) Estimate the equation by LAD and report the results in the same form as for OLS. Interpret the LAD estimate of $\beta_6$.
+> (iv) Reconcile your findings from parts (i) and (iii).
+
+## C10
+
+> You need to use two data sets for this exercise, JTRAIN2 and JTRAIN3. The former is the outcome of a job training experiment. The file JTRAIN3 contains observational data, where individuals themselves largely determine whether they participate in job training. The data sets cover the same time period.
+> (i) In the data set JTRAIN2, what fraction of the men received job training? What is the fraction in JTRAIN3? Why do you think there is such a big difference?
+> (ii) Using JTRAIN2, run a simple regression of `re78` on `train`. What is the estimated effect of participating in job training on real earnings?
+> (iii) Now add as controls to the regression in part (ii) the variables `re74`, `re75`, `educ`, `age`, `black`, and `hisp`. Does the estimated effect of job training on `re78` change much? How come? (*Hint*: Remember that these are experimental data.)
+> (iv) Do the regressions in parts (ii) and (iii) using the data in JTRAIN3, reporting only the estimated coefficients on `train`, along with their $t$ statistics. What is the effect now of controlling for the extra factors, and why?
+> (v) Define $avgcre = (re74 + re75)/2$. Find the sample averages, standard deviations, and minimum and maximum values in the two data sets. Are these data sets representative of the same populations in 1978?
+> (vi) Almost 96% of men in the data set JTRAIN2 have `avgcre` less than $10,000. Using only these men, run the regression
+>
+> $$re78 \text{ on } train, re74, re75, educ, age, black, hisp$$
+
+...and report the training estimate and its $t$ statistic. Run the same regression for JTRAIN3, using only men with $avgcre \le 10$. For the subsample of low-income men, how do the estimated training effects compare across the experimental and nonexperimental data sets?
+> (vii) Now use each data set to run the simple regression `re78` on `train`, but only for men who were unemployed in 1974 and 1975. How do the training estimates compare now?
+> (viii) Using your findings from the previous regressions, discuss the potential importance of having comparable populations underlying comparisons of experimental and nonexperimental estimates.
+
+## C11 [MURDER]
+
+> Use the data in MURDER only for the year 1993 for this question, although you will need to first obtain the lagged murder rate, say $mrdrte_{-1}$.
+> (i) Run the regression of `mrdrte` on `exec`, `unem`. What are the coefficient and $t$ statistic on `exec`? Does this regression provide any evidence for a deterrent effect of capital punishment?
+> (ii) How many executions are reported for Texas during 1993? (Actually, this is the sum of executions for the current and past two years.) How does this compare with the other states? Add a dummy variable for Texas to the regression in part (i). Is its $t$ statistic unusually large? From this, does it appear Texas is an “outlier”?
+> (iii) To the regression in part (i) add the lagged murder rate. What happens to $\hat{\beta}_{exec}$ and its statistical significance?
+> (iv) For the regression in part (iii), does it appear Texas is an outlier? What is the effect on $\hat{\beta}_{exec}$ from dropping Texas from the regression?
+
+## C12 [ELEM94_95]
+
+> Use the data in ELEM94_95 to answer this question. See also Computer Exercise C10 in Chapter 4.
+> (i) Using all of the data, run the regression `lavgsal` on `bs`, `lenrol`, `lstaff`, and `lunch`. Report the coefficient on `bs` along with its usual and heteroskedasticity-robust standard errors. What do you conclude about the economic and statistical significance of $\hat{\beta}_{bs}$?
+> (ii) Now drop the four observations with $bs > 0.5$, that is, where average benefits are (supposedly) more than 50% of average salary. What is the coefficient on `bs`? Is it statistically significant using the heteroskedasticity-robust standard error?
+> (iii) Verify that the four observations with $bs > 0.5$ are 68, 1,127, 1,508, and 1,670. Define four dummy variables for each of these observations. (You might call them $d68, d1127, d1508,$ and $d1670$.) Add these to the regression from part (i) and verify that the OLS coefficients and standard errors on the other variables are identical to those in part (ii). Which of the four dummies has a $t$ statistic statistically different from zero at the 5% level?
+> (iv) Verify that, in this data set, the data point with the largest studentized residual (largest $t$ statistic on the dummy variable) in part (iii) has a large influence on the OLS estimates. (That is, run OLS using all observations except the one with the large studentized residual.) Does dropping, in turn, each of the other observations with $bs > 0.5$ have important effects?
+> (v) What do you conclude about the sensitivity of OLS to a single observation, even with a large sample size?
+> (vi) Verify that the LAD estimator is not sensitive to the inclusion of the observation identified in part (iii).
+
+## C13 [CEOSAL2]
+
+> Use the data in CEOSAL2 to answer this question.
+> (i) Estimate the model
+> 
+> $$lsalary = \beta_0 + \beta_1 lsales + \beta_2 lmktval + \beta_3 ceoten + \beta_4 ceoten^2 + u$$
+> 
+> by OLS using all of the observations, where `lsalary`, `lsales`, and `lmktval` are all natural logarithms. Report the results in the usual form with the usual OLS standard errors. (You may verify that the heteroskedasticity-robust standard errors are similar.)
+> (ii) In the regression from part (i) obtain the studentized residuals; call these $str_i$. How many studentized residuals are above 1.96 in absolute value? If the studentized residuals were...
+
+...independent draws from a standard normal distribution, about how many would you expect to be above two in absolute value with 177 draws?
+> (iii) Reestimate the equation in part (i) by OLS using only the observations with $|str_i| \le 1.96$. How do the coefficients compare with those in part (i)?
+> (iv) Estimate the equation in part (i) by LAD, using all of the data. Is the estimate of $\beta_1$ closer to the OLS estimate using the full sample or the restricted sample? What about for $\beta_3$?
+> (v) Evaluate the following statement: “Dropping outliers based on extreme values of studentized residuals makes the resulting OLS estimates closer to the LAD estimates on the full sample.”
+
+## C14 [ECONMATH]
+
+> Use the data in ECONMATH to answer this question. The population model is
+> 
+> $$score = \beta_0 + \beta_1 act + u.$$
+> 
+> (i) For how many students is the ACT score missing? What is the fraction of the sample? Define a new variable, `actmiss`, which equals one if `act` is missing, and zero otherwise.
+> (ii) Create a new variable, say `act0`, which is the `act` score when `act` is reported and zero when `act` is missing. Find the average of `act0` and compare it with the average for `act`.
+> (iii) Run the simple regression of `score` on `act` using only the complete cases. What do you obtain for the slope coefficient and its heteroskedasticity-robust standard error?
+> (iv) Run the simple regression of `score` on `act0` using all of the cases. Compare the slope coefficient with that in part (iii) and comment.
+> (v) Now use all of the cases and run the regression
+> 
+> $$score_i \text{ on } act0_i, actmiss_i.$$
+> 
+> What is the slope estimate on `act0_i`? How does it compare with the answers in parts (iii) and (iv)?
+> (vi) Comparing regressions in parts (iii) and (v), does using all cases and adding the missing data estimator improve the precision in estimating $\beta_1$?
+> (vii) If you add the variable `colgpa` to the regressions in parts (iii) and (v), does this change your answer to part (vi)?
+
+## C15 [VOUCHER]
+
+> Use the data set VOUCHER to answer the following questions. The outcome variable, `mnce94`, is a standardized math test score taken in 1994. The key explanatory variable is `choiceyrs`, the number of years between 1990 and 1994 that a student participated in a schools-of-choice program.
+> (i) Estimate a simple regression of `mnce94` on `choiceyrs` and report the estimate and the heteroskedasticity-robust $t$ statistic. Interpret the coefficient on `choiceyrs`. How many observations are used in the regression?
+> (ii) To the regression in part (i), add the variable `mnce90`. If the goal is to infer causality of `choiceyrs`, why is adding `mnce90` a good idea? What happens to the number of observations? Why? How does the coefficient on `choiceyrs` compare with that in part (i)?
+> (iii) If you run the regression in part (i) but use only observations where `mnce90` is not missing, how does $\hat{\beta}_{choiceyrs}$ compare with that in part (i)? How about its precision?
+> (iv) Define a dummy variable, `mnce90_miss` to be one of `mnce90` is missing, and zero otherwise. Define `mnce90_mean` to be `mnce90` if `mnce90` is not missing; if `mnce90` is missing, `mnce90_mean` is set to the average value of `mnce90`. Run the regression
+> 
+> $$mnce94 \text{ on } choiceyrs, mnce90\_mean, mnce90\_miss$$
+> 
+> and obtain the heteroskedasticity-robust standard errors. How many observations are used? How does the estimate of $\beta_{choiceyrs}$ compare with that in part (ii)?
+> (v) Would you say that using the complete cases in part (ii) and the missing indicator method in part (iv) give similar estimates of $\beta_{choiceyrs}$?
+> (vi) Define `mnce90_0` to be `mnce90` when it is not missing and zero whenever `mnce90` is missing. Use `mnce90_0` in place of `mnce90_mean` in part (iv). Which coefficient changes? Does its magnitude or $t$ statistic provide useful information? Explain.
