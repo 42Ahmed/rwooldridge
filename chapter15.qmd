@@ -2,3 +2,238 @@
 title: "Instrumental Variables Estimation and Two-Stage Least Squares"
 format: html
 ---
+
+## C1 \[WAGE2\]
+
+> Use the data in WAGE2 for this exercise.
+
+> (i) In Example 15.2, if `sibs` is used as an instrument for `educ`, the IV estimate of the return to education is 0.122. To convince yourself that using `sibs` as an IV for `educ` is not the same as just plugging `sibs` in for `educ` and running an OLS regression, run the regression of $\log(wage)$ on `sibs` and explain your findings.
+
+> (ii) The variable `brthord` is birth order (`brthord` is one for a first-born child, two for a second-born child, and so on). Explain why `educ` and `brthord` might be negatively correlated. Regress `educ` on `brthord` to determine whether there is a statistically significant negative correlation.
+
+> (iii) Use `brthord` as an IV for `educ` in equation (15.1). Report and interpret the results.
+
+> (iv) Now, suppose that we include number of siblings as an explanatory variable in the wage equation; this controls for family background, to some extent: $$\log(wage) = \beta_0 + \beta_1 educ + \beta_2 sibs + u.$$ Suppose that we want to use `brthord` as an IV for `educ`, assuming that `sibs` is exogenous. The reduced form for `educ` is $$educ = \pi_0 + \pi_1 sibs + \pi_2 brthord + v.$$ State and test the identification assumption.
+
+> (v) Estimate the equation from part (iv) using `brthord` as an IV for `educ` (and `sibs` as its own IV). Comment on the standard errors for $\hat{\beta}_{educ}$ and $\hat{\beta}_{sibs}$.
+
+> (vi) Using the fitted values from part (iv), $\widehat{educ}$, compute the correlation between $\widehat{educ}$ and `sibs`. Use this result to explain your findings from part (v).
+
+## C2 \[FERTIL2\]
+
+> The data in FERTIL2 include, for women in Botswana during 1988, information on number of children, years of education, age, and religious and economic status variables.
+
+> (i) Estimate the model $$children = \beta_0 + \beta_1 educ + \beta_2 age + \beta_3 age^2 + u$$ by OLS and interpret the estimates. In particular, holding `age` fixed, what is the estimated effect of another year of education on fertility? If 100 women receive another year of education, how many fewer children are they expected to have?
+
+> (ii) The variable `frsthalf` is a dummy variable equal to one if the woman was born during the first six months of the year. Assuming that `frsthalf` is uncorrelated with the error term from part (i), show that `frsthalf` is a reasonable IV candidate for `educ`. (*Hint*: You need to do a regression.)
+
+> (iii) Estimate the model from part (i) by using `frsthalf` as an IV for `educ`. Compare the estimated effect of education with the OLS estimate from part (i). (iv) Add the binary variables `electric`, `tv`, and `bicycle` to the model and assume these are exogenous. Estimate the equation by OLS and 2SLS and compare the estimated coefficients on `educ`. Interpret the coefficient on `tv` and explain why television ownership has a negative effect on fertility.
+
+## C3 \[CARD\]
+
+> Use the data in CARD for this exercise.
+
+> (i) The equation we estimated in Example 15.4 can be written as $$\log(wage) = \beta_0 + \beta_1 educ + \beta_2 exper + \dots + u,$$ where the other explanatory variables are listed in Table 15.1. In order for IV to be consistent, the IV for `educ`, `nearc4`, must be uncorrelated with $u$. Could `nearc4` be correlated with things in the error term, such as unobserved ability? Explain.
+
+> (ii) For a subsample of the men in the data set, an IQ score is available. Regress `IQ` on `nearc4` to check whether average IQ scores vary by whether each man grew up near a four-year college. What do you conclude?
+
+> (iii) Now, regress `IQ` on `nearc4`, `smsa66`, and the 1966 regional dummy variables `reg662, \dots, reg669`. Are `IQ` and `nearc4` related after the geographic dummy variables have been partialled out? Reconcile this with your findings from part (ii).
+
+> (iv) From parts (ii) and (iii), what do you conclude about the importance of controlling for `smsa66` and the 1966 regional dummies in the $\log(wage)$ equation?
+
+## C4 \[INTDEF\]
+
+> Use the data in INTDEF for this exercise. A simple equation relating the three-month T-bill rate to the inflation rate (constructed from the Consumer Price Index) is $$i3_t = \beta_0 + \beta_1 inf_t + u_t.$$
+
+> (i) Estimate this equation by OLS, omitting the first time period for later comparisons. Report the results in the usual form.
+
+> (ii) Some economists think that the Consumer Price Index mismeasures the true rate of inflation, so that the OLS from part (i) suffers from measurement error bias. Reestimate the equation from part (i), using $inf_{t-1}$ as an IV for $inf_t$. How does the IV estimate of $\beta_1$ compare with the OLS estimate?
+
+> (iii) Now, first difference the equation: $$\Delta i3_t = \beta_0 + \beta_1 \Delta inf_t + \Delta u_t.$$ Estimate this by OLS and compare the estimate of $\beta_1$ with the previous estimates.
+
+> (iv) Can you use $\Delta inf_{t-1}$ as an IV for $\Delta inf_t$ in the differenced equation in part (iii)? Explain. (*Hint*: Are $\Delta inf_t$ and $\Delta inf_{t-1}$ sufficiently correlated?)
+
+## C5 \[CARD\]
+
+> Use the data in CARD for this exercise.
+
+> (i) In Table 15.1, the difference between the IV and OLS estimates of the return to education is economically important. Obtain the reduced form residuals, $\hat{v}_2$, from the reduced form regression `educ` on `nearc4`, `exper`, `exper^2`, `black`, `smsa`, `south`, `smsa66`, `reg662`, ..., `reg669`—see Table 15.1. Use these to test whether `educ` is exogenous; that is, determine if the difference between OLS and IV is *statistically* significant.
+
+> (ii) Estimate the equation by 2SLS, adding `nearc2` as an instrument. Does the coefficient on `educ` change much?
+
+> (iii) Test the single overidentifying restriction from part (ii).
+
+## C6 \[MURDER\]
+
+> Use the data in MURDER for this exercise. The variable `mrdrte` is the murder rate, that is, the number of murders per 100,000 people. The variable `exec` is the total number of prisoners executed for the current and prior two years; `unem` is the state unemployment rate.
+
+> (i) How many states executed at least one prisoner in 1991, 1992, or 1993? Which state had the most executions?
+
+> (ii) Using the two years 1990 and 1993, do a pooled regression of `mrdrte` on $d93$, `exec`, and `unem`. What do you make of the coefficient on `exec`?
+
+> (iii) Using the changes from 1990 to 1993 only (for a total of 51 observations), estimate the equation $$\Delta mrdrte = \delta_0 + \beta_1 \Delta exec + \beta_2 \Delta unem + \Delta u$$ by OLS and report the results in the usual form. Now, does capital punishment appear to have a deterrent effect?
+
+> (iv) The change in executions may be at least partly related to changes in the expected murder rate, so that $\Delta exec$ is correlated with $\Delta u$ in part (iii). It might be reasonable to assume that $\Delta exec_{-1}$ is uncorrelated with $\Delta u$. (After all, $\Delta exec_{-1}$ depends on executions that occurred three or more years ago.) Regress $\Delta exec$ on $\Delta exec_{-1}$ to see if they are sufficiently correlated; interpret the coefficient on $\Delta exec_{-1}$.
+
+> (v) Reestimate the equation from part (iii), using $\Delta exec_{-1}$ as an IV for $\Delta exec$. Assume that $\Delta unem$ is exogenous. How do your conclusions change from part (iii)?
+
+## C7 \[PHILLIPS\]
+
+> Use the data in PHILLIPS for this exercise.
+
+> (i) In Example 11.5, we estimated an expectations augmented Phillips curve of the form $$\Delta inf_t = \beta_0 + \beta_1 unem_t + e_t,$$ where $\Delta inf_t = inf_t - inf_{t-1}$. In estimating this equation by OLS, we assumed that the supply shock, $e_t$, was uncorrelated with $unem_t$. If this is false, what can be said about the OLS estimator of $\beta_1$?
+
+> (ii) Suppose that $e_t$ is unpredictable given all past information: $\text{E}(e_t | inf_{t-1}, unem_{t-1}, \dots) = 0$. Explain why this makes $unem_{t-1}$ a good IV candidate for $unem_t$.
+
+> (iii) Regress $unem_t$ on $unem_{t-1}$. Are $unem_t$ and $unem_{t-1}$ significantly correlated?
+
+> (iv) Estimate the expectations augmented Phillips curve by IV. Report the results in the usual form and compare them with the OLS estimates from Example 11.5.
+
+## C8 \[401KSUBS\]
+
+> Use the data in 401KSUBS for this exercise. The equation of interest is a linear probability model: $$pira = \beta_0 + \beta_1 p401k + \beta_2 inc + \beta_3 inc^2 + \beta_4 age + \beta_5 age^2 + u.$$ The goal is to test whether there is a tradeoff between participating in a 401(k) plan and having an individual retirement account (IRA). Therefore, we want to estimate $\beta_1$.
+
+> (i) Estimate the equation by OLS and discuss the estimated effect of `p401k`.
+
+> (ii) For the purposes of estimating the ceteris paribus tradeoff between participation in two different types of retirement savings plans, what might be a problem with ordinary least squares?
+
+> (iii) The variable `e401k` is a binary variable equal to one if a worker is *eligible* to participate in a 401(k) plan. Explain what is required for `e401k` to be a valid IV for `p401k`. Do these assumptions seem reasonable?
+
+> (iv) Estimate the reduced form for `p401k` and verify that `e401k` has significant partial correlation with `p401k`. Since the reduced form is also a linear probability model, use a heteroskedasticity-robust standard error.
+
+> (v) Now, estimate the structural equation by IV and compare the estimate of $\beta_1$ with the OLS estimate. Again, you should obtain heteroskedasticity-robust standard errors.
+
+> (vi) Test the null hypothesis that `p401k` is in fact exogenous, using a heteroskedasticity-robust test.
+
+## C9
+
+> The purpose of this exercise is to compare the estimates and standard errors obtained by correctly using 2SLS with those obtained using inappropriate procedures. Use the data file WAGE2.
+
+> (i) Use a 2SLS routine to estimate the equation $$\log(wage) = \beta_0 + \beta_1 educ + \beta_2 exper + \beta_3 tenure + \beta_4 black + u,$$ where `sibs` is the IV for `educ`. Report the results in the usual form.
+
+> (ii) Now, manually carry out 2SLS. That is, first regress $educ_i$ on $sibs_i, exper_i, tenure_i,$ and $black_i$ and obtain the fitted values, $\widehat{educ}_i, i = 1, \dots, n$. Then, run the second stage regression $\log(wage_i)$ on $\widehat{educ}_i, exper_i, tenure_i,$ and $black_i, i = 1, \dots, n$. Verify that the $\hat{\beta}_j$ are identical to those obtained from part (i), but that the standard errors are somewhat different. The standard errors obtained from the second stage regression when manually carrying out 2SLS are generally inappropriate.
+
+> (iii) Now, use the following two-step procedure, which generally yields inconsistent parameter estimates of the $\beta_j$, and not just inconsistent standard errors. In step one, regress $educ_i$ on $sibs_i$ only and obtain the fitted values, say $\widetilde{educ}_i$. (Note that this is an incorrect first stage regression.) Then, in the second step, run the regression of $\log(wage_i)$ on $\widetilde{educ}_i, exper_i, tenure_i,$ and $black_i, i = 1, \dots, n$. How does the estimate from this incorrect, two-step procedure compare with the correct 2SLS estimate of the return to education?
+
+## C10 \[HTV\]
+
+> Use the data in HTV for this exercise.
+
+> (i) Run a simple OLS regression of $\log(wage)$ on `educ`. Without controlling for other factors, what is the 95% confidence interval for the return to another year of education?
+
+> (ii) The variable `ctuit`, in thousands of dollars, is the change in college tuition facing students from age 17 to age 18. Show that `educ` and `ctuit` are essentially uncorrelated. What does this say about `ctuit` as a possible IV for `educ` in a simple regression analysis?
+
+> (iii) Now, add to the simple regression model in part (i) a quadratic in experience and a full set of regional dummy variables for current residence and residence at age 18. Also include the urban indicators for current and age 18 residences. What is the estimated return to a year of education?
+
+> (iv) Again using `ctuit` as a potential IV for `educ`, estimate the reduced form for `educ`. \[Naturally, the reduced form for `educ` now includes the explanatory variables in part (iii).\] Show that `ctuit` is now statistically significant in the reduced form for `educ`.
+
+> (v) Estimate the model from part (iii) by IV, using `ctuit` as an IV for `educ`. How does the confidence interval for the return to education compare with the OLS CI from part (iii)?
+
+> (vi) Do you think the IV procedure from part (v) is convincing?
+
+## C11 \[VOUCHER\]
+
+> The data set in VOUCHER, which is a subset of the data used in Rouse (1998), can be used to estimate the effect of school choice on academic achievement. Attendance at a choice school was paid for by a voucher, which was determined by a lottery among those who applied. The data subset was chosen so that any student in the sample has a valid 1994 math test score (the last year available in Rouse’s sample). Unfortunately, as pointed out by Rouse, many students have missing test scores, possibly due to attrition (that is, leaving the Milwaukee public school district). These data include students who applied to the voucher program and were accepted, students who applied and were not accepted, and students who did not apply. Therefore, even though the vouchers were chosen by lottery among those who applied, we do not necessarily have a random sample from a population where being selected for a voucher has been randomly determined. (An important consideration is that students who never applied to the program may be systematically different from those who did—and in ways that we cannot know based on the data.)
+>
+> Rouse (1998) uses panel data methods of the kind we discussed in Chapter 14 to allow student fixed effects; she also uses instrumental variables methods. This problem asks you to do a cross-sectional analysis in which winning the lottery for a voucher acts as an instrumental variable for attending a choice school. Actually, because we have multiple years of data on each student, we construct two variables. The first, `choiceyrs`, is the number of years from 1991 to 1994 that a student attended a choice school; this variable ranges from zero to four. The variable `selectyrs` indicates the number of years a student was selected for a voucher. If the student applied for the program in 1990 and received a voucher then `selectyrs = 4`; if he or she applied in 1991 and received a voucher then `selectyrs = 3`; and so on. The outcome of interest is `mnce`, the student’s percentile score on a math test administered in 1994.
+>
+> (i) Of the 990 students in the sample, how many were never awarded a voucher? How many had a voucher available for four years? How many students actually attended a choice school for four years?
+
+> (ii) Run a simple regression of `choiceyrs` on `selectyrs`. Are these variables related in the direction you expected? How strong is the relationship? Is `selectyrs` a sensible IV candidate for `choiceyrs`?
+
+> (iii) Run a simple regression of `mnce` on `choiceyrs`. What do you find? Is this what you expected? What happens if you add the variables `black`, `hispanic`, and `female`?
+
+> (iv) Why might `choiceyrs` be endogenous in an equation such as $$mnce = \beta_0 + \beta_1 choiceyrs + \beta_2 black + \beta_3 hispanic + \beta_4 female + u_1?$$
+
+> (v) Estimate the equation in part (iv) by instrumental variables, using `selectyrs` as the IV for `choiceyrs`. Does using IV produce a positive effect of attending a choice school? What do you make of the coefficients on the other explanatory variables?
+
+> (vi) To control for the possibility that prior achievement affects participating in the lottery (as well as predicting attrition), add `mnce90`—the math score in 1990—to the equation in part (iv). Estimate the equation by OLS and IV, and compare the results for $\beta_1$. For the IV estimate, how much is each year in a choice school worth on the math percentile score? Is this a practically large effect?
+
+> (vii) Why is the analysis from part (vi) not entirely convincing? \[*Hint*: Compared with part (v), what happens to the number of observations, and why?\]
+
+> (viii) The variables `choiceyrs1`, `choiceyrs2`, and so on are dummy variables indicating the different number of years a student could have been in a choice school (from 1991 to 1994). The dummy variables `selectyrs1`, `selectyrs2`, and so on have a similar definition, but for being selected from the lottery. Estimate the equation
+>
+> $$mnce = \beta_0 + \beta_1 choiceyrs1 + \beta_2 choiceyrs2 + \beta_3 choiceyrs3 + \beta_4 choiceyrs4 + \beta_5 black + \beta_6 hispanic + \beta_7 female + \beta_8 mnce90 + u_1$$
+>
+> by IV, using as instruments the four `selectyrs` dummy variables. (As before, the variables `black`, `hispanic`, and `female` act as their own IVs.) Describe your findings. Do they make sense?
+
+## C12 \[CATHOLIC\]
+
+> Use the data in CATHOLIC to answer this question. The model of interest is
+>
+> $$math12 = \beta_0 + \beta_1 cathhs + \beta_2 lfaminc + \beta_3 motheduc + \beta_4 fatheduc + u,$$
+>
+> where `cathhs` is a binary indicator for whether a student attends a Catholic high school.
+
+> (i) How many students are in the sample? What percentage of these students attend a Catholic high school?
+
+> (ii) Estimate the above equation by OLS. What is the estimate of $\beta_1$? What is its 95% confidence interval?
+
+> (iii) Using `parcath` as an instrument for `cathhs`, estimate the reduced form for `cathhs`. What is the $t$ statistic for `parcath`? Is there evidence of a weak instrument problem?
+
+> (iv) Estimate the above equation by IV, using `parcath` as an IV for `cathhs`. How does the estimate and 95% CI compare with the OLS quantities?
+
+> (v) Test the null hypothesis that `cathhs` is exogenous. What is the $p$-value of the test?
+
+> (vi) Suppose you add the interaction between $cathhs \cdot motheduc$ to the above model. Why is it generally endogenous? Why is $parcath \cdot motheduc$ a good IV candidate for $cathhs \cdot motheduc$?
+
+> (vii) Before you create the interactions in part (vi), first find the sample average of `motheduc` and create $cathhs \cdot (motheduc - \overline{motheduc})$ and $parcath \cdot (motheduc - \overline{motheduc})$. Add the first interaction to the model and use the second as an IV. Of course, `cathhs` is also instrumented. Is the interaction term statistically significant?
+
+> (viii) Compare the coefficient on `cathhs` in (vii) to that in part (iv). Is including the interaction important for estimating the average partial effect?
+
+## C13 \[LABSUP\]
+
+> Use the data in LABSUP to answer the following questions. These are data on almost 32,000 black or Hispanic women. Every woman in the sample is married. It is a subset of the data used in Angrist and Evans (1998). Our interest here is in determining how weekly hours worked, `hours`, changes with number of children (`kids`). All women in the sample have at least two children. The two potential instrumental variables for `kids`, which is suspected as being endogenous, work to generate exogenous variation starting with two children. See the original article for further discussion.
+
+> (i) Estimate the equation
+>
+> $$hours = \beta_0 + \beta_1 kids + \beta_2 nonmomi + \beta_3 educ + \beta_4 age + \beta_5 age^2 + \beta_6 black + \beta_7 hispan + u$$
+>
+> by OLS and obtain the heteroskedasticity-robust standard errors. Interpret the coefficient on `kids`. Discuss its statistical significance.
+
+> (ii) A variable that Angrist and Evans propose as an instrument is `samesex`, a binary variable equal to one if the first two children are the same biological sex. What do you think is the argument for why it is a relevant instrument for `kids`?
+
+> (iii) Run the regression $$kids_i \text{ on } samesex_i, nonmomi_i, educ_i, age_i, age_i^2, black_i, hispan_i$$ and see if the story from part (ii) holds up. In particular, interpret the coefficient on `samesex`. How statistically significant is `samesex`?
+
+> (iv) Can you think of mechanisms by which `samesex` is correlated with $u$ in the equation in part (i)? (It is fine to assume that biological sex is randomly determined.) \[*Hint*: How might a family's finances be affected based on whether they have two children of the same sex or two children of opposite sex?\]
+
+> (v) Is it legitimate to check for exogeneity of `samesex` by adding it to the regression in part (i) and testing its significance? Explain.
+
+> (vi) Using `samesex` as an IV for `kids`, obtain the IV estimates of the equation in part (i). How does the `kids` coefficient compare with the OLS estimate? Is the IV estimate precise?
+
+> (vii) Now add `multi2nd` as an instrument. Obtain the $F$ statistic from the first stage regression and determining whether `samesex` and `multi2nd` are sufficiently strong.
+
+> (viii) Using `samesex` and `multi2nd` both as instruments for `kids`, how does the 2SLS estimate compare with the OLS and IV estimates from the previous parts?
+
+> (ix) Using the estimation from part (viii), is there strong evidence that `kids` is endogenous in the `hours` equation?
+
+> (x) In part (viii), how many overidentification restrictions are there? Does the overidentification test pass?
+
+## C14 \[VIETNAM\]
+
+> Use the data in VIETNAM to answer the following questions. The data come from Angrist (1991), who used the draft lottery implemented in the United States during the Vietnam War in the 1960s and 1970s. Eventually, the lottery was randomized by assigning draft numbers based on birth date. Naturally, having a selected draft number increased the probability of serving in the military. Angrist was interested in estimating the causal effect of serving in the military on subsequent wages.
+
+> (i) How many men served in the Viet Nam war? What percentage is this of the total sample? Of those men whose draft lottery number was selected, what percentage wound up serving?
+
+> (ii) Run a simple regression of `lwage` on `vietnam`, and report the coefficient on `vietnam` and its heteroskedasticity-robust standard error. Discuss your findings.
+
+> (iii) To the regression in part (ii), add `educ`, `age`, and `black`. What happens to the estimated effect of `vietnam`? Do the coefficients on the other variables seem reasonable?
+
+> (iv) Run the first stage regression `vietnam` on `draft`, `educ`, `age`, and `black`. Give a probability interpretation to the coefficient on `draft`. Do you think `draft` is a good instrumental variables candidate for `vietnam`?
+
+> (v) Estimate the equation $$lwage = \beta_0 + \beta_1 vietnam + \beta_2 educ + \beta_3 age + \beta_4 black + u$$ by instrumental variables, where `draft` is the IV for `vietnam` and all other explanatory variables are assumed to be exogenous. What is the IV estimate of $\beta_1$? How does it compare with the OLS estimate? Is $\hat{\beta}_{1,IV}$ statistically different from zero?
+
+## C15 \[401KSUBS\]
+
+> Use the data in 401KSUBS for this exercise. The variable `p401k` is a binary variable equal to one if a worker participates in a 401(k) pension plan; `e401k` is one if the worker's firm offers such a plan. The outcome variable is `nettfa`, net total financial assets. Only use the data with $fsize = 1$.
+
+> (i) How many people are able to participate in the plan if $e401k = 0$? How many do not participate if $e401k = 1$?
+
+> (ii) What are the units of measurement of `nettfa`? What are the average and standard deviation in the sample? Are there any negative values?
+
+> (iii) Center `inc` and `age` about their averages (in the sample with $fsize = 1$). Call these variables `inc_dm` and `age_dm`. Estimate the equation $$nettfa = \beta_0 + \beta_1 p401k + \beta_2 inc\_dm + \beta_3 inc\_dm^2 + \beta_4 age\_dm + \beta_5 age\_dm^2 + \beta_6 male + u$$ by OLS. Interpret $\hat{\beta}_{1,OLS}$. Is it statistically significant?
+> (iv) Using `e401k` as an instrument for `p401k`, obtain the first-stage regression. Interpret the coefficient on `e401k`; call it $\hat{\pi}_1$. Does its sign make sense? Do you think `e401k` is a sufficiently strong instrument for `p401k`? Do you think `e401k` obviously satisfies the exogeneity requirement? Explain.
+> (v) Obtain the IV (2SLS) estimate of $\beta_1$, $\hat{\beta}_{1,IV}$. Comment on how it compares with $\hat{\beta}_{1,OLS}$ and its statistical significance.
+> (vi) Verify that you can obtain $\hat{\beta}_{1,IV}$ as follows. (1) Run the regression `nettfa` on `e401k`, `inc_dm`, $inc\_dm^2$, `age_dm`, $age\_dm^2$, and `male`; obtain $\hat{\gamma}_1$, the coefficient on `e401k`. (2) Run the regression `p401k` on `e401k`, `inc_dm`, $inc\_dm^2$, `age_dm`, $age\_dm^2$, and `male`; obtain the coefficient on `e401k`, $\hat{\pi}_1$. (3) Show that $\hat{\beta}_{1,IV} = \hat{\gamma}_1 / \hat{\pi}_1$.
+
+> (vii) After controlling for all of the variables in the model in part (iii), is there a statistically significant difference in `nettfa` between men and women?
