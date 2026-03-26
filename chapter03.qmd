@@ -15,7 +15,7 @@ library(modelsummary)
 library(broom)
 ```
 
-## C1 \[BWGHT\]
+## C1 [BWGHT]
 
 > A problem of interest to health officials (and others) is to determine the effects of smoking during pregnancy on infant health. One measure of infant health is birth weight; a birth weight that is too low can put an infant at risk for contracting various illnesses. Since factors other than cigarette smoking that affect birth weight are likely to be correlated with smoking, we should take those factors into account. For example, higher income generally results in access to better prenatal care, as well as better nutrition for the mother. An equation that recognizes this is $$bwght = \beta_0 + \beta_1 cigs + \beta_2 faminc + u$$
 
@@ -76,7 +76,7 @@ Including income reduces the smoking coefficient from approximately $-0.514$ to 
 
 4\. $\beta_1$ is negative, negative bias will increase it from -0.46 to -0.51
 
-## C2 \[HPRICE1\]
+## C2 [HPRICE1]
 
 > Use the data in HPRICE1 to estimate the model $$price = \beta_0 + \beta_1sqrft + \beta_2bdrms + u$$ where `price` is the house price measured in thousands of dollars.
 
@@ -162,7 +162,7 @@ cat(c2m$residuals[1])
 
 Residual is **\$-54,605**. The buyer underpaid for the house.
 
-## C3 \[CEOSAL2\]
+## C3 [CEOSAL2]
 
 > The file CEOSAL2 contains data on 177 chief executive officers and can be used to examine the effects of firm performance on CEO salary.
 

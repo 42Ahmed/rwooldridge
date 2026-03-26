@@ -3,18 +3,22 @@ title: "Multiple Regression Analysis: Inference"
 format: html
 ---
 
-## Computer Exercises
+
 
 ```{r}
 #| label: 'setup'
-#| include: false
+#| message: false
+#| warning: false
+
 library(tidyverse)
 library(wooldridge)
+library(knitr)
 library(modelsummary)
+library(broom)
 library(car)
 ```
 
-### C1 \[VOTE1\]
+## C1 [VOTE1]
 
 ```{r}
 #| label: c1_data
@@ -125,7 +129,7 @@ modelsummary(
 
 $\theta = -0.53$, with a p-value of 0.32. We fail to reject the null hypothesis. This implies that $\beta_1$ and $\beta_2$ perfectly offset each other; if both candidates double their budgets, the net effect on the election outcome is practically zero.
 
-### C2 \[LAWSCH85\]
+## C2 [LAWSCH85]
 
 ```{r}
 #| label: c2_data
@@ -170,7 +174,7 @@ modelsummary(
 
 Law School Rank is estimated to have a coefficient of -0.003 with a very low p value indicating rejection of null hypothesis. Moving down one spot in the law school rankings (e.g., from 10th to 11th) is associated with an estimated 0.3% reduction in median starting salary, holding all else constant.
 
-> \(ii\) Are features of the incoming class of students—namely, LSAT and GPA—individually or jointly significant for explaining salary?
+> (ii) Are features of the incoming class of students—namely, LSAT and GPA—individually or jointly significant for explaining salary?
 
 ```{r}
 #| label: c2_ii
@@ -184,7 +188,7 @@ print(joint_test)
 
 Individually, GPA is highly significant while LSAT is not (likely due to collinearity with school rank). However, the joint F-test yields a highly significant p-value, meaning we reject the null hypothesis; together, the incoming class characteristics are jointly significant.
 
-> \(iii\) Test whether the size of the entering class (clsize) or the size of the faculty (faculty) needs to be added to this equation; carry out a single test
+> (iii) Test whether the size of the entering class (clsize) or the size of the faculty (faculty) needs to be added to this equation; carry out a single test
 
 ```{r}
 #| label: c2_iii
@@ -201,13 +205,13 @@ print(joint_test)
 
 Restricted model shows no significant difference from unrestricted model (p = 0.39). We fail to reject the null hypothesis, class size and faculty provide no additional explanatory power
 
-> \(iv\) What factors might influence the rank of the law school that are not included in the salary regression?
+> (iv) What factors might influence the rank of the law school that are not included in the salary regression?
 
 **Interpretation:**
 
 Unobserved factors absorbed by the rank variable might include the school's geographic location, the strength of its alumni network, and the socioeconomic background of the student body (such as family income or father's occupation)
 
-### C3 \[HPRICE1\]
+## C3 [HPRICE1]
 
 ```{r}
 #| label: c3_data
@@ -215,7 +219,7 @@ df_hprice1 <- wooldridge::hprice1
 knitr::kable(head(df_hprice1))
 ```
 
-> \(i\) Estimate and obtain a confidence interval for the percentage change in price when a 150 square foot bedroom is added to a house
+> (i) Estimate and obtain a confidence interval for the percentage change in price when a 150 square foot bedroom is added to a house
 >
 > $$
 > \log(price) = \beta_0 + \beta_1 sqrft + \beta_2 bdrms + u
@@ -254,7 +258,7 @@ deltaMethod(model_hprice1, "150 * sqrft + bdrms")
 
 Adding a 150 square foot bedroom is associated with an estimated **8.58%** increase in price. We are 95% sure the true value lies in the interval **\[3.33%, 13.83%\]**
 
-> \(ii\) write $\beta_2$ in terms of $\theta$ and $\beta_1$
+> (ii) write $\beta_2$ in terms of $\theta$ and $\beta_1$
 
 **The Math Way:**
 
@@ -304,3 +308,145 @@ We scaled dependent variable by 100 to get percentage values for the log-level m
 
 `lm` uses t distribution. With 85 degrees of freedom, critical value = **1.988**
 :::
+
+## C4 [BWGHT]
+
+> (i) In Example 4.9, the restricted version of the model can be estimated using all 1,388 observations in the sample. Compute the R-squared from the regression of `bwght` on `cigs`, `parity`, and `faminc` using all observations. Compare this to the R-squared reported for the restricted model in Example 4.9.
+
+## C5 [MLB1]
+
+> Use the data in MLB1 for this exercise.
+
+> (i) Use the model estimated in equation (4.31) and drop the variable `rbisyr`. What happens to the statistical significance of `hrunsyr`? What about the size of the coefficient on `hrunsyr`?
+
+> (ii) Add the variables `runsyr` (runs per year), `fldperc` (fielding percentage), and `sbasesyr` (stolen bases per year) to the model from part (i). Which of these factors are individually significant?
+
+> (iii) In the model from part (ii), test the joint significance of `bavg`, `fldperc`, and `sbasesyr`.
+
+## C6 [WAGE2]
+
+> Use the data in WAGE2 for this exercise.
+
+> (i) Consider the standard wage equation $$\log(wage) = \beta_0 + \beta_1 educ + \beta_2 exper + \beta_3 tenure + u$$ State the null hypothesis that another year of general workforce experience has the same effect on log(`wage`) as another year of tenure with the current employer.
+
+> (ii) Test the null hypothesis in part (i) against a two-sided alternative, at the 5% significance level, by constructing a 95% confidence interval. What do you conclude?
+
+## C7 [TWOYEAR]
+
+> Refer to the example used in Section 4-4. You will use the data set TWOYEAR.
+
+> (i) The variable `phsrank` is the person’s high school percentile rank. (A higher number is better. For example, 90 means you are ranked better than 90 percent of your graduating class.) Find the smallest, largest, and average `phsrank` in the sample.
+
+> (ii) Add `phsrank` to equation (4.26) and report the OLS estimates in the usual form. Is `phsrank` statistically significant? How much is 10 percentage points of high school rank worth in terms of wage?
+
+> (iii) Does adding `phsrank` to (4.26) substantively change the conclusions on the returns to twoand four-year colleges? Explain.
+
+> (iv) The data set contains a variable called `id`. Explain why if you add `id` to equation (4.17) or (4.26) you expect it to be statistically insignificant. What is the two-sided p-value?
+
+## C8 [401KSUBS]
+
+>  The data set 401KSUBS contains information on net financial wealth (`nettfa`), age of the survey respondent (`age`), annual family income (`inc`), family size (`fsize`), and participation in certain pension plans for people in the United States. The wealth and income variables are both recorded in thousands of dollars. For this question, use only the data for single-person households (so `fsize = 1`).
+
+> (i) How many single-person households are there in the data set?
+
+> (ii) Use OLS to estimate the model $$nettfa = \beta_0 + \beta_1 inc + \beta_2 age + u$$ and report the results using the usual format. Be sure to use only the single-person households in the sample. Interpret the slope coefficients. Are there any surprises in the slope estimates?
+
+> (iii)  Does the intercept from the regression in part (ii) have an interesting meaning? Explain.
+
+> (iv) Find the p-value for the test $H_0: \beta_2 = 1$ against $H_1: \beta_2 < 1$. Do you reject $H_0$ at the 1% significance level?
+
+> (v) If you do a simple regression of `nettfa` on `inc`, is the estimated coefficient on `inc` much different from the estimate in part (ii)? Why or why not?
+
+## C9 [DISCRIM]
+
+## C9 [DISCRIM]
+
+> Use the data in DISCRIM to answer this question. (See also Computer Exercise C8 in Chapter 3.)
+
+> (i) Use OLS to estimate the model $$log(psoda) = \beta_0 + \beta_1 prpblck + \beta_2 log(income) + \beta_3 prppov + u,$$ and report the results in the usual form. Is $\hat{\beta}_1$ statistically different from zero at the 5% level against a two-sided alternative? What about at the 1% level?
+
+> (ii) What is the correlation between `log(income)` and `prppov`? Is each variable statistically significant in any case? Report the two-sided $p$-values.
+
+> (iii) To the regression in part (i), add the variable `log(hseval)`. Interpret its coefficient and report the two-sided $p$-value for $H_0: \beta_{log(hseval)} = 0$.
+
+> (iv) In the regression in part (iii), what happens to the individual statistical significance of `log(income)` and `prppov`? Are these variables jointly significant? (Compute a $p$-value.) What do you make of your answers?
+
+> (v) Given the results of the previous regressions, which one would you report as most reliable in determining whether the racial makeup of a zip code influences local fast-food prices?
+
+## C10 [ELEM94_95]
+
+> Use the data in ELEM94_95 to answer this question. The findings can be compared with those in Table 4.1. The dependent variable `lavgsal` is the log of average teacher salary and `bs` is the ratio of average benefits to average salary (by school).
+
+> (i) Run the simple regression of `lavgsal` on `bs`. Is the estimated slope statistically different from zero? Is it statistically different from -1?
+
+> (ii) Add the variables `lenrol` and `lstaff` to the regression from part (i). What happens to the coefficient on `bs`? How does the situation compare with that in Table 4.1?
+
+> (iii) Why is the standard error on the `bs` coefficient smaller in part (ii) than in part (i)? (*Hint*: What happens to the error variance versus multicollinearity when `lenrol` and `lstaff` are added?)
+
+> (iv) How come the coefficient on `lstaff` is negative? Is it large in magnitude?
+
+> (v) Now add the variable `lunch` to the regression. Holding other factors fixed, are teachers being compensated for teaching students from disadvantaged backgrounds? Explain.
+
+> (vi) Overall, is the pattern of results that you find with ELEM94_95 consistent with the pattern in Table 4.1?
+
+## C11 [HTV]
+
+> Use the data in HTV to answer this question. See also Computer Exercise C10 in Chapter 3.
+
+> (i) Estimate the regression model $$educ = \beta_0 + \beta_1 motheduc + \beta_2 fatheduc + \beta_3 abil + \beta_4 abil^2 + u$$> by OLS and report the results in the usual form. Test the null hypothesis that `educ` is linearly related to `abil` against the alternative that the relationship is quadratic.
+
+> (ii) Using the equation in part (i), test $H_0: \beta_1 = \beta_2$ against a two-sided alternative. What is the $p$-value of the test?
+
+> (iii) Add the two college tuition variables to the regression from part (i) and determine whether they are jointly statistically significant.
+
+> (iv) What is the correlation between `tuit17` and `tuit18`? Explain why using the average of the tuition over the two years might be preferred to adding each separately. What happens when you do use the average?
+
+> (v) Do the findings for the average tuition variable in part (iv) make sense when interpreted causally? What might be going on?
+
+## C12 [ECONMATH]
+
+> Use the data in ECONMATH to answer the following questions.
+
+> (i) Estimate a model explaining `colgpa` to `hsgpa`, `actmth`, and `acteng`. Report the results in the usual form. Are all explanatory variables statistically significant?
+
+> (ii) Consider an increase in `hsgpa` of one standard deviation, about 0.343. By how much does `colgpa` increase, holding `actmth` and `acteng` fixed. About how many standard deviations would the `actmth` have to increase to change `colgpa` by the same amount as one standard deviation in `hsgpa`? Comment.
+
+> (iii) Test the null hypothesis that `actmth` and `acteng` have the same effect (in the population) against a two-sided alternative. Report the $p$-value and describe your conclusions.
+
+> (iv) Suppose the college admissions officer wants you to use the data on the variables in part (i) to create an equation that explains at least 50 percent of the variation in `colgpa`. What would you tell the officer?
+
+## C13 [GPA1]
+
+> Use the data set GPA1 to answer this question. It was used in Computer Exercise C13 in Chapter 3 to estimate the effect of PC ownership on college GPA.
+
+> (i) Run the regression `colGPA` on `PC`, `hsGPA`, and `ACT` and obtain a 95% confidence interval for $\beta_{PC}$. Is the estimated coefficient statistically significant at the 5% level against a two-sided alternative?
+
+> (ii) Discuss the statistical significance of the estimates $\hat{\beta}_{hsGPA}$ and $\hat{\beta}_{ACT}$ in part (i). Is `hsGPA` or `ACT` the more important predictor of `colGPA`?
+
+> (iii) Add the two indicators `fathcoll` and `mothcoll` to the regression in part (i). Is either individually significant? Are they jointly statistically significant at the 5% level?
+
+## C14 [JTRAIN98]
+
+> Use the data set JTRAIN98 to answer this question.
+
+> (i) Add the unemployment indicator `unem96` to the regression reported in equation (4.52). Interpret its coefficient and discuss whether its sign and magnitude seem sensible. Is the estimate statistically significant?
+
+> (ii) What happens to the estimated job training effect compared with equation (4.52)? Is it still economically and statistically significant?
+
+> (iii) Find the correlation between `earn96` and `unem96`. Is it about what you would expect? Explain.
+
+> (iv) Do you think your finding in part (iii) means you should drop `unem96` from the regression? Explain.
+
+## C15 [APPLE]
+
+> Use the data in APPLE to answer the following questions. This data set is also used in Computer Exercise C14 in Chapter 3.
+
+> (i) Consider a demand equation for the eco-friendly apples: $$ecolbs = \beta_0 + \beta_1 ecoprc + \beta_2 regprc + u,$$ where $\beta_1$ is the own price effect and $\beta_2$ measures the price effect on the substitute good (regular apples). Estimate the equation by OLS and report the results in equation form, with standard errors in parentheses below the coefficients. Are the slope estimates each statistically different from zero?
+
+> (ii) Test the null hypothesis that the own price and substitute price coefficients are of equal magnitude and opposite in sign. What do you conclude?
+
+> (iii) Add the variables `faminc`, `educ`, `age`, and `hhsize` to the equation in part (i) and estimate it using OLS. Does the R-squared increase by much?
+
+> (iv) Are the four variables added in part (iii) jointly statistically significant at the 20% level? Does your finding surprise you?
+
+> (v)  Tabulate the different values of `ecolbs`. How common is zero? What is the second most common value? What implications do your findings have for Assumption MLR.6?
