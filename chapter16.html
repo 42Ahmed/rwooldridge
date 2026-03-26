@@ -77,6 +77,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -435,8 +464,25 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#c1-smoke" id="toc-c1-smoke" class="nav-link active" data-scroll-target="#c1-smoke"><span class="header-section-number">16.1</span> C1 [SMOKE]</a></li>
+  <li><a href="#c2-mroz" id="toc-c2-mroz" class="nav-link" data-scroll-target="#c2-mroz"><span class="header-section-number">16.2</span> C2 [MROZ]</a></li>
+  <li><a href="#c3-openness" id="toc-c3-openness" class="nav-link" data-scroll-target="#c3-openness"><span class="header-section-number">16.3</span> C3 [OPENNESS]</a></li>
+  <li><a href="#c4-consump" id="toc-c4-consump" class="nav-link" data-scroll-target="#c4-consump"><span class="header-section-number">16.4</span> C4 [CONSUMP]</a></li>
+  <li><a href="#c5" id="toc-c5" class="nav-link" data-scroll-target="#c5"><span class="header-section-number">16.5</span> C5</a></li>
+  <li><a href="#c6-cement" id="toc-c6-cement" class="nav-link" data-scroll-target="#c6-cement"><span class="header-section-number">16.6</span> C6 [CEMENT]</a></li>
+  <li><a href="#c7-crime4" id="toc-c7-crime4" class="nav-link" data-scroll-target="#c7-crime4"><span class="header-section-number">16.7</span> C7 [CRIME4]</a></li>
+  <li><a href="#c8-fish" id="toc-c8-fish" class="nav-link" data-scroll-target="#c8-fish"><span class="header-section-number">16.8</span> C8 [FISH]</a></li>
+  <li><a href="#c9-airfare" id="toc-c9-airfare" class="nav-link" data-scroll-target="#c9-airfare"><span class="header-section-number">16.9</span> C9 [AIRFARE]</a></li>
+  <li><a href="#c10-airfare" id="toc-c10-airfare" class="nav-link" data-scroll-target="#c10-airfare"><span class="header-section-number">16.10</span> C10 [AIRFARE]</a></li>
+  <li><a href="#c11-expendshares" id="toc-c11-expendshares" class="nav-link" data-scroll-target="#c11-expendshares"><span class="header-section-number">16.11</span> C11 [EXPENDSHARES]</a></li>
+  <li><a href="#c12-prison.dta" id="toc-c12-prison.dta" class="nav-link" data-scroll-target="#c12-prison.dta"><span class="header-section-number">16.12</span> C12 [PRISON.DTA]</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -461,8 +507,107 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="c1-smoke" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="c1-smoke"><span class="header-section-number">16.1</span> C1 [SMOKE]</h2>
+<blockquote class="blockquote">
+<p>Use SMOKE for this exercise. (i) A model to estimate the effects of smoking on annual income (perhaps through lost work days due to illness, or productivity effects) is <span class="math display">\[\log(income) = \beta_0 + \beta_1 cigs + \beta_2 educ + \beta_3 age + \beta_4 age^2 + u_1,\]</span> where <code>cigs</code> is number of cigarettes smoked per day, on average. How do you interpret <span class="math inline">\(\beta_1\)</span>? (ii) To reflect the fact that cigarette consumption might be jointly determined with income, a demand for cigarettes equation is <span class="math display">\[cigs = \gamma_0 + \gamma_1 \log(income) + \gamma_2 educ + \gamma_3 age + \gamma_4 age^2 + \gamma_5 \log(cigpric) + \gamma_6 restaurn + u_2,\]</span> where <code>cigpric</code> is the price of a pack of cigarettes (in cents) and <code>restaurn</code> is a binary variable equal to unity if the person lives in a state with restaurant smoking restrictions. Assuming these are exogenous to the individual, what signs would you expect for <span class="math inline">\(\gamma_5\)</span> and <span class="math inline">\(\gamma_6\)</span>?</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li>Under what assumption is the income equation from part (i) identified?</li>
+<li>Estimate the income equation by OLS and discuss the estimate of <span class="math inline">\(\beta_1\)</span>.</li>
+<li>Estimate the reduced form for <code>cigs</code>. (Recall that this entails regressing <code>cigs</code> on all exogenous variables.) Are <span class="math inline">\(\log(cigpric)\)</span> and <code>restaurn</code> significant in the reduced form?</li>
+<li>Now, estimate the income equation by 2SLS. Discuss how the estimate of <span class="math inline">\(\beta_1\)</span> compares with the OLS estimate.</li>
+<li>Do you think that cigarette prices and restaurant smoking restrictions are exogenous in the income equation?</li>
+</ol>
+</blockquote>
+</section>
+<section id="c2-mroz" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="c2-mroz"><span class="header-section-number">16.2</span> C2 [MROZ]</h2>
+<blockquote class="blockquote">
+<p>Use MROZ for this exercise. (i) Reestimate the labor supply function in Example 16.5, using <span class="math inline">\(\log(hours)\)</span> as the dependent variable. Compare the estimated elasticity (which is now constant) to the estimate obtained from equation (16.24) at the average hours worked. (ii) In the labor supply equation from part (i), allow <code>educ</code> to be endogenous because of omitted ability. Use <code>motheduc</code> and <code>fatheduc</code> as IVs for <code>educ</code>. Remember, you now have two endogenous variables in the equation. (iii) Test the overidentifying restrictions in the 2SLS estimation from part (ii). Do the IVs pass the test?</p>
+</blockquote>
+</section>
+<section id="c3-openness" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="c3-openness"><span class="header-section-number">16.3</span> C3 [OPENNESS]</h2>
+<blockquote class="blockquote">
+<p>Use the data in OPENNESS for this exercise. (i) Because <span class="math inline">\(\log(pcinc)\)</span> is insignificant in both (16.22) and the reduced form for <code>open</code>, drop it from the analysis. Estimate (16.22) by OLS and IV without <span class="math inline">\(\log(pcinc)\)</span>. Do any important conclusions change? (ii) Still leaving <span class="math inline">\(\log(pcinc)\)</span> out of the analysis, is <code>land</code> or <span class="math inline">\(\log(land)\)</span> a better instrument for <code>open</code>? (<em>Hint</em>: Regress <code>open</code> on each of these separately and jointly.) (iii) Now, return to (16.22). Add the dummy variable <code>oil</code> to the equation and treat it as exogenous. Estimate the equation by IV. Does being an oil producer have a ceteris paribus effect on inflation?</p>
+</blockquote>
+</section>
+<section id="c4-consump" class="level2" data-number="16.4">
+<h2 data-number="16.4" class="anchored" data-anchor-id="c4-consump"><span class="header-section-number">16.4</span> C4 [CONSUMP]</h2>
+<blockquote class="blockquote">
+<p>Use the data in CONSUMP for this exercise. (i) In Example 16.7, use the method from Section 15-5 to test the single overidentifying restriction in estimating (16.35). What do you conclude? (ii) Campbell and Mankiw (1990) use <em>second</em> lags of all variables as IVs because of potential data measurement problems and informational lags. Reestimate (16.35), using only <span class="math inline">\(gc_{t-2}\)</span>, <span class="math inline">\(gy_{t-2}\)</span>, and <span class="math inline">\(r3_{t-2}\)</span> as IVs. How do the estimates compare with those in (16.36)? (iii) Regress <span class="math inline">\(gy_t\)</span> on the IVs from part (ii) and test whether <span class="math inline">\(gy_t\)</span> is sufficiently correlated with them. Why is this important?</p>
+</blockquote>
+</section>
+<section id="c5" class="level2" data-number="16.5">
+<h2 data-number="16.5" class="anchored" data-anchor-id="c5"><span class="header-section-number">16.5</span> C5</h2>
+<blockquote class="blockquote">
+<p>Use the <em>Economic Report of the President</em> (2005 or later) to update the data in CONSUMP, at least through 2003. Reestimate equation (16.35). Do any important conclusions change?</p>
+</blockquote>
+</section>
+<section id="c6-cement" class="level2" data-number="16.6">
+<h2 data-number="16.6" class="anchored" data-anchor-id="c6-cement"><span class="header-section-number">16.6</span> C6 [CEMENT]</h2>
+<blockquote class="blockquote">
+<p>Use the data in CEMENT for this exercise. (i) A static (inverse) supply function for the monthly growth in cement price (<span class="math inline">\(gprc\)</span>) as a function of growth in quantity (<span class="math inline">\(gcem\)</span>) is <span class="math display">\[gprc_t = \alpha_1 gcem_t + \beta_0 + \beta_1 gprcpet + \beta_2 feb_t + \dots + \beta_{12} dec_t + u_t^s,\]</span> where <span class="math inline">\(gprcpet\)</span> (growth in the price of petroleum) is assumed to be exogenous and <span class="math inline">\(feb, \dots, dec\)</span> are monthly dummy variables. What signs do you expect for <span class="math inline">\(\alpha_1\)</span> and <span class="math inline">\(\beta_1\)</span>? Estimate the equation by OLS. Does the supply function slope upward? (ii) The variable <span class="math inline">\(gdefs\)</span> is the monthly growth in real defense spending in the United States. What do you need to assume about <span class="math inline">\(gdefs\)</span> for it to be a good IV for <span class="math inline">\(gcem\)</span>? Test whether <span class="math inline">\(gcem\)</span> is partially correlated with <span class="math inline">\(gdefs\)</span>. (Do not worry about possible serial correlation in the reduced form.) Can you use <span class="math inline">\(gdefs\)</span> as an IV in estimating the supply function?</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li>Shea (1993) argues that the growth in output of residential (<code>gres</code>) and nonresidential (<code>gnon</code>) construction are valid instruments for <code>gcem</code>. The idea is that these are demand shifters that should be roughly uncorrelated with the supply error <span class="math inline">\(u_t^s\)</span>. Test whether <code>gcem</code> is partially correlated with <code>gres</code> and <code>gnon</code>; again, do not worry about serial correlation in the reduced form.</li>
+<li>Estimate the supply function, using <code>gres</code> and <code>gnon</code> as IVs for <code>gcem</code>. What do you conclude about the static supply function for cement? [The dynamic supply function is, apparently, upward sloping; see Shea (1993).]</li>
+</ol>
+</blockquote>
+</section>
+<section id="c7-crime4" class="level2" data-number="16.7">
+<h2 data-number="16.7" class="anchored" data-anchor-id="c7-crime4"><span class="header-section-number">16.7</span> C7 [CRIME4]</h2>
+<blockquote class="blockquote">
+<p>Refer to Example 13.9 and the data in CRIME4. (i) Suppose that, after differencing to remove the unobserved effect, you think <span class="math inline">\(\Delta\log(polpc)\)</span> is simultaneously determined with <span class="math inline">\(\Delta\log(crmrte)\)</span>; in particular, increases in crime are associated with increases in police officers. How does this help to explain the positive coefficient on <span class="math inline">\(\Delta\log(polpc)\)</span> in equation (13.33)? (ii) The variable <code>taxpc</code> is the taxes collected per person in the county. Does it seem reasonable to exclude this from the crime equation? (iii) Estimate the reduced form for <span class="math inline">\(\Delta\log(polpc)\)</span> using pooled OLS, including the potential IV, <span class="math inline">\(\Delta\log(taxpc)\)</span>. Does it look like <span class="math inline">\(\Delta\log(taxpc)\)</span> is a good IV candidate? Explain. (iv) Suppose that, in several of the years, the state of North Carolina awarded grants to some counties to increase the size of their county police force. How could you use this information to estimate the effect of additional police officers on the crime rate?</p>
+</blockquote>
+</section>
+<section id="c8-fish" class="level2" data-number="16.8">
+<h2 data-number="16.8" class="anchored" data-anchor-id="c8-fish"><span class="header-section-number">16.8</span> C8 [FISH]</h2>
+<blockquote class="blockquote">
+<p>Use the data set in FISH, which comes from Graddy (1995), to do this exercise. The data set is also used in Computer Exercise C9 in Chapter 12. Now, we will use it to estimate a demand function for fish. (i) Assume that the demand equation can be written, in equilibrium for each time period, as <span class="math display">\[\log(totqty_t) = \alpha_1 \log(avgprc_t) + \beta_{t0} + \beta_{t1} mon_t + \beta_{t2} tues_t + \beta_{t3} wed_t + \beta_{t4} thurs_t + u_{t1},\]</span> so that demand is allowed to differ across days of the week. Treating the price variable as endogenous, what additional information do we need to estimate the demand-equation parameters consistently? (ii) The variables <code>wave2</code> and <code>wave3</code> are measures of ocean wave heights over the past several days. What two assumptions do we need to make in order to use <code>wave2</code> and <code>wave3</code> as IVs for <span class="math inline">\(\log(avgprc_t)\)</span> in estimating the demand equation? (iii) Regress <span class="math inline">\(\log(avgprc_t)\)</span> on the day-of-the-week dummies and the two wave measures. Are <code>wave2</code> and <code>wave3</code> jointly significant? What is the <span class="math inline">\(p\)</span>-value of the test? (iv) Now, estimate the demand equation by 2SLS. What is the 95% confidence interval for the price elasticity of demand? Is the estimated elasticity reasonable? (v) Obtain the 2SLS residuals, <span class="math inline">\(\hat{u}_{t1}\)</span>. Add a single lag, <span class="math inline">\(\hat{u}_{t-1,1}\)</span> in estimating the demand equation by 2SLS. Remember, use <span class="math inline">\(\hat{u}_{t-1,1}\)</span> as its own instrument. Is there evidence of AR(1) serial correlation in the demand equation errors? (vi) Given that the supply equation evidently depends on the wave variables, what two assumptions would we need to make in order to estimate the price elasticity of supply? (vii) In the reduced form equation for <span class="math inline">\(\log(avgprc_t)\)</span>, are the day-of-the-week dummies jointly significant? What do you conclude about being able to estimate the supply elasticity?</p>
+</blockquote>
+</section>
+<section id="c9-airfare" class="level2" data-number="16.9">
+<h2 data-number="16.9" class="anchored" data-anchor-id="c9-airfare"><span class="header-section-number">16.9</span> C9 [AIRFARE]</h2>
+<blockquote class="blockquote">
+<p>For this exercise, use the data in AIRFARE, but only for the year 1997. (i) A simple demand function for airline seats on routes in the United States is <span class="math display">\[\log(passen) = \beta_{10} + \alpha_1 \log(fare) + \beta_{11} \log(dist) + \beta_{12} [\log(dist)]^2 + u_1,\]</span></p>
+</blockquote>
+<blockquote class="blockquote">
+<p>where * <code>passen</code> = average passengers per day, * <code>fare</code> = average airfare, and * <code>dist</code> = the route distance (in miles).</p>
+<p>If this is truly a demand function, what should be the sign of <span class="math inline">\(\alpha_1\)</span>? (ii) Estimate the equation from part (i) by OLS. What is the estimated price elasticity? (iii) Consider the variable <code>concen</code>, which is a measure of market concentration. (Specifically, it is the share of business accounted for by the largest carrier.) Explain in words what we must assume to treat <code>concen</code> as exogenous in the demand equation. (iv) Now assume <code>concen</code> is exogenous to the demand equation. Estimate the reduced form for <span class="math inline">\(\log(fare)\)</span> and confirm that <code>concen</code> has a positive (partial) effect on <span class="math inline">\(\log(fare)\)</span>. (v) Estimate the demand function using IV. Now what is the estimated price elasticity of demand? How does it compare with the OLS estimate? (vi) Using the IV estimates, describe how demand for seats depends on route distance.</p>
+</blockquote>
+</section>
+<section id="c10-airfare" class="level2" data-number="16.10">
+<h2 data-number="16.10" class="anchored" data-anchor-id="c10-airfare"><span class="header-section-number">16.10</span> C10 [AIRFARE]</h2>
+<blockquote class="blockquote">
+<p>Use the entire panel data set in AIRFARE for this exercise. The demand equation in a simultaneous equations unobserved effects model is <span class="math display">\[\log(passen_{it}) = \theta_{t1} + \alpha_1 \log(fare_{it}) + a_{i1} + u_{it1},\]</span> where we absorb the distance variables into <span class="math inline">\(a_{i1}\)</span>. (i) Estimate the demand function using fixed effects, being sure to include year dummies to account for the different intercepts. What is the estimated elasticity? (ii) Use fixed effects to estimate the reduced form <span class="math display">\[\log(fare_{it}) = \theta_{t2} + \pi_{21} concen_{it} + a_{i2} + v_{it2}.\]</span> Perform the appropriate test to ensure that <span class="math inline">\(concen_{it}\)</span> can be used as an IV for <span class="math inline">\(\log(fare_{it})\)</span>. (iii) Now estimate the demand function using the fixed effects transformation along with IV, as in equation (16.42). What is the estimated elasticity? Is it statistically significant?</p>
+</blockquote>
+</section>
+<section id="c11-expendshares" class="level2" data-number="16.11">
+<h2 data-number="16.11" class="anchored" data-anchor-id="c11-expendshares"><span class="header-section-number">16.11</span> C11 [EXPENDSHARES]</h2>
+<blockquote class="blockquote">
+<p>A common method for estimating <em>Engel curves</em> is to model expenditure shares as a function of total expenditure, and possibly demographic variables. A common specification has the form <span class="math display">\[sgood = \beta_0 + \beta_1 ltotexpend + demographics + u,\]</span> where <code>sgood</code> is the fraction of spending on a particular good out of total expenditure and <code>ltotexpend</code> is the log of total expenditure. The sign and magnitude of <span class="math inline">\(\beta_1\)</span> are of interest across various expenditure categories. To account for the potential endogeneity of <code>ltotexpend</code>—which can be viewed as an omitted variables or simultaneous equations problem, or both—the log of family income is often used as an instrumental variable. Let <code>lincome</code> denote the log of family income. For the remainder of this question, use the data in EXPENDSHARES, which comes from Blundell, Duncan, and Pendakur (1998). (i) Use <code>sfood</code>, the share of spending on food, as the dependent variable. What is the range of values of <code>sfood</code>? Are you surprised there are no zeros? (ii) Estimate the equation <span class="math display">\[sfood = \beta_0 + \beta_1 ltotexpend + \beta_2 age + \beta_3 kids + u \qquad [16.43]\]</span> by OLS and report the coefficient on <code>ltotexpend</code>, <span class="math inline">\(\hat{\beta}_{OLS,1}\)</span>, along with its heteroskedasticity-robust standard error. Interpret the result.</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li>Using <code>lincome</code> as an IV for <code>ltotexpend</code>, estimate the reduced form equation for <code>ltotexpend</code>; be sure to include <code>age</code> and <code>kids</code>. Assuming <code>lincome</code> is exogenous in (16.43), is <code>lincome</code> a valid IV for <code>ltotexpend</code>?</li>
+<li>Now estimate (16.43) by instrumental variables. How does <span class="math inline">\(\hat{\beta}_{IV,1}\)</span> compare with <span class="math inline">\(\hat{\beta}_{OLS,1}\)</span>? What about the robust 95% confidence intervals?</li>
+<li>Use the test in Section 15-5 to test the null hypothesis that <code>ltotexpend</code> is exogenous in (16.43). Be sure to report and interpret the <span class="math inline">\(p\)</span>-value. Are there any overidentifying restrictions to test?</li>
+<li>Substitute <code>salcohol</code> for <code>sfood</code> in (16.43) and estimate the equation by OLS and 2SLS. Now what do you find for the coefficients on <code>ltotexpend</code>?</li>
+</ol>
+</blockquote>
+</section>
+<section id="c12-prison.dta" class="level2" data-number="16.12">
+<h2 data-number="16.12" class="anchored" data-anchor-id="c12-prison.dta"><span class="header-section-number">16.12</span> C12 [PRISON.DTA]</h2>
+<blockquote class="blockquote">
+<p>Use the data in PRISON.DTA to answer the following questions. Refer to Example 16.8. In the data set, variables beginning with “g” are growth rates from one year to the next, obtained as the changes in the natural log. For example, <span class="math inline">\(gcriv_{it} = \log(criv_{it}) - \log(criv_{i,t-1})\)</span>. Variables beginning with “c” are changes in levels from one year to the next, for example, <span class="math inline">\(cunem_{it} = unem_{it} - unem_{i,t-1}\)</span>. (i) Estimate the equation <span class="math display">\[gcriv_{it} = \xi_t + \alpha_1 gpris_{it} + \beta_1 gincpc_{it} + \beta_2 gpolc_{it} + \beta_3 cag0\_14_{it} + \beta_4 cag15\_17_{it} + \beta_5 cag18\_24_{it} + \beta_6 cag25\_34_{it} + \beta_7 cunem_{it} + \beta_8 cblack_{it} + \beta_9 cmetro_{it} + \Delta u_{it}\]</span> by OLS and verify that you obtain <span class="math inline">\(\hat{\alpha}_1 = -0.181 (\text{se} = 0.048)\)</span>. The parameters <span class="math inline">\(\xi_t\)</span> are to remind you to include year dummies for 1981 through 1993. (ii) Estimate the reduced form equation for <span class="math inline">\(gpris_{it}\)</span>, where <span class="math inline">\(final1_{it}\)</span> and <span class="math inline">\(final2_{it}\)</span> are the instruments: <span class="math display">\[gpris_{it} = \eta_t + \gamma_1 final1_{it} + \gamma_2 final2_{it} + \pi_1 gincpc_{it} + \pi_2 gpolpc_{it} + \pi_3 cag0\_14_{it} + \pi_4 cag15\_17_{it} + \pi_5 cag18\_24_{it} + \pi_6 cag25\_34_{it} + \pi_7 cunem_{it} + \pi_8 cblack_{it} + \pi_9 cmetro_{it} + \Delta u_{it}\]</span> Verify that <span class="math inline">\(\gamma_1\)</span> and <span class="math inline">\(\gamma_2\)</span> are both negative. Are they each statistically significant? What is the <span class="math inline">\(F\)</span> statistic for <span class="math inline">\(H_0: \gamma_1 = \gamma_2 = 0\)</span>? (Remember again to put in a full set of year dummies.) (iii) Obtain the 2SLS estimates of the equation in part (i), using <span class="math inline">\(final1_{it}\)</span> and <span class="math inline">\(final2_{it}\)</span> as instruments for <span class="math inline">\(gpris_{it}\)</span>. Verify that you obtain <span class="math inline">\(\hat{\alpha}_1 = -1.032 (\text{se} = 0.370)\)</span>. (iv) If you have access to econometrics software that computes standard errors robust to heteroskedasticity and serial correlation, obtain them for the 2SLS estimate in part (iii). What happens to the standard error of <span class="math inline">\(\hat{\alpha}_1\)</span>? (v) Reestimate the reduced form in part (ii) using the differences, <span class="math inline">\(\Delta final1_{it}\)</span> and <span class="math inline">\(\Delta final2_{it}\)</span>, as the instruments. (You will lose 1980 in differencing the instruments.) Do <span class="math inline">\(\Delta final1_{it}\)</span> and <span class="math inline">\(\Delta final2_{it}\)</span> seem like sufficiently strong instruments for <span class="math inline">\(gpris_{it}\)</span>? In particular, do you prefer using the differences or levels as the IVs? Estimate the reduced form in part (ii) dropping 1980 to be sure that you reach your conclusion on instrument strength using the same set of data.</p>
+</blockquote>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

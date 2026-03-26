@@ -77,6 +77,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -435,8 +464,31 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#c1-wageprc" id="toc-c1-wageprc" class="nav-link active" data-scroll-target="#c1-wageprc"><span class="header-section-number">18.1</span> C1 [WAGEPRC]</a></li>
+  <li><a href="#c2-hseinv" id="toc-c2-hseinv" class="nav-link" data-scroll-target="#c2-hseinv"><span class="header-section-number">18.2</span> C2 [HSEINV]</a></li>
+  <li><a href="#c3-volat" id="toc-c3-volat" class="nav-link" data-scroll-target="#c3-volat"><span class="header-section-number">18.3</span> C3 [VOLAT]</a></li>
+  <li><a href="#c4" id="toc-c4" class="nav-link" data-scroll-target="#c4"><span class="header-section-number">18.4</span> C4</a></li>
+  <li><a href="#c5-intqrt" id="toc-c5-intqrt" class="nav-link" data-scroll-target="#c5-intqrt"><span class="header-section-number">18.5</span> C5 [INTQRT]</a></li>
+  <li><a href="#c6-phillips" id="toc-c6-phillips" class="nav-link" data-scroll-target="#c6-phillips"><span class="header-section-number">18.6</span> C6 [PHILLIPS]</a></li>
+  <li><a href="#c7-barium" id="toc-c7-barium" class="nav-link" data-scroll-target="#c7-barium"><span class="header-section-number">18.7</span> C7 [BARIUM]</a></li>
+  <li><a href="#c8-fertil3" id="toc-c8-fertil3" class="nav-link" data-scroll-target="#c8-fertil3"><span class="header-section-number">18.8</span> C8 [FERTIL3]</a></li>
+  <li><a href="#c9-consump" id="toc-c9-consump" class="nav-link" data-scroll-target="#c9-consump"><span class="header-section-number">18.9</span> C9 [CONSUMP]</a></li>
+  <li><a href="#c10-intqrt" id="toc-c10-intqrt" class="nav-link" data-scroll-target="#c10-intqrt"><span class="header-section-number">18.10</span> C10 [INTQRT]</a></li>
+  <li><a href="#c11-volat" id="toc-c11-volat" class="nav-link" data-scroll-target="#c11-volat"><span class="header-section-number">18.11</span> C11 [VOLAT]</a></li>
+  <li><a href="#c12-volat" id="toc-c12-volat" class="nav-link" data-scroll-target="#c12-volat"><span class="header-section-number">18.12</span> C12 [VOLAT]</a></li>
+  <li><a href="#c13-traffic2" id="toc-c13-traffic2" class="nav-link" data-scroll-target="#c13-traffic2"><span class="header-section-number">18.13</span> C13 [TRAFFIC2]</a></li>
+  <li><a href="#c14-minwage.dta" id="toc-c14-minwage.dta" class="nav-link" data-scroll-target="#c14-minwage.dta"><span class="header-section-number">18.14</span> C14 [MINWAGE.DTA]</a></li>
+  <li><a href="#c15-beveridge" id="toc-c15-beveridge" class="nav-link" data-scroll-target="#c15-beveridge"><span class="header-section-number">18.15</span> C15 [BEVERIDGE]</a></li>
+  <li><a href="#c16-phillips" id="toc-c16-phillips" class="nav-link" data-scroll-target="#c16-phillips"><span class="header-section-number">18.16</span> C16 [PHILLIPS]</a></li>
+  <li><a href="#c17" id="toc-c17" class="nav-link" data-scroll-target="#c17"><span class="header-section-number">18.17</span> C17</a></li>
+  <li><a href="#c18-gasholiday" id="toc-c18-gasholiday" class="nav-link" data-scroll-target="#c18-gasholiday"><span class="header-section-number">18.18</span> C18 [GASHOLIDAY]</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -461,8 +513,136 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="c1-wageprc" class="level2" data-number="18.1">
+<h2 data-number="18.1" class="anchored" data-anchor-id="c1-wageprc"><span class="header-section-number">18.1</span> C1 [WAGEPRC]</h2>
+<blockquote class="blockquote">
+<p>Use the data in WAGEPRC for this exercise. Problem 5 in Chapter 11 gave estimates of a finite distributed lag model of <code>gprice</code> on <code>gwage</code>, where 12 lags of <code>gwage</code> are used. (i) Estimate a simple geometric DL model of <code>gprice</code> on <code>gwage</code>. In particular, estimate equation (18.11) by OLS. What are the estimated impact propensity and LRP? Sketch the estimated lag distribution. (ii) Compare the estimated IP and LRP to those obtained in Problem 5 in Chapter 11. How do the estimated lag distributions compare? (iii) Now, estimate the rational distributed lag model from (18.16). Sketch the lag distribution and compare the estimated IP and LRP to those obtained in part (ii).</p>
+</blockquote>
+</section>
+<section id="c2-hseinv" class="level2" data-number="18.2">
+<h2 data-number="18.2" class="anchored" data-anchor-id="c2-hseinv"><span class="header-section-number">18.2</span> C2 [HSEINV]</h2>
+<blockquote class="blockquote">
+<p>Use the data in HSEINV for this exercise. (i) Test for a unit root in <span class="math inline">\(\log(invpc)\)</span>, including a linear time trend and two lags of <span class="math inline">\(\Delta\log(invpc_t)\)</span>. Use a 5% significance level. (ii) Use the approach from part (i) to test for a unit root in <span class="math inline">\(\log(price)\)</span>. (iii) Given the outcomes in parts (i) and (ii), does it make sense to test for cointegration between <span class="math inline">\(\log(invpc)\)</span> and <span class="math inline">\(\log(price)\)</span>?</p>
+</blockquote>
+</section>
+<section id="c3-volat" class="level2" data-number="18.3">
+<h2 data-number="18.3" class="anchored" data-anchor-id="c3-volat"><span class="header-section-number">18.3</span> C3 [VOLAT]</h2>
+<blockquote class="blockquote">
+<p>Use the data in VOLAT for this exercise. (i) Estimate an AR(3) model for <code>pcip</code>. Now, add a fourth lag and verify that it is very insignificant. (ii) To the AR(3) model from part (i), add three lags of <code>pcsp</code> to test whether <code>pcsp</code> Granger causes <code>pcip</code>. Carefully, state your conclusion. (iii) To the model in part (ii), add three lags of the change in <code>i3</code>, the three-month T-bill rate. Does <code>pcsp</code> Granger cause <code>pcip</code> conditional on past <span class="math inline">\(\Delta i3\)</span>?</p>
+</blockquote>
+</section>
+<section id="c4" class="level2" data-number="18.4">
+<h2 data-number="18.4" class="anchored" data-anchor-id="c4"><span class="header-section-number">18.4</span> C4</h2>
+<blockquote class="blockquote">
+<p>In testing for cointegration between <code>gfr</code> and <code>pe</code> in Example 18.5, add <span class="math inline">\(t^2\)</span> to equation (18.32) to obtain the OLS residuals. Include one lag in the augmented DF test. The 5% critical value for the test is <span class="math inline">\(-4.15\)</span>.</p>
+</blockquote>
+</section>
+<section id="c5-intqrt" class="level2" data-number="18.5">
+<h2 data-number="18.5" class="anchored" data-anchor-id="c5-intqrt"><span class="header-section-number">18.5</span> C5 [INTQRT]</h2>
+<blockquote class="blockquote">
+<p>Use INTQRT for this exercise. (i) In Example 18.7, we estimated an error correction model for the holding yield on six-month T-bills, where one lag of the holding yield on three-month T-bills is the explanatory variable. We assumed that the cointegration parameter was one in the equation <span class="math inline">\(hy6_t = \alpha + \beta hy3_{t-1} + u_t\)</span>. Now, add the lead change, <span class="math inline">\(\Delta hy3_t\)</span>, the contemporaneous change, <span class="math inline">\(\Delta hy3_{t-1}\)</span>, and the lagged change, <span class="math inline">\(\Delta hy3_{t-2}\)</span>, of <span class="math inline">\(\Delta hy3_{t-1}\)</span>. That is, estimate the equation <span class="math display">\[hy6_t = \alpha + \beta hy3_{t-1} + \phi_0 \Delta hy3_t + \phi_1 \Delta hy3_{t-1} + \rho_1 \Delta hy3_{t-2} + e_t\]</span> and report the results in equation form. Test H<span class="math inline">\(_0\)</span>: <span class="math inline">\(\beta = 1\)</span> against a two-sided alternative. Assume that the lead and lag are sufficient so that <span class="math inline">\(\{hy3_{t-1}\}\)</span> is strictly exogenous in this equation and do not worry about serial correlation. (ii) To the error correction model in (18.39), add <span class="math inline">\(\Delta hy3_{t-2}\)</span> and <span class="math inline">\((hy6_{t-2} - hy3_{t-3})\)</span>. Are these terms jointly significant? What do you conclude about the appropriate error correction model?</p>
+</blockquote>
+</section>
+<section id="c6-phillips" class="level2" data-number="18.6">
+<h2 data-number="18.6" class="anchored" data-anchor-id="c6-phillips"><span class="header-section-number">18.6</span> C6 [PHILLIPS]</h2>
+<blockquote class="blockquote">
+<p>Use the data in PHILLIPS for this exercise. (i) Estimate the models represented in equations (18.48) and (18.49) using the data through 2015. Do the parameter estimates change much compared with (18.48) and (18.49)? (ii) Use the new equations to forecast <span class="math inline">\(unem_{2016}\)</span>; round to two decimal places. Which equation produces a better forecast? (iii) Use the equation that includes <span class="math inline">\(inf_{t-1}\)</span>, estimated in part (i), to forecast <span class="math inline">\(unem_{2017}\)</span>. You will need to obtain the 2016 values for <code>unem</code> and <code>inf</code>. Next, reestimate the parameters using the data through 2016, and use the updated estimates to forecast <span class="math inline">\(unem_{2017}\)</span>. Does using the extra year of data to obtain the parameter estimates produce a better forecast? (iv) Use the equation that includes <span class="math inline">\(inf_{t-1}\)</span>, estimated in part (i), to obtain a two-step-ahead forecast of <code>unem</code>. You will need the forecast of <span class="math inline">\(unem_{2016}\)</span> from part (ii). Also, use an AR(1) model for inflation, using the data through 2015, to forecast 2016 inflation.</p>
+</blockquote>
+</section>
+<section id="c7-barium" class="level2" data-number="18.7">
+<h2 data-number="18.7" class="anchored" data-anchor-id="c7-barium"><span class="header-section-number">18.7</span> C7 [BARIUM]</h2>
+<blockquote class="blockquote">
+<p>Use the data in BARIUM for this exercise. (i) Estimate the linear trend model <span class="math inline">\(chnimp_t = \alpha + \beta t + u_t\)</span>, using the first 119 observations (this excludes the last 12 months of observations for 1988). What is the standard error of the regression? (ii) Now, estimate an AR(1) model for <code>chnimp</code>, again using all data but the last 12 months. Compare the standard error of the regression with that from part (i). Which model provides a better in-sample fit? (iii) Use the models from parts (i) and (ii) to compute the one-step-ahead forecast errors for the 12 months in 1988. (You should obtain 12 forecast errors for each method.) Compute and compare the RMSEs and the MAEs for the two methods. Which forecasting method works better out-of-sample for one-step-ahead forecasts? (iv) Add monthly dummy variables to the regression from part (i). Are these jointly significant? (Do not worry about the slight serial correlation in the errors from this regression when doing the joint test.)</p>
+</blockquote>
+</section>
+<section id="c8-fertil3" class="level2" data-number="18.8">
+<h2 data-number="18.8" class="anchored" data-anchor-id="c8-fertil3"><span class="header-section-number">18.8</span> C8 [FERTIL3]</h2>
+<blockquote class="blockquote">
+<p>Use the data in FERTIL3 for this exercise. (i) Graph <code>gfr</code> against time. Does it contain a clear upward or downward trend over the entire sample period? (ii) Using the data through 1979, estimate a cubic time trend model for <code>gfr</code> (that is, regress <code>gfr</code> on <span class="math inline">\(t\)</span>, <span class="math inline">\(t^2\)</span>, and <span class="math inline">\(t^3\)</span>, along with an intercept). Comment on the <span class="math inline">\(R\)</span>-squared of the regression. (iii) Using the model in part (ii), compute the mean absolute error of the one-step-ahead forecast errors for the years 1980 through 1984. (iv) Using the data through 1979, regress <span class="math inline">\(\Delta gfr_t\)</span> on a constant only. Is the constant statistically different from zero? Does it make sense to assume that any drift term is zero, if we assume that <span class="math inline">\(gfr_t\)</span> follows a random walk?</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="22" type="a">
+<li>Now, forecast <span class="math inline">\(gfr\)</span> for 1980 through 1984, using a random walk model: the forecast of <span class="math inline">\(gfr_{n+1}\)</span> is simply <span class="math inline">\(gfr_n\)</span>. Find the MAE. How does it compare with the MAE from part (iii)? Which method of forecasting do you prefer?</li>
+</ol>
+<ol start="6" type="i">
+<li>Now, estimate an AR(2) model for <span class="math inline">\(gfr\)</span>, again using the data only through 1979. Is the second lag significant?</li>
+<li>Obtain the MAE for 1980 through 1984, using the AR(2) model. Does this more general model work better out-of-sample than the random walk model?</li>
+</ol>
+</blockquote>
+</section>
+<section id="c9-consump" class="level2" data-number="18.9">
+<h2 data-number="18.9" class="anchored" data-anchor-id="c9-consump"><span class="header-section-number">18.9</span> C9 [CONSUMP]</h2>
+<blockquote class="blockquote">
+<p>Use CONSUMP for this exercise. (i) Let <span class="math inline">\(y_t\)</span> be real per capita disposable income. Use the data through 1989 to estimate the model <span class="math display">\[y_t = \alpha + \beta t + \rho y_{t-1} + u_t\]</span> and report the results in the usual form. (ii) Use the estimated equation from part (i) to forecast <span class="math inline">\(y\)</span> in 1990. What is the forecast error? (iii) Compute the mean absolute error of the one-step-ahead forecasts for the 1990s, using the parameters estimated in part (i). (iv) Now, compute the MAE over the same period, but drop <span class="math inline">\(y_{t-1}\)</span> from the equation. Is it better to include <span class="math inline">\(y_{t-1}\)</span> in the model or not?</p>
+</blockquote>
+</section>
+<section id="c10-intqrt" class="level2" data-number="18.10">
+<h2 data-number="18.10" class="anchored" data-anchor-id="c10-intqrt"><span class="header-section-number">18.10</span> C10 [INTQRT]</h2>
+<blockquote class="blockquote">
+<p>Use the data in INTQRT for this exercise. (i) Using the data from all but the last four years (16 quarters), estimate an AR(1) model for <span class="math inline">\(\Delta r6_t\)</span>. (We use the difference because it appears that <span class="math inline">\(r6_t\)</span> has a unit root.) Find the RMSE of the one-step-ahead forecasts for <span class="math inline">\(\Delta r6\)</span>, using the last 16 quarters. (ii) Now, add the error correction term <span class="math inline">\(spr_{t-1} = r6_{t-1} - r3_{t-1}\)</span> to the equation from part (i). (This assumes that the cointegrating parameter is one.) Compute the RMSE for the last 16 quarters. Does the error correction term help with out-of-sample forecasting in this case? (iii) Now, estimate the cointegrating parameter, rather than setting it to one. Use the last 16 quarters again to produce the out-of-sample RMSE. How does this compare with the forecasts from parts (i) and (ii)? (iv) Would your conclusions change if you wanted to predict <span class="math inline">\(r6\)</span> rather than <span class="math inline">\(\Delta r6\)</span>? Explain.</p>
+</blockquote>
+</section>
+<section id="c11-volat" class="level2" data-number="18.11">
+<h2 data-number="18.11" class="anchored" data-anchor-id="c11-volat"><span class="header-section-number">18.11</span> C11 [VOLAT]</h2>
+<blockquote class="blockquote">
+<p>Use the data in VOLAT for this exercise. (i) Confirm that <span class="math inline">\(lsp500 = \log(sp500)\)</span> and <span class="math inline">\(lip = \log(ip)\)</span> appear to contain unit roots. Use Dickey-Fuller tests with four lagged changes and do the tests with and without a linear time trend. (ii) Run a simple regression of <span class="math inline">\(lsp500\)</span> on <span class="math inline">\(lip\)</span>. Comment on the sizes of the <span class="math inline">\(t\)</span> statistic and <span class="math inline">\(R\)</span>-squared. (iii) Use the residuals from part (ii) to test whether <span class="math inline">\(lsp500\)</span> and <span class="math inline">\(lip\)</span> are cointegrated. Use the standard Dickey-Fuller test and the ADF test with two lags. What do you conclude? (iv) Add a linear time trend to the regression from part (ii) and now test for cointegration using the same tests from part (iii). (v) Does it appear that stock prices and real economic activity have a long-run equilibrium relationship?</p>
+</blockquote>
+</section>
+<section id="c12-volat" class="level2" data-number="18.12">
+<h2 data-number="18.12" class="anchored" data-anchor-id="c12-volat"><span class="header-section-number">18.12</span> C12 [VOLAT]</h2>
+<blockquote class="blockquote">
+<p>This exercise also uses the data from VOLAT. Computer Exercise C11 studies the long-run relationship between stock prices and industrial production. Here, you will study the question of Granger causality using the percentage changes. (i) Estimate an AR(3) model for <span class="math inline">\(pcip_t\)</span>, the percentage change in industrial production (reported at an annualized rate). Show that the second and third lags are jointly significant at the 2.5% level. (ii) Add one lag of <span class="math inline">\(pcsp_t\)</span> to the equation estimated in part (i). Is the lag statistically significant? What does this tell you about Granger causality between the growth in industrial production and the growth in stock prices?</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li>Redo part (ii) but obtain a heteroskedasticity-robust <span class="math inline">\(t\)</span> statistic. Does the robust test change your conclusions from part (ii)?</li>
+</ol>
+</blockquote>
+</section>
+<section id="c13-traffic2" class="level2" data-number="18.13">
+<h2 data-number="18.13" class="anchored" data-anchor-id="c13-traffic2"><span class="header-section-number">18.13</span> C13 [TRAFFIC2]</h2>
+<blockquote class="blockquote">
+<p>Use the data in TRAFFIC2 for this exercise. These monthly data, on traffic accidents in California over the years 1981 to 1989, were used in Computer Exercise C11 in Chapter 10. (i) Using the standard Dickey-Fuller regression, test whether <span class="math inline">\(ltotacc_t\)</span> has a unit root. Can you reject a unit root at the 2.5% level? (ii) Now, add two lagged changes to the test from part (i) and compute the augmented Dickey-Fuller test. What do you conclude? (iii) Add a linear time trend to the ADF regression from part (ii). Now what happens? (iv) Given the findings from parts (i) through (iii), what would you say is the best characterization of <span class="math inline">\(ltotacc_t\)</span>: an I(1) process or an I(0) process about a linear time trend? (v) Test the percentage of fatalities, <span class="math inline">\(prcfat_t\)</span>, for a unit root, using two lags in an ADF regression. In this case, does it matter whether you include a linear time trend?</p>
+</blockquote>
+</section>
+<section id="c14-minwage.dta" class="level2" data-number="18.14">
+<h2 data-number="18.14" class="anchored" data-anchor-id="c14-minwage.dta"><span class="header-section-number">18.14</span> C14 [MINWAGE.DTA]</h2>
+<blockquote class="blockquote">
+<p>Use the data in MINWAGE.DTA for sector 232 to answer the following questions. (i) Confirm that <span class="math inline">\(lwage232_t\)</span> and <span class="math inline">\(lemp232_t\)</span> are best characterized as I(1) processes. Use the augmented DF test with one lag of <span class="math inline">\(gwage232\)</span> and <span class="math inline">\(gemp232\)</span>, respectively, and a linear time trend. Is there any doubt that these series should be assumed to have unit roots? (ii) Regress <span class="math inline">\(lemp232_t\)</span> on <span class="math inline">\(lwage232_t\)</span> and test for cointegration, both with and without a time trend, allowing for two lags in the augmented Engle-Granger test. What do you conclude? (iii) Now regress <span class="math inline">\(lemp232_t\)</span> on log of the real wage rate, <span class="math inline">\(lrwage232_t = lwage232_t - lcpi_t\)</span>, and a time trend. Do you find cointegration? Are they “closer” to being cointegrated when you use real wages rather than nominal wages? (iv) What are some factors that might be missing from the cointegrating regression in part (iii)?</p>
+</blockquote>
+</section>
+<section id="c15-beveridge" class="level2" data-number="18.15">
+<h2 data-number="18.15" class="anchored" data-anchor-id="c15-beveridge"><span class="header-section-number">18.15</span> C15 [BEVERIDGE]</h2>
+<blockquote class="blockquote">
+<p>This question asks you to study the so-called Beveridge Curve from the perspective of cointegration analysis. The U.S. monthly data from December 2000 through February 2012 are in BEVERIDGE. (i) Test for a unit root in <span class="math inline">\(urate\)</span> using the usual Dickey-Fuller test (with a constant) and the augmented DF with two lags of <span class="math inline">\(curate\)</span>. What do you conclude? Are the lags of <span class="math inline">\(curate\)</span> in the augmented DF test statistically significant? Does it matter to the outcome of the unit root test? (ii) Repeat part (i) but with the vacancy rate, <span class="math inline">\(vrate\)</span>. (iii) Assuming that <span class="math inline">\(urate\)</span> and <span class="math inline">\(vrate\)</span> are both I(1), the Beveridge Curve, <span class="math display">\[urate_t = \alpha + \beta vrate + u_t,\]</span> only makes sense if <span class="math inline">\(urate\)</span> and <span class="math inline">\(vrate\)</span> are cointegrated (with cointegrating parameter <span class="math inline">\(\beta &lt; 0\)</span>). Test for cointegration using the Engle-Granger test with no lags. Are <span class="math inline">\(urate\)</span> and <span class="math inline">\(vrate\)</span> cointegrated at the 10% significance level? What about at the 5% level? (iv) Obtain the leads and lags estimator with <span class="math inline">\(cvrate_t\)</span>, <span class="math inline">\(cvrate_{t-1}\)</span>, and <span class="math inline">\(cvrate_{t+1}\)</span> as the I(0) explanatory variables added to the equation in part (iii). Obtain the Newey-West standard error for <span class="math inline">\(\hat{\beta}\)</span> using four lags (so <span class="math inline">\(g = 4\)</span> in the notation of Section 12-5). What is the resulting 95% confidence interval for <span class="math inline">\(\beta\)</span>? How does it compare with the confidence interval that is not robust to serial correlation (or heteroskedasticity)? (v) Redo the Engle-Granger test but with two lags in the augmented DF regression. What happens? What do you conclude about the robustness of the claim that <span class="math inline">\(urate\)</span> and <span class="math inline">\(vrate\)</span> are cointegrated?</p>
+</blockquote>
+</section>
+<section id="c16-phillips" class="level2" data-number="18.16">
+<h2 data-number="18.16" class="anchored" data-anchor-id="c16-phillips"><span class="header-section-number">18.16</span> C16 [PHILLIPS]</h2>
+<blockquote class="blockquote">
+<p>Use the data in PHILLIPS for this exercise. (i) Using all of the years—through 2017—run the regression <span class="math inline">\(\Delta inf_t\)</span> on <span class="math inline">\(inf_{t-1}\)</span> (and an intercept) and test the null hypothesis that <span class="math inline">\(\{inf_t\}\)</span> is I(1) against the alternative that it is I(0). At what significance level do you reject the null hypothesis?</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="2" type="i">
+<li>What is the estimated value of <span class="math inline">\(\rho\)</span> from part (i)? Would you say it is practically different from one?</li>
+<li>Now run the augmented Dickey-Fuller regression by including <span class="math inline">\(\Delta inf_{t-1}\)</span> as a regressor. Do your conclusions from part (i) change? Does it appear <span class="math inline">\(\Delta inf_{t-1}\)</span> needs to be in the regression?</li>
+</ol>
+</blockquote>
+</section>
+<section id="c17" class="level2" data-number="18.17">
+<h2 data-number="18.17" class="anchored" data-anchor-id="c17"><span class="header-section-number">18.17</span> C17</h2>
+<blockquote class="blockquote">
+<p>Consider Example 18.11, where you should define the variable <span class="math inline">\(d\bar{y}_t\)</span> using CA as the treated state and the southern states Alabama (AL), Arkansas (AR), Louisiana (LA), and Mississippi (MS) as the four controls. (i) Using the data up through 1988, regress <span class="math inline">\(\Delta d\bar{y}_t\)</span> on <span class="math inline">\(d\bar{y}_{t-1}\)</span>. Does it appear that <span class="math inline">\(d\bar{y}_t\)</span> has a unit root? What is the implied estimate of <span class="math inline">\(\rho\)</span> in the AR(1) model? (ii) Add a time trend to the test in part (i). Now what do you conclude about whether <span class="math inline">\(d\bar{y}_t \sim \text{I}(1)\)</span>? (iii) Produce a graph as in Figure 18.3. Does the parallel trends assumption for <span class="math inline">\(y_{CA,t}\)</span> and <span class="math inline">\(\bar{y}_{0t}\)</span> appear to be satisfied? (iv) Run the regression of <span class="math inline">\(d\bar{y}_t\)</span> on <span class="math inline">\(year_t\)</span> (including an intercept) on the data through 1988. Obtain the residuals for all time periods and produce a graph as in Figure 18.4. Does it appear the trend in <span class="math inline">\(d\bar{y}_t\)</span> before the intervention has been eliminated? (v) Estimate equation (18.73) and report the coefficient on <span class="math inline">\(post_t\)</span> along with its Newey-West standard error (lag = 2). How does it compare with the estimates using the western and midwestern states as controls? (vi) Compute the average residuals obtained in part (iv) over 1989 through 2000. Verify that you obtain the estimate in part (v) to at least six decimal places. (vii) Reproduce Table 18.6 using the southern states as the controls. Comment on similarities or important differences.</p>
+</blockquote>
+</section>
+<section id="c18-gasholiday" class="level2" data-number="18.18">
+<h2 data-number="18.18" class="anchored" data-anchor-id="c18-gasholiday"><span class="header-section-number">18.18</span> C18 [GASHOLIDAY]</h2>
+<blockquote class="blockquote">
+<p>Use the data in GASHOLIDAY to answer the following questions. These data were also used in Computer Exercise C15 in Chapter 10. The idea is to use gas prices in Rhode Island (RI) as a control for those in Connecticut (CT) to measure the effect of the gasoline tax holiday in CT. (i) Define the variable <span class="math inline">\(dlregCTRI = lregularCT - lregularRI\)</span>. Find the first-order autocorrelation of <span class="math inline">\(dlregCTRI\)</span>. Is it close to one? (ii) Discuss the implications of your finding in part (i) for the statistics in the regression of <span class="math inline">\(dlregCTRI\)</span> on the dummy variable, <span class="math inline">\(holidayCT\)</span>. In particular, can you trust the <span class="math inline">\(t\)</span> statistic and confidence interval? (iii) The regression in part (ii) is OLS applied to the equation <span class="math display">\[dlregCTRI_t = \beta_0 + \beta_1 holidayCT_t + u_t\]</span> If you estimate this equation by first differencing, what is the estimate of <span class="math inline">\(\beta_1\)</span>? Does it matter much whether you include an intercept in the FD equation? How does the FD estimate compare with the estimate of <span class="math inline">\(\beta_1\)</span> when you apply OLS in levels? (iv) Let <span class="math inline">\(\Delta holidayCT_t\)</span> be the difference of the dummy variable. How often is this variable zero? How often is it one? What implications does this have for applying “large sample” methods of inference? (v) Referring to the material in Section 9-5c of Chapter 9, relate the regression in first differences to “outlier” analysis.</p>
+</blockquote>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -77,6 +77,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -435,8 +464,23 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#c1-jtrain98" id="toc-c1-jtrain98" class="nav-link active" data-scroll-target="#c1-jtrain98"><span class="header-section-number">19.1</span> C1 [JTRAIN98]</a></li>
+  <li><a href="#c2-vietnam" id="toc-c2-vietnam" class="nav-link" data-scroll-target="#c2-vietnam"><span class="header-section-number">19.2</span> C2 [VIETNAM]</a></li>
+  <li><a href="#c3-jtrain98" id="toc-c3-jtrain98" class="nav-link" data-scroll-target="#c3-jtrain98"><span class="header-section-number">19.3</span> C3 [JTRAIN98]</a></li>
+  <li><a href="#c4-vietnam" id="toc-c4-vietnam" class="nav-link" data-scroll-target="#c4-vietnam"><span class="header-section-number">19.4</span> C4 [VIETNAM]</a></li>
+  <li><a href="#c5-labsup" id="toc-c5-labsup" class="nav-link" data-scroll-target="#c5-labsup"><span class="header-section-number">19.5</span> C5 [LABSUP]</a></li>
+  <li><a href="#c6-rdsenate" id="toc-c6-rdsenate" class="nav-link" data-scroll-target="#c6-rdsenate"><span class="header-section-number">19.6</span> C6 [RDSENATE]</a></li>
+  <li><a href="#c7-headstart" id="toc-c7-headstart" class="nav-link" data-scroll-target="#c7-headstart"><span class="header-section-number">19.7</span> C7 [HEADSTART]</a></li>
+  <li><a href="#c8-catholic" id="toc-c8-catholic" class="nav-link" data-scroll-target="#c8-catholic"><span class="header-section-number">19.8</span> C8 [CATHOLIC]</a></li>
+  <li><a href="#c9-vietnam" id="toc-c9-vietnam" class="nav-link" data-scroll-target="#c9-vietnam"><span class="header-section-number">19.9</span> C9 [VIETNAM]</a></li>
+  <li><a href="#c10-tutorfrd" id="toc-c10-tutorfrd" class="nav-link" data-scroll-target="#c10-tutorfrd"><span class="header-section-number">19.10</span> C10 [TUTORFRD]</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -461,8 +505,103 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="c1-jtrain98" class="level2" data-number="19.1">
+<h2 data-number="19.1" class="anchored" data-anchor-id="c1-jtrain98"><span class="header-section-number">19.1</span> C1 [JTRAIN98]</h2>
+<blockquote class="blockquote">
+<p>Consider Example 19.1, where the outcome variable, <code>earn98</code>, is nonnegative. Use the data in JTRAIN98. Keep all of the data without trimming for lack of overlap. (i) What is the average value of <code>earn98</code>? For what percent of the sample is <code>earn98</code> equal to zero? (ii) Use full regression adjustment with an exponential mean and Poisson QMLE to estimate <span class="math inline">\(\tau_{ate}\)</span>, using the same controls in Example 19.1. What is <span class="math inline">\(\hat{\tau}_{ate}\)</span>, and how does it compare with linear RA in Table 19.1?</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="3" type="i">
+<li>Compare the standard errors of the linear RA and exponential RA estimates. Does the exponential RA improve precision in this application?</li>
+<li>Now use the exponential mean with IPWRA, and compare the estimate of <span class="math inline">\(\tau_{ate}\)</span> with linear IPWRA in Table 19.1. Discuss the precision of the two estimates.</li>
+<li>If you focus on <span class="math inline">\(\tau_{att}\)</span> instead, does the ranking of the estimators—linear mean versus exponential mean—change?</li>
+</ol>
+</blockquote>
+</section>
+<section id="c2-vietnam" class="level2" data-number="19.2">
+<h2 data-number="19.2" class="anchored" data-anchor-id="c2-vietnam"><span class="header-section-number">19.2</span> C2 [VIETNAM]</h2>
+<blockquote class="blockquote">
+<p>Use the data in VIETNAM to answer the following questions. These are a subset of the data used in Angrist (1990). (i) The binary variable <code>vietnam</code> indicates that a man served the United States military during the Vietnam war. How many men are in the entire sample? How many served? (ii) Estimate a simple regress with <code>lwage</code> as the outcome variable and <code>vietnam</code> as the only explanatory variable. Interpret the estimated coefficient on <code>vietnam</code>. Is it statistically different from zero? (Be sure to use a heteroskedasticity-robust statistic.) (iii) Using <code>age</code>, <code>educ</code>, and <code>black</code> as controls, apply linear regression adjustment (with interactions) to estimate the ATE and ATT of <code>vietnam</code>. Do you find any effect? (iv) Estimate a logit model for <code>vietnam</code> using <code>age</code>, <code>educ</code>, and <code>black</code> as explanatory variables. Is <code>vietnam</code> related to any of these variables in a statistically significant way? If so, describe how. How many fitted probabilities are less than 0.1? How many are greater than 0.9. Is lack of overlap a cause for concern in this data set? (v) Using the same controls in part (iii), obtain the IPWRA estimates using a logit model for <code>vietnam</code> and linear models for <code>lwage</code>. What are the new estimates of ATE and ATT? Do they differ much from those found in part (iii)? (vi) Add nonredundant interactions among all controls to both the logit and linear models, and obtain the IPWRA estimates. What are the new estimates of ATE and ATT? Overall, what do you conclude about the causal effect of serving in Vietnam on subsequent labor market earnings?</p>
+</blockquote>
+</section>
+<section id="c3-jtrain98" class="level2" data-number="19.3">
+<h2 data-number="19.3" class="anchored" data-anchor-id="c3-jtrain98"><span class="header-section-number">19.3</span> C3 [JTRAIN98]</h2>
+<blockquote class="blockquote">
+<p>Use the variable <code>unem98</code> as the outcome variable in the data set JTRAIN98. The treatment variable is <code>train</code>. (i) Across all men in the data set, what is the unemployment rate in 1998? How does this rate differ among those who did and did not participate in the job training program? (ii) Using the same control variables in Example 19.1—including the squares and interactions of the variables—obtain the linear RA estimates of <span class="math inline">\(\tau_{ate}\)</span> and <span class="math inline">\(\tau_{att}\)</span> of the effect of <code>train</code> on <code>unem98</code>. Interpret the estimated effects and obtain the <span class="math inline">\(t\)</span> statistics. (iii) Still using the same controls, use logit regression adjustment and report <span class="math inline">\(\hat{\tau}_{ate}\)</span> and <span class="math inline">\(\hat{\tau}_{att}\)</span>. How do these compare with the linear RA estimates? How do the standard errors of the logit RA estimates compare with the standard errors for linear RA? (iv) Use the same controls to estimate the propensity score by logit, and then obtain the IPWRA estimates of <span class="math inline">\(\tau_{ate}\)</span> and <span class="math inline">\(\tau_{att}\)</span> with a linear mean. How do these compare with the previous estimates? (v) Use two separate weighted regressions to obtain the fitted values in part (iv). That is, using only the controls, weight the linear regression by <span class="math inline">\(1/(1 - \hat{p}_i)\)</span>, and save the fitted values for <em>all</em> units. Then do the same for the treated units, where the weights are <span class="math inline">\(1/\hat{p}_i\)</span>. Difference the fitted values to obtain <span class="math inline">\(\widehat{te}_i\)</span> for each <span class="math inline">\(i\)</span>, and then, to obtain <span class="math inline">\(\hat{\tau}_{ate}\)</span>, average the <span class="math inline">\(\widehat{te}_i\)</span> across all <span class="math inline">\(i\)</span>. What is the estimate? Is it easy to obtain a standard error? (vi) Now obtain the IPWRA estimates where the outcome models for <code>unem98</code> are also logit. Do you find any notable differences and the ATE and ATT estimates compared with part (iv)?</p>
+</blockquote>
+</section>
+<section id="c4-vietnam" class="level2" data-number="19.4">
+<h2 data-number="19.4" class="anchored" data-anchor-id="c4-vietnam"><span class="header-section-number">19.4</span> C4 [VIETNAM]</h2>
+<blockquote class="blockquote">
+<p>Use the data in VIETNAM for this exercise. The binary variable <code>draft</code> is an IV for <code>vietnam</code>—which indicates serving for the U.S. military during the Vietnam war. (i) Regress <code>draft</code> on <code>age</code>, <code>educ</code>, and <code>black</code>. Does it appear <code>draft</code> is independent of these three variables? Explain.</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="2" type="i">
+<li>Estimate the first stage of 2SLS by regressing <code>vietnam</code> on <code>draft</code>, <code>age</code>, <code>educ</code>, and <code>black</code>. Discuss the coefficient on <code>draft</code>. Does <code>draft</code> seem suitable as an IV for <code>vietnam</code>?</li>
+<li>Estimate the equation <span class="math display">\[lwage = \alpha + \tau \cdot vietnam + \beta_1 age + \beta_2 educ + \beta_3 black + u\]</span> by instrumental variables, using <code>draft</code> as an IV for <code>vietnam</code>. Report the coefficient on <code>vietnam</code> along with its standard error.</li>
+<li>Estimate <span class="math inline">\(\tau_{late}\)</span> using flexible equation (19.55). How large is the point estimate? What is the 95% confidence interval for <span class="math inline">\(\tau_{late}\)</span>?</li>
+<li>Repeat part (iii) dropping all of the control variables and obtain the IV estimate of <span class="math inline">\(\tau_{late}\)</span>. How does it compare with the LATE estimate from part (iv)? Do you think this is a more convincing estimate than those found in part (iii) or part (iv)? Explain.</li>
+</ol>
+</blockquote>
+</section>
+<section id="c5-labsup" class="level2" data-number="19.5">
+<h2 data-number="19.5" class="anchored" data-anchor-id="c5-labsup"><span class="header-section-number">19.5</span> C5 [LABSUP]</h2>
+<blockquote class="blockquote">
+<p>Use the data in LABSUP to answer the following questions. Use <span class="math inline">\(z = samesex\)</span>, indicating whether the first two children are born the same sex, as an instrument for <span class="math inline">\(w = morekids\)</span>, indicating having more than two children. Drop the observations where <span class="math inline">\(multi2nd = 1\)</span> (indicating that the second birth resulted in more than one child). (i) What is the percentage of women having two children? What is the percentage having more than two children? (ii) Regress <span class="math inline">\(morekids_i\)</span> on <span class="math inline">\(samesex_i\)</span>. What is the estimated fraction of “compliers” in the population? (iii) Use <code>samesex</code> as an IV for <code>morekids</code> in an equation with <code>hours</code> as the outcome variable; do not use control variables. What is the IV estimate? How does it, and its precision, compare with the OLS estimate (difference in means) and its precision? (iv) Create centered versions of the control variables <code>age</code>, <code>nonmomi</code>, and <code>educ</code>, about their sample averages. Use linear regression adjustment of <code>hours</code> on <code>samesex</code>, the controls, and the interactions of <code>samesex</code> with the centered controls. What is the coefficient on <code>samesex</code>? (v) Repeat part (iv), but with <code>morekids</code> as the dependent variable. Is the <code>samesex</code> coefficient the expected sign? What is its heteroskedasticity-robust <span class="math inline">\(t\)</span> statistic? (vi) Using <code>hours</code> as the outcome variable and treating <code>morekids</code> as endogenous, use the IV estimation in (19.55) to estimate <span class="math inline">\(\tau_{late}\)</span>. Report the estimate and its standard error. (vii) Confirm that the ratio of the <code>samesex</code> coefficients in parts (iv) and (v) equals the IV estimate from part (vi). (viii) Estimate a probit model for <code>morekids</code>, in place of the linear regression in part (v). Find the average partial effect of <code>samesex</code>. How close is it to the coefficient on <code>samesex</code> in part (v)? How do they compare in terms of statistical significance? (ix) Obtain the generalized residuals from part (viii) and implement the control function approach. How does the estimate compare with the IV estimate from part (vi)? Is there evidence that <code>morekids</code> is endogenous? What happens to the coefficient on <code>morekids</code> when the two generalized residual terms are dropped? (x) Can you think of reasons why <code>samesex</code> might not be exogenous (satisfy Assumption LATE.2’), even after controlling for <code>age</code>, <code>nonmomi</code>, and <code>educ</code>?</p>
+</blockquote>
+</section>
+<section id="c6-rdsenate" class="level2" data-number="19.6">
+<h2 data-number="19.6" class="anchored" data-anchor-id="c6-rdsenate"><span class="header-section-number">19.6</span> C6 [RDSENATE]</h2>
+<blockquote class="blockquote">
+<p>Use the data in RDSENATE to answer the following questions. This is a data set on senatorial elections in the United States, similar to the data set RDHOUSE used in Example 19.3. The goal is to estimate the effect of party incumbency on election outcomes over many elections in the U.S. senate. (i) What is the calendar span of the data? How is <code>margin</code> measured, and what is its average value? Provide the state number and year of the smallest value of <code>margin</code> in absolute value. (ii) Regress <code>Dvote</code> on <code>margin</code>. What is the estimated coefficient. How do you interpret it? Is it statistically significant? (iii) Define the binary variable <code>Dwin</code> to be one if <span class="math inline">\(margin &gt; 0\)</span>. (Note that this refers to the Democrat winning in the prior election, and so it acts as the “treatment” variable.) Add the &gt; variables <code>Dwin</code> and <span class="math inline">\(Dwin \cdot margin\)</span> to the regression in part (ii). What is the coefficient on <code>Dwin</code>? How do you interpret this coefficient? Does its magnitude seem practically important? Statistically different from zero? (iv) Do you think the interaction term <span class="math inline">\(Dwin \cdot margin\)</span> is needed in part (iii)? What happens to the coefficient on <code>Dwin</code> if you drop the interaction? (v) Redo the regression in part (iii) but only use observations with <span class="math inline">\(-30 &lt; margin &lt; 30\)</span>. How many observations are used? What happens to the coefficient on <code>Dwin</code>? Is the interaction term significant? (vi) Now choose the bandwidth using the Imbens and Kalyanaraman (2012) method. What is the chosen bandwidth? What is the estimated treatment effect of party incumbency? (vii) Compare the estimates from parts (vi) and (v), and discuss the relative precision of each.</p>
+</blockquote>
+</section>
+<section id="c7-headstart" class="level2" data-number="19.7">
+<h2 data-number="19.7" class="anchored" data-anchor-id="c7-headstart"><span class="header-section-number">19.7</span> C7 [HEADSTART]</h2>
+<blockquote class="blockquote">
+<p>Use the data in HEADSTART to answer the following questions. The data are cross-sectional at the U.S. county level, and include variables from the 1960s and 1970s. Some counties were given assistance in implementing the anti-poverty program known as Head Start. The rule determining assistance turned out to be based on the poverty rate in 1960. A county received assistance if its poverty rate exceeded 59.1984. The key outcome variable is the mortality rate of young children, <code>mort_age5_9</code>, in years following the implementation of the national Head Start program. (i) How many counties are included in the data set? How many received assistance in setting up their Head Start program? How many counties have missing data on the variable <code>mort_age5_9</code>? For how many counties is <code>mort_age5_9</code> equal to zero? (ii) Define the variable <span class="math inline">\(povrate\_cut = povrate - 59.1984\)</span>. Using all of the data (for which you have an observation for <code>mort_age5_9</code>), use OLS to estimate the equation <span class="math display">\[mort\_age5\_9 = \beta_0 + \beta_1 assist + \beta_2 povrate\_cut + \beta_3 (assist \cdot povrate\_cut) + u.\]</span> What is the estimated policy effect of assisting the rollout of Head Start? Is it statistically different from zero at the 5% level? (iii) In part (ii), what is the estimated coefficient on <code>povrate_cut</code>? Describe the intuition behind its sign. What is the estimated difference in mortality for a county with a 50 percent poverty rate and one with a 30 percent poverty rate? (iv) Redo part (ii) using only counties with <span class="math inline">\(povrate \ge 40\)</span> and <span class="math inline">\(povrate \le 80\)</span>. How many counties are included on each side of the cutoff? How do the estimated effect of <code>assist</code> and its statistical significance compare with those of part (ii)? (v) Now use the Imbens and Kalyanaraman (2012) approach to choose the bandwidth. How many counties are used on either side of the cutoff? What is the estimated treatment effect (at the cutoff) and its <span class="math inline">\(t\)</span> statistic? (vi) Starting with the same model and bandwidth as in part (iv), include controls for percent urban, percent black, and log of the population—all measured in 1960. Compare the estimated treatment effect and precision with the results found in part (iv). (vii) Use <code>mort_age25_plus</code> as the outcome (dependent) variable and estimate the same model, with the same bandwidth, as in part (iv). This is the mortality rate for people much too old to have participated in Head Start. Explain your findings, including why this acts as a “placebo” check on the analysis.</p>
+</blockquote>
+</section>
+<section id="c8-catholic" class="level2" data-number="19.8">
+<h2 data-number="19.8" class="anchored" data-anchor-id="c8-catholic"><span class="header-section-number">19.8</span> C8 [CATHOLIC]</h2>
+<blockquote class="blockquote">
+<p>Use the data in CATHOLIC for this question. As in Example 19.4, the goal is to try to estimate the causal effect of attending a Catholic high school on test performance. Here, when IV or CF methods are used, the binary variable, <code>parcath</code>, which indicates whether at least one parent is Catholic, is the single IV for <code>cathhs</code>, attending a Catholic high school. (i) How many students are included in this data set? How many attend a Catholic high school? In how many families is at least one parent Catholic?</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="2" type="i">
+<li>Run a simple regression of <code>cathhs</code> on <code>parcath</code> (including an intercept, of course). Does the estimated coefficient make sense? Discuss its interpretation and statistical significance.</li>
+<li>Run a simple regression of <code>math12</code> on <code>cathhs</code>. Report and discuss the coefficient on <code>cathhs</code> and its statistical significance.</li>
+<li>Now use <code>motheduc</code>, <code>fatheduc</code>, and <code>lfaminc</code> as controls in using (full) linear regression adjustment. What is <span class="math inline">\(\hat{\tau}_{ate}\)</span>, the estimated average treatment effect, in this case?</li>
+<li>Regress <code>cathhs</code> on <code>parcath</code>, the controls in part (iv), and the interactions between <code>parcath</code> and the controls. Do it two ways: without centering the controls and with centering the controls about their sample averages. Discuss the coefficients on <code>parcath</code> and explain the reason for the difference. Can you conclude <code>parcath</code> is a suitably strong IV for <code>cathhs</code>?</li>
+<li>Obtain the simple IV estimator with <code>math12</code> as the outcome, <code>cathhs</code> as the treatment, and <code>parcath</code> as the IV. What is the estimate of LATE?</li>
+<li>Now estimate LATE adding the controls in part (iv). Use equation (19.55) to allow flexible estimation. What is <span class="math inline">\(\hat{\tau}_{late}\)</span>? Report a 95% confidence interval for <span class="math inline">\(\tau_{late}\)</span>.</li>
+<li>Estimate a probit model for <code>cathhs</code> that includes <code>parcath</code>, the control variables in part (iv), and interactions between <code>parcath</code> and the centered controls. Find the average partial effect of <code>parcath</code>, and compare it with the appropriate estimate in part (v).</li>
+<li>Obtain the generalized residuals from the estimation in part (viii), and implement the CF regression in equation (19.90). How does <span class="math inline">\(\hat{\tau}_{ate}\)</span> compare with <span class="math inline">\(\hat{\tau}_{late}\)</span> in part (vii)? (As a bonus, use bootstrapping to obtain a proper standard error for <span class="math inline">\(\hat{\tau}_{ate}\)</span>.)</li>
+<li>In the CF regression, obtain <span class="math inline">\(\hat{\tau}_{att}\)</span>. How does it compare with <span class="math inline">\(\hat{\tau}_{ate}\)</span>? (As a bonus, use bootstrapping to obtain a standard error for <span class="math inline">\(\hat{\tau}_{att}\)</span>.)</li>
+</ol>
+</blockquote>
+</section>
+<section id="c9-vietnam" class="level2" data-number="19.9">
+<h2 data-number="19.9" class="anchored" data-anchor-id="c9-vietnam"><span class="header-section-number">19.9</span> C9 [VIETNAM]</h2>
+<blockquote class="blockquote">
+<p>Use the data in VIETNAM for this exercise, which applies the control function method. (i) Estimate a probit model for <code>vietnam</code> where the explanatory variables are <code>draft</code>, <code>age</code>, <code>educ</code>, <code>black</code>, and interactions between <code>draft</code> and the demeaned control variables. What is the APE with respect to <code>draft</code>? Does it have the expected sign? What is its robust <span class="math inline">\(t\)</span> statistic? (ii) Obtain the generalized residuals from part (i), <span class="math inline">\(gr_i\)</span>. What is the average of these residuals over <span class="math inline">\(vietnam_i = 0\)</span>? What is the average over <span class="math inline">\(vietnam_i = 1\)</span>? What is their average across all <span class="math inline">\(i\)</span>? (iii) Obtain the control function estimates from the regression in (19.90). What is the estimated coefficient on <code>vietnam</code>? Does the effect seem practically important? If you use the usual heteroskedasticity-robust standard error, is it statistically significant? (iv) Test the null hypothesis that <code>vietnam</code> is exogenous in the <code>lwage</code> equation. What do you conclude? If you drop the terms involving <span class="math inline">\(gr_i\)</span>, what is the coefficient on <code>vietnam</code>? (v) Now estimate the model underlying the CF estimation by IV, where your instruments should be <code>draft</code>, <span class="math inline">\(draft \cdot (age - \overline{age})\)</span>, <span class="math inline">\(draft \cdot (educ - \overline{educ})\)</span>, and <span class="math inline">\(draft \cdot (black - \overline{black})\)</span>. What is the estimated effect of <code>vietnam</code>? What is its heteroskedasticity-robust <span class="math inline">\(t\)</span> statistic? How does it compare with the CF estimate?</p>
+</blockquote>
+</section>
+<section id="c10-tutorfrd" class="level2" data-number="19.10">
+<h2 data-number="19.10" class="anchored" data-anchor-id="c10-tutorfrd"><span class="header-section-number">19.10</span> C10 [TUTORFRD]</h2>
+<blockquote class="blockquote">
+<p>Use the data in TUTORFRD to answer the following questions. These data are generated to mimic a fuzzy RD design; therefore, the findings are illustrative only. The treatment variable is <code>tutor</code> (participation in a summer math tutoring program between fourth and fifth grade), the running variable is <code>score4</code> (the score on a fourth-grade math test), and eligibility is determined by <span class="math inline">\(score4 \le 60\)</span>. (i) How many students are in the sample? How many students were initially eligible for the tutoring program? (ii) Of the eligible students, what percentage participated? Of the ineligible students, what percentage managed to participate? (iii) Estimate a sharp RD relating <code>tutor</code> to <code>elig</code>, restricting the regression to observations with <span class="math inline">\(40 \le score4 \le 80\)</span>. How many observations are used on each side of the cutoff? What is the estimated coefficient on <code>elig</code>? Interpret the interaction coefficient and discuss statistical significance.</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="4" type="i">
+<li>Sketch a graph similar to Figure 19.1, assuming that the tutoring program has a positive effect on <code>score5</code>. (Be careful; eligibility is determined here by being below the cutoff.)</li>
+<li>Use the IV approach to estimate <span class="math inline">\(\tau_{60}\)</span>, the ATE at the cutoff <span class="math inline">\(c = 60\)</span>. Use data satisfying <span class="math inline">\(40 \le score4_i \le 80\)</span>. What is <span class="math inline">\(\hat{\tau}_{60}\)</span> and its standard error?</li>
+<li>Use the IK (2012) method to choose the bandwidth. What is the chosen bandwidth? How many total observations are used? How does the estimate of <span class="math inline">\(\tau_{60}\)</span> and its precision compare with those from part (v)?</li>
+</ol>
+</blockquote>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

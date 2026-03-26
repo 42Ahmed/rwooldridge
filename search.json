@@ -733,5 +733,676 @@
       "PART 1: Regression Analysis with Cross-Sectional Data",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Multiple Regression Analysis: Further Issues</span>"
     ]
+  },
+  {
+    "objectID": "chapter16.html",
+    "href": "chapter16.html",
+    "title": "16  Simultaneous Equations Models",
+    "section": "",
+    "text": "16.1 C1 [SMOKE]",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Simultaneous Equations Models</span>"
+    ]
+  },
+  {
+    "objectID": "chapter16.html#c1-smoke",
+    "href": "chapter16.html#c1-smoke",
+    "title": "16  Simultaneous Equations Models",
+    "section": "",
+    "text": "Use SMOKE for this exercise. (i) A model to estimate the effects of smoking on annual income (perhaps through lost work days due to illness, or productivity effects) is \\[\\log(income) = \\beta_0 + \\beta_1 cigs + \\beta_2 educ + \\beta_3 age + \\beta_4 age^2 + u_1,\\] where cigs is number of cigarettes smoked per day, on average. How do you interpret \\(\\beta_1\\)? (ii) To reflect the fact that cigarette consumption might be jointly determined with income, a demand for cigarettes equation is \\[cigs = \\gamma_0 + \\gamma_1 \\log(income) + \\gamma_2 educ + \\gamma_3 age + \\gamma_4 age^2 + \\gamma_5 \\log(cigpric) + \\gamma_6 restaurn + u_2,\\] where cigpric is the price of a pack of cigarettes (in cents) and restaurn is a binary variable equal to unity if the person lives in a state with restaurant smoking restrictions. Assuming these are exogenous to the individual, what signs would you expect for \\(\\gamma_5\\) and \\(\\gamma_6\\)?\n\n\n\nUnder what assumption is the income equation from part (i) identified?\nEstimate the income equation by OLS and discuss the estimate of \\(\\beta_1\\).\nEstimate the reduced form for cigs. (Recall that this entails regressing cigs on all exogenous variables.) Are \\(\\log(cigpric)\\) and restaurn significant in the reduced form?\nNow, estimate the income equation by 2SLS. Discuss how the estimate of \\(\\beta_1\\) compares with the OLS estimate.\nDo you think that cigarette prices and restaurant smoking restrictions are exogenous in the income equation?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Simultaneous Equations Models</span>"
+    ]
+  },
+  {
+    "objectID": "chapter16.html#c2-mroz",
+    "href": "chapter16.html#c2-mroz",
+    "title": "16  Simultaneous Equations Models",
+    "section": "16.2 C2 [MROZ]",
+    "text": "16.2 C2 [MROZ]\n\nUse MROZ for this exercise. (i) Reestimate the labor supply function in Example 16.5, using \\(\\log(hours)\\) as the dependent variable. Compare the estimated elasticity (which is now constant) to the estimate obtained from equation (16.24) at the average hours worked. (ii) In the labor supply equation from part (i), allow educ to be endogenous because of omitted ability. Use motheduc and fatheduc as IVs for educ. Remember, you now have two endogenous variables in the equation. (iii) Test the overidentifying restrictions in the 2SLS estimation from part (ii). Do the IVs pass the test?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Simultaneous Equations Models</span>"
+    ]
+  },
+  {
+    "objectID": "chapter16.html#c3-openness",
+    "href": "chapter16.html#c3-openness",
+    "title": "16  Simultaneous Equations Models",
+    "section": "16.3 C3 [OPENNESS]",
+    "text": "16.3 C3 [OPENNESS]\n\nUse the data in OPENNESS for this exercise. (i) Because \\(\\log(pcinc)\\) is insignificant in both (16.22) and the reduced form for open, drop it from the analysis. Estimate (16.22) by OLS and IV without \\(\\log(pcinc)\\). Do any important conclusions change? (ii) Still leaving \\(\\log(pcinc)\\) out of the analysis, is land or \\(\\log(land)\\) a better instrument for open? (Hint: Regress open on each of these separately and jointly.) (iii) Now, return to (16.22). Add the dummy variable oil to the equation and treat it as exogenous. Estimate the equation by IV. Does being an oil producer have a ceteris paribus effect on inflation?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Simultaneous Equations Models</span>"
+    ]
+  },
+  {
+    "objectID": "chapter16.html#c4-consump",
+    "href": "chapter16.html#c4-consump",
+    "title": "16  Simultaneous Equations Models",
+    "section": "16.4 C4 [CONSUMP]",
+    "text": "16.4 C4 [CONSUMP]\n\nUse the data in CONSUMP for this exercise. (i) In Example 16.7, use the method from Section 15-5 to test the single overidentifying restriction in estimating (16.35). What do you conclude? (ii) Campbell and Mankiw (1990) use second lags of all variables as IVs because of potential data measurement problems and informational lags. Reestimate (16.35), using only \\(gc_{t-2}\\), \\(gy_{t-2}\\), and \\(r3_{t-2}\\) as IVs. How do the estimates compare with those in (16.36)? (iii) Regress \\(gy_t\\) on the IVs from part (ii) and test whether \\(gy_t\\) is sufficiently correlated with them. Why is this important?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Simultaneous Equations Models</span>"
+    ]
+  },
+  {
+    "objectID": "chapter16.html#c5",
+    "href": "chapter16.html#c5",
+    "title": "16  Simultaneous Equations Models",
+    "section": "16.5 C5",
+    "text": "16.5 C5\n\nUse the Economic Report of the President (2005 or later) to update the data in CONSUMP, at least through 2003. Reestimate equation (16.35). Do any important conclusions change?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Simultaneous Equations Models</span>"
+    ]
+  },
+  {
+    "objectID": "chapter16.html#c6-cement",
+    "href": "chapter16.html#c6-cement",
+    "title": "16  Simultaneous Equations Models",
+    "section": "16.6 C6 [CEMENT]",
+    "text": "16.6 C6 [CEMENT]\n\nUse the data in CEMENT for this exercise. (i) A static (inverse) supply function for the monthly growth in cement price (\\(gprc\\)) as a function of growth in quantity (\\(gcem\\)) is \\[gprc_t = \\alpha_1 gcem_t + \\beta_0 + \\beta_1 gprcpet + \\beta_2 feb_t + \\dots + \\beta_{12} dec_t + u_t^s,\\] where \\(gprcpet\\) (growth in the price of petroleum) is assumed to be exogenous and \\(feb, \\dots, dec\\) are monthly dummy variables. What signs do you expect for \\(\\alpha_1\\) and \\(\\beta_1\\)? Estimate the equation by OLS. Does the supply function slope upward? (ii) The variable \\(gdefs\\) is the monthly growth in real defense spending in the United States. What do you need to assume about \\(gdefs\\) for it to be a good IV for \\(gcem\\)? Test whether \\(gcem\\) is partially correlated with \\(gdefs\\). (Do not worry about possible serial correlation in the reduced form.) Can you use \\(gdefs\\) as an IV in estimating the supply function?\n\n\n\nShea (1993) argues that the growth in output of residential (gres) and nonresidential (gnon) construction are valid instruments for gcem. The idea is that these are demand shifters that should be roughly uncorrelated with the supply error \\(u_t^s\\). Test whether gcem is partially correlated with gres and gnon; again, do not worry about serial correlation in the reduced form.\nEstimate the supply function, using gres and gnon as IVs for gcem. What do you conclude about the static supply function for cement? [The dynamic supply function is, apparently, upward sloping; see Shea (1993).]",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Simultaneous Equations Models</span>"
+    ]
+  },
+  {
+    "objectID": "chapter16.html#c7-crime4",
+    "href": "chapter16.html#c7-crime4",
+    "title": "16  Simultaneous Equations Models",
+    "section": "16.7 C7 [CRIME4]",
+    "text": "16.7 C7 [CRIME4]\n\nRefer to Example 13.9 and the data in CRIME4. (i) Suppose that, after differencing to remove the unobserved effect, you think \\(\\Delta\\log(polpc)\\) is simultaneously determined with \\(\\Delta\\log(crmrte)\\); in particular, increases in crime are associated with increases in police officers. How does this help to explain the positive coefficient on \\(\\Delta\\log(polpc)\\) in equation (13.33)? (ii) The variable taxpc is the taxes collected per person in the county. Does it seem reasonable to exclude this from the crime equation? (iii) Estimate the reduced form for \\(\\Delta\\log(polpc)\\) using pooled OLS, including the potential IV, \\(\\Delta\\log(taxpc)\\). Does it look like \\(\\Delta\\log(taxpc)\\) is a good IV candidate? Explain. (iv) Suppose that, in several of the years, the state of North Carolina awarded grants to some counties to increase the size of their county police force. How could you use this information to estimate the effect of additional police officers on the crime rate?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Simultaneous Equations Models</span>"
+    ]
+  },
+  {
+    "objectID": "chapter16.html#c8-fish",
+    "href": "chapter16.html#c8-fish",
+    "title": "16  Simultaneous Equations Models",
+    "section": "16.8 C8 [FISH]",
+    "text": "16.8 C8 [FISH]\n\nUse the data set in FISH, which comes from Graddy (1995), to do this exercise. The data set is also used in Computer Exercise C9 in Chapter 12. Now, we will use it to estimate a demand function for fish. (i) Assume that the demand equation can be written, in equilibrium for each time period, as \\[\\log(totqty_t) = \\alpha_1 \\log(avgprc_t) + \\beta_{t0} + \\beta_{t1} mon_t + \\beta_{t2} tues_t + \\beta_{t3} wed_t + \\beta_{t4} thurs_t + u_{t1},\\] so that demand is allowed to differ across days of the week. Treating the price variable as endogenous, what additional information do we need to estimate the demand-equation parameters consistently? (ii) The variables wave2 and wave3 are measures of ocean wave heights over the past several days. What two assumptions do we need to make in order to use wave2 and wave3 as IVs for \\(\\log(avgprc_t)\\) in estimating the demand equation? (iii) Regress \\(\\log(avgprc_t)\\) on the day-of-the-week dummies and the two wave measures. Are wave2 and wave3 jointly significant? What is the \\(p\\)-value of the test? (iv) Now, estimate the demand equation by 2SLS. What is the 95% confidence interval for the price elasticity of demand? Is the estimated elasticity reasonable? (v) Obtain the 2SLS residuals, \\(\\hat{u}_{t1}\\). Add a single lag, \\(\\hat{u}_{t-1,1}\\) in estimating the demand equation by 2SLS. Remember, use \\(\\hat{u}_{t-1,1}\\) as its own instrument. Is there evidence of AR(1) serial correlation in the demand equation errors? (vi) Given that the supply equation evidently depends on the wave variables, what two assumptions would we need to make in order to estimate the price elasticity of supply? (vii) In the reduced form equation for \\(\\log(avgprc_t)\\), are the day-of-the-week dummies jointly significant? What do you conclude about being able to estimate the supply elasticity?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Simultaneous Equations Models</span>"
+    ]
+  },
+  {
+    "objectID": "chapter16.html#c9-airfare",
+    "href": "chapter16.html#c9-airfare",
+    "title": "16  Simultaneous Equations Models",
+    "section": "16.9 C9 [AIRFARE]",
+    "text": "16.9 C9 [AIRFARE]\n\nFor this exercise, use the data in AIRFARE, but only for the year 1997. (i) A simple demand function for airline seats on routes in the United States is \\[\\log(passen) = \\beta_{10} + \\alpha_1 \\log(fare) + \\beta_{11} \\log(dist) + \\beta_{12} [\\log(dist)]^2 + u_1,\\]\n\n\nwhere * passen = average passengers per day, * fare = average airfare, and * dist = the route distance (in miles).\nIf this is truly a demand function, what should be the sign of \\(\\alpha_1\\)? (ii) Estimate the equation from part (i) by OLS. What is the estimated price elasticity? (iii) Consider the variable concen, which is a measure of market concentration. (Specifically, it is the share of business accounted for by the largest carrier.) Explain in words what we must assume to treat concen as exogenous in the demand equation. (iv) Now assume concen is exogenous to the demand equation. Estimate the reduced form for \\(\\log(fare)\\) and confirm that concen has a positive (partial) effect on \\(\\log(fare)\\). (v) Estimate the demand function using IV. Now what is the estimated price elasticity of demand? How does it compare with the OLS estimate? (vi) Using the IV estimates, describe how demand for seats depends on route distance.",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Simultaneous Equations Models</span>"
+    ]
+  },
+  {
+    "objectID": "chapter16.html#c10-airfare",
+    "href": "chapter16.html#c10-airfare",
+    "title": "16  Simultaneous Equations Models",
+    "section": "16.10 C10 [AIRFARE]",
+    "text": "16.10 C10 [AIRFARE]\n\nUse the entire panel data set in AIRFARE for this exercise. The demand equation in a simultaneous equations unobserved effects model is \\[\\log(passen_{it}) = \\theta_{t1} + \\alpha_1 \\log(fare_{it}) + a_{i1} + u_{it1},\\] where we absorb the distance variables into \\(a_{i1}\\). (i) Estimate the demand function using fixed effects, being sure to include year dummies to account for the different intercepts. What is the estimated elasticity? (ii) Use fixed effects to estimate the reduced form \\[\\log(fare_{it}) = \\theta_{t2} + \\pi_{21} concen_{it} + a_{i2} + v_{it2}.\\] Perform the appropriate test to ensure that \\(concen_{it}\\) can be used as an IV for \\(\\log(fare_{it})\\). (iii) Now estimate the demand function using the fixed effects transformation along with IV, as in equation (16.42). What is the estimated elasticity? Is it statistically significant?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Simultaneous Equations Models</span>"
+    ]
+  },
+  {
+    "objectID": "chapter16.html#c11-expendshares",
+    "href": "chapter16.html#c11-expendshares",
+    "title": "16  Simultaneous Equations Models",
+    "section": "16.11 C11 [EXPENDSHARES]",
+    "text": "16.11 C11 [EXPENDSHARES]\n\nA common method for estimating Engel curves is to model expenditure shares as a function of total expenditure, and possibly demographic variables. A common specification has the form \\[sgood = \\beta_0 + \\beta_1 ltotexpend + demographics + u,\\] where sgood is the fraction of spending on a particular good out of total expenditure and ltotexpend is the log of total expenditure. The sign and magnitude of \\(\\beta_1\\) are of interest across various expenditure categories. To account for the potential endogeneity of ltotexpend—which can be viewed as an omitted variables or simultaneous equations problem, or both—the log of family income is often used as an instrumental variable. Let lincome denote the log of family income. For the remainder of this question, use the data in EXPENDSHARES, which comes from Blundell, Duncan, and Pendakur (1998). (i) Use sfood, the share of spending on food, as the dependent variable. What is the range of values of sfood? Are you surprised there are no zeros? (ii) Estimate the equation \\[sfood = \\beta_0 + \\beta_1 ltotexpend + \\beta_2 age + \\beta_3 kids + u \\qquad [16.43]\\] by OLS and report the coefficient on ltotexpend, \\(\\hat{\\beta}_{OLS,1}\\), along with its heteroskedasticity-robust standard error. Interpret the result.\n\n\n\nUsing lincome as an IV for ltotexpend, estimate the reduced form equation for ltotexpend; be sure to include age and kids. Assuming lincome is exogenous in (16.43), is lincome a valid IV for ltotexpend?\nNow estimate (16.43) by instrumental variables. How does \\(\\hat{\\beta}_{IV,1}\\) compare with \\(\\hat{\\beta}_{OLS,1}\\)? What about the robust 95% confidence intervals?\nUse the test in Section 15-5 to test the null hypothesis that ltotexpend is exogenous in (16.43). Be sure to report and interpret the \\(p\\)-value. Are there any overidentifying restrictions to test?\nSubstitute salcohol for sfood in (16.43) and estimate the equation by OLS and 2SLS. Now what do you find for the coefficients on ltotexpend?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Simultaneous Equations Models</span>"
+    ]
+  },
+  {
+    "objectID": "chapter16.html#c12-prison.dta",
+    "href": "chapter16.html#c12-prison.dta",
+    "title": "16  Simultaneous Equations Models",
+    "section": "16.12 C12 [PRISON.DTA]",
+    "text": "16.12 C12 [PRISON.DTA]\n\nUse the data in PRISON.DTA to answer the following questions. Refer to Example 16.8. In the data set, variables beginning with “g” are growth rates from one year to the next, obtained as the changes in the natural log. For example, \\(gcriv_{it} = \\log(criv_{it}) - \\log(criv_{i,t-1})\\). Variables beginning with “c” are changes in levels from one year to the next, for example, \\(cunem_{it} = unem_{it} - unem_{i,t-1}\\). (i) Estimate the equation \\[gcriv_{it} = \\xi_t + \\alpha_1 gpris_{it} + \\beta_1 gincpc_{it} + \\beta_2 gpolc_{it} + \\beta_3 cag0\\_14_{it} + \\beta_4 cag15\\_17_{it} + \\beta_5 cag18\\_24_{it} + \\beta_6 cag25\\_34_{it} + \\beta_7 cunem_{it} + \\beta_8 cblack_{it} + \\beta_9 cmetro_{it} + \\Delta u_{it}\\] by OLS and verify that you obtain \\(\\hat{\\alpha}_1 = -0.181 (\\text{se} = 0.048)\\). The parameters \\(\\xi_t\\) are to remind you to include year dummies for 1981 through 1993. (ii) Estimate the reduced form equation for \\(gpris_{it}\\), where \\(final1_{it}\\) and \\(final2_{it}\\) are the instruments: \\[gpris_{it} = \\eta_t + \\gamma_1 final1_{it} + \\gamma_2 final2_{it} + \\pi_1 gincpc_{it} + \\pi_2 gpolpc_{it} + \\pi_3 cag0\\_14_{it} + \\pi_4 cag15\\_17_{it} + \\pi_5 cag18\\_24_{it} + \\pi_6 cag25\\_34_{it} + \\pi_7 cunem_{it} + \\pi_8 cblack_{it} + \\pi_9 cmetro_{it} + \\Delta u_{it}\\] Verify that \\(\\gamma_1\\) and \\(\\gamma_2\\) are both negative. Are they each statistically significant? What is the \\(F\\) statistic for \\(H_0: \\gamma_1 = \\gamma_2 = 0\\)? (Remember again to put in a full set of year dummies.) (iii) Obtain the 2SLS estimates of the equation in part (i), using \\(final1_{it}\\) and \\(final2_{it}\\) as instruments for \\(gpris_{it}\\). Verify that you obtain \\(\\hat{\\alpha}_1 = -1.032 (\\text{se} = 0.370)\\). (iv) If you have access to econometrics software that computes standard errors robust to heteroskedasticity and serial correlation, obtain them for the 2SLS estimate in part (iii). What happens to the standard error of \\(\\hat{\\alpha}_1\\)? (v) Reestimate the reduced form in part (ii) using the differences, \\(\\Delta final1_{it}\\) and \\(\\Delta final2_{it}\\), as the instruments. (You will lose 1980 in differencing the instruments.) Do \\(\\Delta final1_{it}\\) and \\(\\Delta final2_{it}\\) seem like sufficiently strong instruments for \\(gpris_{it}\\)? In particular, do you prefer using the differences or levels as the IVs? Estimate the reduced form in part (ii) dropping 1980 to be sure that you reach your conclusion on instrument strength using the same set of data.",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Simultaneous Equations Models</span>"
+    ]
+  },
+  {
+    "objectID": "chapter17.html",
+    "href": "chapter17.html",
+    "title": "17  Limited Dependent Variable Models and Sample Selection Corrections",
+    "section": "",
+    "text": "17.1 C1 [PNTSPRD]",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Limited Dependent Variable Models and Sample Selection Corrections</span>"
+    ]
+  },
+  {
+    "objectID": "chapter17.html#c1-pntsprd",
+    "href": "chapter17.html#c1-pntsprd",
+    "title": "17  Limited Dependent Variable Models and Sample Selection Corrections",
+    "section": "",
+    "text": "Use the data in PNTSPRD for this exercise. (i) The variable favwin is a binary variable if the team favored by the Las Vegas point spread wins. A linear probability model to estimate the probability that the favored team wins is \\[\\text{P}(favwin = 1|spread) = \\beta_0 + \\beta_1 spread.\\] Explain why, if the spread incorporates all relevant information, we expect \\(\\beta_0 = 0.5\\). (ii) Estimate the model from part (i) by OLS. Test H\\(_0\\): \\(\\beta_0 = 0.5\\) against a two-sided alternative. Use both the usual and heteroskedasticity-robust standard errors. (iii) Is spread statistically significant? What is the estimated probability that the favored team wins when spread = 10? (iv) Now, estimate a probit model for \\(\\text{P}(favwin = 1|spread)\\). Interpret and test the null hypothesis that the intercept is zero. [Hint: Remember that \\(\\Phi(0) = 0.5\\).] (v) Use the probit model to estimate the probability that the favored team wins when spread = 10. Compare this with the LPM estimate from part (iii). (vi) Add the variables favhome, fav25, and und25 to the probit model and test joint significance of these variables using the likelihood ratio test. (How many df are in the chi-square distribution?) Interpret this result, focusing on the question of whether the spread incorporates all observable information prior to a game.",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Limited Dependent Variable Models and Sample Selection Corrections</span>"
+    ]
+  },
+  {
+    "objectID": "chapter17.html#c2-loanapp",
+    "href": "chapter17.html#c2-loanapp",
+    "title": "17  Limited Dependent Variable Models and Sample Selection Corrections",
+    "section": "17.2 C2 [LOANAPP]",
+    "text": "17.2 C2 [LOANAPP]\n\nUse the data in LOANAPP for this exercise; see also Computer Exercise C8 in Chapter 7. (i) Estimate a probit model of approve on white. Find the estimated probability of loan approval for both whites and nonwhites. How do these compare with the linear probability estimates? (ii) Now, add the variables hrat, obrat, loanprc, unem, male, married, dep, sch, cosign, chist, pubrec, mortlat1, mortlat2, and vr to the probit model. Is there statistically significant evidence of discrimination against nonwhites? (iii) Estimate the model from part (ii) by logit. Compare the coefficient on white to the probit estimate. (iv) Use equation (17.17) to estimate the sizes of the discrimination effects for probit and logit.",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Limited Dependent Variable Models and Sample Selection Corrections</span>"
+    ]
+  },
+  {
+    "objectID": "chapter17.html#c3-fringe",
+    "href": "chapter17.html#c3-fringe",
+    "title": "17  Limited Dependent Variable Models and Sample Selection Corrections",
+    "section": "17.3 C3 [FRINGE]",
+    "text": "17.3 C3 [FRINGE]\n\nUse the data in FRINGE for this exercise. (i) For what percentage of the workers in the sample is pension equal to zero? What is the range of pension for workers with nonzero pension benefits? Why is a Tobit model appropriate for modeling pension? (ii) Estimate a Tobit model explaining pension in terms of exper, age, tenure, educ, depends, married, white, and male. Do whites and males have statistically significant higher expected pension benefits? (iii) Use the results from part (ii) to estimate the difference in expected pension benefits for a white male and a nonwhite female, both of whom are 35 years old, are single with no dependents, have 16 years of education, and have 10 years of experience. (iv) Add union to the Tobit model and comment on its significance. (v) Apply the Tobit model from part (iv) but with peratio, the pension-earnings ratio, as the dependent variable. (Notice that this is a fraction between zero and one, but, though it often takes on the value zero, it never gets close to being unity. Thus, a Tobit model is fine as an approximation.) Does gender or race have an effect on the pension-earnings ratio?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Limited Dependent Variable Models and Sample Selection Corrections</span>"
+    ]
+  },
+  {
+    "objectID": "chapter17.html#c4-crime1",
+    "href": "chapter17.html#c4-crime1",
+    "title": "17  Limited Dependent Variable Models and Sample Selection Corrections",
+    "section": "17.4 C4 [CRIME1]",
+    "text": "17.4 C4 [CRIME1]\n\nIn Example 9.1, we added the quadratic terms \\(pcnv^2\\), \\(ptime86^2\\), and \\(inc86^2\\) to a linear model for narr86. (i) Use the data in CRIME1 to add these same terms to the Poisson regression in Example 17.3. (ii) Compute the estimate of \\(\\sigma^2\\) given by \\(\\hat{\\sigma}^2 = (n - k - 1)^{-1} \\sum_{i=1}^n \\hat{u}_i^2 / \\hat{y}_i\\). Is there evidence of overdispersion? How should the Poisson MLE standard errors be adjusted?\n\n\n\nUse the results from parts (i) and (ii) and Table 17.5 to compute the quasi-likelihood ratio statistic for joint significance of the three quadratic terms. What do you conclude?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Limited Dependent Variable Models and Sample Selection Corrections</span>"
+    ]
+  },
+  {
+    "objectID": "chapter17.html#c5-fertil1",
+    "href": "chapter17.html#c5-fertil1",
+    "title": "17  Limited Dependent Variable Models and Sample Selection Corrections",
+    "section": "17.5 C5 [FERTIL1]",
+    "text": "17.5 C5 [FERTIL1]\n\nRefer to Table 13.1 in Chapter 13. There, we used the data in FERTIL1 to estimate a linear model for kids, the number of children ever born to a woman. (i) Estimate a Poisson regression model for kids, using the same variables in Table 13.1. Interpret the coefficient on y82. (ii) What is the estimated percentage difference in fertility between a black woman and a nonblack woman, holding other factors fixed? (iii) Obtain \\(\\hat{\\sigma}\\). Is there evidence of over- or underdispersion? (iv) Compute the fitted values from the Poisson regression and obtain the \\(R\\)-squared as the squared correlation between \\(kids_i\\) and \\(\\widehat{kids}_i\\). Compare this with the \\(R\\)-squared for the linear regression model.",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Limited Dependent Variable Models and Sample Selection Corrections</span>"
+    ]
+  },
+  {
+    "objectID": "chapter17.html#c6-recid",
+    "href": "chapter17.html#c6-recid",
+    "title": "17  Limited Dependent Variable Models and Sample Selection Corrections",
+    "section": "17.6 C6 [RECID]",
+    "text": "17.6 C6 [RECID]\n\nUse the data in RECID to estimate the model from Example 17.5 by OLS, using only the 552 uncensored durations. Comment generally on how these estimates compare with those in Table 17.8.",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Limited Dependent Variable Models and Sample Selection Corrections</span>"
+    ]
+  },
+  {
+    "objectID": "chapter17.html#c7-mroz",
+    "href": "chapter17.html#c7-mroz",
+    "title": "17  Limited Dependent Variable Models and Sample Selection Corrections",
+    "section": "17.7 C7 [MROZ]",
+    "text": "17.7 C7 [MROZ]\n\nUse the MROZ data for this exercise. (i) Using the 428 women who were in the workforce, estimate the return to education by OLS including exper, \\(exper^2\\), nwifeinc, age, kidslt6, and kidsge6 as explanatory variables. Report your estimate on educ and its standard error. (ii) Now, estimate the return to education by Heckit, where all exogenous variables show up in the second-stage regression. In other words, the regression is \\(\\log(wage)\\) on educ, exper, \\(exper^2\\), nwifeinc, age, kidslt6, kidsge6, and \\(\\hat{\\lambda}\\). Compare the estimated return to education and its standard error to that from part (i). (iii) Using only the 428 observations for working women, regress \\(\\hat{\\lambda}\\) on educ, exper, \\(exper^2\\), nwifeinc, age, kidslt6, and kidsge6. How big is the \\(R\\)-squared? How does this help explain your findings from part (ii)? (Hint: Think multicollinearity.)",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Limited Dependent Variable Models and Sample Selection Corrections</span>"
+    ]
+  },
+  {
+    "objectID": "chapter17.html#c8-jtrain2",
+    "href": "chapter17.html#c8-jtrain2",
+    "title": "17  Limited Dependent Variable Models and Sample Selection Corrections",
+    "section": "17.8 C8 [JTRAIN2]",
+    "text": "17.8 C8 [JTRAIN2]\n\nThe file JTRAIN2 contains data on a job training experiment for a group of men. Men could enter the program starting in January 1976 through about mid-1977. The program ended in December 1977. The idea is to test whether participation in the job training program had an effect on unemployment probabilities and earnings in 1978. (i) The variable train is the job training indicator. How many men in the sample participated in the job training program? What was the highest number of months a man actually participated in the program? (ii) Run a linear regression of train on several demographic and pretraining variables: unem74, unem75, age, educ, black, hisp, and married. Are these variables jointly significant at the 5% level? (iii) Estimate a probit version of the linear model in part (ii). Compute the likelihood ratio test for joint significance of all variables. What do you conclude? (iv) Based on your answers to parts (ii) and (iii), does it appear that participation in job training can be treated as exogenous for explaining 1978 unemployment status? Explain. (v) Run a simple regression of unem78 on train and report the results in equation form. What is the estimated effect of participating in the job training program on the probability of being unemployed in 1978? Is it statistically significant? (vi) Run a probit of unem78 on train. Does it make sense to compare the probit coefficient on train with the coefficient obtained from the linear model in part (v)? (vii) Find the fitted probabilities from parts (v) and (vi). Explain why they are identical. Which approach would you use to measure the effect and statistical significance of the job training program? (viii) Add all of the variables from part (ii) as additional controls to the models from parts (v) and (vi). Are the fitted probabilities now identical? What is the correlation between them?\n\n\n\nUsing the model from part (viii), estimate the average partial effect of train on the 1978 unemployment probability. Use (17.17) with \\(c_k = 0\\). How does the estimate compare with the OLS estimate from part (viii)?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Limited Dependent Variable Models and Sample Selection Corrections</span>"
+    ]
+  },
+  {
+    "objectID": "chapter17.html#c9-apple",
+    "href": "chapter17.html#c9-apple",
+    "title": "17  Limited Dependent Variable Models and Sample Selection Corrections",
+    "section": "17.9 C9 [APPLE]",
+    "text": "17.9 C9 [APPLE]\n\nUse the data in APPLE for this exercise. These are telephone survey data attempting to elicit the demand for a (fictional) “ecologically friendly” apple. Each family was (randomly) presented with a set of prices for regular apples and the ecolabeled apples. They were asked how many pounds of each kind of apple they would buy. (i) Of the 660 families in the sample, how many report wanting none of the ecolabeled apples at the set price? (ii) Does the variable ecolbs seem to have a continuous distribution over strictly positive values? What implications does your answer have for the suitability of a Tobit model for ecolbs? (iii) Estimate a Tobit model for ecolbs with ecoprc, regprc, faminc, and hhsize as explanatory variables. Which variables are significant at the 1% level? (iv) Are faminc and hhsize jointly significant? (v) Are the signs of the coefficients on the price variables from part (iii) what you expect? Explain. (vi) Let \\(\\beta_1\\) be the coefficient on ecoprc and let \\(\\beta_2\\) be the coefficient on regprc. Test the hypothesis H\\(_0\\): \\(-\\beta_1 = \\beta_2\\) against the two-sided alternative. Report the \\(p\\)-value of the test. (You might want to refer to Section 4-4 if your regression package does not easily compute such tests.) (vii) Obtain the estimates of \\(\\text{E}(ecolbs|\\mathbf{x})\\) for all observations in the sample. [See equation (17.25).] Call these \\(\\widehat{ecolbs}_i\\). What are the smallest and largest fitted values? (viii) Compute the squared correlation between \\(ecolbs_i\\) and \\(\\widehat{ecolbs}_i\\). (ix) Now, estimate a linear model for ecolbs using the same explanatory variables from part (iii). Why are the OLS estimates so much smaller than the Tobit estimates? In terms of goodness-of-fit, is the Tobit model better than the linear model? (x) Evaluate the following statement: “Because the \\(R\\)-squared from the Tobit model is so small, the estimated price effects are probably inconsistent.”",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Limited Dependent Variable Models and Sample Selection Corrections</span>"
+    ]
+  },
+  {
+    "objectID": "chapter17.html#c10-smoke",
+    "href": "chapter17.html#c10-smoke",
+    "title": "17  Limited Dependent Variable Models and Sample Selection Corrections",
+    "section": "17.10 C10 [SMOKE]",
+    "text": "17.10 C10 [SMOKE]\n\nUse the data in SMOKE for this exercise. (i) The variable cigs is the number of cigarettes smoked per day. How many people in the sample do not smoke at all? What fraction of people claim to smoke 20 cigarettes a day? Why do you think there is a pileup of people at 20 cigarettes? (ii) Given your answers to part (i), does cigs seem a good candidate for having a conditional Poisson distribution? (iii) Estimate a Poisson regression model for cigs, including \\(\\log(cigpric)\\), \\(\\log(income)\\), white, educ, age, and \\(age^2\\) as explanatory variables. What are the estimated price and income elasticities? (iv) Using the maximum likelihood standard errors, are the price and income variables statistically significant at the 5% level? (v) Obtain the estimate of \\(\\sigma^2\\) described after equation (17.35). What is \\(\\hat{\\sigma}\\)? How should you adjust the standard errors from part (iv)? (vi) Using the adjusted standard errors from part (v), are the price and income elasticities now statistically different from zero? Explain. (vii) Are the education and age variables significant using the more robust standard errors? How do you interpret the coefficient on educ? (viii) Obtain the fitted values, \\(\\hat{y}_i\\), from the Poisson regression model. Find the minimum and maximum values and discuss how well the exponential model predicts heavy cigarette smoking. (ix) Using the fitted values from part (viii), obtain the squared correlation coefficient between \\(\\hat{y}_i\\) and \\(y_i\\).\n\n\n\nEstimate a linear model for cigs by OLS, using the explanatory variables (and same functional forms) as in part (iii). Does the linear model or exponential model provide a better fit? Is either \\(R\\)-squared very large?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Limited Dependent Variable Models and Sample Selection Corrections</span>"
+    ]
+  },
+  {
+    "objectID": "chapter17.html#c11-cps91",
+    "href": "chapter17.html#c11-cps91",
+    "title": "17  Limited Dependent Variable Models and Sample Selection Corrections",
+    "section": "17.11 C11 [CPS91]",
+    "text": "17.11 C11 [CPS91]\n\nUse the data in CPS91 for this exercise. These data are for married women, where we also have information on each husband’s income and demographics. (i) What fraction of the women report being in the labor force? (ii) Using only the data for working women—you have no choice—estimate the wage equation \\[\\log(wage) = \\beta_0 + \\beta_1 educ + \\beta_2 exper + \\beta_3 exper^2 + \\beta_4 black + \\beta_5 hispanic + u\\] by ordinary least squares. Report the results in the usual form. Do there appear to be significant wage differences by race and ethnicity? (iii) Estimate a probit model for inlf that includes the explanatory variables in the wage equation from part (ii) as well as nwifeinc and kidlt6. Do these last two variables have coefficients of the expected sign? Are they statistically significant? (iv) Explain why, for the purposes of testing and, possibly, correcting the wage equation for selection into the workforce, it is important for nwifeinc and kidlt6 to help explain inlf. What must you assume about nwifeinc and kidlt6 in the wage equation? (v) Compute the inverse Mills ratio (for each observation) and add it as an additional regressor to the wage equation from part (ii). What is its two-sided \\(p\\)-value? Do you think this is particularly small with 3,286 observations? (vi) Does adding the inverse Mills ratio change the coefficients in the wage regression in important ways? Explain.",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Limited Dependent Variable Models and Sample Selection Corrections</span>"
+    ]
+  },
+  {
+    "objectID": "chapter17.html#c12-charity",
+    "href": "chapter17.html#c12-charity",
+    "title": "17  Limited Dependent Variable Models and Sample Selection Corrections",
+    "section": "17.12 C12 [CHARITY]",
+    "text": "17.12 C12 [CHARITY]\n\nUse the data in CHARITY to answer these questions. (i) The variable respond is a binary variable equal to one if an individual responded with a donation to the most recent request. The database consists only of people who have responded at least once in the past. What fraction of people responded most recently? (ii) Estimate a probit model for respond, using resplast, weekslast, propresp, mailsyear, and avggift as explanatory variables. Which of the explanatory variables is statistically significant? (iii) Find the average partial effect for mailsyear and compare it with the coefficient from a linear probability model. (iv) Using the same explanatory variables, estimate a Tobit model for gift, the amount of the most recent gift (in Dutch guilders). Now which explanatory variable is statistically significant? (v) Compare the Tobit APE for mailsyear with that from a linear regression. Are they similar? (vi) Are the estimates from parts (ii) and (iv) entirely compatible with at Tobit model? Explain.",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Limited Dependent Variable Models and Sample Selection Corrections</span>"
+    ]
+  },
+  {
+    "objectID": "chapter17.html#c13-htv",
+    "href": "chapter17.html#c13-htv",
+    "title": "17  Limited Dependent Variable Models and Sample Selection Corrections",
+    "section": "17.13 C13 [HTV]",
+    "text": "17.13 C13 [HTV]\n\nUse the data in HTV to answer these questions. (i) Using OLS on the full sample, estimate a model for \\(\\log(wage)\\) using explanatory variables educ, abil, exper, nc, west, south, and urban. Report the estimated return to education and its standard error. (ii) Now estimate the equation from part (i) using only people with \\(educ &lt; 16\\). What percentage of the sample is lost? Now what is the estimated return to a year of schooling? How does it compare with part (i)? (iii) Now drop all observations with \\(wage \\ge 20\\), so that everyone remaining in the sample earns less than $20 an hour. Run the regression from part (i) and comment on the coefficient on educ. (Because the normal truncated regression model assumes that \\(y\\) is continuous, it does not matter in theory whether we drop observations with \\(wage \\ge 20\\) or \\(wage &gt; 20\\). In practice, including in this application, it can matter slightly because there are some people who earn exactly $20 per hour.)\n\n\n\nUsing the sample in part (iii), apply truncated regression [with the upper truncation point being \\(\\log(20)\\)]. Does truncated regression appear to recover the return to education in the full population, assuming the estimate from (i) is consistent? Explain.",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Limited Dependent Variable Models and Sample Selection Corrections</span>"
+    ]
+  },
+  {
+    "objectID": "chapter17.html#c14-happiness",
+    "href": "chapter17.html#c14-happiness",
+    "title": "17  Limited Dependent Variable Models and Sample Selection Corrections",
+    "section": "17.14 C14 [HAPPINESS]",
+    "text": "17.14 C14 [HAPPINESS]\n\nUse the data in HAPPINESS for this question. See also Computer Exercise C15 in Chapter 13. (i) Estimate a probit probability model relating vhappy to occattend and regattend, and include a full set of year dummies. Find the average partial effects for occattend and regattend. How do these compare with those from estimating a linear probability model? (ii) Define a variable, highinc, equal to one if family income is above $25,000. Include highinc, unem10, educ, and teens to the probit estimation in part (ii). Is the APE of regattend affected much? What about its statistical significance? (iii) Discuss the APEs and statistical significance of the four new variables in part (ii). Do the estimates make sense? (iv) Controlling for the factors in part (ii), do there appear to be differences in happiness by gender or race? Justify your answer.",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Limited Dependent Variable Models and Sample Selection Corrections</span>"
+    ]
+  },
+  {
+    "objectID": "chapter17.html#c15-alcohol",
+    "href": "chapter17.html#c15-alcohol",
+    "title": "17  Limited Dependent Variable Models and Sample Selection Corrections",
+    "section": "17.15 C15 [ALCOHOL]",
+    "text": "17.15 C15 [ALCOHOL]\n\nUse the data set in ALCOHOL, obtained from Terza (2002), to answer this question. The data, on 9,822 men, includes labor market information, whether the man abuses alcohol, and demographic and background variables. In this question you will study the effects of alcohol abuse on employ, which is a binary variable equal to one if the man has a job. If employ = 0, the man is either unemployed or not in the workforce. (i) What fraction of the sample is employed at the time of the interview? What fraction of the sample has abused alcohol? (ii) Run the simple regression of employ on abuse and report the results in the usual form, obtaining the heteroskedasticity-robust standard errors. Interpret the estimated equation. Is the relationship as you expected? Is it statistically significant? (iii) Run a probit of employ on abuse. Do you get the same sign and statistical significance as in part (ii)? How does the average partial effect for the probit compare with that for the linear probability model? (iv) Obtain the fitted values for the LPM estimated in part (ii) and report what they are when abuse = 0 and when abuse = 1. How do these compare to the probit fitted values, and why? (v) To the LPM in part (ii) add the variables age, agesq, educ, educsq, married, famsize, white, northeast, midwest, south, centcity, outercity, qrt1, qrt2, and qrt3. What happens to the coefficient on abuse and its statistical significance? (vi) Estimate a probit model using the variables in part (v). Find the APE of abuse and its \\(t\\) statistic. Is the estimated effect now identical to that for the linear model? Is it “close”? (vii) Variables indicating the overall health of each man are also included in the data set. Is it obvious that such variables should be included as controls? Explain. (viii) Why might abuse be properly thought of as endogenous in the employ equation? Do you think the variables mothalc and fathalc, indicating whether a man’s mother or father were alcoholics, are sensible instrumental variables for abuse? (ix) Estimate the LPM underlying part (v) by 2SLS, where mothalc and fathalc act as IVs for abuse. Is the difference between the 2SLS and OLS coefficients practically large? (x) Use the test described in Section 15-5 to test whether abuse is endogenous in the LPM.",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Limited Dependent Variable Models and Sample Selection Corrections</span>"
+    ]
+  },
+  {
+    "objectID": "chapter17.html#c16-crime1",
+    "href": "chapter17.html#c16-crime1",
+    "title": "17  Limited Dependent Variable Models and Sample Selection Corrections",
+    "section": "17.16 C16 [CRIME1]",
+    "text": "17.16 C16 [CRIME1]\n\nUse the data in CRIME1 to answer this question. (i) For the OLS estimates reported in Table 17.5, find the heteroskedasticity-robust standard errors. In terms of statistical significance of the coefficients, are there any notable changes? (ii) Obtain the fully robust standard errors—that is, those that do not even require assumption (17.35)—for the Poisson regression estimates in the second column. (This requires that you have a statistical package that computes the fully robust standard errors.) Compare the fully robust 95% confidence interval for \\(\\beta_{pcnv}\\) with that obtained using the standard error in Table 17.5.",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Limited Dependent Variable Models and Sample Selection Corrections</span>"
+    ]
+  },
+  {
+    "objectID": "chapter18.html",
+    "href": "chapter18.html",
+    "title": "18  Advanced Time Series Topics",
+    "section": "",
+    "text": "18.1 C1 [WAGEPRC]",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Advanced Time Series Topics</span>"
+    ]
+  },
+  {
+    "objectID": "chapter18.html#c1-wageprc",
+    "href": "chapter18.html#c1-wageprc",
+    "title": "18  Advanced Time Series Topics",
+    "section": "",
+    "text": "Use the data in WAGEPRC for this exercise. Problem 5 in Chapter 11 gave estimates of a finite distributed lag model of gprice on gwage, where 12 lags of gwage are used. (i) Estimate a simple geometric DL model of gprice on gwage. In particular, estimate equation (18.11) by OLS. What are the estimated impact propensity and LRP? Sketch the estimated lag distribution. (ii) Compare the estimated IP and LRP to those obtained in Problem 5 in Chapter 11. How do the estimated lag distributions compare? (iii) Now, estimate the rational distributed lag model from (18.16). Sketch the lag distribution and compare the estimated IP and LRP to those obtained in part (ii).",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Advanced Time Series Topics</span>"
+    ]
+  },
+  {
+    "objectID": "chapter18.html#c2-hseinv",
+    "href": "chapter18.html#c2-hseinv",
+    "title": "18  Advanced Time Series Topics",
+    "section": "18.2 C2 [HSEINV]",
+    "text": "18.2 C2 [HSEINV]\n\nUse the data in HSEINV for this exercise. (i) Test for a unit root in \\(\\log(invpc)\\), including a linear time trend and two lags of \\(\\Delta\\log(invpc_t)\\). Use a 5% significance level. (ii) Use the approach from part (i) to test for a unit root in \\(\\log(price)\\). (iii) Given the outcomes in parts (i) and (ii), does it make sense to test for cointegration between \\(\\log(invpc)\\) and \\(\\log(price)\\)?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Advanced Time Series Topics</span>"
+    ]
+  },
+  {
+    "objectID": "chapter18.html#c3-volat",
+    "href": "chapter18.html#c3-volat",
+    "title": "18  Advanced Time Series Topics",
+    "section": "18.3 C3 [VOLAT]",
+    "text": "18.3 C3 [VOLAT]\n\nUse the data in VOLAT for this exercise. (i) Estimate an AR(3) model for pcip. Now, add a fourth lag and verify that it is very insignificant. (ii) To the AR(3) model from part (i), add three lags of pcsp to test whether pcsp Granger causes pcip. Carefully, state your conclusion. (iii) To the model in part (ii), add three lags of the change in i3, the three-month T-bill rate. Does pcsp Granger cause pcip conditional on past \\(\\Delta i3\\)?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Advanced Time Series Topics</span>"
+    ]
+  },
+  {
+    "objectID": "chapter18.html#c4",
+    "href": "chapter18.html#c4",
+    "title": "18  Advanced Time Series Topics",
+    "section": "18.4 C4",
+    "text": "18.4 C4\n\nIn testing for cointegration between gfr and pe in Example 18.5, add \\(t^2\\) to equation (18.32) to obtain the OLS residuals. Include one lag in the augmented DF test. The 5% critical value for the test is \\(-4.15\\).",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Advanced Time Series Topics</span>"
+    ]
+  },
+  {
+    "objectID": "chapter18.html#c5-intqrt",
+    "href": "chapter18.html#c5-intqrt",
+    "title": "18  Advanced Time Series Topics",
+    "section": "18.5 C5 [INTQRT]",
+    "text": "18.5 C5 [INTQRT]\n\nUse INTQRT for this exercise. (i) In Example 18.7, we estimated an error correction model for the holding yield on six-month T-bills, where one lag of the holding yield on three-month T-bills is the explanatory variable. We assumed that the cointegration parameter was one in the equation \\(hy6_t = \\alpha + \\beta hy3_{t-1} + u_t\\). Now, add the lead change, \\(\\Delta hy3_t\\), the contemporaneous change, \\(\\Delta hy3_{t-1}\\), and the lagged change, \\(\\Delta hy3_{t-2}\\), of \\(\\Delta hy3_{t-1}\\). That is, estimate the equation \\[hy6_t = \\alpha + \\beta hy3_{t-1} + \\phi_0 \\Delta hy3_t + \\phi_1 \\Delta hy3_{t-1} + \\rho_1 \\Delta hy3_{t-2} + e_t\\] and report the results in equation form. Test H\\(_0\\): \\(\\beta = 1\\) against a two-sided alternative. Assume that the lead and lag are sufficient so that \\(\\{hy3_{t-1}\\}\\) is strictly exogenous in this equation and do not worry about serial correlation. (ii) To the error correction model in (18.39), add \\(\\Delta hy3_{t-2}\\) and \\((hy6_{t-2} - hy3_{t-3})\\). Are these terms jointly significant? What do you conclude about the appropriate error correction model?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Advanced Time Series Topics</span>"
+    ]
+  },
+  {
+    "objectID": "chapter18.html#c6-phillips",
+    "href": "chapter18.html#c6-phillips",
+    "title": "18  Advanced Time Series Topics",
+    "section": "18.6 C6 [PHILLIPS]",
+    "text": "18.6 C6 [PHILLIPS]\n\nUse the data in PHILLIPS for this exercise. (i) Estimate the models represented in equations (18.48) and (18.49) using the data through 2015. Do the parameter estimates change much compared with (18.48) and (18.49)? (ii) Use the new equations to forecast \\(unem_{2016}\\); round to two decimal places. Which equation produces a better forecast? (iii) Use the equation that includes \\(inf_{t-1}\\), estimated in part (i), to forecast \\(unem_{2017}\\). You will need to obtain the 2016 values for unem and inf. Next, reestimate the parameters using the data through 2016, and use the updated estimates to forecast \\(unem_{2017}\\). Does using the extra year of data to obtain the parameter estimates produce a better forecast? (iv) Use the equation that includes \\(inf_{t-1}\\), estimated in part (i), to obtain a two-step-ahead forecast of unem. You will need the forecast of \\(unem_{2016}\\) from part (ii). Also, use an AR(1) model for inflation, using the data through 2015, to forecast 2016 inflation.",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Advanced Time Series Topics</span>"
+    ]
+  },
+  {
+    "objectID": "chapter18.html#c7-barium",
+    "href": "chapter18.html#c7-barium",
+    "title": "18  Advanced Time Series Topics",
+    "section": "18.7 C7 [BARIUM]",
+    "text": "18.7 C7 [BARIUM]\n\nUse the data in BARIUM for this exercise. (i) Estimate the linear trend model \\(chnimp_t = \\alpha + \\beta t + u_t\\), using the first 119 observations (this excludes the last 12 months of observations for 1988). What is the standard error of the regression? (ii) Now, estimate an AR(1) model for chnimp, again using all data but the last 12 months. Compare the standard error of the regression with that from part (i). Which model provides a better in-sample fit? (iii) Use the models from parts (i) and (ii) to compute the one-step-ahead forecast errors for the 12 months in 1988. (You should obtain 12 forecast errors for each method.) Compute and compare the RMSEs and the MAEs for the two methods. Which forecasting method works better out-of-sample for one-step-ahead forecasts? (iv) Add monthly dummy variables to the regression from part (i). Are these jointly significant? (Do not worry about the slight serial correlation in the errors from this regression when doing the joint test.)",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Advanced Time Series Topics</span>"
+    ]
+  },
+  {
+    "objectID": "chapter18.html#c8-fertil3",
+    "href": "chapter18.html#c8-fertil3",
+    "title": "18  Advanced Time Series Topics",
+    "section": "18.8 C8 [FERTIL3]",
+    "text": "18.8 C8 [FERTIL3]\n\nUse the data in FERTIL3 for this exercise. (i) Graph gfr against time. Does it contain a clear upward or downward trend over the entire sample period? (ii) Using the data through 1979, estimate a cubic time trend model for gfr (that is, regress gfr on \\(t\\), \\(t^2\\), and \\(t^3\\), along with an intercept). Comment on the \\(R\\)-squared of the regression. (iii) Using the model in part (ii), compute the mean absolute error of the one-step-ahead forecast errors for the years 1980 through 1984. (iv) Using the data through 1979, regress \\(\\Delta gfr_t\\) on a constant only. Is the constant statistically different from zero? Does it make sense to assume that any drift term is zero, if we assume that \\(gfr_t\\) follows a random walk?\n\n\n\nNow, forecast \\(gfr\\) for 1980 through 1984, using a random walk model: the forecast of \\(gfr_{n+1}\\) is simply \\(gfr_n\\). Find the MAE. How does it compare with the MAE from part (iii)? Which method of forecasting do you prefer?\n\n\nNow, estimate an AR(2) model for \\(gfr\\), again using the data only through 1979. Is the second lag significant?\nObtain the MAE for 1980 through 1984, using the AR(2) model. Does this more general model work better out-of-sample than the random walk model?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Advanced Time Series Topics</span>"
+    ]
+  },
+  {
+    "objectID": "chapter18.html#c9-consump",
+    "href": "chapter18.html#c9-consump",
+    "title": "18  Advanced Time Series Topics",
+    "section": "18.9 C9 [CONSUMP]",
+    "text": "18.9 C9 [CONSUMP]\n\nUse CONSUMP for this exercise. (i) Let \\(y_t\\) be real per capita disposable income. Use the data through 1989 to estimate the model \\[y_t = \\alpha + \\beta t + \\rho y_{t-1} + u_t\\] and report the results in the usual form. (ii) Use the estimated equation from part (i) to forecast \\(y\\) in 1990. What is the forecast error? (iii) Compute the mean absolute error of the one-step-ahead forecasts for the 1990s, using the parameters estimated in part (i). (iv) Now, compute the MAE over the same period, but drop \\(y_{t-1}\\) from the equation. Is it better to include \\(y_{t-1}\\) in the model or not?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Advanced Time Series Topics</span>"
+    ]
+  },
+  {
+    "objectID": "chapter18.html#c10-intqrt",
+    "href": "chapter18.html#c10-intqrt",
+    "title": "18  Advanced Time Series Topics",
+    "section": "18.10 C10 [INTQRT]",
+    "text": "18.10 C10 [INTQRT]\n\nUse the data in INTQRT for this exercise. (i) Using the data from all but the last four years (16 quarters), estimate an AR(1) model for \\(\\Delta r6_t\\). (We use the difference because it appears that \\(r6_t\\) has a unit root.) Find the RMSE of the one-step-ahead forecasts for \\(\\Delta r6\\), using the last 16 quarters. (ii) Now, add the error correction term \\(spr_{t-1} = r6_{t-1} - r3_{t-1}\\) to the equation from part (i). (This assumes that the cointegrating parameter is one.) Compute the RMSE for the last 16 quarters. Does the error correction term help with out-of-sample forecasting in this case? (iii) Now, estimate the cointegrating parameter, rather than setting it to one. Use the last 16 quarters again to produce the out-of-sample RMSE. How does this compare with the forecasts from parts (i) and (ii)? (iv) Would your conclusions change if you wanted to predict \\(r6\\) rather than \\(\\Delta r6\\)? Explain.",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Advanced Time Series Topics</span>"
+    ]
+  },
+  {
+    "objectID": "chapter18.html#c11-volat",
+    "href": "chapter18.html#c11-volat",
+    "title": "18  Advanced Time Series Topics",
+    "section": "18.11 C11 [VOLAT]",
+    "text": "18.11 C11 [VOLAT]\n\nUse the data in VOLAT for this exercise. (i) Confirm that \\(lsp500 = \\log(sp500)\\) and \\(lip = \\log(ip)\\) appear to contain unit roots. Use Dickey-Fuller tests with four lagged changes and do the tests with and without a linear time trend. (ii) Run a simple regression of \\(lsp500\\) on \\(lip\\). Comment on the sizes of the \\(t\\) statistic and \\(R\\)-squared. (iii) Use the residuals from part (ii) to test whether \\(lsp500\\) and \\(lip\\) are cointegrated. Use the standard Dickey-Fuller test and the ADF test with two lags. What do you conclude? (iv) Add a linear time trend to the regression from part (ii) and now test for cointegration using the same tests from part (iii). (v) Does it appear that stock prices and real economic activity have a long-run equilibrium relationship?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Advanced Time Series Topics</span>"
+    ]
+  },
+  {
+    "objectID": "chapter18.html#c12-volat",
+    "href": "chapter18.html#c12-volat",
+    "title": "18  Advanced Time Series Topics",
+    "section": "18.12 C12 [VOLAT]",
+    "text": "18.12 C12 [VOLAT]\n\nThis exercise also uses the data from VOLAT. Computer Exercise C11 studies the long-run relationship between stock prices and industrial production. Here, you will study the question of Granger causality using the percentage changes. (i) Estimate an AR(3) model for \\(pcip_t\\), the percentage change in industrial production (reported at an annualized rate). Show that the second and third lags are jointly significant at the 2.5% level. (ii) Add one lag of \\(pcsp_t\\) to the equation estimated in part (i). Is the lag statistically significant? What does this tell you about Granger causality between the growth in industrial production and the growth in stock prices?\n\n\n\nRedo part (ii) but obtain a heteroskedasticity-robust \\(t\\) statistic. Does the robust test change your conclusions from part (ii)?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Advanced Time Series Topics</span>"
+    ]
+  },
+  {
+    "objectID": "chapter18.html#c13-traffic2",
+    "href": "chapter18.html#c13-traffic2",
+    "title": "18  Advanced Time Series Topics",
+    "section": "18.13 C13 [TRAFFIC2]",
+    "text": "18.13 C13 [TRAFFIC2]\n\nUse the data in TRAFFIC2 for this exercise. These monthly data, on traffic accidents in California over the years 1981 to 1989, were used in Computer Exercise C11 in Chapter 10. (i) Using the standard Dickey-Fuller regression, test whether \\(ltotacc_t\\) has a unit root. Can you reject a unit root at the 2.5% level? (ii) Now, add two lagged changes to the test from part (i) and compute the augmented Dickey-Fuller test. What do you conclude? (iii) Add a linear time trend to the ADF regression from part (ii). Now what happens? (iv) Given the findings from parts (i) through (iii), what would you say is the best characterization of \\(ltotacc_t\\): an I(1) process or an I(0) process about a linear time trend? (v) Test the percentage of fatalities, \\(prcfat_t\\), for a unit root, using two lags in an ADF regression. In this case, does it matter whether you include a linear time trend?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Advanced Time Series Topics</span>"
+    ]
+  },
+  {
+    "objectID": "chapter18.html#c14-minwage.dta",
+    "href": "chapter18.html#c14-minwage.dta",
+    "title": "18  Advanced Time Series Topics",
+    "section": "18.14 C14 [MINWAGE.DTA]",
+    "text": "18.14 C14 [MINWAGE.DTA]\n\nUse the data in MINWAGE.DTA for sector 232 to answer the following questions. (i) Confirm that \\(lwage232_t\\) and \\(lemp232_t\\) are best characterized as I(1) processes. Use the augmented DF test with one lag of \\(gwage232\\) and \\(gemp232\\), respectively, and a linear time trend. Is there any doubt that these series should be assumed to have unit roots? (ii) Regress \\(lemp232_t\\) on \\(lwage232_t\\) and test for cointegration, both with and without a time trend, allowing for two lags in the augmented Engle-Granger test. What do you conclude? (iii) Now regress \\(lemp232_t\\) on log of the real wage rate, \\(lrwage232_t = lwage232_t - lcpi_t\\), and a time trend. Do you find cointegration? Are they “closer” to being cointegrated when you use real wages rather than nominal wages? (iv) What are some factors that might be missing from the cointegrating regression in part (iii)?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Advanced Time Series Topics</span>"
+    ]
+  },
+  {
+    "objectID": "chapter18.html#c15-beveridge",
+    "href": "chapter18.html#c15-beveridge",
+    "title": "18  Advanced Time Series Topics",
+    "section": "18.15 C15 [BEVERIDGE]",
+    "text": "18.15 C15 [BEVERIDGE]\n\nThis question asks you to study the so-called Beveridge Curve from the perspective of cointegration analysis. The U.S. monthly data from December 2000 through February 2012 are in BEVERIDGE. (i) Test for a unit root in \\(urate\\) using the usual Dickey-Fuller test (with a constant) and the augmented DF with two lags of \\(curate\\). What do you conclude? Are the lags of \\(curate\\) in the augmented DF test statistically significant? Does it matter to the outcome of the unit root test? (ii) Repeat part (i) but with the vacancy rate, \\(vrate\\). (iii) Assuming that \\(urate\\) and \\(vrate\\) are both I(1), the Beveridge Curve, \\[urate_t = \\alpha + \\beta vrate + u_t,\\] only makes sense if \\(urate\\) and \\(vrate\\) are cointegrated (with cointegrating parameter \\(\\beta &lt; 0\\)). Test for cointegration using the Engle-Granger test with no lags. Are \\(urate\\) and \\(vrate\\) cointegrated at the 10% significance level? What about at the 5% level? (iv) Obtain the leads and lags estimator with \\(cvrate_t\\), \\(cvrate_{t-1}\\), and \\(cvrate_{t+1}\\) as the I(0) explanatory variables added to the equation in part (iii). Obtain the Newey-West standard error for \\(\\hat{\\beta}\\) using four lags (so \\(g = 4\\) in the notation of Section 12-5). What is the resulting 95% confidence interval for \\(\\beta\\)? How does it compare with the confidence interval that is not robust to serial correlation (or heteroskedasticity)? (v) Redo the Engle-Granger test but with two lags in the augmented DF regression. What happens? What do you conclude about the robustness of the claim that \\(urate\\) and \\(vrate\\) are cointegrated?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Advanced Time Series Topics</span>"
+    ]
+  },
+  {
+    "objectID": "chapter18.html#c16-phillips",
+    "href": "chapter18.html#c16-phillips",
+    "title": "18  Advanced Time Series Topics",
+    "section": "18.16 C16 [PHILLIPS]",
+    "text": "18.16 C16 [PHILLIPS]\n\nUse the data in PHILLIPS for this exercise. (i) Using all of the years—through 2017—run the regression \\(\\Delta inf_t\\) on \\(inf_{t-1}\\) (and an intercept) and test the null hypothesis that \\(\\{inf_t\\}\\) is I(1) against the alternative that it is I(0). At what significance level do you reject the null hypothesis?\n\n\n\nWhat is the estimated value of \\(\\rho\\) from part (i)? Would you say it is practically different from one?\nNow run the augmented Dickey-Fuller regression by including \\(\\Delta inf_{t-1}\\) as a regressor. Do your conclusions from part (i) change? Does it appear \\(\\Delta inf_{t-1}\\) needs to be in the regression?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Advanced Time Series Topics</span>"
+    ]
+  },
+  {
+    "objectID": "chapter18.html#c17",
+    "href": "chapter18.html#c17",
+    "title": "18  Advanced Time Series Topics",
+    "section": "18.17 C17",
+    "text": "18.17 C17\n\nConsider Example 18.11, where you should define the variable \\(d\\bar{y}_t\\) using CA as the treated state and the southern states Alabama (AL), Arkansas (AR), Louisiana (LA), and Mississippi (MS) as the four controls. (i) Using the data up through 1988, regress \\(\\Delta d\\bar{y}_t\\) on \\(d\\bar{y}_{t-1}\\). Does it appear that \\(d\\bar{y}_t\\) has a unit root? What is the implied estimate of \\(\\rho\\) in the AR(1) model? (ii) Add a time trend to the test in part (i). Now what do you conclude about whether \\(d\\bar{y}_t \\sim \\text{I}(1)\\)? (iii) Produce a graph as in Figure 18.3. Does the parallel trends assumption for \\(y_{CA,t}\\) and \\(\\bar{y}_{0t}\\) appear to be satisfied? (iv) Run the regression of \\(d\\bar{y}_t\\) on \\(year_t\\) (including an intercept) on the data through 1988. Obtain the residuals for all time periods and produce a graph as in Figure 18.4. Does it appear the trend in \\(d\\bar{y}_t\\) before the intervention has been eliminated? (v) Estimate equation (18.73) and report the coefficient on \\(post_t\\) along with its Newey-West standard error (lag = 2). How does it compare with the estimates using the western and midwestern states as controls? (vi) Compute the average residuals obtained in part (iv) over 1989 through 2000. Verify that you obtain the estimate in part (v) to at least six decimal places. (vii) Reproduce Table 18.6 using the southern states as the controls. Comment on similarities or important differences.",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Advanced Time Series Topics</span>"
+    ]
+  },
+  {
+    "objectID": "chapter18.html#c18-gasholiday",
+    "href": "chapter18.html#c18-gasholiday",
+    "title": "18  Advanced Time Series Topics",
+    "section": "18.18 C18 [GASHOLIDAY]",
+    "text": "18.18 C18 [GASHOLIDAY]\n\nUse the data in GASHOLIDAY to answer the following questions. These data were also used in Computer Exercise C15 in Chapter 10. The idea is to use gas prices in Rhode Island (RI) as a control for those in Connecticut (CT) to measure the effect of the gasoline tax holiday in CT. (i) Define the variable \\(dlregCTRI = lregularCT - lregularRI\\). Find the first-order autocorrelation of \\(dlregCTRI\\). Is it close to one? (ii) Discuss the implications of your finding in part (i) for the statistics in the regression of \\(dlregCTRI\\) on the dummy variable, \\(holidayCT\\). In particular, can you trust the \\(t\\) statistic and confidence interval? (iii) The regression in part (ii) is OLS applied to the equation \\[dlregCTRI_t = \\beta_0 + \\beta_1 holidayCT_t + u_t\\] If you estimate this equation by first differencing, what is the estimate of \\(\\beta_1\\)? Does it matter much whether you include an intercept in the FD equation? How does the FD estimate compare with the estimate of \\(\\beta_1\\) when you apply OLS in levels? (iv) Let \\(\\Delta holidayCT_t\\) be the difference of the dummy variable. How often is this variable zero? How often is it one? What implications does this have for applying “large sample” methods of inference? (v) Referring to the material in Section 9-5c of Chapter 9, relate the regression in first differences to “outlier” analysis.",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Advanced Time Series Topics</span>"
+    ]
+  },
+  {
+    "objectID": "chapter19.html",
+    "href": "chapter19.html",
+    "title": "19  Advanced Methods for Causal Inference",
+    "section": "",
+    "text": "19.1 C1 [JTRAIN98]",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Advanced Methods for Causal Inference</span>"
+    ]
+  },
+  {
+    "objectID": "chapter19.html#c1-jtrain98",
+    "href": "chapter19.html#c1-jtrain98",
+    "title": "19  Advanced Methods for Causal Inference",
+    "section": "",
+    "text": "Consider Example 19.1, where the outcome variable, earn98, is nonnegative. Use the data in JTRAIN98. Keep all of the data without trimming for lack of overlap. (i) What is the average value of earn98? For what percent of the sample is earn98 equal to zero? (ii) Use full regression adjustment with an exponential mean and Poisson QMLE to estimate \\(\\tau_{ate}\\), using the same controls in Example 19.1. What is \\(\\hat{\\tau}_{ate}\\), and how does it compare with linear RA in Table 19.1?\n\n\n\nCompare the standard errors of the linear RA and exponential RA estimates. Does the exponential RA improve precision in this application?\nNow use the exponential mean with IPWRA, and compare the estimate of \\(\\tau_{ate}\\) with linear IPWRA in Table 19.1. Discuss the precision of the two estimates.\nIf you focus on \\(\\tau_{att}\\) instead, does the ranking of the estimators—linear mean versus exponential mean—change?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Advanced Methods for Causal Inference</span>"
+    ]
+  },
+  {
+    "objectID": "chapter19.html#c2-vietnam",
+    "href": "chapter19.html#c2-vietnam",
+    "title": "19  Advanced Methods for Causal Inference",
+    "section": "19.2 C2 [VIETNAM]",
+    "text": "19.2 C2 [VIETNAM]\n\nUse the data in VIETNAM to answer the following questions. These are a subset of the data used in Angrist (1990). (i) The binary variable vietnam indicates that a man served the United States military during the Vietnam war. How many men are in the entire sample? How many served? (ii) Estimate a simple regress with lwage as the outcome variable and vietnam as the only explanatory variable. Interpret the estimated coefficient on vietnam. Is it statistically different from zero? (Be sure to use a heteroskedasticity-robust statistic.) (iii) Using age, educ, and black as controls, apply linear regression adjustment (with interactions) to estimate the ATE and ATT of vietnam. Do you find any effect? (iv) Estimate a logit model for vietnam using age, educ, and black as explanatory variables. Is vietnam related to any of these variables in a statistically significant way? If so, describe how. How many fitted probabilities are less than 0.1? How many are greater than 0.9. Is lack of overlap a cause for concern in this data set? (v) Using the same controls in part (iii), obtain the IPWRA estimates using a logit model for vietnam and linear models for lwage. What are the new estimates of ATE and ATT? Do they differ much from those found in part (iii)? (vi) Add nonredundant interactions among all controls to both the logit and linear models, and obtain the IPWRA estimates. What are the new estimates of ATE and ATT? Overall, what do you conclude about the causal effect of serving in Vietnam on subsequent labor market earnings?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Advanced Methods for Causal Inference</span>"
+    ]
+  },
+  {
+    "objectID": "chapter19.html#c3-jtrain98",
+    "href": "chapter19.html#c3-jtrain98",
+    "title": "19  Advanced Methods for Causal Inference",
+    "section": "19.3 C3 [JTRAIN98]",
+    "text": "19.3 C3 [JTRAIN98]\n\nUse the variable unem98 as the outcome variable in the data set JTRAIN98. The treatment variable is train. (i) Across all men in the data set, what is the unemployment rate in 1998? How does this rate differ among those who did and did not participate in the job training program? (ii) Using the same control variables in Example 19.1—including the squares and interactions of the variables—obtain the linear RA estimates of \\(\\tau_{ate}\\) and \\(\\tau_{att}\\) of the effect of train on unem98. Interpret the estimated effects and obtain the \\(t\\) statistics. (iii) Still using the same controls, use logit regression adjustment and report \\(\\hat{\\tau}_{ate}\\) and \\(\\hat{\\tau}_{att}\\). How do these compare with the linear RA estimates? How do the standard errors of the logit RA estimates compare with the standard errors for linear RA? (iv) Use the same controls to estimate the propensity score by logit, and then obtain the IPWRA estimates of \\(\\tau_{ate}\\) and \\(\\tau_{att}\\) with a linear mean. How do these compare with the previous estimates? (v) Use two separate weighted regressions to obtain the fitted values in part (iv). That is, using only the controls, weight the linear regression by \\(1/(1 - \\hat{p}_i)\\), and save the fitted values for all units. Then do the same for the treated units, where the weights are \\(1/\\hat{p}_i\\). Difference the fitted values to obtain \\(\\widehat{te}_i\\) for each \\(i\\), and then, to obtain \\(\\hat{\\tau}_{ate}\\), average the \\(\\widehat{te}_i\\) across all \\(i\\). What is the estimate? Is it easy to obtain a standard error? (vi) Now obtain the IPWRA estimates where the outcome models for unem98 are also logit. Do you find any notable differences and the ATE and ATT estimates compared with part (iv)?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Advanced Methods for Causal Inference</span>"
+    ]
+  },
+  {
+    "objectID": "chapter19.html#c4-vietnam",
+    "href": "chapter19.html#c4-vietnam",
+    "title": "19  Advanced Methods for Causal Inference",
+    "section": "19.4 C4 [VIETNAM]",
+    "text": "19.4 C4 [VIETNAM]\n\nUse the data in VIETNAM for this exercise. The binary variable draft is an IV for vietnam—which indicates serving for the U.S. military during the Vietnam war. (i) Regress draft on age, educ, and black. Does it appear draft is independent of these three variables? Explain.\n\n\n\nEstimate the first stage of 2SLS by regressing vietnam on draft, age, educ, and black. Discuss the coefficient on draft. Does draft seem suitable as an IV for vietnam?\nEstimate the equation \\[lwage = \\alpha + \\tau \\cdot vietnam + \\beta_1 age + \\beta_2 educ + \\beta_3 black + u\\] by instrumental variables, using draft as an IV for vietnam. Report the coefficient on vietnam along with its standard error.\nEstimate \\(\\tau_{late}\\) using flexible equation (19.55). How large is the point estimate? What is the 95% confidence interval for \\(\\tau_{late}\\)?\nRepeat part (iii) dropping all of the control variables and obtain the IV estimate of \\(\\tau_{late}\\). How does it compare with the LATE estimate from part (iv)? Do you think this is a more convincing estimate than those found in part (iii) or part (iv)? Explain.",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Advanced Methods for Causal Inference</span>"
+    ]
+  },
+  {
+    "objectID": "chapter19.html#c5-labsup",
+    "href": "chapter19.html#c5-labsup",
+    "title": "19  Advanced Methods for Causal Inference",
+    "section": "19.5 C5 [LABSUP]",
+    "text": "19.5 C5 [LABSUP]\n\nUse the data in LABSUP to answer the following questions. Use \\(z = samesex\\), indicating whether the first two children are born the same sex, as an instrument for \\(w = morekids\\), indicating having more than two children. Drop the observations where \\(multi2nd = 1\\) (indicating that the second birth resulted in more than one child). (i) What is the percentage of women having two children? What is the percentage having more than two children? (ii) Regress \\(morekids_i\\) on \\(samesex_i\\). What is the estimated fraction of “compliers” in the population? (iii) Use samesex as an IV for morekids in an equation with hours as the outcome variable; do not use control variables. What is the IV estimate? How does it, and its precision, compare with the OLS estimate (difference in means) and its precision? (iv) Create centered versions of the control variables age, nonmomi, and educ, about their sample averages. Use linear regression adjustment of hours on samesex, the controls, and the interactions of samesex with the centered controls. What is the coefficient on samesex? (v) Repeat part (iv), but with morekids as the dependent variable. Is the samesex coefficient the expected sign? What is its heteroskedasticity-robust \\(t\\) statistic? (vi) Using hours as the outcome variable and treating morekids as endogenous, use the IV estimation in (19.55) to estimate \\(\\tau_{late}\\). Report the estimate and its standard error. (vii) Confirm that the ratio of the samesex coefficients in parts (iv) and (v) equals the IV estimate from part (vi). (viii) Estimate a probit model for morekids, in place of the linear regression in part (v). Find the average partial effect of samesex. How close is it to the coefficient on samesex in part (v)? How do they compare in terms of statistical significance? (ix) Obtain the generalized residuals from part (viii) and implement the control function approach. How does the estimate compare with the IV estimate from part (vi)? Is there evidence that morekids is endogenous? What happens to the coefficient on morekids when the two generalized residual terms are dropped? (x) Can you think of reasons why samesex might not be exogenous (satisfy Assumption LATE.2’), even after controlling for age, nonmomi, and educ?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Advanced Methods for Causal Inference</span>"
+    ]
+  },
+  {
+    "objectID": "chapter19.html#c6-rdsenate",
+    "href": "chapter19.html#c6-rdsenate",
+    "title": "19  Advanced Methods for Causal Inference",
+    "section": "19.6 C6 [RDSENATE]",
+    "text": "19.6 C6 [RDSENATE]\n\nUse the data in RDSENATE to answer the following questions. This is a data set on senatorial elections in the United States, similar to the data set RDHOUSE used in Example 19.3. The goal is to estimate the effect of party incumbency on election outcomes over many elections in the U.S. senate. (i) What is the calendar span of the data? How is margin measured, and what is its average value? Provide the state number and year of the smallest value of margin in absolute value. (ii) Regress Dvote on margin. What is the estimated coefficient. How do you interpret it? Is it statistically significant? (iii) Define the binary variable Dwin to be one if \\(margin &gt; 0\\). (Note that this refers to the Democrat winning in the prior election, and so it acts as the “treatment” variable.) Add the &gt; variables Dwin and \\(Dwin \\cdot margin\\) to the regression in part (ii). What is the coefficient on Dwin? How do you interpret this coefficient? Does its magnitude seem practically important? Statistically different from zero? (iv) Do you think the interaction term \\(Dwin \\cdot margin\\) is needed in part (iii)? What happens to the coefficient on Dwin if you drop the interaction? (v) Redo the regression in part (iii) but only use observations with \\(-30 &lt; margin &lt; 30\\). How many observations are used? What happens to the coefficient on Dwin? Is the interaction term significant? (vi) Now choose the bandwidth using the Imbens and Kalyanaraman (2012) method. What is the chosen bandwidth? What is the estimated treatment effect of party incumbency? (vii) Compare the estimates from parts (vi) and (v), and discuss the relative precision of each.",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Advanced Methods for Causal Inference</span>"
+    ]
+  },
+  {
+    "objectID": "chapter19.html#c7-headstart",
+    "href": "chapter19.html#c7-headstart",
+    "title": "19  Advanced Methods for Causal Inference",
+    "section": "19.7 C7 [HEADSTART]",
+    "text": "19.7 C7 [HEADSTART]\n\nUse the data in HEADSTART to answer the following questions. The data are cross-sectional at the U.S. county level, and include variables from the 1960s and 1970s. Some counties were given assistance in implementing the anti-poverty program known as Head Start. The rule determining assistance turned out to be based on the poverty rate in 1960. A county received assistance if its poverty rate exceeded 59.1984. The key outcome variable is the mortality rate of young children, mort_age5_9, in years following the implementation of the national Head Start program. (i) How many counties are included in the data set? How many received assistance in setting up their Head Start program? How many counties have missing data on the variable mort_age5_9? For how many counties is mort_age5_9 equal to zero? (ii) Define the variable \\(povrate\\_cut = povrate - 59.1984\\). Using all of the data (for which you have an observation for mort_age5_9), use OLS to estimate the equation \\[mort\\_age5\\_9 = \\beta_0 + \\beta_1 assist + \\beta_2 povrate\\_cut + \\beta_3 (assist \\cdot povrate\\_cut) + u.\\] What is the estimated policy effect of assisting the rollout of Head Start? Is it statistically different from zero at the 5% level? (iii) In part (ii), what is the estimated coefficient on povrate_cut? Describe the intuition behind its sign. What is the estimated difference in mortality for a county with a 50 percent poverty rate and one with a 30 percent poverty rate? (iv) Redo part (ii) using only counties with \\(povrate \\ge 40\\) and \\(povrate \\le 80\\). How many counties are included on each side of the cutoff? How do the estimated effect of assist and its statistical significance compare with those of part (ii)? (v) Now use the Imbens and Kalyanaraman (2012) approach to choose the bandwidth. How many counties are used on either side of the cutoff? What is the estimated treatment effect (at the cutoff) and its \\(t\\) statistic? (vi) Starting with the same model and bandwidth as in part (iv), include controls for percent urban, percent black, and log of the population—all measured in 1960. Compare the estimated treatment effect and precision with the results found in part (iv). (vii) Use mort_age25_plus as the outcome (dependent) variable and estimate the same model, with the same bandwidth, as in part (iv). This is the mortality rate for people much too old to have participated in Head Start. Explain your findings, including why this acts as a “placebo” check on the analysis.",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Advanced Methods for Causal Inference</span>"
+    ]
+  },
+  {
+    "objectID": "chapter19.html#c8-catholic",
+    "href": "chapter19.html#c8-catholic",
+    "title": "19  Advanced Methods for Causal Inference",
+    "section": "19.8 C8 [CATHOLIC]",
+    "text": "19.8 C8 [CATHOLIC]\n\nUse the data in CATHOLIC for this question. As in Example 19.4, the goal is to try to estimate the causal effect of attending a Catholic high school on test performance. Here, when IV or CF methods are used, the binary variable, parcath, which indicates whether at least one parent is Catholic, is the single IV for cathhs, attending a Catholic high school. (i) How many students are included in this data set? How many attend a Catholic high school? In how many families is at least one parent Catholic?\n\n\n\nRun a simple regression of cathhs on parcath (including an intercept, of course). Does the estimated coefficient make sense? Discuss its interpretation and statistical significance.\nRun a simple regression of math12 on cathhs. Report and discuss the coefficient on cathhs and its statistical significance.\nNow use motheduc, fatheduc, and lfaminc as controls in using (full) linear regression adjustment. What is \\(\\hat{\\tau}_{ate}\\), the estimated average treatment effect, in this case?\nRegress cathhs on parcath, the controls in part (iv), and the interactions between parcath and the controls. Do it two ways: without centering the controls and with centering the controls about their sample averages. Discuss the coefficients on parcath and explain the reason for the difference. Can you conclude parcath is a suitably strong IV for cathhs?\nObtain the simple IV estimator with math12 as the outcome, cathhs as the treatment, and parcath as the IV. What is the estimate of LATE?\nNow estimate LATE adding the controls in part (iv). Use equation (19.55) to allow flexible estimation. What is \\(\\hat{\\tau}_{late}\\)? Report a 95% confidence interval for \\(\\tau_{late}\\).\nEstimate a probit model for cathhs that includes parcath, the control variables in part (iv), and interactions between parcath and the centered controls. Find the average partial effect of parcath, and compare it with the appropriate estimate in part (v).\nObtain the generalized residuals from the estimation in part (viii), and implement the CF regression in equation (19.90). How does \\(\\hat{\\tau}_{ate}\\) compare with \\(\\hat{\\tau}_{late}\\) in part (vii)? (As a bonus, use bootstrapping to obtain a proper standard error for \\(\\hat{\\tau}_{ate}\\).)\nIn the CF regression, obtain \\(\\hat{\\tau}_{att}\\). How does it compare with \\(\\hat{\\tau}_{ate}\\)? (As a bonus, use bootstrapping to obtain a standard error for \\(\\hat{\\tau}_{att}\\).)",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Advanced Methods for Causal Inference</span>"
+    ]
+  },
+  {
+    "objectID": "chapter19.html#c9-vietnam",
+    "href": "chapter19.html#c9-vietnam",
+    "title": "19  Advanced Methods for Causal Inference",
+    "section": "19.9 C9 [VIETNAM]",
+    "text": "19.9 C9 [VIETNAM]\n\nUse the data in VIETNAM for this exercise, which applies the control function method. (i) Estimate a probit model for vietnam where the explanatory variables are draft, age, educ, black, and interactions between draft and the demeaned control variables. What is the APE with respect to draft? Does it have the expected sign? What is its robust \\(t\\) statistic? (ii) Obtain the generalized residuals from part (i), \\(gr_i\\). What is the average of these residuals over \\(vietnam_i = 0\\)? What is the average over \\(vietnam_i = 1\\)? What is their average across all \\(i\\)? (iii) Obtain the control function estimates from the regression in (19.90). What is the estimated coefficient on vietnam? Does the effect seem practically important? If you use the usual heteroskedasticity-robust standard error, is it statistically significant? (iv) Test the null hypothesis that vietnam is exogenous in the lwage equation. What do you conclude? If you drop the terms involving \\(gr_i\\), what is the coefficient on vietnam? (v) Now estimate the model underlying the CF estimation by IV, where your instruments should be draft, \\(draft \\cdot (age - \\overline{age})\\), \\(draft \\cdot (educ - \\overline{educ})\\), and \\(draft \\cdot (black - \\overline{black})\\). What is the estimated effect of vietnam? What is its heteroskedasticity-robust \\(t\\) statistic? How does it compare with the CF estimate?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Advanced Methods for Causal Inference</span>"
+    ]
+  },
+  {
+    "objectID": "chapter19.html#c10-tutorfrd",
+    "href": "chapter19.html#c10-tutorfrd",
+    "title": "19  Advanced Methods for Causal Inference",
+    "section": "19.10 C10 [TUTORFRD]",
+    "text": "19.10 C10 [TUTORFRD]\n\nUse the data in TUTORFRD to answer the following questions. These data are generated to mimic a fuzzy RD design; therefore, the findings are illustrative only. The treatment variable is tutor (participation in a summer math tutoring program between fourth and fifth grade), the running variable is score4 (the score on a fourth-grade math test), and eligibility is determined by \\(score4 \\le 60\\). (i) How many students are in the sample? How many students were initially eligible for the tutoring program? (ii) Of the eligible students, what percentage participated? Of the ineligible students, what percentage managed to participate? (iii) Estimate a sharp RD relating tutor to elig, restricting the regression to observations with \\(40 \\le score4 \\le 80\\). How many observations are used on each side of the cutoff? What is the estimated coefficient on elig? Interpret the interaction coefficient and discuss statistical significance.\n\n\n\nSketch a graph similar to Figure 19.1, assuming that the tutoring program has a positive effect on score5. (Be careful; eligibility is determined here by being below the cutoff.)\nUse the IV approach to estimate \\(\\tau_{60}\\), the ATE at the cutoff \\(c = 60\\). Use data satisfying \\(40 \\le score4_i \\le 80\\). What is \\(\\hat{\\tau}_{60}\\) and its standard error?\nUse the IK (2012) method to choose the bandwidth. What is the chosen bandwidth? How many total observations are used? How does the estimate of \\(\\tau_{60}\\) and its precision compare with those from part (v)?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Advanced Methods for Causal Inference</span>"
+    ]
+  },
+  {
+    "objectID": "chapter20.html",
+    "href": "chapter20.html",
+    "title": "20  Carrying Out an Empirical Project",
+    "section": "",
+    "text": "NoteEmperical Researcher\n\n\n\nYou are now an emperical researcher, go publish some papers.",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Carrying Out an Empirical Project</span>"
+    ]
   }
 ]
