@@ -2,3 +2,157 @@
 title: "Advanced Time Series Topics"
 format: html
 ---
+
+## C1 [WAGEPRC]
+
+> Use the data in WAGEPRC for this exercise. Problem 5 in Chapter 11 gave estimates of a finite distributed lag model of `gprice` on `gwage`, where 12 lags of `gwage` are used.
+> (i) Estimate a simple geometric DL model of `gprice` on `gwage`. In particular, estimate equation (18.11) by OLS. What are the estimated impact propensity and LRP? Sketch the estimated lag distribution.
+> (ii) Compare the estimated IP and LRP to those obtained in Problem 5 in Chapter 11. How do the estimated lag distributions compare?
+> (iii) Now, estimate the rational distributed lag model from (18.16). Sketch the lag distribution and compare the estimated IP and LRP to those obtained in part (ii).
+
+## C2 [HSEINV]
+
+> Use the data in HSEINV for this exercise.
+> (i) Test for a unit root in $\log(invpc)$, including a linear time trend and two lags of $\Delta\log(invpc_t)$. Use a 5% significance level.
+> (ii) Use the approach from part (i) to test for a unit root in $\log(price)$.
+> (iii) Given the outcomes in parts (i) and (ii), does it make sense to test for cointegration between $\log(invpc)$ and $\log(price)$?
+
+## C3 [VOLAT]
+
+> Use the data in VOLAT for this exercise.
+> (i) Estimate an AR(3) model for `pcip`. Now, add a fourth lag and verify that it is very insignificant.
+> (ii) To the AR(3) model from part (i), add three lags of `pcsp` to test whether `pcsp` Granger causes `pcip`. Carefully, state your conclusion.
+> (iii) To the model in part (ii), add three lags of the change in `i3`, the three-month T-bill rate. Does `pcsp` Granger cause `pcip` conditional on past $\Delta i3$?
+
+## C4
+
+> In testing for cointegration between `gfr` and `pe` in Example 18.5, add $t^2$ to equation (18.32) to obtain the OLS residuals. Include one lag in the augmented DF test. The 5% critical value for the test is $-4.15$.
+
+## C5 [INTQRT]
+
+> Use INTQRT for this exercise.
+> (i) In Example 18.7, we estimated an error correction model for the holding yield on six-month T-bills, where one lag of the holding yield on three-month T-bills is the explanatory variable. We assumed that the cointegration parameter was one in the equation $hy6_t = \alpha + \beta hy3_{t-1} + u_t$. Now, add the lead change, $\Delta hy3_t$, the contemporaneous change, $\Delta hy3_{t-1}$, and the lagged change, $\Delta hy3_{t-2}$, of $\Delta hy3_{t-1}$. That is, estimate the equation
+> $$hy6_t = \alpha + \beta hy3_{t-1} + \phi_0 \Delta hy3_t + \phi_1 \Delta hy3_{t-1} + \rho_1 \Delta hy3_{t-2} + e_t$$
+> and report the results in equation form. Test H$_0$: $\beta = 1$ against a two-sided alternative. Assume that the lead and lag are sufficient so that $\{hy3_{t-1}\}$ is strictly exogenous in this equation and do not worry about serial correlation.
+> (ii) To the error correction model in (18.39), add $\Delta hy3_{t-2}$ and $(hy6_{t-2} - hy3_{t-3})$. Are these terms jointly significant? What do you conclude about the appropriate error correction model?
+
+## C6 [PHILLIPS]
+
+> Use the data in PHILLIPS for this exercise.
+> (i) Estimate the models represented in equations (18.48) and (18.49) using the data through 2015. Do the parameter estimates change much compared with (18.48) and (18.49)?
+> (ii) Use the new equations to forecast $unem_{2016}$; round to two decimal places. Which equation produces a better forecast?
+> (iii) Use the equation that includes $inf_{t-1}$, estimated in part (i), to forecast $unem_{2017}$. You will need to obtain the 2016 values for `unem` and `inf`. Next, reestimate the parameters using the data through 2016, and use the updated estimates to forecast $unem_{2017}$. Does using the extra year of data to obtain the parameter estimates produce a better forecast?
+> (iv) Use the equation that includes $inf_{t-1}$, estimated in part (i), to obtain a two-step-ahead forecast of `unem`. You will need the forecast of $unem_{2016}$ from part (ii). Also, use an AR(1) model for inflation, using the data through 2015, to forecast 2016 inflation.
+
+## C7 [BARIUM]
+
+> Use the data in BARIUM for this exercise.
+> (i) Estimate the linear trend model $chnimp_t = \alpha + \beta t + u_t$, using the first 119 observations (this excludes the last 12 months of observations for 1988). What is the standard error of the regression?
+> (ii) Now, estimate an AR(1) model for `chnimp`, again using all data but the last 12 months. Compare the standard error of the regression with that from part (i). Which model provides a better in-sample fit?
+> (iii) Use the models from parts (i) and (ii) to compute the one-step-ahead forecast errors for the 12 months in 1988. (You should obtain 12 forecast errors for each method.) Compute and compare the RMSEs and the MAEs for the two methods. Which forecasting method works better out-of-sample for one-step-ahead forecasts?
+> (iv) Add monthly dummy variables to the regression from part (i). Are these jointly significant? (Do not worry about the slight serial correlation in the errors from this regression when doing the joint test.)
+
+## C8 [FERTIL3]
+
+> Use the data in FERTIL3 for this exercise.
+> (i) Graph `gfr` against time. Does it contain a clear upward or downward trend over the entire sample period?
+> (ii) Using the data through 1979, estimate a cubic time trend model for `gfr` (that is, regress `gfr` on $t$, $t^2$, and $t^3$, along with an intercept). Comment on the $R$-squared of the regression.
+> (iii) Using the model in part (ii), compute the mean absolute error of the one-step-ahead forecast errors for the years 1980 through 1984.
+> (iv) Using the data through 1979, regress $\Delta gfr_t$ on a constant only. Is the constant statistically different from zero? Does it make sense to assume that any drift term is zero, if we assume that $gfr_t$ follows a random walk?
+
+> (v) Now, forecast $gfr$ for 1980 through 1984, using a random walk model: the forecast of $gfr_{n+1}$ is simply $gfr_n$. Find the MAE. How does it compare with the MAE from part (iii)? Which method of forecasting do you prefer?
+> (vi) Now, estimate an AR(2) model for $gfr$, again using the data only through 1979. Is the second lag significant?
+> (vii) Obtain the MAE for 1980 through 1984, using the AR(2) model. Does this more general model work better out-of-sample than the random walk model?
+
+## C9 [CONSUMP]
+
+> Use CONSUMP for this exercise.
+> (i) Let $y_t$ be real per capita disposable income. Use the data through 1989 to estimate the model
+> $$y_t = \alpha + \beta t + \rho y_{t-1} + u_t$$
+> and report the results in the usual form.
+> (ii) Use the estimated equation from part (i) to forecast $y$ in 1990. What is the forecast error?
+> (iii) Compute the mean absolute error of the one-step-ahead forecasts for the 1990s, using the parameters estimated in part (i).
+> (iv) Now, compute the MAE over the same period, but drop $y_{t-1}$ from the equation. Is it better to include $y_{t-1}$ in the model or not?
+
+## C10 [INTQRT]
+
+> Use the data in INTQRT for this exercise.
+> (i) Using the data from all but the last four years (16 quarters), estimate an AR(1) model for $\Delta r6_t$. (We use the difference because it appears that $r6_t$ has a unit root.) Find the RMSE of the one-step-ahead forecasts for $\Delta r6$, using the last 16 quarters.
+> (ii) Now, add the error correction term $spr_{t-1} = r6_{t-1} - r3_{t-1}$ to the equation from part (i). (This assumes that the cointegrating parameter is one.) Compute the RMSE for the last 16 quarters. Does the error correction term help with out-of-sample forecasting in this case?
+> (iii) Now, estimate the cointegrating parameter, rather than setting it to one. Use the last 16 quarters again to produce the out-of-sample RMSE. How does this compare with the forecasts from parts (i) and (ii)?
+> (iv) Would your conclusions change if you wanted to predict $r6$ rather than $\Delta r6$? Explain.
+
+## C11 [VOLAT]
+
+> Use the data in VOLAT for this exercise.
+> (i) Confirm that $lsp500 = \log(sp500)$ and $lip = \log(ip)$ appear to contain unit roots. Use Dickey-Fuller tests with four lagged changes and do the tests with and without a linear time trend.
+> (ii) Run a simple regression of $lsp500$ on $lip$. Comment on the sizes of the $t$ statistic and $R$-squared.
+> (iii) Use the residuals from part (ii) to test whether $lsp500$ and $lip$ are cointegrated. Use the standard Dickey-Fuller test and the ADF test with two lags. What do you conclude?
+> (iv) Add a linear time trend to the regression from part (ii) and now test for cointegration using the same tests from part (iii).
+> (v) Does it appear that stock prices and real economic activity have a long-run equilibrium relationship?
+
+## C12 [VOLAT]
+
+> This exercise also uses the data from VOLAT. Computer Exercise C11 studies the long-run relationship between stock prices and industrial production. Here, you will study the question of Granger causality using the percentage changes.
+> (i) Estimate an AR(3) model for $pcip_t$, the percentage change in industrial production (reported at an annualized rate). Show that the second and third lags are jointly significant at the 2.5% level.
+> (ii) Add one lag of $pcsp_t$ to the equation estimated in part (i). Is the lag statistically significant? What does this tell you about Granger causality between the growth in industrial production and the growth in stock prices?
+
+> (iii) Redo part (ii) but obtain a heteroskedasticity-robust $t$ statistic. Does the robust test change your conclusions from part (ii)?
+
+## C13 [TRAFFIC2]
+
+> Use the data in TRAFFIC2 for this exercise. These monthly data, on traffic accidents in California over the years 1981 to 1989, were used in Computer Exercise C11 in Chapter 10.
+> (i) Using the standard Dickey-Fuller regression, test whether $ltotacc_t$ has a unit root. Can you reject a unit root at the 2.5% level?
+> (ii) Now, add two lagged changes to the test from part (i) and compute the augmented Dickey-Fuller test. What do you conclude?
+> (iii) Add a linear time trend to the ADF regression from part (ii). Now what happens?
+> (iv) Given the findings from parts (i) through (iii), what would you say is the best characterization of $ltotacc_t$: an I(1) process or an I(0) process about a linear time trend?
+> (v) Test the percentage of fatalities, $prcfat_t$, for a unit root, using two lags in an ADF regression. In this case, does it matter whether you include a linear time trend?
+
+## C14 [MINWAGE.DTA]
+
+> Use the data in MINWAGE.DTA for sector 232 to answer the following questions.
+> (i) Confirm that $lwage232_t$ and $lemp232_t$ are best characterized as I(1) processes. Use the augmented DF test with one lag of $gwage232$ and $gemp232$, respectively, and a linear time trend. Is there any doubt that these series should be assumed to have unit roots?
+> (ii) Regress $lemp232_t$ on $lwage232_t$ and test for cointegration, both with and without a time trend, allowing for two lags in the augmented Engle-Granger test. What do you conclude?
+> (iii) Now regress $lemp232_t$ on log of the real wage rate, $lrwage232_t = lwage232_t - lcpi_t$, and a time trend. Do you find cointegration? Are they “closer” to being cointegrated when you use real wages rather than nominal wages?
+> (iv) What are some factors that might be missing from the cointegrating regression in part (iii)?
+
+## C15 [BEVERIDGE]
+
+> This question asks you to study the so-called Beveridge Curve from the perspective of cointegration analysis. The U.S. monthly data from December 2000 through February 2012 are in BEVERIDGE.
+> (i) Test for a unit root in $urate$ using the usual Dickey-Fuller test (with a constant) and the augmented DF with two lags of $curate$. What do you conclude? Are the lags of $curate$ in the augmented DF test statistically significant? Does it matter to the outcome of the unit root test?
+> (ii) Repeat part (i) but with the vacancy rate, $vrate$.
+> (iii) Assuming that $urate$ and $vrate$ are both I(1), the Beveridge Curve,
+> $$urate_t = \alpha + \beta vrate + u_t,$$
+> only makes sense if $urate$ and $vrate$ are cointegrated (with cointegrating parameter $\beta < 0$). Test for cointegration using the Engle-Granger test with no lags. Are $urate$ and $vrate$ cointegrated at the 10% significance level? What about at the 5% level?
+> (iv) Obtain the leads and lags estimator with $cvrate_t$, $cvrate_{t-1}$, and $cvrate_{t+1}$ as the I(0) explanatory variables added to the equation in part (iii). Obtain the Newey-West standard error for $\hat{\beta}$ using four lags (so $g = 4$ in the notation of Section 12-5). What is the resulting 95% confidence interval for $\beta$? How does it compare with the confidence interval that is not robust to serial correlation (or heteroskedasticity)?
+> (v) Redo the Engle-Granger test but with two lags in the augmented DF regression. What happens? What do you conclude about the robustness of the claim that $urate$ and $vrate$ are cointegrated?
+
+## C16 [PHILLIPS]
+
+> Use the data in PHILLIPS for this exercise.
+> (i) Using all of the years—through 2017—run the regression $\Delta inf_t$ on $inf_{t-1}$ (and an intercept) and test the null hypothesis that $\{inf_t\}$ is I(1) against the alternative that it is I(0). At what significance level do you reject the null hypothesis?
+
+> (ii) What is the estimated value of $\rho$ from part (i)? Would you say it is practically different from one?
+> (iii) Now run the augmented Dickey-Fuller regression by including $\Delta inf_{t-1}$ as a regressor. Do your conclusions from part (i) change? Does it appear $\Delta inf_{t-1}$ needs to be in the regression?
+
+## C17
+
+> Consider Example 18.11, where you should define the variable $d\bar{y}_t$ using CA as the treated state and the southern states Alabama (AL), Arkansas (AR), Louisiana (LA), and Mississippi (MS) as the four controls.
+> (i) Using the data up through 1988, regress $\Delta d\bar{y}_t$ on $d\bar{y}_{t-1}$. Does it appear that $d\bar{y}_t$ has a unit root? What is the implied estimate of $\rho$ in the AR(1) model?
+> (ii) Add a time trend to the test in part (i). Now what do you conclude about whether $d\bar{y}_t \sim \text{I}(1)$?
+> (iii) Produce a graph as in Figure 18.3. Does the parallel trends assumption for $y_{CA,t}$ and $\bar{y}_{0t}$ appear to be satisfied?
+> (iv) Run the regression of $d\bar{y}_t$ on $year_t$ (including an intercept) on the data through 1988. Obtain the residuals for all time periods and produce a graph as in Figure 18.4. Does it appear the trend in $d\bar{y}_t$ before the intervention has been eliminated?
+> (v) Estimate equation (18.73) and report the coefficient on $post_t$ along with its Newey-West standard error (lag = 2). How does it compare with the estimates using the western and midwestern states as controls?
+> (vi) Compute the average residuals obtained in part (iv) over 1989 through 2000. Verify that you obtain the estimate in part (v) to at least six decimal places.
+> (vii) Reproduce Table 18.6 using the southern states as the controls. Comment on similarities or important differences.
+
+## C18 [GASHOLIDAY]
+
+> Use the data in GASHOLIDAY to answer the following questions. These data were also used in Computer Exercise C15 in Chapter 10. The idea is to use gas prices in Rhode Island (RI) as a control for those in Connecticut (CT) to measure the effect of the gasoline tax holiday in CT.
+> (i) Define the variable $dlregCTRI = lregularCT - lregularRI$. Find the first-order autocorrelation of $dlregCTRI$. Is it close to one?
+> (ii) Discuss the implications of your finding in part (i) for the statistics in the regression of $dlregCTRI$ on the dummy variable, $holidayCT$. In particular, can you trust the $t$ statistic and confidence interval?
+> (iii) The regression in part (ii) is OLS applied to the equation
+> $$dlregCTRI_t = \beta_0 + \beta_1 holidayCT_t + u_t$$
+> If you estimate this equation by first differencing, what is the estimate of $\beta_1$? Does it matter much whether you include an intercept in the FD equation? How does the FD estimate compare with the estimate of $\beta_1$ when you apply OLS in levels?
+> (iv) Let $\Delta holidayCT_t$ be the difference of the dummy variable. How often is this variable zero? How often is it one? What implications does this have for applying "large sample" methods of inference?
+> (v) Referring to the material in Section 9-5c of Chapter 9, relate the regression in first differences to "outlier" analysis.

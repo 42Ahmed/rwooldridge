@@ -3,3 +3,117 @@ title: "Advanced Methods for Causal Inference"
 format: html
 ---
 
+## C1 [JTRAIN98]
+
+> Consider Example 19.1, where the outcome variable, `earn98`, is nonnegative. Use the data in JTRAIN98. Keep all of the data without trimming for lack of overlap.
+> (i) What is the average value of `earn98`? For what percent of the sample is `earn98` equal to zero?
+> (ii) Use full regression adjustment with an exponential mean and Poisson QMLE to estimate $\tau_{ate}$, using the same controls in Example 19.1. What is $\hat{\tau}_{ate}$, and how does it compare with linear RA in Table 19.1?
+
+> (iii) Compare the standard errors of the linear RA and exponential RA estimates. Does the exponential RA improve precision in this application?
+> (iv) Now use the exponential mean with IPWRA, and compare the estimate of $\tau_{ate}$ with linear IPWRA in Table 19.1. Discuss the precision of the two estimates.
+> (v) If you focus on $\tau_{att}$ instead, does the ranking of the estimators—linear mean versus exponential mean—change?
+
+## C2 [VIETNAM]
+
+> Use the data in VIETNAM to answer the following questions. These are a subset of the data used in Angrist (1990).
+> (i) The binary variable `vietnam` indicates that a man served the United States military during the Vietnam war. How many men are in the entire sample? How many served?
+> (ii) Estimate a simple regress with `lwage` as the outcome variable and `vietnam` as the only explanatory variable. Interpret the estimated coefficient on `vietnam`. Is it statistically different from zero? (Be sure to use a heteroskedasticity-robust statistic.)
+> (iii) Using `age`, `educ`, and `black` as controls, apply linear regression adjustment (with interactions) to estimate the ATE and ATT of `vietnam`. Do you find any effect?
+> (iv) Estimate a logit model for `vietnam` using `age`, `educ`, and `black` as explanatory variables. Is `vietnam` related to any of these variables in a statistically significant way? If so, describe how. How many fitted probabilities are less than 0.1? How many are greater than 0.9. Is lack of overlap a cause for concern in this data set?
+> (v) Using the same controls in part (iii), obtain the IPWRA estimates using a logit model for `vietnam` and linear models for `lwage`. What are the new estimates of ATE and ATT? Do they differ much from those found in part (iii)?
+> (vi) Add nonredundant interactions among all controls to both the logit and linear models, and obtain the IPWRA estimates. What are the new estimates of ATE and ATT? Overall, what do you conclude about the causal effect of serving in Vietnam on subsequent labor market earnings?
+
+## C3 [JTRAIN98]
+
+> Use the variable `unem98` as the outcome variable in the data set JTRAIN98. The treatment variable is `train`.
+> (i) Across all men in the data set, what is the unemployment rate in 1998? How does this rate differ among those who did and did not participate in the job training program?
+> (ii) Using the same control variables in Example 19.1—including the squares and interactions of the variables—obtain the linear RA estimates of $\tau_{ate}$ and $\tau_{att}$ of the effect of `train` on `unem98`. Interpret the estimated effects and obtain the $t$ statistics.
+> (iii) Still using the same controls, use logit regression adjustment and report $\hat{\tau}_{ate}$ and $\hat{\tau}_{att}$. How do these compare with the linear RA estimates? How do the standard errors of the logit RA estimates compare with the standard errors for linear RA?
+> (iv) Use the same controls to estimate the propensity score by logit, and then obtain the IPWRA estimates of $\tau_{ate}$ and $\tau_{att}$ with a linear mean. How do these compare with the previous estimates?
+> (v) Use two separate weighted regressions to obtain the fitted values in part (iv). That is, using only the controls, weight the linear regression by $1/(1 - \hat{p}_i)$, and save the fitted values for *all* units. Then do the same for the treated units, where the weights are $1/\hat{p}_i$. Difference the fitted values to obtain $\widehat{te}_i$ for each $i$, and then, to obtain $\hat{\tau}_{ate}$, average the $\widehat{te}_i$ across all $i$. What is the estimate? Is it easy to obtain a standard error?
+> (vi) Now obtain the IPWRA estimates where the outcome models for `unem98` are also logit. Do you find any notable differences and the ATE and ATT estimates compared with part (iv)?
+
+## C4 [VIETNAM]
+
+> Use the data in VIETNAM for this exercise. The binary variable `draft` is an IV for `vietnam`—which indicates serving for the U.S. military during the Vietnam war.
+> (i) Regress `draft` on `age`, `educ`, and `black`. Does it appear `draft` is independent of these three variables? Explain.
+
+> (ii) Estimate the first stage of 2SLS by regressing `vietnam` on `draft`, `age`, `educ`, and `black`. Discuss the coefficient on `draft`. Does `draft` seem suitable as an IV for `vietnam`?
+> (iii) Estimate the equation
+> $$lwage = \alpha + \tau \cdot vietnam + \beta_1 age + \beta_2 educ + \beta_3 black + u$$
+> by instrumental variables, using `draft` as an IV for `vietnam`. Report the coefficient on `vietnam` along with its standard error.
+> (iv) Estimate $\tau_{late}$ using flexible equation (19.55). How large is the point estimate? What is the 95% confidence interval for $\tau_{late}$?
+> (v) Repeat part (iii) dropping all of the control variables and obtain the IV estimate of $\tau_{late}$. How does it compare with the LATE estimate from part (iv)? Do you think this is a more convincing estimate than those found in part (iii) or part (iv)? Explain.
+
+## C5 [LABSUP]
+
+> Use the data in LABSUP to answer the following questions. Use $z = samesex$, indicating whether the first two children are born the same sex, as an instrument for $w = morekids$, indicating having more than two children. Drop the observations where $multi2nd = 1$ (indicating that the second birth resulted in more than one child).
+> (i) What is the percentage of women having two children? What is the percentage having more than two children?
+> (ii) Regress $morekids_i$ on $samesex_i$. What is the estimated fraction of “compliers” in the population?
+> (iii) Use `samesex` as an IV for `morekids` in an equation with `hours` as the outcome variable; do not use control variables. What is the IV estimate? How does it, and its precision, compare with the OLS estimate (difference in means) and its precision?
+> (iv) Create centered versions of the control variables `age`, `nonmomi`, and `educ`, about their sample averages. Use linear regression adjustment of `hours` on `samesex`, the controls, and the interactions of `samesex` with the centered controls. What is the coefficient on `samesex`?
+> (v) Repeat part (iv), but with `morekids` as the dependent variable. Is the `samesex` coefficient the expected sign? What is its heteroskedasticity-robust $t$ statistic?
+> (vi) Using `hours` as the outcome variable and treating `morekids` as endogenous, use the IV estimation in (19.55) to estimate $\tau_{late}$. Report the estimate and its standard error.
+> (vii) Confirm that the ratio of the `samesex` coefficients in parts (iv) and (v) equals the IV estimate from part (vi).
+> (viii) Estimate a probit model for `morekids`, in place of the linear regression in part (v). Find the average partial effect of `samesex`. How close is it to the coefficient on `samesex` in part (v)? How do they compare in terms of statistical significance?
+> (ix) Obtain the generalized residuals from part (viii) and implement the control function approach. How does the estimate compare with the IV estimate from part (vi)? Is there evidence that `morekids` is endogenous? What happens to the coefficient on `morekids` when the two generalized residual terms are dropped?
+> (x) Can you think of reasons why `samesex` might not be exogenous (satisfy Assumption LATE.2'), even after controlling for `age`, `nonmomi`, and `educ`?
+
+## C6 [RDSENATE]
+
+> Use the data in RDSENATE to answer the following questions. This is a data set on senatorial elections in the United States, similar to the data set RDHOUSE used in Example 19.3. The goal is to estimate the effect of party incumbency on election outcomes over many elections in the U.S. senate.
+> (i) What is the calendar span of the data? How is `margin` measured, and what is its average value? Provide the state number and year of the smallest value of `margin` in absolute value.
+> (ii) Regress `Dvote` on `margin`. What is the estimated coefficient. How do you interpret it? Is it statistically significant?
+> (iii) Define the binary variable `Dwin` to be one if $margin > 0$. (Note that this refers to the Democrat winning in the prior election, and so it acts as the “treatment” variable.) Add the > variables `Dwin` and $Dwin \cdot margin$ to the regression in part (ii). What is the coefficient on `Dwin`? How do you interpret this coefficient? Does its magnitude seem practically important? Statistically different from zero?
+> (iv) Do you think the interaction term $Dwin \cdot margin$ is needed in part (iii)? What happens to the coefficient on `Dwin` if you drop the interaction?
+> (v) Redo the regression in part (iii) but only use observations with $-30 < margin < 30$. How many observations are used? What happens to the coefficient on `Dwin`? Is the interaction term significant?
+> (vi) Now choose the bandwidth using the Imbens and Kalyanaraman (2012) method. What is the chosen bandwidth? What is the estimated treatment effect of party incumbency?
+> (vii) Compare the estimates from parts (vi) and (v), and discuss the relative precision of each.
+
+## C7 [HEADSTART]
+
+> Use the data in HEADSTART to answer the following questions. The data are cross-sectional at the U.S. county level, and include variables from the 1960s and 1970s. Some counties were given assistance in implementing the anti-poverty program known as Head Start. The rule determining assistance turned out to be based on the poverty rate in 1960. A county received assistance if its poverty rate exceeded 59.1984. The key outcome variable is the mortality rate of young children, `mort_age5_9`, in years following the implementation of the national Head Start program.
+> (i) How many counties are included in the data set? How many received assistance in setting up their Head Start program? How many counties have missing data on the variable `mort_age5_9`? For how many counties is `mort_age5_9` equal to zero?
+> (ii) Define the variable $povrate\_cut = povrate - 59.1984$. Using all of the data (for which you have an observation for `mort_age5_9`), use OLS to estimate the equation
+> $$mort\_age5\_9 = \beta_0 + \beta_1 assist + \beta_2 povrate\_cut + \beta_3 (assist \cdot povrate\_cut) + u.$$
+> What is the estimated policy effect of assisting the rollout of Head Start? Is it statistically different from zero at the 5% level?
+> (iii) In part (ii), what is the estimated coefficient on `povrate_cut`? Describe the intuition behind its sign. What is the estimated difference in mortality for a county with a 50 percent poverty rate and one with a 30 percent poverty rate?
+> (iv) Redo part (ii) using only counties with $povrate \ge 40$ and $povrate \le 80$. How many counties are included on each side of the cutoff? How do the estimated effect of `assist` and its statistical significance compare with those of part (ii)?
+> (v) Now use the Imbens and Kalyanaraman (2012) approach to choose the bandwidth. How many counties are used on either side of the cutoff? What is the estimated treatment effect (at the cutoff) and its $t$ statistic?
+> (vi) Starting with the same model and bandwidth as in part (iv), include controls for percent urban, percent black, and log of the population—all measured in 1960. Compare the estimated treatment effect and precision with the results found in part (iv).
+> (vii) Use `mort_age25_plus` as the outcome (dependent) variable and estimate the same model, with the same bandwidth, as in part (iv). This is the mortality rate for people much too old to have participated in Head Start. Explain your findings, including why this acts as a “placebo” check on the analysis.
+
+## C8 [CATHOLIC]
+
+> Use the data in CATHOLIC for this question. As in Example 19.4, the goal is to try to estimate the causal effect of attending a Catholic high school on test performance. Here, when IV or CF methods are used, the binary variable, `parcath`, which indicates whether at least one parent is Catholic, is the single IV for `cathhs`, attending a Catholic high school.
+> (i) How many students are included in this data set? How many attend a Catholic high school? In how many families is at least one parent Catholic?
+
+> (ii) Run a simple regression of `cathhs` on `parcath` (including an intercept, of course). Does the estimated coefficient make sense? Discuss its interpretation and statistical significance.
+> (iii) Run a simple regression of `math12` on `cathhs`. Report and discuss the coefficient on `cathhs` and its statistical significance.
+> (iv) Now use `motheduc`, `fatheduc`, and `lfaminc` as controls in using (full) linear regression adjustment. What is $\hat{\tau}_{ate}$, the estimated average treatment effect, in this case?
+> (v) Regress `cathhs` on `parcath`, the controls in part (iv), and the interactions between `parcath` and the controls. Do it two ways: without centering the controls and with centering the controls about their sample averages. Discuss the coefficients on `parcath` and explain the reason for the difference. Can you conclude `parcath` is a suitably strong IV for `cathhs`?
+> (vi) Obtain the simple IV estimator with `math12` as the outcome, `cathhs` as the treatment, and `parcath` as the IV. What is the estimate of LATE?
+> (vii) Now estimate LATE adding the controls in part (iv). Use equation (19.55) to allow flexible estimation. What is $\hat{\tau}_{late}$? Report a 95% confidence interval for $\tau_{late}$.
+> (viii) Estimate a probit model for `cathhs` that includes `parcath`, the control variables in part (iv), and interactions between `parcath` and the centered controls. Find the average partial effect of `parcath`, and compare it with the appropriate estimate in part (v).
+> (ix) Obtain the generalized residuals from the estimation in part (viii), and implement the CF regression in equation (19.90). How does $\hat{\tau}_{ate}$ compare with $\hat{\tau}_{late}$ in part (vii)? (As a bonus, use bootstrapping to obtain a proper standard error for $\hat{\tau}_{ate}$.)
+> (x) In the CF regression, obtain $\hat{\tau}_{att}$. How does it compare with $\hat{\tau}_{ate}$? (As a bonus, use bootstrapping to obtain a standard error for $\hat{\tau}_{att}$.)
+
+## C9 [VIETNAM]
+
+> Use the data in VIETNAM for this exercise, which applies the control function method.
+> (i) Estimate a probit model for `vietnam` where the explanatory variables are `draft`, `age`, `educ`, `black`, and interactions between `draft` and the demeaned control variables. What is the APE with respect to `draft`? Does it have the expected sign? What is its robust $t$ statistic?
+> (ii) Obtain the generalized residuals from part (i), $gr_i$. What is the average of these residuals over $vietnam_i = 0$? What is the average over $vietnam_i = 1$? What is their average across all $i$?
+> (iii) Obtain the control function estimates from the regression in (19.90). What is the estimated coefficient on `vietnam`? Does the effect seem practically important? If you use the usual heteroskedasticity-robust standard error, is it statistically significant?
+> (iv) Test the null hypothesis that `vietnam` is exogenous in the `lwage` equation. What do you conclude? If you drop the terms involving $gr_i$, what is the coefficient on `vietnam`?
+> (v) Now estimate the model underlying the CF estimation by IV, where your instruments should be `draft`, $draft \cdot (age - \overline{age})$, $draft \cdot (educ - \overline{educ})$, and $draft \cdot (black - \overline{black})$. What is the estimated effect of `vietnam`? What is its heteroskedasticity-robust $t$ statistic? How does it compare with the CF estimate?
+
+## C10 [TUTORFRD]
+
+> Use the data in TUTORFRD to answer the following questions. These data are generated to mimic a fuzzy RD design; therefore, the findings are illustrative only. The treatment variable is `tutor` (participation in a summer math tutoring program between fourth and fifth grade), the running variable is `score4` (the score on a fourth-grade math test), and eligibility is determined by $score4 \le 60$.
+> (i) How many students are in the sample? How many students were initially eligible for the tutoring program?
+> (ii) Of the eligible students, what percentage participated? Of the ineligible students, what percentage managed to participate?
+> (iii) Estimate a sharp RD relating `tutor` to `elig`, restricting the regression to observations with $40 \le score4 \le 80$. How many observations are used on each side of the cutoff? What is the estimated coefficient on `elig`? Interpret the interaction coefficient and discuss statistical significance.
+
+> (iv) Sketch a graph similar to Figure 19.1, assuming that the tutoring program has a positive effect on `score5`. (Be careful; eligibility is determined here by being below the cutoff.)
+> (v) Use the IV approach to estimate $\tau_{60}$, the ATE at the cutoff $c = 60$. Use data satisfying $40 \le score4_i \le 80$. What is $\hat{\tau}_{60}$ and its standard error?
+> (vi) Use the IK (2012) method to choose the bandwidth. What is the chosen bandwidth? How many total observations are used? How does the estimate of $\tau_{60}$ and its precision compare with those from part (v)?

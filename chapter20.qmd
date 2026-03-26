@@ -2,3 +2,9 @@
 title: "Carrying Out an Empirical Project"
 format: html
 ---
+
+::: callout-note
+### Emperical Researcher
+
+You are now an emperical researcher, go publish some papers.
+:::

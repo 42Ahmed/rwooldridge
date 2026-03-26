@@ -2,3 +2,161 @@
 title: "Limited Dependent Variable Models and Sample Selection Corrections"
 format: html
 ---
+
+## C1 [PNTSPRD]
+
+> Use the data in PNTSPRD for this exercise.
+> (i) The variable `favwin` is a binary variable if the team favored by the Las Vegas point spread wins. A linear probability model to estimate the probability that the favored team wins is
+> $$\text{P}(favwin = 1|spread) = \beta_0 + \beta_1 spread.$$
+> Explain why, if the spread incorporates all relevant information, we expect $\beta_0 = 0.5$.
+> (ii) Estimate the model from part (i) by OLS. Test H$_0$: $\beta_0 = 0.5$ against a two-sided alternative. Use both the usual and heteroskedasticity-robust standard errors.
+> (iii) Is `spread` statistically significant? What is the estimated probability that the favored team wins when `spread` = 10?
+> (iv) Now, estimate a probit model for $\text{P}(favwin = 1|spread)$. Interpret and test the null hypothesis that the intercept is zero. [*Hint:* Remember that $\Phi(0) = 0.5$.]
+> (v) Use the probit model to estimate the probability that the favored team wins when `spread` = 10. Compare this with the LPM estimate from part (iii).
+> (vi) Add the variables `favhome`, `fav25`, and `und25` to the probit model and test joint significance of these variables using the likelihood ratio test. (How many *df* are in the chi-square distribution?) Interpret this result, focusing on the question of whether the spread incorporates all observable information prior to a game.
+
+## C2 [LOANAPP]
+
+> Use the data in LOANAPP for this exercise; see also Computer Exercise C8 in Chapter 7.
+> (i) Estimate a probit model of `approve` on `white`. Find the estimated probability of loan approval for both whites and nonwhites. How do these compare with the linear probability estimates?
+> (ii) Now, add the variables `hrat`, `obrat`, `loanprc`, `unem`, `male`, `married`, `dep`, `sch`, `cosign`, `chist`, `pubrec`, `mortlat1`, `mortlat2`, and `vr` to the probit model. Is there statistically significant evidence of discrimination against nonwhites?
+> (iii) Estimate the model from part (ii) by logit. Compare the coefficient on `white` to the probit estimate.
+> (iv) Use equation (17.17) to estimate the sizes of the discrimination effects for probit and logit.
+
+## C3 [FRINGE]
+
+> Use the data in FRINGE for this exercise.
+> (i) For what percentage of the workers in the sample is `pension` equal to zero? What is the range of `pension` for workers with nonzero pension benefits? Why is a Tobit model appropriate for modeling `pension`?
+> (ii) Estimate a Tobit model explaining `pension` in terms of `exper`, `age`, `tenure`, `educ`, `depends`, `married`, `white`, and `male`. Do whites and males have statistically significant higher expected pension benefits?
+> (iii) Use the results from part (ii) to estimate the difference in expected pension benefits for a white male and a nonwhite female, both of whom are 35 years old, are single with no dependents, have 16 years of education, and have 10 years of experience.
+> (iv) Add `union` to the Tobit model and comment on its significance.
+> (v) Apply the Tobit model from part (iv) but with `peratio`, the pension-earnings ratio, as the dependent variable. (Notice that this is a fraction between zero and one, but, though it often takes on the value zero, it never gets close to being unity. Thus, a Tobit model is fine as an approximation.) Does gender or race have an effect on the pension-earnings ratio?
+
+## C4 [CRIME1]
+
+> In Example 9.1, we added the quadratic terms $pcnv^2$, $ptime86^2$, and $inc86^2$ to a linear model for `narr86`.
+> (i) Use the data in CRIME1 to add these same terms to the Poisson regression in Example 17.3.
+> (ii) Compute the estimate of $\sigma^2$ given by $\hat{\sigma}^2 = (n - k - 1)^{-1} \sum_{i=1}^n \hat{u}_i^2 / \hat{y}_i$. Is there evidence of overdispersion? How should the Poisson MLE standard errors be adjusted?
+
+> (iii) Use the results from parts (i) and (ii) and Table 17.5 to compute the quasi-likelihood ratio statistic for joint significance of the three quadratic terms. What do you conclude?
+
+## C5 [FERTIL1]
+
+> Refer to Table 13.1 in Chapter 13. There, we used the data in FERTIL1 to estimate a linear model for `kids`, the number of children ever born to a woman.
+> (i) Estimate a Poisson regression model for `kids`, using the same variables in Table 13.1. Interpret the coefficient on `y82`.
+> (ii) What is the estimated percentage difference in fertility between a black woman and a nonblack woman, holding other factors fixed?
+> (iii) Obtain $\hat{\sigma}$. Is there evidence of over- or underdispersion?
+> (iv) Compute the fitted values from the Poisson regression and obtain the $R$-squared as the squared correlation between $kids_i$ and $\widehat{kids}_i$. Compare this with the $R$-squared for the linear regression model.
+
+## C6 [RECID]
+
+> Use the data in RECID to estimate the model from Example 17.5 by OLS, using *only* the 552 uncensored durations. Comment generally on how these estimates compare with those in Table 17.8.
+
+## C7 [MROZ]
+
+> Use the MROZ data for this exercise.
+> (i) Using the 428 women who were in the workforce, estimate the return to education by OLS including `exper`, $exper^2$, `nwifeinc`, `age`, `kidslt6`, and `kidsge6` as explanatory variables. Report your estimate on `educ` and its standard error.
+> (ii) Now, estimate the return to education by Heckit, where all exogenous variables show up in the second-stage regression. In other words, the regression is $\log(wage)$ on `educ`, `exper`, $exper^2$, `nwifeinc`, `age`, `kidslt6`, `kidsge6`, and $\hat{\lambda}$. Compare the estimated return to education *and* its standard error to that from part (i).
+> (iii) Using only the 428 observations for working women, regress $\hat{\lambda}$ on `educ`, `exper`, $exper^2$, `nwifeinc`, `age`, `kidslt6`, and `kidsge6`. How big is the $R$-squared? How does this help explain your findings from part (ii)? (*Hint:* Think multicollinearity.)
+
+## C8 [JTRAIN2]
+
+> The file JTRAIN2 contains data on a job training experiment for a group of men. Men could enter the program starting in January 1976 through about mid-1977. The program ended in December 1977. The idea is to test whether participation in the job training program had an effect on unemployment probabilities and earnings in 1978.
+> (i) The variable `train` is the job training indicator. How many men in the sample participated in the job training program? What was the highest number of months a man actually participated in the program?
+> (ii) Run a linear regression of `train` on several demographic and pretraining variables: `unem74`, `unem75`, `age`, `educ`, `black`, `hisp`, and `married`. Are these variables jointly significant at the 5% level?
+> (iii) Estimate a probit version of the linear model in part (ii). Compute the likelihood ratio test for joint significance of all variables. What do you conclude?
+> (iv) Based on your answers to parts (ii) and (iii), does it appear that participation in job training can be treated as exogenous for explaining 1978 unemployment status? Explain.
+> (v) Run a simple regression of `unem78` on `train` and report the results in equation form. What is the estimated effect of participating in the job training program on the probability of being unemployed in 1978? Is it statistically significant?
+> (vi) Run a probit of `unem78` on `train`. Does it make sense to compare the probit coefficient on `train` with the coefficient obtained from the linear model in part (v)?
+> (vii) Find the fitted probabilities from parts (v) and (vi). Explain why they are identical. Which approach would you use to measure the effect and statistical significance of the job training program?
+> (viii) Add all of the variables from part (ii) as additional controls to the models from parts (v) and (vi). Are the fitted probabilities now identical? What is the correlation between them?
+
+> (ix) Using the model from part (viii), estimate the average partial effect of `train` on the 1978 unemployment probability. Use (17.17) with $c_k = 0$. How does the estimate compare with the OLS estimate from part (viii)?
+
+## C9 [APPLE]
+
+> Use the data in APPLE for this exercise. These are telephone survey data attempting to elicit the demand for a (fictional) “ecologically friendly” apple. Each family was (randomly) presented with a set of prices for regular apples and the ecolabeled apples. They were asked how many pounds of each kind of apple they would buy.
+> (i) Of the 660 families in the sample, how many report wanting none of the ecolabeled apples at the set price?
+> (ii) Does the variable `ecolbs` seem to have a continuous distribution over strictly positive values? What implications does your answer have for the suitability of a Tobit model for `ecolbs`?
+> (iii) Estimate a Tobit model for `ecolbs` with `ecoprc`, `regprc`, `faminc`, and `hhsize` as explanatory variables. Which variables are significant at the 1% level?
+> (iv) Are `faminc` and `hhsize` jointly significant?
+> (v) Are the signs of the coefficients on the price variables from part (iii) what you expect? Explain.
+> (vi) Let $\beta_1$ be the coefficient on `ecoprc` and let $\beta_2$ be the coefficient on `regprc`. Test the hypothesis H$_0$: $-\beta_1 = \beta_2$ against the two-sided alternative. Report the $p$-value of the test. (You might want to refer to Section 4-4 if your regression package does not easily compute such tests.)
+> (vii) Obtain the estimates of $\text{E}(ecolbs|\mathbf{x})$ for all observations in the sample. [See equation (17.25).] Call these $\widehat{ecolbs}_i$. What are the smallest and largest fitted values?
+> (viii) Compute the squared correlation between $ecolbs_i$ and $\widehat{ecolbs}_i$.
+> (ix) Now, estimate a linear model for `ecolbs` using the same explanatory variables from part (iii). Why are the OLS estimates so much smaller than the Tobit estimates? In terms of goodness-of-fit, is the Tobit model better than the linear model?
+> (x) Evaluate the following statement: “Because the $R$-squared from the Tobit model is so small, the estimated price effects are probably inconsistent.”
+
+## C10 [SMOKE]
+
+> Use the data in SMOKE for this exercise.
+> (i) The variable `cigs` is the number of cigarettes smoked per day. How many people in the sample do not smoke at all? What fraction of people claim to smoke 20 cigarettes a day? Why do you think there is a pileup of people at 20 cigarettes?
+> (ii) Given your answers to part (i), does `cigs` seem a good candidate for having a conditional Poisson distribution?
+> (iii) Estimate a Poisson regression model for `cigs`, including $\log(cigpric)$, $\log(income)$, `white`, `educ`, `age`, and $age^2$ as explanatory variables. What are the estimated price and income elasticities?
+> (iv) Using the maximum likelihood standard errors, are the price and income variables statistically significant at the 5% level?
+> (v) Obtain the estimate of $\sigma^2$ described after equation (17.35). What is $\hat{\sigma}$? How should you adjust the standard errors from part (iv)?
+> (vi) Using the adjusted standard errors from part (v), are the price and income elasticities now statistically different from zero? Explain.
+> (vii) Are the `education` and `age` variables significant using the more robust standard errors? How do you interpret the coefficient on `educ`?
+> (viii) Obtain the fitted values, $\hat{y}_i$, from the Poisson regression model. Find the minimum and maximum values and discuss how well the exponential model predicts heavy cigarette smoking.
+> (ix) Using the fitted values from part (viii), obtain the squared correlation coefficient between $\hat{y}_i$ and $y_i$.
+
+> (x) Estimate a linear model for `cigs` by OLS, using the explanatory variables (and same functional forms) as in part (iii). Does the linear model or exponential model provide a better fit? Is either $R$-squared very large?
+
+## C11 [CPS91]
+
+> Use the data in CPS91 for this exercise. These data are for married women, where we also have information on each husband's income and demographics.
+> (i) What fraction of the women report being in the labor force?
+> (ii) Using only the data for working women—you have no choice—estimate the wage equation
+> $$\log(wage) = \beta_0 + \beta_1 educ + \beta_2 exper + \beta_3 exper^2 + \beta_4 black + \beta_5 hispanic + u$$
+> by ordinary least squares. Report the results in the usual form. Do there appear to be significant wage differences by race and ethnicity?
+> (iii) Estimate a probit model for `inlf` that includes the explanatory variables in the wage equation from part (ii) as well as `nwifeinc` and `kidlt6`. Do these last two variables have coefficients of the expected sign? Are they statistically significant?
+> (iv) Explain why, for the purposes of testing and, possibly, correcting the wage equation for selection into the workforce, it is important for `nwifeinc` and `kidlt6` to help explain `inlf`. What must you assume about `nwifeinc` and `kidlt6` in the wage equation?
+> (v) Compute the inverse Mills ratio (for each observation) and add it as an additional regressor to the wage equation from part (ii). What is its two-sided $p$-value? Do you think this is particularly small with 3,286 observations?
+> (vi) Does adding the inverse Mills ratio change the coefficients in the wage regression in important ways? Explain.
+
+## C12 [CHARITY]
+
+> Use the data in CHARITY to answer these questions.
+> (i) The variable `respond` is a binary variable equal to one if an individual responded with a donation to the most recent request. The database consists only of people who have responded at least once in the past. What fraction of people responded most recently?
+> (ii) Estimate a probit model for `respond`, using `resplast`, `weekslast`, `propresp`, `mailsyear`, and `avggift` as explanatory variables. Which of the explanatory variables is statistically significant?
+> (iii) Find the average partial effect for `mailsyear` and compare it with the coefficient from a linear probability model.
+> (iv) Using the same explanatory variables, estimate a Tobit model for `gift`, the amount of the most recent gift (in Dutch guilders). Now which explanatory variable is statistically significant?
+> (v) Compare the Tobit APE for `mailsyear` with that from a linear regression. Are they similar?
+> (vi) Are the estimates from parts (ii) and (iv) entirely compatible with at Tobit model? Explain.
+
+## C13 [HTV]
+
+> Use the data in HTV to answer these questions.
+> (i) Using OLS on the full sample, estimate a model for $\log(wage)$ using explanatory variables `educ`, `abil`, `exper`, `nc`, `west`, `south`, and `urban`. Report the estimated return to education and its standard error.
+> (ii) Now estimate the equation from part (i) using only people with $educ < 16$. What percentage of the sample is lost? Now what is the estimated return to a year of schooling? How does it compare with part (i)?
+> (iii) Now drop all observations with $wage \ge 20$, so that everyone remaining in the sample earns less than $20 an hour. Run the regression from part (i) and comment on the coefficient on `educ`. (Because the normal truncated regression model assumes that $y$ is continuous, it does not matter in theory whether we drop observations with $wage \ge 20$ or $wage > 20$. In practice, including in this application, it can matter slightly because there are some people who earn exactly $20 per hour.)
+
+> (iv) Using the sample in part (iii), apply truncated regression [with the upper truncation point being $\log(20)$]. Does truncated regression appear to recover the return to education in the full population, assuming the estimate from (i) is consistent? Explain.
+
+## C14 [HAPPINESS]
+
+> Use the data in HAPPINESS for this question. See also Computer Exercise C15 in Chapter 13.
+> (i) Estimate a probit probability model relating `vhappy` to `occattend` and `regattend`, and include a full set of year dummies. Find the average partial effects for `occattend` and `regattend`. How do these compare with those from estimating a linear probability model?
+> (ii) Define a variable, `highinc`, equal to one if family income is above $25,000. Include `highinc`, `unem10`, `educ`, and `teens` to the probit estimation in part (ii). Is the APE of `regattend` affected much? What about its statistical significance?
+> (iii) Discuss the APEs and statistical significance of the four new variables in part (ii). Do the estimates make sense?
+> (iv) Controlling for the factors in part (ii), do there appear to be differences in happiness by gender or race? Justify your answer.
+
+## C15 [ALCOHOL]
+
+> Use the data set in ALCOHOL, obtained from Terza (2002), to answer this question. The data, on 9,822 men, includes labor market information, whether the man abuses alcohol, and demographic and background variables. In this question you will study the effects of alcohol abuse on `employ`, which is a binary variable equal to one if the man has a job. If `employ` = 0, the man is either unemployed or not in the workforce.
+> (i) What fraction of the sample is employed at the time of the interview? What fraction of the sample has abused alcohol?
+> (ii) Run the simple regression of `employ` on `abuse` and report the results in the usual form, obtaining the heteroskedasticity-robust standard errors. Interpret the estimated equation. Is the relationship as you expected? Is it statistically significant?
+> (iii) Run a probit of `employ` on `abuse`. Do you get the same sign and statistical significance as in part (ii)? How does the average partial effect for the probit compare with that for the linear probability model?
+> (iv) Obtain the fitted values for the LPM estimated in part (ii) and report what they are when `abuse` = 0 and when `abuse` = 1. How do these compare to the probit fitted values, and why?
+> (v) To the LPM in part (ii) add the variables `age`, `agesq`, `educ`, `educsq`, `married`, `famsize`, `white`, `northeast`, `midwest`, `south`, `centcity`, `outercity`, `qrt1`, `qrt2`, and `qrt3`. What happens to the coefficient on `abuse` and its statistical significance?
+> (vi) Estimate a probit model using the variables in part (v). Find the APE of `abuse` and its $t$ statistic. Is the estimated effect now identical to that for the linear model? Is it “close”?
+> (vii) Variables indicating the overall health of each man are also included in the data set. Is it obvious that such variables should be included as controls? Explain.
+> (viii) Why might `abuse` be properly thought of as endogenous in the `employ` equation? Do you think the variables `mothalc` and `fathalc`, indicating whether a man’s mother or father were alcoholics, are sensible instrumental variables for `abuse`?
+> (ix) Estimate the LPM underlying part (v) by 2SLS, where `mothalc` and `fathalc` act as IVs for `abuse`. Is the difference between the 2SLS and OLS coefficients practically large?
+> (x) Use the test described in Section 15-5 to test whether `abuse` is endogenous in the LPM.
+
+## C16 [CRIME1]
+
+> Use the data in CRIME1 to answer this question.
+> (i) For the OLS estimates reported in Table 17.5, find the heteroskedasticity-robust standard errors. In terms of statistical significance of the coefficients, are there any notable changes?
+> (ii) Obtain the fully robust standard errors—that is, those that do not even require assumption (17.35)—for the Poisson regression estimates in the second column. (This requires that you have a statistical package that computes the fully robust standard errors.) Compare the fully robust 95% confidence interval for $\beta_{pcnv}$ with that obtained using the standard error in Table 17.5.
