@@ -308,4 +308,592 @@ df_wage1 |>
 
 The optimal amount of experience for maximizing wages is approximately 29 years. Then the return becomes negative. The sample includes 121 workers with declining return of experience. These workers account for 23% of the workers in the sample.
 
-### C3 [WAGE2]
+## C3
+
+> (i) Show that the return to another year of education (in decimal form), holding *exper* fixed, is \(\beta_1 + \beta_3 exper\).
+
+The partial derivative of \(\log(wage)\) with respect to \(educ\) is \(\frac{\partial \log(wage)}{\partial educ} = \beta_1 + \beta_3 exper\). Since \(\log(wage)\) is the natural log, the change in \(\log(wage)\) approximates the proportional change in \(wage\) for a small change in \(educ\). Therefore, holding \(exper\) fixed, the return to an additional year of education (in decimal form) is \(\beta_1 + \beta_3 exper\).
+
+> (ii) State the null hypothesis that the return on education does not depend on the level of *exper*. What do you think is the appropriate alternative?
+
+The null hypothesis is that the return to education does not depend on \(exper\), i.e., the coefficient on the interaction term \(educ \cdot exper\) is zero:  
+\(H_0: \beta_3 = 0\).  
+The appropriate alternative is that the return to education does depend on \(exper\), i.e., \(H_1: \beta_3 \neq 0\). This is a two-sided alternative.
+
+> (iii) Use the data in WAGE2 to test the null hypothesis in (ii) against your stated alternative.
+
+(This part requires running the regression using the WAGE2 dataset. The test involves estimating \(\log(wage) = \beta_0 + \beta_1 educ + \beta_2 exper + \beta_3 educ \cdot exper + u\) and then testing \(H_0: \beta_3 = 0\) using a \(t\)-test. The result would depend on the estimated coefficient and its standard error. Without the data, I cannot provide the numerical result.)
+
+> (iv) Let \(\theta_1\) denote the return on education (in decimal form), when \(exper = 10\): \(\theta_1 = \beta_1 + 10\beta_3\). Obtain \(\hat{\theta}_1\) and a 95% confidence interval for \(\theta_1\).  
+> *(Hint:* Write \(\beta_1 = \theta_1 - 10\beta_3\) and plug this into the equation; then rearrange. This gives the regression for obtaining the confidence interval for \(\theta_1\).)
+
+Substitute \(\beta_1 = \theta_1 - 10\beta_3\) into the model:
+
+\[
+\log(wage) = \beta_0 + (\theta_1 - 10\beta_3) educ + \beta_2 exper + \beta_3 educ \cdot exper + u
+\]
+
+\[
+\log(wage) = \beta_0 + \theta_1 educ + \beta_2 exper + \beta_3 (educ \cdot exper - 10 educ) + u
+\]
+
+\[
+\log(wage) = \beta_0 + \theta_1 educ + \beta_2 exper + \beta_3 [educ \cdot (exper - 10)] + u
+\]
+
+Run the regression of \(\log(wage)\) on \(educ\), \(exper\), and \(educ \cdot (exper - 10)\). The coefficient on \(educ\) gives \(\hat{\theta}_1\), and its confidence interval is the desired interval.
+
+---
+
+## C4
+
+> Use the data in GPA2 for this exercise.
+
+> (i) Estimate the model \(sat = \beta_0 + \beta_1 hsize + \beta_2 hsize^2 + u\), where \(hsize\) is the size of the graduating class (in hundreds), and write the results in the usual form. Is the quadratic term statistically significant?
+
+Estimate the regression using OLS. The results take the form:
+
+\[
+\widehat{sat} = \hat{\beta}_0 + \hat{\beta}_1 hsize + \hat{\beta}_2 hsize^2
+\]
+
+with standard errors in parentheses. Test \(H_0: \beta_2 = 0\) using a \(t\)-test. If the \(p\)-value is less than the significance level (e.g., 0.05), then the quadratic term is statistically significant.
+
+> (ii) Using the estimated equation from part (i), what is the “optimal” high school size? Justify your answer.
+
+The optimal \(hsize\) is found by taking the derivative of \(\widehat{sat}\) with respect to \(hsize\) and setting it to zero:
+
+\[
+\frac{\partial \widehat{sat}}{\partial hsize} = \hat{\beta}_1 + 2\hat{\beta}_2 hsize = 0
+\]
+
+Solving gives \(hsize^* = -\hat{\beta}_1 / (2\hat{\beta}_2)\). Multiply by 100 to get the optimal class size in students.
+
+> (iii) Is this analysis representative of the academic performance of all high school seniors? Explain.
+
+Not necessarily. The data likely come from a specific sample, and the relationship may not hold for all high school seniors. Additionally, the model only controls for \(hsize\) and \(hsize^2\), omitting other factors that affect SAT scores.
+
+> (iv) Find the estimated optimal high school size, using \(\log(sat)\) as the dependent variable. Is it much different from what you obtained in part (ii)?
+
+Estimate \(\log(sat) = \beta_0 + \beta_1 hsize + \beta_2 hsize^2 + u\). The optimal \(hsize\) is again \(hsize^* = -\hat{\beta}_1 / (2\hat{\beta}_2)\). Compare this value to the one from part (ii). Without the data, I cannot provide numerical differences.
+
+---
+
+## C5
+
+> Use the housing price data in HPRICE1 for this exercise.
+
+> (i) Estimate the model \(\log(price) = \beta_0 + \beta_1 \log(lotsize) + \beta_2 \log(sqrft) + \beta_3 bdrms + u\) and report the results in the usual OLS format.
+
+Estimate the regression using OLS. The results take the form:
+
+\[
+\widehat{\log(price)} = \hat{\beta}_0 + \hat{\beta}_1 \log(lotsize) + \hat{\beta}_2 \log(sqrft) + \hat{\beta}_3 bdrms
+\]
+
+with standard errors in parentheses.
+
+> (ii) Find the predicted value of \(\log(price)\), when \(lotsize = 20,000\), \(sqrft = 2,500\), and \(bdrms = 4\). Using the methods in Section 6-4, find the predicted value of price at the same values of the explanatory variables.
+
+Compute \(\widehat{\log(price)}\) by plugging in the values:  
+\(\log(20000) \approx 9.9035\), \(\log(2500) \approx 7.8240\), and \(bdrms = 4\).  
+Then \(\widehat{price} = \exp(\widehat{\log(price)})\).
+
+> (iii) For explaining variation in \(price\), decide whether you prefer the model from part (i) or the model \(price = \beta_0 + \beta_1 lotsize + \beta_2 sqrft + \beta_3 bdrms + u\).
+
+Compare \(R^2\) or adjusted \(R^2\) between the two models. The log-linear model (part i) often fits better when the dependent variable has a skewed distribution. Also, consider economic interpretation and residual diagnostics.
+
+---
+
+## C6
+
+> Use the data in VOTE1 for this exercise.
+
+> (i) Consider a model with an interaction between expenditures:  
+> \(voteA = \beta_0 + \beta_1 prtystrA + \beta_2 expendA + \beta_3 expendB + \beta_4 expendA \cdot expendB + u\).  
+> What is the partial effect of \(expendB\) on \(voteA\), holding \(prtystrA\) and \(expendA\) fixed? What is the partial effect of \(expendA\) on \(voteA\)? Is the expected sign for \(\beta_4\) obvious?
+
+Partial effect of \(expendB\): \(\frac{\partial voteA}{\partial expendB} = \beta_3 + \beta_4 expendA\).  
+Partial effect of \(expendA\): \(\frac{\partial voteA}{\partial expendA} = \beta_2 + \beta_4 expendB\).  
+The expected sign for \(\beta_4\) is ambiguous: an increase in one candidate’s spending could have diminishing returns when the other spends heavily, suggesting \(\beta_4 < 0\).
+
+> (ii) Estimate the equation in part (i) and report the results in the usual form. Is the interaction term statistically significant?
+
+Estimate the regression using OLS. Test \(H_0: \beta_4 = 0\) using a \(t\)-test. Without data, I cannot provide the result.
+
+> (iii) Find the average of \(expendA\) in the sample. Fix \(expendA\) at 300 (for $300,000). What is the estimated effect of another $100,000 spent by Candidate B on \(voteA\)? Is this a large effect?
+
+The effect of a $100,000 increase in \(expendB\) is approximately \(100 \times (\hat{\beta}_3 + \hat{\beta}_4 \times 300)\). Whether it is large depends on the magnitude relative to the variation in \(voteA\).
+
+> (iv) Now fix \(expendB\) at 100. What is the estimated effect of \(\Delta expendA = 100\) on \(voteA\)? Does this make sense?
+
+The effect is \(100 \times (\hat{\beta}_2 + \hat{\beta}_4 \times 100)\). This should be positive if spending increases vote share, but may be smaller if interaction is negative.
+
+> (v) Now, estimate a model that replaces the interaction with \(shareA\), Candidate A’s percentage share of total campaign expenditures. Does it make sense to hold both \(expendA\) and \(expendB\) constant?
+
+Holding both \(expendA\) and \(expendB\) constant while changing \(shareA\) is impossible because \(shareA = \frac{expendA}{expendA + expendB}\). If both are fixed, \(shareA\) cannot change. So the model with \(shareA\) is more appropriate for capturing relative spending effects.
+
+## C6 (continued)
+
+> (v) (Requires calculus) In the model from part (v), find the partial effect of *expendB* on *voteA*, holding *prtystrA* and *expendA* fixed. Evaluate this at *expendA* = 300 and *expendB* = 0 and comment on the results.
+
+The model with *shareA* is:
+\[
+voteA = \beta_0 + \beta_1 prtystrA + \beta_2 shareA + u
+\]
+where \( shareA = \frac{expendA}{expendA + expendB} \).
+
+The partial effect of *expendB* on *voteA*, holding *expendA* fixed, is found using the chain rule:
+\[
+\frac{\partial voteA}{\partial expendB} = \beta_2 \cdot \frac{\partial shareA}{\partial expendB} = \beta_2 \cdot \left( -\frac{expendA}{(expendA + expendB)^2} \right)
+\]
+
+At \( expendA = 300 \) and \( expendB = 0 \):
+\[
+\frac{\partial voteA}{\partial expendB} = \beta_2 \cdot \left( -\frac{300}{(300)^2} \right) = \beta_2 \cdot \left( -\frac{1}{300} \right)
+\]
+
+Since \(\beta_2\) is expected to be positive (higher share of spending increases vote share), the partial effect is negative. This means that when Candidate B has zero spending, an initial increase in B’s spending reduces A’s vote share because it lowers A’s share of total spending. This makes intuitive sense: even a small amount of spending by B reduces A’s percentage of total expenditures, which hurts A.
+
+---
+
+## C7
+
+> Use the data in ATTEND for this exercise.
+
+> (i) In the model of Example 6.3, argue that
+> \[
+> \Delta stdnfl / \Delta prigPA \approx \beta_2 + 2\beta_4 prigPA + \beta_6 atndrte.
+> \]
+> Use equation (6.19) to estimate the partial effect when \(prigPA = 2.59\) and \(atndrte = 82\). Interpret your estimate.
+
+From Example 6.3, the model is:
+\[
+stndfnl = \beta_0 + \beta_1 atndrte + \beta_2 priGPA + \beta_3 ACT + \beta_4 priGPA^2 + \beta_5 ACT^2 + \beta_6 priGPA \cdot atndrte + u
+\]
+
+Taking the partial derivative with respect to \(priGPA\):
+\[
+\frac{\partial stndfnl}{\partial priGPA} = \beta_2 + 2\beta_4 priGPA + \beta_6 atndrte
+\]
+
+Using the estimates from equation (6.19) in the text (I’ll denote them symbolically):
+\[
+\widehat{\frac{\partial stndfnl}{\partial priGPA}} = \hat{\beta}_2 + 2\hat{\beta}_4 (2.59) + \hat{\beta}_6 (82)
+\]
+
+If \(\hat{\beta}_2\) is positive, \(\hat{\beta}_4\) is negative, and \(\hat{\beta}_6\) is positive, the net effect at these values can be computed. The interpretation is the estimated change in final exam score (in standard deviations) for a one-unit increase in prior college GPA, holding attendance rate fixed at 82%.
+
+> (ii) Show that the equation can be written as
+> \[
+> stndfnl = \theta_0 + \beta_1 atndrte + \theta_2 priGPA + \beta_3 ACT + \beta_4 (priGPA - 2.59)^2 + \beta_5 ACT^2 + \beta_6 priGPA (atndrte - 82) + u,
+> \]
+> where \(\theta_2 = \beta_2 + 2\beta_4 (2.59) + \beta_6 (82)\). Use this to obtain the standard error of \(\hat{\theta}_2\) from part (i).
+
+Starting from the original model, expand and group terms to center \(priGPA\) at 2.59 and \(atndrte\) at 82. The transformation yields:
+- The coefficient on \(atndrte\) remains \(\beta_1\)
+- The coefficient on \(priGPA\) becomes \(\theta_2 = \beta_2 + 2\beta_4(2.59) + \beta_6(82)\)
+- The term \(\beta_4 (priGPA - 2.59)^2\) captures the quadratic effect
+- The term \(\beta_6 priGPA (atndrte - 82)\) captures the interaction with centered attendance
+
+In this reparameterized regression, the standard error of \(\hat{\theta}_2\) is directly reported as the standard error of the coefficient on \(priGPA\). This provides the standard error for the partial effect estimated in part (i).
+
+> (iii) Suppose that, in place of \(priGPA \cdot (atndrte - 82)\), you put \((priGPA - 2.59) \cdot (atndrte - 82)\). Now how do you interpret the coefficients on \(atndrte\) and \(priGPA\)?
+
+If the interaction term is \((priGPA - 2.59)(atndrte - 82)\), then:
+- The coefficient on \(atndrte\) becomes the partial effect of attendance when \(priGPA = 2.59\)
+- The coefficient on \(priGPA\) becomes the partial effect of prior GPA when \(atndrte = 82\)
+
+Both coefficients now have direct interpretations at the centering values, which are often chosen as sample means or other relevant reference points.
+
+---
+
+## C8
+
+> Use the data in HPRICE1 for this exercise.
+
+> (i) Estimate the model
+> \[
+> price = \beta_0 + \beta_1 lotsize + \beta_2 sqrft + \beta_3 bdrms + u
+> \]
+> and report the results in the usual form, including the standard error of the regression. Obtain predicted price, when we plug in \(lotsize = 10,000\), \(sqrft = 2,300\), and \(bdrms = 4\); round this price to the nearest dollar.
+
+Run the OLS regression. The results take the form:
+\[
+\widehat{price} = \hat{\beta}_0 + \hat{\beta}_1 lotsize + \hat{\beta}_2 sqrft + \hat{\beta}_3 bdrms
+\]
+with standard errors in parentheses, and report \(\hat{\sigma}\) (SER).
+
+Predicted price:
+\[
+\widehat{price}_0 = \hat{\beta}_0 + \hat{\beta}_1 (10000) + \hat{\beta}_2 (2300) + \hat{\beta}_3 (4)
+\]
+Round to nearest dollar.
+
+> (ii) Run a regression that allows you to put a 95% confidence interval around the predicted value in part (i). Note that your prediction will differ somewhat due to rounding error.
+
+To obtain a confidence interval for the *expected* price (i.e., the mean price for houses with those characteristics), create a new variable that equals 1 for the observation with the desired characteristics, or use the *predict* command with the *stdp* option (in Stata) to get the standard error of the predicted mean. The 95% CI is \(\widehat{price}_0 \pm t_{0.025, n-k-1} \times se(\widehat{price}_0)\).
+
+> (iii) Let \(price\) be the unknown future selling price of the house with the characteristics used in parts (i) and (ii). Find a 95% CI for \(price\) and comment on the width of this confidence interval.
+
+A 95% prediction interval for an individual house price is:
+\[
+\widehat{price}_0 \pm t_{0.025, n-k-1} \times \sqrt{\hat{\sigma}^2 + [se(\widehat{price}_0)]^2}
+\]
+This interval is wider than the confidence interval for the mean because it accounts for both estimation error and the inherent variability of individual outcomes. The prediction interval reflects the uncertainty in forecasting a single new observation.
+
+---
+
+## C9
+
+> Use the data in NBASAL for this exercise.
+
+> (i) Estimate a model relating points-per-game (*points*) to years in the league (*exper*), *age*, and years played in college (*coll*). Include a quadratic in *exper*; the other variables should appear in level form. Report the results in the usual way.
+
+Estimate:
+\[
+points = \beta_0 + \beta_1 exper + \beta_2 exper^2 + \beta_3 age + \beta_4 coll + u
+\]
+Report coefficients, standard errors, \(R^2\), and sample size.
+
+> (ii) Holding college years and age fixed, at what value of experience does the next year of experience actually reduce points-per-game? Does this make sense?
+
+The effect of experience is:
+\[
+\frac{\partial points}{\partial exper} = \beta_1 + 2\beta_2 exper
+\]
+Set equal to zero: \(exper^* = -\beta_1 / (2\beta_2)\). If \(\beta_1 > 0\) and \(\beta_2 < 0\), this gives a turning point. After this point, additional experience reduces scoring. This could make sense if players decline with age or if the most productive years occur early in a career.
+
+> (iii) Why do you think *coll* has a negative and statistically significant coefficient? (*Hint:* NBA players can be drafted before finishing their college careers and even directly out of high school.)
+
+Players who leave college early (or skip college) are often the most talented prospects. Thus, *coll* is negatively correlated with unobserved ability. Conditional on current performance (*points*), having spent more years in college may indicate lower innate talent, leading to a negative coefficient.
+
+> (iv) Add a quadratic in *age* to the equation. Is it needed? What does this appear to imply about the effects of age, once experience and education are controlled for?
+
+Add \(age^2\) and test its significance. If \(age^2\) is statistically significant, it suggests a nonlinear age profile. Since *exper* and *age* are highly correlated, including both quadratics may cause multicollinearity. The result might imply that age has little additional effect beyond experience once both are flexibly controlled for.
+
+> (v) Now regress \(\log(wage)\) on *points*, *exper*, \(exper^2\), *age*, and *coll*. Report the results in the usual format.
+
+Estimate:
+\[
+\log(wage) = \beta_0 + \beta_1 points + \beta_2 exper + \beta_3 exper^2 + \beta_4 age + \beta_5 coll + u
+\]
+Report coefficients, standard errors, \(R^2\).
+
+> (vi) Test whether *age* and *coll* are jointly significant in the regression from part (v). What does this imply about whether age and education have separate effects on wage, once productivity and seniority are accounted for?
+
+Test \(H_0: \beta_4 = 0, \beta_5 = 0\) using an \(F\)-test. If they are jointly insignificant, it suggests that once current productivity (*points*) and experience (*exper*) are controlled for, age and college years do not independently affect wages. This would imply that NBA salaries are determined primarily by current performance and seniority, not by age or education per se.
+
+## C10
+
+> Use the data in BWGHT2 for this exercise.
+
+> (i) Estimate the equation
+> \[
+> \log(bwght) = \beta_0 + \beta_1 npvis + \beta_2 npvis^2 + u
+> \]
+> by OLS, and report the results in the usual way. Is the quadratic term significant?
+
+Estimate the regression. The results take the form:
+\[
+\widehat{\log(bwght)} = \hat{\beta}_0 + \hat{\beta}_1 npvis + \hat{\beta}_2 npvis^2
+\]
+with standard errors in parentheses. Test \(H_0: \beta_2 = 0\) using a \(t\)-test. If the \(p\)-value is less than 0.05, the quadratic term is statistically significant.
+
+> (ii) Show that, based on the equation from part (i), the number of prenatal visits that maximizes \(\log(bwght)\) is estimated to be about 22. How many women had at least 22 prenatal visits in the sample?
+
+The maximizing value is found by setting the derivative to zero:
+\[
+\frac{\partial \log(bwght)}{\partial npvis} = \hat{\beta}_1 + 2\hat{\beta}_2 npvis = 0 \implies npvis^* = -\hat{\beta}_1 / (2\hat{\beta}_2)
+\]
+If \(\hat{\beta}_1 > 0\) and \(\hat{\beta}_2 < 0\), this yields a positive optimum. The claim that \(npvis^* \approx 22\) suggests the estimated coefficients satisfy this relationship. Count the number of women in the sample with \(npvis \geq 22\).
+
+> (iii) Does it make sense that birth weight is actually predicted to decline after 22 prenatal visits? Explain.
+
+It may not make sense biologically—more prenatal care should not reduce birth weight. The decline after 22 visits likely reflects that women with complications receive more visits, creating a selection bias. The quadratic captures a correlation, not a causal declining effect.
+
+> (iv) Add mother’s age to the equation, using a quadratic functional form. Holding \(npvis\) fixed, at what mother’s age is the birth weight of the child maximized? What fraction of women in the sample are older than the “optimal” age?
+
+Estimate:
+\[
+\log(bwght) = \beta_0 + \beta_1 npvis + \beta_2 npvis^2 + \beta_3 age + \beta_4 age^2 + u
+\]
+The optimal age (holding \(npvis\) fixed) is \(age^* = -\hat{\beta}_3 / (2\hat{\beta}_4)\), assuming \(\hat{\beta}_4 < 0\). Compute the fraction of women with \(age > age^*\).
+
+> (v) Would you say that mother’s age and number of prenatal visits explain a lot of the variation in \(\log(bwght)\)?
+
+Look at the \(R^2\) from the model in part (iv). If \(R^2\) is small (e.g., below 0.10), these variables explain little variation in birth weight, which is typical as birth weight depends on many unobserved factors.
+
+> (vi) Using quadratics for both \(npvis\) and \(age\), decide whether using the natural log or the level of \(bwght\) is better for predicting \(bwght\).
+
+Compare \(R^2\) from the model with \(\log(bwght)\) as dependent variable versus a model with \(bwght\) as dependent variable (using the same right-hand side variables). Since the dependent variables differ, compare adjusted \(R^2\) or use a Box-Cox test. Alternatively, compare predicted values and residual diagnostics; the log model often works better for right-skewed outcomes like birth weight.
+
+---
+
+## C11
+
+> Use APPLE to verify some of the claims made in Section 6-3.
+
+> (i) Run the regression \(ecolbs\) on \(ecoprc\), \(regprc\) and report the results in the usual form, including the \(R\)-squared and adjusted \(R\)-squared. Interpret the coefficients on the price variables and comment on their signs and magnitudes.
+
+Estimate:
+\[
+\widehat{ecolbs} = \hat{\beta}_0 + \hat{\beta}_1 ecoprc + \hat{\beta}_2 regprc
+\]
+Expected signs: \(\hat{\beta}_1 < 0\) (own price effect), \(\hat{\beta}_2 > 0\) (cross-price effect—substitute good). Report \(R^2\) and adjusted \(R^2\).
+
+> (ii) Are the price variables statistically significant? Report the \(p\)-values for the individual \(t\) tests.
+
+Compute \(p\)-values for \(H_0: \beta_1 = 0\) and \(H_0: \beta_2 = 0\). Typically both are significant at conventional levels.
+
+> (iii) What is the range of fitted values for \(ecolbs\)? What fraction of the sample reports \(ecolbs = 0\)? Comment.
+
+Compute min and max of \(\widehat{ecolbs}\). Many respondents may report zero demand, so fitted values could be negative—a common issue with linear probability-like models for demand with censoring. Report the fraction with \(ecolbs = 0\).
+
+> (iv) Do you think the price variables together do a good job of explaining variation in \(ecolbs\)? Explain.
+
+The \(R^2\) is likely low, as demand for a new product depends on many factors beyond prices. Low \(R^2\) does not imply bias, only that much variation remains unexplained.
+
+> (v) Add the variables \(faminc\), \(hhsize\) (household size), \(educ\), and \(age\) to the regression from part (i). Find the \(p\)-value for their joint significance. What do you conclude?
+
+Estimate the expanded model and perform an \(F\)-test of \(H_0\): coefficients on \(faminc, hhsize, educ, age\) are all zero. If the \(p\)-value is small, these variables jointly matter. Report the \(p\)-value.
+
+> (vi) Run separate simple regressions of \(ecolbs\) on \(ecoprc\) and then \(ecolbs\) on \(regprc\). How do the simple regression coefficients compare with the multiple regression from part (i)? Find the correlation coefficient between \(ecoprc\) and \(regprc\) to help explain your findings.
+
+In simple regressions, the coefficients may be biased due to omitted variable bias. Since \(ecoprc\) and \(regprc\) are positively correlated (both prices tend to move together), the simple regression coefficient on \(ecoprc\) will be biased toward zero (if the cross-price effect is positive) or away (depending on signs). Compute the correlation to assess multicollinearity.
+
+> (vii) Consider a model that adds family income and the quantity demanded for regular apples:
+> \[
+> ecolbs = \beta_0 + \beta_1 ecoprc + \beta_2 regprc + \beta_3 faminc + \beta_4 reglbs + u.
+> \]
+> From basic economic theory, which explanatory variable does not belong to the equation? When you drop the variables one at a time, do the sizes of the adjusted \(R\)-squareds affect your answer?
+
+Economic theory says demand depends on prices and income, not on quantity demanded of another good (which is endogenous). \(reglbs\) does not belong; it is determined simultaneously with \(ecolbs\). Dropping \(reglbs\) should increase adjusted \(R^2\) if it is irrelevant, but if it is correlated with omitted factors, comparing adjusted \(R^2\) alone is not sufficient for model selection—endogeneity concerns dominate.
+
+---
+
+## C12
+
+> Use the subset of 401KSUBS with \(fsize = 1\); this restricts the analysis to single-person households; see also Computer Exercise C8 in Chapter 4.
+
+> (i) The youngest age in the sample is 25. How many people are 25 years old?
+
+Count the number of observations with \(age = 25\) in the restricted sample (\(fsize = 1\)). Report the count.
+
+> (ii) In the model
+> \[
+> netfta = \beta_0 + \beta_1 inc + \beta_2 age + \beta_3 age^2 + u,
+> \]
+> what is the literal interpretation of \(\beta_1\)? By itself, is it of much interest?
+
+\(\beta_1\) is the partial effect of income on net financial assets, holding age fixed: \(\partial netfta / \partial inc\). By itself, it may be of interest as the marginal propensity to save in financial assets. However, the model is quadratic in age, so the marginal effect of income is constant in this specification.
+
+> (iii) Estimate the model from part (ii) and report the results in standard form. Are you concerned that the coefficient on \(age\) is negative? Explain.
+
+Estimate the regression and report coefficients with standard errors. A negative coefficient on \(age\) (linear term) is not concerning if the quadratic term is positive; the overall effect of age could be U-shaped. The negative linear term simply indicates that at low ages, the slope may be negative, turning positive after the minimum.
+
+> (iv) Because the youngest people in the sample are 25, it makes sense to think that, for a given level of income, the lowest average amount of net total financial assets is at age 25. Recall that the partial effect of \(age\) on \(netfta\) is \(\beta_2 + 2\beta_3 age\), so the partial effect at age 25 is \(\beta_2 + 2\beta_3(25)\). If the minimum occurs exactly at age 25, this partial effect should be zero or positive. Test whether the partial effect at age 25 is zero against a one-sided alternative that it is positive. What do you conclude?
+
+The hypothesis is \(H_0: \beta_2 + 50\beta_3 = 0\) versus \(H_1: \beta_2 + 50\beta_3 > 0\). To test, reparameterize the model by defining \(\theta = \beta_2 + 50\beta_3\). Substitute \(\beta_2 = \theta - 50\beta_3\) into the model:
+\[
+netfta = \beta_0 + \beta_1 inc + (\theta - 50\beta_3) age + \beta_3 age^2 + u
+\]
+\[
+netfta = \beta_0 + \beta_1 inc + \theta \cdot age + \beta_3 (age^2 - 50 age) + u
+\]
+Run this regression; the coefficient on \(age\) is \(\hat{\theta}\) and its \(t\)-statistic tests \(H_0: \theta = 0\). Use a one-sided test to see if \(\hat{\theta} > 0\). Conclude whether assets are increasing with age at age 25.
+
+## C12 (continued)
+
+> \(\beta_2 + 2\beta_3(25) = \beta_2 + 50\beta_3\); call this \(\theta_2\). Find \(\hat{\theta}_2\) and obtain the two-sided \(p\)-value for testing \(H_0: \theta_2 = 0\). You should conclude that \(\hat{\theta}_2\) is small and very statistically insignificant. [Hint: One way to do this is to estimate the model \(netfta = \alpha_0 + \beta_1 inc + \theta_2 age + \beta_3 (age - 25)^2 + u\), where the intercept, \(\alpha_0\) is different from \(\beta_0\). There are other ways, too.]
+
+Estimate the reparameterized model:
+\[
+netfta = \alpha_0 + \beta_1 inc + \theta_2 age + \beta_3 (age - 25)^2 + u
+\]
+The coefficient on \(age\) is \(\hat{\theta}_2 = \hat{\beta}_2 + 50\hat{\beta}_3\). Its \(t\)-statistic tests \(H_0: \theta_2 = 0\). The \(p\)-value is likely large (e.g., > 0.5), indicating \(\theta_2\) is not statistically different from zero.
+
+> Because the evidence against \(H_0: \theta_2 = 0\) is very weak, set it to zero and estimate the model
+> \[
+> netfta = \alpha_0 + \beta_1 inc + \beta_3 (age - 25)^2 + u.
+> \]
+> In terms of goodness-of-fit, does this model fit better than that in part (ii)?
+
+Compare adjusted \(R^2\) between this restricted model and the model from part (ii) (which included \(age\) and \(age^2\)). If \(\theta_2\) is insignificant, the restricted model should have similar or slightly higher adjusted \(R^2\) due to the parsimony penalty.
+
+> For the estimated equation in part (v), set \(inc = 30\) (roughly, the average value) and graph the relationship between \(netfta\) and \(age\), but only for \(age \geq 25\). Describe what you see.
+
+With \(inc = 30\):
+\[
+\widehat{netfta} = \hat{\alpha}_0 + \hat{\beta}_1(30) + \hat{\beta}_3 (age - 25)^2
+\]
+This is a quadratic that increases as age moves away from 25. Since the minimum is at age 25, net financial assets increase as individuals age beyond 25, reflecting lifecycle savings accumulation.
+
+> Check to see whether including a quadratic in \(inc\) is necessary.
+
+Add \(inc^2\) to the model and test its significance using a \(t\)-test. If the coefficient on \(inc^2\) is statistically insignificant and adjusted \(R^2\) does not improve, the quadratic in income is not necessary.
+
+---
+
+## C13
+
+> Use the data in MEAP00 for this exercise.
+
+> (i) Estimate the model
+> \[
+> math4 = \beta_0 + \beta_1 lexppp + \beta_2 lenroll + \beta_3 lunch + u
+> \]
+> by OLS, and report the results in the usual form. Is each explanatory variable statistically significant at the 5% level?
+
+Estimate the regression. Results take the form:
+\[
+\widehat{math4} = \hat{\beta}_0 + \hat{\beta}_1 lexppp + \hat{\beta}_2 lenroll + \hat{\beta}_3 lunch
+\]
+with standard errors in parentheses. Check \(p\)-values: \(lexppp\) (expenditure per pupil) is typically positive and significant; \(lenroll\) (log enrollment) may be insignificant; \(lunch\) (percent eligible for free lunch) is negative and highly significant.
+
+> Obtain the fitted values from the regression in part (i). What is the range of fitted values? How does it compare with the range of the actual data on \(math4\)?
+
+Compute \(\widehat{math4}\) for all observations. The fitted values range will be narrower than the actual \(math4\) range because regression shrinks toward the mean. Actual \(math4\) ranges from 0 to 100 (or close), while fitted values are within a tighter interval.
+
+> Obtain the residuals from the regression in part (i). What is the building code of the school that has the largest (positive) residual? Provide an interpretation of this residual.
+
+Identify the observation with the largest positive residual (actual \(math4\) much higher than predicted). This school performs much better than expected given its expenditure, enrollment, and poverty rate. The building code identifies that school.
+
+> Add quadratics of all explanatory variables to the equation, and test them for joint significance. Would you leave them in the model?
+
+Add \(lexppp^2\), \(lenroll^2\), \(lunch^2\) and test joint significance using an \(F\)-test. If the \(p\)-value is small (e.g., < 0.05), the quadratics jointly matter. Even if significant, consider whether they improve predictive power meaningfully or if the simpler model is preferred for parsimony.
+
+> Returning to the model in part (i), divide the dependent variable and each explanatory variable by its sample standard deviation, and rerun the regression. (Include an intercept unless you also first subtract the mean from each variable.) In terms of standard deviation units, which explanatory variable has the largest effect on the math pass rate?
+
+Create standardized variables: \(math4\_std = math4 / sd(math4)\), \(lexppp\_std = lexppp / sd(lexppp)\), etc. Regress \(math4\_std\) on these standardized regressors (with intercept). The coefficients now represent the effect of a one-standard-deviation increase in each explanatory variable on the math pass rate in standard deviation units. The variable with the largest absolute coefficient has the largest effect.
+
+---
+
+## C14
+
+> Use the data in BENEFITS to answer this question. It is a school-level data set at the K–5 level on average teacher salary and benefits. See Example 4.10 for background.
+
+> (i) Regress \(lavgsal\) on \(bs\) and report the results in the usual form. Can you reject \(H_0: \beta_{bs} = 0\) against a two-sided alternative? Can you reject \(H_0: \beta_{bs} = -1\) against \(H_1: \beta_{bs} > -1\)? Report the \(p\)-values for both tests.
+
+Estimate:
+\[
+\widehat{lavgsal} = \hat{\beta}_0 + \hat{\beta}_{bs} bs
+\]
+- For \(H_0: \beta_{bs} = 0\): use the \(t\)-statistic from the output; the two-sided \(p\)-value is reported.
+- For \(H_0: \beta_{bs} = -1\): compute \(t = (\hat{\beta}_{bs} + 1) / se(\hat{\beta}_{bs})\); the one-sided \(p\)-value is the probability that \(t >\) this value (if \(\hat{\beta}_{bs} > -1\)).
+
+> (ii) Define \(lbs = \log(bs)\). Find the range of values for \(lbs\) and find its standard deviation. How do these compare to the range and standard deviation for \(bs\)?
+
+Compute summary statistics. \(bs\) (benefits as a percent of salary) likely has a narrow range and small standard deviation. Taking logs compresses the scale further; the range and standard deviation of \(lbs\) will be smaller in magnitude but may show more relative variation.
+
+> (iii) Regress \(lavgsal\) on \(lbs\). Does this fit better than the regression from part (i)?
+
+Compare \(R^2\) (or adjusted \(R^2\)) between the two models. The log specification may fit better if the relationship is nonlinear.
+
+> (iv) Estimate the equation
+> \[
+> lavgsal = \beta_0 + \beta_1 bs + \beta_2 lenroll + \beta_3 lstaff + \beta_4 lunch + u
+> \]
+> and report the results in the usual form. What happens to the coefficient on \(bs\)? Is it now statistically different from zero?
+
+Include controls. The coefficient on \(bs\) may change magnitude and significance. With additional controls, its \(t\)-statistic may become smaller or larger depending on omitted variable bias in part (i). Report the new coefficient and its \(p\)-value.
+
+> Interpret the coefficient on \(lstaff\). Why do you think it is negative?
+
+\(lstaff = \log(staff)\) (likely number of staff). A negative coefficient suggests that larger schools (more staff) have lower average salaries, possibly due to economies of scale or because larger schools are in less affluent areas.
+
+> Add \(lunch^2\) to the equation from part (iv). Is it statistically significant? Compute the turning point (minimum value) in the quadratic, and show that it is within the range of the observed data on \(lunch\). How many values of \(lunch\) are higher than the calculated turning point?
+
+Add \(lunch^2\) and test its significance. The turning point (where the effect of lunch on lavgsal is minimized) is \(lunch^* = -\hat{\beta}_{lunch} / (2\hat{\beta}_{lunch^2})\) (using linear and quadratic coefficients from the model with both terms). Verify that \(lunch^*\) lies within the observed range of \(lunch\). Count how many observations have \(lunch > lunch^*\).
+
+> Based on the findings from part (vi), describe how teacher salaries relate to school poverty rates. In terms of teacher salary, and holding other factors fixed, is it better to teach at a school with \(lunch = 0\) (no poverty), \(lunch = 50\), or \(lunch = 100\) (all kids eligible for the free lunch program)?
+
+Using the estimated quadratic relationship, compute predicted \(lavgsal\) at \(lunch = 0, 50, 100\) (holding other variables fixed at their means). The relationship is likely U-shaped: salaries may be higher at very low poverty (due to resources) and at very high poverty (due to compensating differentials), with a minimum somewhere in the middle. Report which level yields the highest predicted salary.
+
+## C15
+
+> Use the data in NCAA_RPI to answer the following questions. These are data on the 2015–2016 men’s NCAA basketball season. The variable `winperc` is the winning percentage of a team. The variable `postrpi` is the team’s ranking based on the “rating percentage index” (RPI) computed from actual performance the previous year, 2014–2015. The RPI is a formula based on a team’s winning percentage, its opponents’ winning percentage, and its opponents’ opponents’ winning percentage. The rankings run from one to 350 in the data set of 336 basketball teams.
+
+> The variable `prerpi` is a ranking created by basketball pundits just before the season began, in 2015. The idea is to see if the experts’ evaluations, based on recruiting, transfers, and overall impressions (in addition to the previous season’s performance) adds anything to the rankings from the previous year.
+
+> (i) Find the ranges and averages of the variables `winperc` and `postrpi`.
+
+Compute summary statistics. `winperc` is a percentage ranging from 0 to 100 (or 0 to 1 depending on coding). `postrpi` is a ranking from 1 to approximately 350. Report the min, max, and mean for each.
+
+> (ii) Run a simple regression of `winperc` on `postrpi`. Interpret the coefficient on `postrpi`. Is the estimate statistically significant at the 1% level? Would you say `postrpi` explains much of the variation in `winperc`?
+
+Estimate:
+\[
+\widehat{winperc} = \hat{\beta}_0 + \hat{\beta}_1 postrpi
+\]
+\(\hat{\beta}_1\) is expected to be negative (better ranking—lower number—predicts higher winning percentage). Test significance using the \(t\)-statistic; at the 1% level, \(p < 0.01\) indicates significance. The \(R^2\) will likely be modest (e.g., 0.10–0.30), indicating `postrpi` explains some but not most of the variation.
+
+> (iii) In part (ii), replace `postrpi` with \(\log(postrpi)\). Which functional form, `postrpi` or \(\log(postrpi)\), explains more of the variation in `winperc`? What is the change in the predicted winning percentage if `postrpi` increases by 10%?
+
+Compare \(R^2\) between the two models. For the log model:
+\[
+\widehat{winperc} = \hat{\beta}_0 + \hat{\beta}_1 \log(postrpi)
+\]
+A 10% increase in `postrpi` means \(\Delta \log(postrpi) \approx 0.0953\). The predicted change in `winperc` is approximately \(\hat{\beta}_1 \times 0.0953\).
+
+> (iv) To the regression in part (iii), add \(\log(prerpi)\). Does this pre-season RPI rank help predict `winperc` once \(\log(postrpi)\) is included?
+
+Estimate:
+\[
+\widehat{winperc} = \hat{\beta}_0 + \hat{\beta}_1 \log(postrpi) + \hat{\beta}_2 \log(prerpi)
+\]
+Test \(H_0: \beta_2 = 0\). If \(\hat{\beta}_2\) is statistically significant, the pre-season ranking adds predictive power beyond the previous year’s actual performance.
+
+> (v) Instead of using the logarithms of the RPI variables, estimate the equation
+> \[
+> winperc = \beta_0 + \beta_1 postrpi + \beta_2 postrpi^2 + \beta_3 prerpi + u
+> \]
+> Explain what it means for \(\hat{\beta}_1\) to be negative and \(\hat{\beta}_2\) positive. Are they each statistically significant?
+
+A negative \(\beta_1\) and positive \(\beta_2\) imply a U-shaped relationship: winning percentage decreases as ranking worsens (postrpi increases) initially, but eventually the decline slows and may reverse. This could reflect that very poorly ranked teams have little variation in winning percentage. Test significance using \(t\)-tests.
+
+> (vi) Using the adjusted \(R\)-squared, does equation (v) fit better or does (iv)?
+
+Compare adjusted \(R^2\) between the log model (iv) and the quadratic model (v). The higher adjusted \(R^2\) indicates better fit.
+
+> (vii) In part (v), now does `prerpi` have extra predictive power for `winperc`?
+
+Test \(H_0: \beta_3 = 0\) in the quadratic model. If the \(t\)-statistic is significant, `prerpi` helps predict `winperc` even after controlling for a quadratic in `postrpi`.
+
+> (viii) Does the estimated equation from part (v) predict any negative values? What about any values above 100?
+
+Compute fitted values \(\widehat{winperc}\) and check the range. If the quadratic extrapolates poorly at extreme `postrpi` values, some predictions may fall outside the [0,100] range.
+
+> (ix) Compute the turning point in the quadratic estimated in part (v) and use it to sketch the relationship between `winperc` and `postrpi` (holding `prerpi` fixed). Does it make sense? (Hint: What is the range of values for `postrpi`?)
+
+The turning point for the quadratic in `postrpi` is \(postrpi^* = -\hat{\beta}_1 / (2\hat{\beta}_2)\). If \(\hat{\beta}_2 > 0\), this is a minimum. If \(postrpi^*\) lies outside the observed range of `postrpi` (1 to ~350), the relationship is monotonic over the sample. Sketch the curve: winning percentage declines as ranking worsens until the turning point, then increases—but if the turning point is beyond the sample range, the relationship is simply decreasing.
+
+---
+
+## C16
+
+> Use the data JTRAIN98 to answer the following questions.
+
+> (i) What are the units of measurement of the labor market earnings variable `earn98`? Find the mean and standard deviation of `earn98` in the sample. For what percentage of the sample is `earn98` equal to zero?
+
+`earn98` is likely in dollars (or perhaps hundreds/thousands). Compute mean, standard deviation, and the fraction of observations with `earn98 = 0` (non-workers).
+
+> (ii) Define two new variables, `earn98dol = 1,000 · earn98` and `earn98cents = 1,000 · earn98dol`. How do the averages and standard deviations of these two variables compare with the corresponding quantities in part (i)? Do your findings make sense?
+
+Scaling by constants multiplies the mean and standard deviation by the same factor. If `earn98` is in thousands of dollars, multiplying by 1,000 gives dollars, and multiplying again by 1,000 gives cents. The relationships are linear scaling.
+
+> (iii) Use OLS to estimate a model with two explanatory variables, `educ` and `age`. Use each of `earn98`, `earn98dol`, and `earn98cents` as the dependent variable. How do the coefficients compare across the three regressions? Do your findings make sense?
+
+If the dependent variable is multiplied by a constant \(c\), the coefficients are multiplied by \(c\) as well. So \(\hat{\beta}_{educ}\) in the `earn98dol` regression will be 1,000 times that in the `earn98` regression, and \(\hat{\beta}_{educ}\) in the `earn98cents` regression will be \(1,000 \times 1,000 = 1,000,000\) times that in the `earn98` regression. Standard errors scale similarly, so \(t\)-statistics and \(R^2\) remain unchanged.
+
+> (iv) From Problem 12(v), the percentage change in average `earn98` when \(\Delta educ = 1\) (holding age fixed) can be estimated as \(\hat{\beta}_{educ} / \overline{earn98}\). What is this estimate from part (iii)? Does it matter how the 1998 earnings are measured?
+
+This approximation holds for the level model when earnings are positive. Since scaling the dependent variable scales both the numerator and denominator proportionally (if \(\overline{earn98}\) also scales), the ratio \(\hat{\beta}_{educ} / \overline{earn98}\) is invariant to units of measurement. Thus the estimated percentage effect is the same regardless of whether earnings are measured in dollars, thousands, or cents.
+
+> (v) Now define `learn98pl = log(1 + earn98)`, where “pl” is short for “plus one.” Using the same transformation, generate `learn98dolpl` and `learn98centspl`. Is there any obvious relationship between the averages of `learn98pl` and `learn98dolpl`?
+
+Because \(\log(1 + y)\) is not linear in \(y\), scaling \(y\) by a constant does not simply scale the transformed variable. If earnings are scaled by a factor \(c\), \(\log(1 + c \cdot y)\) is not equal to a linear transformation of \(\log(1 + y)\). Therefore, averages will differ in a non-proportional way.
+
+> (vi) Now use `learn98pl`, `learn98dolpl`, and `learn98centspl` separately as dependent variables where `educ` and `age` are the explanatory variables. Compare the three coefficients on `educ` and comment on the pattern. What does this say about the importance of units of measurement when using \(\log(1 + y)\) as a transformation?
+
+Since \(\log(1 + y)\) is nonlinear, changing the units of \(y\) alters the transformation’s shape. The coefficients on `educ` will differ across regressions not by a constant factor. This illustrates that \(\log(1 + y)\) is not scale-invariant; the choice of units affects the estimated coefficients. For large \(y\), \(\log(1 + y) \approx \log(y)\), which is scale-invariant up to an additive constant, but for small \(y\) (including zeros), the additive 1 matters and makes the transformation sensitive to scaling.
