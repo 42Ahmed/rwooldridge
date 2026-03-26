@@ -46,9 +46,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-66c9649715f74f1e4324758aa2390964.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-b44ccea540e06768bee7c3f9d372997f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-66c9649715f74f1e4324758aa2390964.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-44ee0976171e9be92e6ebe9be850cd66.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-553af08a658bbaf7848ab84c12977b10.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-44ee0976171e9be92e6ebe9be850cd66.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -77,6 +77,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -435,8 +464,28 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#c1" id="toc-c1" class="nav-link active" data-scroll-target="#c1"><span class="header-section-number">9.1</span> C1</a></li>
+  <li><a href="#c2-wage2" id="toc-c2-wage2" class="nav-link" data-scroll-target="#c2-wage2"><span class="header-section-number">9.2</span> C2 [WAGE2]</a></li>
+  <li><a href="#c3-jtrain" id="toc-c3-jtrain" class="nav-link" data-scroll-target="#c3-jtrain"><span class="header-section-number">9.3</span> C3 [JTRAIN]</a></li>
+  <li><a href="#c4-infmrt" id="toc-c4-infmrt" class="nav-link" data-scroll-target="#c4-infmrt"><span class="header-section-number">9.4</span> C4 [INFMRT]</a></li>
+  <li><a href="#c5-rdchem" id="toc-c5-rdchem" class="nav-link" data-scroll-target="#c5-rdchem"><span class="header-section-number">9.5</span> C5 [RDCHEM]</a></li>
+  <li><a href="#c6" id="toc-c6" class="nav-link" data-scroll-target="#c6"><span class="header-section-number">9.6</span> C6</a></li>
+  <li><a href="#c7-loanapp" id="toc-c7-loanapp" class="nav-link" data-scroll-target="#c7-loanapp"><span class="header-section-number">9.7</span> C7 [LOANAPP]</a></li>
+  <li><a href="#c8-twoyear" id="toc-c8-twoyear" class="nav-link" data-scroll-target="#c8-twoyear"><span class="header-section-number">9.8</span> C8 [TWOYEAR]</a></li>
+  <li><a href="#c9" id="toc-c9" class="nav-link" data-scroll-target="#c9"><span class="header-section-number">9.9</span> C9</a></li>
+  <li><a href="#c10" id="toc-c10" class="nav-link" data-scroll-target="#c10"><span class="header-section-number">9.10</span> C10</a></li>
+  <li><a href="#c11-murder" id="toc-c11-murder" class="nav-link" data-scroll-target="#c11-murder"><span class="header-section-number">9.11</span> C11 [MURDER]</a></li>
+  <li><a href="#c12-elem94_95" id="toc-c12-elem94_95" class="nav-link" data-scroll-target="#c12-elem94_95"><span class="header-section-number">9.12</span> C12 [ELEM94_95]</a></li>
+  <li><a href="#c13-ceosal2" id="toc-c13-ceosal2" class="nav-link" data-scroll-target="#c13-ceosal2"><span class="header-section-number">9.13</span> C13 [CEOSAL2]</a></li>
+  <li><a href="#c14-econmath" id="toc-c14-econmath" class="nav-link" data-scroll-target="#c14-econmath"><span class="header-section-number">9.14</span> C14 [ECONMATH]</a></li>
+  <li><a href="#c15-voucher" id="toc-c15-voucher" class="nav-link" data-scroll-target="#c15-voucher"><span class="header-section-number">9.15</span> C15 [VOUCHER]</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -461,8 +510,135 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="c1" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="c1"><span class="header-section-number">9.1</span> C1</h2>
+<blockquote class="blockquote">
+<ol type="i">
+<li><p>Apply RESET from equation (9.3) to the model estimated in Computer Exercise C5 in Chapter 7. Is there evidence of functional form misspecification in the equation?</p></li>
+<li><p>Compute a heteroskedasticity-robust form of RESET. Does your conclusion from part (i) change?</p></li>
+</ol>
+</blockquote>
+</section>
+<section id="c2-wage2" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="c2-wage2"><span class="header-section-number">9.2</span> C2 [WAGE2]</h2>
+<blockquote class="blockquote">
+<p>Use the data set WAGE2 for this exercise. (i) Use the variable <code>KWW</code> (the “knowledge of the world of work” test score) as a proxy for ability in place of <code>IQ</code> in Example 9.3. What is the estimated return to education in this case? (ii) Now, use <code>IQ</code> and <code>KWW</code> together as proxy variables. What happens to the estimated return to education? (iii) In part (ii), are <code>IQ</code> and <code>KWW</code> individually significant? Are they jointly significant? (iv) Do your answers in part (iii) practically change if you use heteroskedasticity-robust statistics?</p>
+</blockquote>
+</section>
+<section id="c3-jtrain" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="c3-jtrain"><span class="header-section-number">9.3</span> C3 [JTRAIN]</h2>
+<blockquote class="blockquote">
+<p>Use the data from JTRAIN for this exercise. (i) Consider the simple regression model</p>
+<p><span class="math display">\[\log(scrap) = \beta_0 + \beta_1 grant + u,\]</span></p>
+<p>where <code>scrap</code> is the firm scrap rate and <code>grant</code> is a dummy variable indicating whether a firm received a job training grant. Can you think of some reasons why the unobserved factors in <span class="math inline">\(u\)</span> might be correlated with <code>grant</code>? (ii) Estimate the simple regression model using the data for 1988. (You should have 54 observations.) Does receiving a job training grant significantly lower a firm’s scrap rate? (iii) Now, add as an explanatory variable <span class="math inline">\(\log(scrap_{87})\)</span>. How does this change the estimated effect of <code>grant</code>? Interpret the coefficient on <code>grant</code>. Is it statistically significant at the 5% level against the one-sided alternative <span class="math inline">\(H_1: \beta_{grant} &lt; 0\)</span>? (iv) Test the null hypothesis that the parameter on <span class="math inline">\(\log(scrap_{87})\)</span> is one against the two-sided alternative. Report the <span class="math inline">\(p\)</span>-value for the test. (v) Repeat parts (iii) and (iv), using heteroskedasticity-robust standard errors, and briefly discuss any notable differences.</p>
+</blockquote>
+</section>
+<section id="c4-infmrt" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="c4-infmrt"><span class="header-section-number">9.4</span> C4 [INFMRT]</h2>
+<blockquote class="blockquote">
+<p>Use the data for the year 1990 in INFMRT for this exercise. (i) Reestimate equation (9.43), but now include a dummy variable for the observation on the District of Columbia (called <code>DC</code>). Interpret the coefficient on <code>DC</code> and comment on its size and significance. (ii) Compare the estimates and standard errors from part (i) with those from equation (9.44). What do you conclude about including a dummy variable for a single observation?</p>
+</blockquote>
+</section>
+<section id="c5-rdchem" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="c5-rdchem"><span class="header-section-number">9.5</span> C5 [RDCHEM]</h2>
+<blockquote class="blockquote">
+<p>Use the data in RDCHEM to further examine the effects of outliers on OLS estimates and to see how LAD is less sensitive to outliers. The model is</p>
+<p><span class="math display">\[rdintens = \beta_0 + \beta_1 sales + \beta_2 sales^2 + \beta_3 profmarg + u,\]</span></p>
+<p>where you should first change <code>sales</code> to be in billions of dollars to make the estimates easier to interpret. (i) Estimate the above equation by OLS, both with and without the firm having annual sales of almost $40 billion. Discuss any notable differences in the estimated coefficients. (ii) Estimate the same equation by LAD, again with and without the largest firm. Discuss any important differences in estimated coefficients. (iii) Based on your findings in parts (i) and (ii), would you say OLS or LAD is more resilient to outliers?</p>
+</blockquote>
+</section>
+<section id="c6" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="c6"><span class="header-section-number">9.6</span> C6</h2>
+<blockquote class="blockquote">
+<p>Redo Example 4.10 by dropping schools where teacher benefits are less than 1% of salary. (i) How many observations are lost? (ii) Does dropping these observations have any important effects on the estimated trade-off?</p>
+</blockquote>
+</section>
+<section id="c7-loanapp" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="c7-loanapp"><span class="header-section-number">9.7</span> C7 [LOANAPP]</h2>
+<blockquote class="blockquote">
+<p>Use the data in LOANAPP for this exercise. (i) How many observations have <span class="math inline">\(obrat &gt; 40\)</span>, that is, other debt obligations more than 40% of total income?</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="2" type="i">
+<li>Reestimate the model in part (iii) of Computer Exercise C8 in Chapter 7, excluding observations with <span class="math inline">\(obrat &gt; 40\)</span>. What happens to the estimate and <span class="math inline">\(t\)</span> statistic on <code>white</code>?</li>
+<li>Does it appear that the estimate of <span class="math inline">\(\beta_{white}\)</span> is overly sensitive to the sample used?</li>
+</ol>
+</blockquote>
+</section>
+<section id="c8-twoyear" class="level2" data-number="9.8">
+<h2 data-number="9.8" class="anchored" data-anchor-id="c8-twoyear"><span class="header-section-number">9.8</span> C8 [TWOYEAR]</h2>
+<blockquote class="blockquote">
+<p>Use the data in TWOYEAR for this exercise. (i) The variable <code>stotal</code> is a standardized test variable, which can act as a proxy variable for unobserved ability. Find the sample mean and standard deviation of <code>stotal</code>. (ii) Run simple regressions of <code>jc</code> and <code>univ</code> on <code>stotal</code>. Are both college education variables statistically related to <code>stotal</code>? Explain. (iii) Add <code>stotal</code> to equation (4.17) and test the hypothesis that the returns to two- and four-year colleges are the same against the alternative that the return to four-year colleges is greater. How do your findings compare with those from Section 4-4? (iv) Add <span class="math inline">\(stotal^2\)</span> to the equation estimated in part (iii). Does a quadratic in the test score variable seem necessary? (v) Add the interaction terms <span class="math inline">\(stotal \cdot jc\)</span> and <span class="math inline">\(stotal \cdot univ\)</span> to the equation from part (iii). Are these terms jointly significant? (vi) What would be your final model that controls for ability through the use of <code>stotal</code>? Justify your answer.</p>
+</blockquote>
+</section>
+<section id="c9" class="level2" data-number="9.9">
+<h2 data-number="9.9" class="anchored" data-anchor-id="c9"><span class="header-section-number">9.9</span> C9</h2>
+<blockquote class="blockquote">
+<p>In this exercise, you are to compare OLS and LAD estimates of the effects of 401(k) plan eligibility on net financial assets. The model is</p>
+<p><span class="math display">\[nettfa = \beta_0 + \beta_1 inc + \beta_2 inc^2 + \beta_3 age + \beta_4 age^2 + \beta_5 male + \beta_6 e401k + u.\]</span></p>
+<ol type="i">
+<li>Use the data in 401KSUBS to estimate the equation by OLS and report the results in the usual form. Interpret the coefficient on <code>e401k</code>.</li>
+<li>Use the OLS residuals to test for heteroskedasticity using the Breusch-Pagan test. Is <span class="math inline">\(u\)</span> independent of the explanatory variables?</li>
+<li>Estimate the equation by LAD and report the results in the same form as for OLS. Interpret the LAD estimate of <span class="math inline">\(\beta_6\)</span>.</li>
+<li>Reconcile your findings from parts (i) and (iii).</li>
+</ol>
+</blockquote>
+</section>
+<section id="c10" class="level2" data-number="9.10">
+<h2 data-number="9.10" class="anchored" data-anchor-id="c10"><span class="header-section-number">9.10</span> C10</h2>
+<blockquote class="blockquote">
+<p>You need to use two data sets for this exercise, JTRAIN2 and JTRAIN3. The former is the outcome of a job training experiment. The file JTRAIN3 contains observational data, where individuals themselves largely determine whether they participate in job training. The data sets cover the same time period. (i) In the data set JTRAIN2, what fraction of the men received job training? What is the fraction in JTRAIN3? Why do you think there is such a big difference? (ii) Using JTRAIN2, run a simple regression of <code>re78</code> on <code>train</code>. What is the estimated effect of participating in job training on real earnings? (iii) Now add as controls to the regression in part (ii) the variables <code>re74</code>, <code>re75</code>, <code>educ</code>, <code>age</code>, <code>black</code>, and <code>hisp</code>. Does the estimated effect of job training on <code>re78</code> change much? How come? (<em>Hint</em>: Remember that these are experimental data.) (iv) Do the regressions in parts (ii) and (iii) using the data in JTRAIN3, reporting only the estimated coefficients on <code>train</code>, along with their <span class="math inline">\(t\)</span> statistics. What is the effect now of controlling for the extra factors, and why? (v) Define <span class="math inline">\(avgcre = (re74 + re75)/2\)</span>. Find the sample averages, standard deviations, and minimum and maximum values in the two data sets. Are these data sets representative of the same populations in 1978? (vi) Almost 96% of men in the data set JTRAIN2 have <code>avgcre</code> less than $10,000. Using only these men, run the regression</p>
+<p><span class="math display">\[re78 \text{ on } train, re74, re75, educ, age, black, hisp\]</span></p>
+</blockquote>
+<p>…and report the training estimate and its <span class="math inline">\(t\)</span> statistic. Run the same regression for JTRAIN3, using only men with <span class="math inline">\(avgcre \le 10\)</span>. For the subsample of low-income men, how do the estimated training effects compare across the experimental and nonexperimental data sets? &gt; (vii) Now use each data set to run the simple regression <code>re78</code> on <code>train</code>, but only for men who were unemployed in 1974 and 1975. How do the training estimates compare now? &gt; (viii) Using your findings from the previous regressions, discuss the potential importance of having comparable populations underlying comparisons of experimental and nonexperimental estimates.</p>
+</section>
+<section id="c11-murder" class="level2" data-number="9.11">
+<h2 data-number="9.11" class="anchored" data-anchor-id="c11-murder"><span class="header-section-number">9.11</span> C11 [MURDER]</h2>
+<blockquote class="blockquote">
+<p>Use the data in MURDER only for the year 1993 for this question, although you will need to first obtain the lagged murder rate, say <span class="math inline">\(mrdrte_{-1}\)</span>. (i) Run the regression of <code>mrdrte</code> on <code>exec</code>, <code>unem</code>. What are the coefficient and <span class="math inline">\(t\)</span> statistic on <code>exec</code>? Does this regression provide any evidence for a deterrent effect of capital punishment? (ii) How many executions are reported for Texas during 1993? (Actually, this is the sum of executions for the current and past two years.) How does this compare with the other states? Add a dummy variable for Texas to the regression in part (i). Is its <span class="math inline">\(t\)</span> statistic unusually large? From this, does it appear Texas is an “outlier”? (iii) To the regression in part (i) add the lagged murder rate. What happens to <span class="math inline">\(\hat{\beta}_{exec}\)</span> and its statistical significance? (iv) For the regression in part (iii), does it appear Texas is an outlier? What is the effect on <span class="math inline">\(\hat{\beta}_{exec}\)</span> from dropping Texas from the regression?</p>
+</blockquote>
+</section>
+<section id="c12-elem94_95" class="level2" data-number="9.12">
+<h2 data-number="9.12" class="anchored" data-anchor-id="c12-elem94_95"><span class="header-section-number">9.12</span> C12 [ELEM94_95]</h2>
+<blockquote class="blockquote">
+<p>Use the data in ELEM94_95 to answer this question. See also Computer Exercise C10 in Chapter 4. (i) Using all of the data, run the regression <code>lavgsal</code> on <code>bs</code>, <code>lenrol</code>, <code>lstaff</code>, and <code>lunch</code>. Report the coefficient on <code>bs</code> along with its usual and heteroskedasticity-robust standard errors. What do you conclude about the economic and statistical significance of <span class="math inline">\(\hat{\beta}_{bs}\)</span>? (ii) Now drop the four observations with <span class="math inline">\(bs &gt; 0.5\)</span>, that is, where average benefits are (supposedly) more than 50% of average salary. What is the coefficient on <code>bs</code>? Is it statistically significant using the heteroskedasticity-robust standard error? (iii) Verify that the four observations with <span class="math inline">\(bs &gt; 0.5\)</span> are 68, 1,127, 1,508, and 1,670. Define four dummy variables for each of these observations. (You might call them <span class="math inline">\(d68, d1127, d1508,\)</span> and <span class="math inline">\(d1670\)</span>.) Add these to the regression from part (i) and verify that the OLS coefficients and standard errors on the other variables are identical to those in part (ii). Which of the four dummies has a <span class="math inline">\(t\)</span> statistic statistically different from zero at the 5% level? (iv) Verify that, in this data set, the data point with the largest studentized residual (largest <span class="math inline">\(t\)</span> statistic on the dummy variable) in part (iii) has a large influence on the OLS estimates. (That is, run OLS using all observations except the one with the large studentized residual.) Does dropping, in turn, each of the other observations with <span class="math inline">\(bs &gt; 0.5\)</span> have important effects? (v) What do you conclude about the sensitivity of OLS to a single observation, even with a large sample size? (vi) Verify that the LAD estimator is not sensitive to the inclusion of the observation identified in part (iii).</p>
+</blockquote>
+</section>
+<section id="c13-ceosal2" class="level2" data-number="9.13">
+<h2 data-number="9.13" class="anchored" data-anchor-id="c13-ceosal2"><span class="header-section-number">9.13</span> C13 [CEOSAL2]</h2>
+<blockquote class="blockquote">
+<p>Use the data in CEOSAL2 to answer this question. (i) Estimate the model</p>
+<p><span class="math display">\[lsalary = \beta_0 + \beta_1 lsales + \beta_2 lmktval + \beta_3 ceoten + \beta_4 ceoten^2 + u\]</span></p>
+<p>by OLS using all of the observations, where <code>lsalary</code>, <code>lsales</code>, and <code>lmktval</code> are all natural logarithms. Report the results in the usual form with the usual OLS standard errors. (You may verify that the heteroskedasticity-robust standard errors are similar.) (ii) In the regression from part (i) obtain the studentized residuals; call these <span class="math inline">\(str_i\)</span>. How many studentized residuals are above 1.96 in absolute value? If the studentized residuals were…</p>
+</blockquote>
+<p>…independent draws from a standard normal distribution, about how many would you expect to be above two in absolute value with 177 draws? &gt; (iii) Reestimate the equation in part (i) by OLS using only the observations with <span class="math inline">\(|str_i| \le 1.96\)</span>. How do the coefficients compare with those in part (i)? &gt; (iv) Estimate the equation in part (i) by LAD, using all of the data. Is the estimate of <span class="math inline">\(\beta_1\)</span> closer to the OLS estimate using the full sample or the restricted sample? What about for <span class="math inline">\(\beta_3\)</span>? &gt; (v) Evaluate the following statement: “Dropping outliers based on extreme values of studentized residuals makes the resulting OLS estimates closer to the LAD estimates on the full sample.”</p>
+</section>
+<section id="c14-econmath" class="level2" data-number="9.14">
+<h2 data-number="9.14" class="anchored" data-anchor-id="c14-econmath"><span class="header-section-number">9.14</span> C14 [ECONMATH]</h2>
+<blockquote class="blockquote">
+<p>Use the data in ECONMATH to answer this question. The population model is</p>
+<p><span class="math display">\[score = \beta_0 + \beta_1 act + u.\]</span></p>
+<ol type="i">
+<li>For how many students is the ACT score missing? What is the fraction of the sample? Define a new variable, <code>actmiss</code>, which equals one if <code>act</code> is missing, and zero otherwise.</li>
+<li>Create a new variable, say <code>act0</code>, which is the <code>act</code> score when <code>act</code> is reported and zero when <code>act</code> is missing. Find the average of <code>act0</code> and compare it with the average for <code>act</code>.</li>
+<li>Run the simple regression of <code>score</code> on <code>act</code> using only the complete cases. What do you obtain for the slope coefficient and its heteroskedasticity-robust standard error?</li>
+<li>Run the simple regression of <code>score</code> on <code>act0</code> using all of the cases. Compare the slope coefficient with that in part (iii) and comment.</li>
+<li>Now use all of the cases and run the regression</li>
+</ol>
+<p><span class="math display">\[score_i \text{ on } act0_i, actmiss_i.\]</span></p>
+<p>What is the slope estimate on <code>act0_i</code>? How does it compare with the answers in parts (iii) and (iv)? (vi) Comparing regressions in parts (iii) and (v), does using all cases and adding the missing data estimator improve the precision in estimating <span class="math inline">\(\beta_1\)</span>? (vii) If you add the variable <code>colgpa</code> to the regressions in parts (iii) and (v), does this change your answer to part (vi)?</p>
+</blockquote>
+</section>
+<section id="c15-voucher" class="level2" data-number="9.15">
+<h2 data-number="9.15" class="anchored" data-anchor-id="c15-voucher"><span class="header-section-number">9.15</span> C15 [VOUCHER]</h2>
+<blockquote class="blockquote">
+<p>Use the data set VOUCHER to answer the following questions. The outcome variable, <code>mnce94</code>, is a standardized math test score taken in 1994. The key explanatory variable is <code>choiceyrs</code>, the number of years between 1990 and 1994 that a student participated in a schools-of-choice program. (i) Estimate a simple regression of <code>mnce94</code> on <code>choiceyrs</code> and report the estimate and the heteroskedasticity-robust <span class="math inline">\(t\)</span> statistic. Interpret the coefficient on <code>choiceyrs</code>. How many observations are used in the regression? (ii) To the regression in part (i), add the variable <code>mnce90</code>. If the goal is to infer causality of <code>choiceyrs</code>, why is adding <code>mnce90</code> a good idea? What happens to the number of observations? Why? How does the coefficient on <code>choiceyrs</code> compare with that in part (i)? (iii) If you run the regression in part (i) but use only observations where <code>mnce90</code> is not missing, how does <span class="math inline">\(\hat{\beta}_{choiceyrs}\)</span> compare with that in part (i)? How about its precision? (iv) Define a dummy variable, <code>mnce90_miss</code> to be one of <code>mnce90</code> is missing, and zero otherwise. Define <code>mnce90_mean</code> to be <code>mnce90</code> if <code>mnce90</code> is not missing; if <code>mnce90</code> is missing, <code>mnce90_mean</code> is set to the average value of <code>mnce90</code>. Run the regression</p>
+<p><span class="math display">\[mnce94 \text{ on } choiceyrs, mnce90\_mean, mnce90\_miss\]</span></p>
+<p>and obtain the heteroskedasticity-robust standard errors. How many observations are used? How does the estimate of <span class="math inline">\(\beta_{choiceyrs}\)</span> compare with that in part (ii)? (v) Would you say that using the complete cases in part (ii) and the missing indicator method in part (iv) give similar estimates of <span class="math inline">\(\beta_{choiceyrs}\)</span>? (vi) Define <code>mnce90_0</code> to be <code>mnce90</code> when it is not missing and zero whenever <code>mnce90</code> is missing. Use <code>mnce90_0</code> in place of <code>mnce90_mean</code> in part (iv). Which coefficient changes? Does its magnitude or <span class="math inline">\(t\)</span> statistic provide useful information? Explain.</p>
+</blockquote>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

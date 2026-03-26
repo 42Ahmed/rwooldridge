@@ -735,11 +735,759 @@
     ]
   },
   {
+    "objectID": "chapter07.html",
+    "href": "chapter07.html",
+    "title": "7  Multiple Regression Analysis with Qualitative Information",
+    "section": "",
+    "text": "7.1 C1 [GPA1]",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Multiple Regression Analysis with Qualitative Information</span>"
+    ]
+  },
+  {
+    "objectID": "chapter07.html#c1-gpa1",
+    "href": "chapter07.html#c1-gpa1",
+    "title": "7  Multiple Regression Analysis with Qualitative Information",
+    "section": "",
+    "text": "Use the data in GPA1 for this exercise. (i) Add the variables mothcoll and fathcoll to the equation estimated in (7.6) and report the results in the usual form. What happens to the estimated effect of PC ownership? Is PC still statistically significant? (ii) Test for joint significance of mothcoll and fathcoll in the equation from part (i) and be sure to report the \\(p\\)-value. (iii) Add \\(hsGPA^2\\) to the model from part (i) and decide whether this generalization is needed.",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Multiple Regression Analysis with Qualitative Information</span>"
+    ]
+  },
+  {
+    "objectID": "chapter07.html#c2-wage2",
+    "href": "chapter07.html#c2-wage2",
+    "title": "7  Multiple Regression Analysis with Qualitative Information",
+    "section": "7.2 C2 [WAGE2]",
+    "text": "7.2 C2 [WAGE2]\n\nUse the data in WAGE2 for this exercise. (i) Estimate the model\n\\[\\log(wage) = \\beta_0 + \\beta_1 educ + \\beta_2 exper + \\beta_3 tenure + \\beta_4 married + \\beta_5 black + \\beta_6 south + \\beta_7 urban + u\\]\nand report the results in the usual form. Holding other factors fixed, what is the approximate difference in monthly salary between blacks and nonblacks? Is this difference statistically significant? (ii) Add the variables \\(exper^2\\) and \\(tenure^2\\) to the equation and show that they are jointly insignificant at even the 20% level. (iii) Extend the original model to allow the return to education to depend on race and test whether the return to education does depend on race. (iv) Again, start with the original model, but now allow wages to differ across four groups of people: married and black, married and nonblack, single and black, and single and nonblack. What is the estimated wage differential between married blacks and married nonblacks?",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Multiple Regression Analysis with Qualitative Information</span>"
+    ]
+  },
+  {
+    "objectID": "chapter07.html#c3-mlb1",
+    "href": "chapter07.html#c3-mlb1",
+    "title": "7  Multiple Regression Analysis with Qualitative Information",
+    "section": "7.3 C3 [MLB1]",
+    "text": "7.3 C3 [MLB1]\n\nA model that allows major league baseball player salary to differ by position is\n\\[\\log(salary) = \\beta_0 + \\beta_1 years + \\beta_2 gamesyr + \\beta_3 bavg + \\beta_4 hrunsy + \\beta_5 rbisyr + \\beta_6 runsyr + \\beta_7 fldperc + \\beta_8 allstar + \\beta_9 frstbase + \\beta_{10} scndbase + \\beta_{11} thrdbase + \\beta_{12} shrtstop + \\beta_{13} catcher + u,\\]\nwhere outfield is the base group.\n\n\n\nState the null hypothesis that, controlling for other factors, catchers and outfielders earn, on average, the same amount. Test this hypothesis using the data in MLB1 and comment on the size of the estimated salary differential.\nState and test the null hypothesis that there is no difference in average salary across positions, once other factors have been controlled for.\nAre the results from parts (i) and (ii) consistent? If not, explain what is happening.",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Multiple Regression Analysis with Qualitative Information</span>"
+    ]
+  },
+  {
+    "objectID": "chapter07.html#c4-gpa2",
+    "href": "chapter07.html#c4-gpa2",
+    "title": "7  Multiple Regression Analysis with Qualitative Information",
+    "section": "7.4 C4 [GPA2]",
+    "text": "7.4 C4 [GPA2]\n\nUse the data in GPA2 for this exercise. (i) Consider the equation\n\\[colgpa = \\beta_0 + \\beta_1 hsize + \\beta_2 hsize^2 + \\beta_3 hsperc + \\beta_4 sat + \\beta_5 female + \\beta_6 athlete + u,\\]\nwhere colgpa is cumulative college grade point average; hsize is size of high school graduating class, in hundreds; hsperc is academic percentile in graduating class; sat is combined SAT score; female is a binary gender variable; and athlete is a binary variable, which is equal to one for student athletes. What are your expectations for the coefficients in this equation? Which ones are you unsure about? (ii) Estimate the equation in part (i) and report the results in the usual form. What is the estimated GPA differential between athletes and nonathletes? Is it statistically significant? (iii) Drop sat from the model and reestimate the equation. Now, what is the estimated effect of being an athlete? Discuss why the estimate is different than that obtained in part (ii). (iv) In the model from part (i), allow the effect of being an athlete to differ by gender and test the null hypothesis that there is no ceteris paribus difference between women athletes and women nonathletes. (v) Does the effect of sat on colgpa differ by gender? Justify your answer.",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Multiple Regression Analysis with Qualitative Information</span>"
+    ]
+  },
+  {
+    "objectID": "chapter07.html#c5-ceosal1",
+    "href": "chapter07.html#c5-ceosal1",
+    "title": "7  Multiple Regression Analysis with Qualitative Information",
+    "section": "7.5 C5 [CEOSAL1]",
+    "text": "7.5 C5 [CEOSAL1]\n\nIn Problem 2 in Chapter 4, we added the return on the firm’s stock, ros, to a model explaining CEO salary; ros turned out to be insignificant. Now, define a dummy variable, rosneg, which is equal to one if \\(ros &lt; 0\\) and equal to zero if \\(ros \\geq 0\\). Use CEOSAL1 to estimate the model\n\\[\\log(salary) = \\beta_0 + \\beta_1 \\log(sales) + \\beta_2 roe + \\beta_3 rosneg + u.\\]\nDiscuss the interpretation and statistical significance of \\(\\hat{\\beta}_3\\).",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Multiple Regression Analysis with Qualitative Information</span>"
+    ]
+  },
+  {
+    "objectID": "chapter07.html#c6-sleep75",
+    "href": "chapter07.html#c6-sleep75",
+    "title": "7  Multiple Regression Analysis with Qualitative Information",
+    "section": "7.6 C6 [SLEEP75]",
+    "text": "7.6 C6 [SLEEP75]\n\nUse the data in SLEEP75 for this exercise. The equation of interest is\n\\[sleep = \\beta_0 + \\beta_1 totwrk + \\beta_2 educ + \\beta_3 age + \\beta_4 age^2 + \\beta_5 yngkid + u.\\]\n\nEstimate this equation separately for men and women and report the results in the usual form. Are there notable differences in the two estimated equations?\nCompute the Chow test for equality of the parameters in the sleep equation for men and women. Use the form of the test that adds male and the interaction terms \\(male \\cdot totwrk, \\dots, male \\cdot yngkid\\) and uses the full set of observations. What are the relevant \\(df\\) for the test? Should you reject the null at the 5% level?\nNow, allow for a different intercept for males and females and determine whether the interaction terms involving male are jointly significant.\nGiven the results from parts (ii) and (iii), what would be your final model?",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Multiple Regression Analysis with Qualitative Information</span>"
+    ]
+  },
+  {
+    "objectID": "chapter07.html#c7-wage1",
+    "href": "chapter07.html#c7-wage1",
+    "title": "7  Multiple Regression Analysis with Qualitative Information",
+    "section": "7.7 C7 [WAGE1]",
+    "text": "7.7 C7 [WAGE1]\n\nUse the data in WAGE1 for this exercise. (i) Use equation (7.18) to estimate the gender differential when \\(educ = 12.5\\), which is very close to the average education in the sample. Compare this with the estimated differential when \\(educ = 0\\).\n\n\n\nRun the regression used to obtain (7.18), but with \\(female \\cdot (educ - 12.5)\\) replacing \\(female \\cdot educ\\). How do you interpret the coefficient on female now?\nIs the coefficient on female in part (ii) statistically significant? Compare this with (7.18) and comment.",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Multiple Regression Analysis with Qualitative Information</span>"
+    ]
+  },
+  {
+    "objectID": "chapter07.html#c8-loanapp",
+    "href": "chapter07.html#c8-loanapp",
+    "title": "7  Multiple Regression Analysis with Qualitative Information",
+    "section": "7.8 C8 [LOANAPP]",
+    "text": "7.8 C8 [LOANAPP]\n\nUse the data in LOANAPP for this exercise. The binary variable to be explained is approve, which is equal to one if a mortgage loan to an individual was approved. The key explanatory variable is white, a dummy variable equal to one if the applicant was white. The other applicants in the data set are black and Hispanic. To test for discrimination in the mortgage loan market, a linear probability model can be used:\n\\[approve = \\beta_0 + \\beta_1 white + \\text{other factors}.\\]\n\nIf there is discrimination against minorities, and the appropriate factors have been controlled for, what is the sign of \\(\\beta_1\\)?\nRegress approve on white and report the results in the usual form. Interpret the coefficient on white. Is it statistically significant? Is it practically large?\nAs controls, add the variables hrat, obrat, loanprc, unem, male, married, dep, sch, cosign, chist, pubrec, mortlat1, mortlat2, and vr. What happens to the coefficient on white? Is there still evidence of discrimination against nonwhites?\nNow, allow the effect of race to interact with the variable measuring other obligations as a percentage of income (obrat). Is the interaction term significant?\nUsing the model from part (iv), what is the effect of being white on the probability of approval when \\(obrat = 32\\), which is roughly the mean value in the sample? Obtain a 95% confidence interval for this effect.",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Multiple Regression Analysis with Qualitative Information</span>"
+    ]
+  },
+  {
+    "objectID": "chapter07.html#c9-401ksubs",
+    "href": "chapter07.html#c9-401ksubs",
+    "title": "7  Multiple Regression Analysis with Qualitative Information",
+    "section": "7.9 C9 [401KSUBS]",
+    "text": "7.9 C9 [401KSUBS]\n\nThere has been much interest in whether the presence of 401(k) pension plans, available to many U.S. workers, increases net savings. The data set 401KSUBS contains information on net financial assets (nettfa), family income (inc), a binary variable for eligibility in a 401(k) plan (e401k), and several other variables. (i) What fraction of the families in the sample are eligible for participation in a 401(k) plan? (ii) Estimate a linear probability model explaining 401(k) eligibility in terms of income, age, and gender. Include income and age in quadratic form, and report the results in the usual form. (iii) Would you say that 401(k) eligibility is independent of income and age? What about gender? Explain. (iv) Obtain the fitted values from the linear probability model estimated in part (ii). Are any fitted values negative or greater than one? (v) Using the fitted values \\(\\hat{e401k}_i\\) from part (iv), define \\(\\tilde{e401k}_i = 1\\) if \\(\\hat{e401k}_i \\geq 0.5\\) and \\(\\tilde{e401k}_i = 0\\) if \\(\\hat{e401k}_i &lt; 0.5\\). Out of 9,275 families, how many are predicted to be eligible for a 401(k) plan? (vi) For the 5,638 families not eligible for a 401(k) plan, what percentage of these are predicted not to be eligible, using the predictor \\(\\tilde{e401k}_i\\)? For the 3,637 families eligible for a 401(k) plan, what percentage are predicted to be eligible? (It is helpful if your econometrics package has a “tabulate” command.) (vii) The overall percent correctly predicted is about 64.9%. Do you think this is a complete description of how well the model does, given your answers in part (vi)? (viii) Add the variable pira as an explanatory variable to the linear probability model. Other things equal, if a family has someone with an individual retirement account, how much higher is the estimated probability that the family is eligible for a 401(k) plan? Is it statistically different from zero at the 10% level?\n\nI have transcribed the content from the provided images, which feature econometrics computer exercises.",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Multiple Regression Analysis with Qualitative Information</span>"
+    ]
+  },
+  {
+    "objectID": "chapter07.html#c10-nbasal",
+    "href": "chapter07.html#c10-nbasal",
+    "title": "7  Multiple Regression Analysis with Qualitative Information",
+    "section": "7.10 C10 [NBASAL]",
+    "text": "7.10 C10 [NBASAL]\nUse the data in NBASAL for this exercise. * (i) Estimate a linear regression model relating points per game to experience in the league and position (guard, forward, or center). Include experience in quadratic form and use centers as the base group. Report the results in the usual form. * (ii) Why do you not include all three position dummy variables in part (i)? * (iii) Holding experience fixed, does a guard score more than a center? How much more? Is the difference statistically significant? * (iv) Now, add marital status to the equation. Holding position and experience fixed, are married players more productive (based on points per game)? * (v) Add interactions of marital status with both experience variables. In this expanded model, is there strong evidence that marital status affects points per game? * (vi) Estimate the model from part (iv) but use assists per game as the dependent variable. Are there any notable differences from part (iv)? Discuss.",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Multiple Regression Analysis with Qualitative Information</span>"
+    ]
+  },
+  {
+    "objectID": "chapter07.html#c11-401ksubs",
+    "href": "chapter07.html#c11-401ksubs",
+    "title": "7  Multiple Regression Analysis with Qualitative Information",
+    "section": "7.11 C11 [401KSUBS]",
+    "text": "7.11 C11 [401KSUBS]\nUse the data in 401KSUBS for this exercise. * (i) Compute the average, standard deviation, minimum, and maximum values of \\(netfa\\) in the sample. * (ii) Test the hypothesis that average \\(netfa\\) does not differ by 401(k) eligibility status; use a two-sided alternative. What is the dollar amount of the estimated difference? * (iii) From part (ii) of Computer Exercise C9, it is clear that \\(e401k\\) is not exogenous in a simple regression model; at a minimum, it changes by income and age. Estimate a multiple linear regression model for \\(netfa\\) that includes income, age, and \\(e401k\\) as explanatory variables. The income and age variables should appear as quadratics. Now, what is the estimated dollar effect of 401(k) eligibility? * (iv) To the model estimated in part (iii), add the interactions \\(e401k \\cdot (age - 41)\\) and \\(e401k \\cdot (age - 41)^2\\). Note that the average age in the sample is about 41, so that in the new model, the coefficient on \\(e401k\\) is the estimated effect of 401(k) eligibility at the average age. Which interaction term is significant? * (v) Comparing the estimates from parts (iii) and (iv), do the estimated effects of 401(k) eligibility at age 41 differ much? Explain. * (vi) Now, drop the interaction terms from the model, but define five family size dummy variables: \\(fsize1\\), \\(fsize2\\), \\(fsize3\\), \\(fsize4\\), and \\(fsize5\\). The variable \\(fsize5\\) is unity for families with five or more members. Include the family size dummies in the model estimated from part (iii); be sure to choose a base group. Are the family dummies significant at the 1% level? * (vii) Now, do a Chow test for the model \\[nettfa = \\beta_0 + \\beta_1 inc + \\beta_2 inc^2 + \\beta_3 age + \\beta_4 age^2 + \\beta_5 e401k + u\\] across the five family size categories, allowing for intercept differences. The restricted sum of squared residuals, \\(SSR_r\\), is obtained from part (vi) because that regression assumes all slopes are the same. The unrestricted sum of squared residuals is \\(SSR_{ur} = SSR_1 + SSR_2 + \\dots + SSR_5\\), where \\(SSR_f\\) is the sum of squared residuals for the equation estimated using only family size \\(f\\). You should convince yourself that there are 30 parameters in the unrestricted model (5 intercepts plus 25 slopes) and 10 parameters in the restricted model (5 intercepts plus 5 slopes). Therefore, the number of restrictions being tested is \\(q = 20\\), and the \\(df\\) for the unrestricted model is \\(9,275 - 30 = 9,245\\).",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Multiple Regression Analysis with Qualitative Information</span>"
+    ]
+  },
+  {
+    "objectID": "chapter07.html#c12-beauty",
+    "href": "chapter07.html#c12-beauty",
+    "title": "7  Multiple Regression Analysis with Qualitative Information",
+    "section": "7.12 C12 [BEAUTY]",
+    "text": "7.12 C12 [BEAUTY]\nUse the data set in BEAUTY, which contains a subset of the variables (but more usable observations than in the regressions) reported by Hamermesh and Biddle (1994). * (i) Find the separate fractions of men and women that are classified as having above average looks. Are more people rated as having above average or below average looks? * (ii) Test the null hypothesis that the population fractions of above-average-looking women and men are the same. Report the one-sided \\(p\\)-value that the fraction is higher for women. (Hint: Estimating a simple linear probability model is easiest.) * (iii) Estimate the model \\(\\log(wage) = \\beta_0 + \\beta_1belavg + \\beta_2abvavg + u\\) separately for men and women and report the results in the usual form. Interpret the coefficient on \\(belavg\\) in each case. State the hypothesis \\(H_0: \\beta_1 = 0\\) against \\(H_1: \\beta_1 &lt; 0\\) in words, and find the \\(p\\)-values for both men and women. * (iv) Is there convincing evidence that women with above-average looks earn more than women with average looks? Explain. * (v) Add explanatory variables including \\(educ\\), \\(exper\\), \\(exper^2\\), \\(union\\), \\(goodhlth\\), \\(black\\), \\(married\\), \\(south\\), \\(bigcity\\), \\(smllcity\\), and \\(service\\) for both men and women. Do the effects of the “looks” variables change in important ways? * (vi) Use the \\(SSR\\) form of the Chow \\(F\\) statistic to test whether the slopes of the regression functions in part (v) differ between men and women, allowing for an intercept shift under the null.\n\n\n7.12.1 C13 [APPLE]\nUse the data in APPLE to answer this question. * (i) Define a binary variable \\(ecobuy = 1\\) if \\(ecolbs &gt; 0\\) and \\(ecobuy = 0\\) if \\(ecolbs = 0\\) (indicating if a family would buy any ecologically friendly apples at the given prices). What fraction of families claim they would buy ecolabeled apples? * (ii) Estimate the linear probability model (LPM): \\(ecobuy = \\beta_0 + \\beta_1ecoprc + \\beta_2regprc + \\beta_3faminc + \\beta_4hhsize + \\beta_5educ + \\beta_6age + u\\). Report the results and carefully interpret the coefficients on the price variables. * (iii) Test if the nonprice variables are jointly significant in the LPM using the usual \\(F\\) statistic. Which nonprice variable seems to have the most important effect on the decision to buy ecolabeled apples? * (iv) Replace \\(faminc\\) with \\(\\log(faminc)\\) in the previous model. Which model fits the data better? Interpret the coefficient on \\(\\log(faminc)\\). * (v) In the \\(\\log(faminc)\\) model, how many estimated probabilities are negative or greater than one? Should you be concerned? * (vi) Compute the percent correctly predicted for each outcome (\\(ecobuy = 0\\) and \\(ecobuy = 1\\)) for the model in part (iv). Which outcome is best predicted?\n\n\n\n7.12.2 C14 [CHARITY]\nUse the data in CHARITY to answer this question. * (i) Estimate an LPM relating \\(respond\\) (dummy for responding with a contribution) to \\(resplast\\) (dummy for responding to the previous mailing) and \\(avggift\\) (average of past gifts). Interpret the coefficient on \\(resplast\\). * (ii) Does the average value of past gifts affect the probability of responding? * (iii) Add the variable \\(propresp\\) (proportion of times the person responded to past mailings) to the model. Interpret its coefficient, noting that an increase of one is the largest possible change. * (iv) What happened to the coefficient on \\(resplast\\) when \\(propresp\\) was added? Does this make sense? * (v) Add \\(mailyear\\) (number of mailings per year) to the model. How big is its estimated effect? Why might this not be a good estimate of the causal effect of mailings on responding?",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Multiple Regression Analysis with Qualitative Information</span>"
+    ]
+  },
+  {
+    "objectID": "chapter07.html#c15-fertil2",
+    "href": "chapter07.html#c15-fertil2",
+    "title": "7  Multiple Regression Analysis with Qualitative Information",
+    "section": "7.13 C15 [FERTIL2]",
+    "text": "7.13 C15 [FERTIL2]\nUse the data in FERTIL2 to answer this question. * (i) Find the smallest and largest values of children in the sample. What is the average of children? Does any woman have exactly the average number of children? * (ii) What percentage of women have electricity in the home? * (iii) Compute the average of children for those without electricity and do the same for those with electricity. Comment on what you find. Test whether the population means are the same using a simple regression. * (iv) From part (iii), can you infer that having electricity “causes” women to have fewer children? Explain. * (v) Estimate a multiple regression model of the kind reported in equation (7.47), but add \\(age^2\\), urban, and the three religious affiliation dummies. How does the estimated effect of having electricity compare with that in part (iii)? Is it still statistically significant? * (vi) To the equation in part (v), add an interaction between electric and educ. Is its coefficient statistically significant? What happens to the coefficient on electric? * (vii) The median and mode value for educ is 7. In the equation from part (vi), use the centered interaction term \\(electric \\cdot (educ - 7)\\) in place of \\(electric \\cdot educ\\). What happens to the coefficient on electric compared with part (vi)? Why? How does the coefficient on electric compare with that in part (v)?",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Multiple Regression Analysis with Qualitative Information</span>"
+    ]
+  },
+  {
+    "objectID": "chapter07.html#c16-catholic",
+    "href": "chapter07.html#c16-catholic",
+    "title": "7  Multiple Regression Analysis with Qualitative Information",
+    "section": "7.14 C16 [CATHOLIC]",
+    "text": "7.14 C16 [CATHOLIC]\nUse the data in CATHOLIC to answer this question. * (i) In the entire sample, what percentage of the students attend a Catholic high school? What is the average of math12 in the entire sample? * (ii) Run a simple regression of math12 on cathhs and report the results in the usual way. Interpret what you have found. * (iii) Now add the variables lfaminc, motheduc, and fatheduc to the regression from part (ii). How many observations are used in the regression? What happens to the coefficient on cathhs, along with its statistical significance? * (iv) Return to the simple regression of math12 on cathhs, but restrict the regression to observations used in the multiple regression from part (iii). Do any important conclusions change? * (v) To the multiple regression in part (iii), add interactions between cathhs and each of the other explanatory variables. Are the interaction terms individually or jointly significant? * (vi) What happens to the coefficient on cathhs in the regression from part (v)? Explain why this coefficient is not very interesting. * (vii) Compute the average partial effect of cathhs in the model estimated in part (v). How does it compare with the coefficients on cathhs in parts (iii) and (v)?",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Multiple Regression Analysis with Qualitative Information</span>"
+    ]
+  },
+  {
+    "objectID": "chapter07.html#c17-jtrain98",
+    "href": "chapter07.html#c17-jtrain98",
+    "title": "7  Multiple Regression Analysis with Qualitative Information",
+    "section": "7.15 C17 [JTRAIN98]",
+    "text": "7.15 C17 [JTRAIN98]\nUse the data in JTRAIN98 to answer this question. The variable unem98 is a binary variable indicating whether a worker was unemployed in 1998. It can be used to measure the effectiveness of the job training program in reducing the probability of being unemployed. * (i) What percentage of workers was unemployed in 1998, after the job training program? How does this compare with the unemployment rate in 1996? * (ii) Run the simple regression unem98 on train. How do you interpret the coefficient on train? Is it statistically significant? Does it make sense to you? * (iii) Add to the regression in part (ii) the explanatory variables earn96, educ, age, and married. Now interpret the estimated training effect. Why does it differ so much from that in part (ii)? * (iv) Now perform full regression adjustment by running a regression with a full set of interactions, where all variables (except the training indicator) are centered around their sample means: \\[unem98 \\text{ on } train, earn96, educ, age, married, train \\cdot (earn96 - \\overline{earn96}),\\] \\[train \\cdot (educ - \\overline{educ}), train \\cdot (age - \\overline{age}), train \\cdot (married - \\overline{married}).\\]\n\n(v) Are the interaction terms in part (iv) jointly significant?\n(vi) Verify that you obtain exactly the same average treatment effect if you run two separate regressions and use the formula in equation (7.43). That is, run two separate regressions for the control and treated groups, obtain the fitted values \\(\\widehat{unem98}_i(0)\\) and \\(\\widehat{unem98}_i(1)\\) for everyone in the sample, and then compute: \\[\\hat{\\tau}_{ara} = n^{-1} \\sum_{i=1}^{n} [\\widehat{unem98}_i(1) - \\widehat{unem98}_i(0)]\\] Check this with the coefficient on train in part (iv). Which approach is more convenient for obtaining a standard error?",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Multiple Regression Analysis with Qualitative Information</span>"
+    ]
+  },
+  {
+    "objectID": "chapter07.html#c18-jtrain98",
+    "href": "chapter07.html#c18-jtrain98",
+    "title": "7  Multiple Regression Analysis with Qualitative Information",
+    "section": "7.16 C18 [JTRAIN98]",
+    "text": "7.16 C18 [JTRAIN98]\nUse the data in JTRAIN98 for this exercise. The purpose is to illustrate the effects of changing units of measurement when using \\(\\log(1 + y)\\) as the outcome variable. * (i) What are the units of measurement of the labor market earnings variables earn98 and earn96? What percentage of values of earn98 equal zero? What percentage of men participated in the job training program? * (ii) Define two new variables, \\(earn98dol = 1,000 \\cdot earn98\\) and \\(earn96dol = 1,000 \\cdot earn96\\). How do the averages and standard deviations of these variables compare with the corresponding variables in part (i)? Do your findings make sense? * (iii) Now define \\(learn98p1 = \\log(1 + earn98)\\), \\(learn96p1 = \\log(1 + earn96)\\) where “p1” is short for “plus one.” Using the same transformation, generate \\(learn98dolp1\\) and \\(learn96dolp1\\). Is there any obvious relationship between the averages of \\(learn98p1\\) and \\(learn98dolp1\\)? * (iv) Run each of the following regressions: * \\(learn98p1\\) on train, learn96p1, educ, age, married * \\(learn98dolp1\\) on train, learn96dolp1, educ, age, married How do the coefficients on train compare? Is there an easy way, such as comparing the R-squareds, to choose between these regressions? * (v) Now run the regressions: * \\(earn98\\) on train, earn96, educ, age, married * \\(earn98dol\\) on train, earn96dol, educ, age, married What is the ratio of the two coefficients on train? Does the answer make sense to you? * (vi) Use the coefficient on train from the earn98 equation, along with the average \\(earn98_0\\) over the control group, to estimate an average percentage increase in earnings due to the job training program. Is it similar to either coefficient on train in part (iv)?",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Multiple Regression Analysis with Qualitative Information</span>"
+    ]
+  },
+  {
+    "objectID": "chapter07.html#c19-caloil",
+    "href": "chapter07.html#c19-caloil",
+    "title": "7  Multiple Regression Analysis with Qualitative Information",
+    "section": "7.17 C19 [CALOIL]",
+    "text": "7.17 C19 [CALOIL]\nUse the data in CALOIL to answer the following questions. These are data from a contingent valuation (CV) survey, where respondents were provided with a scenario whereby oil spills off the coast of central California could be prevented. After being provided with a scenario that would prevent future oil spills, each respondent was randomly given one of five cost values, often called “bids” in the CV literature. In this study, the bids were \\(\\$5, \\$25, \\$65, \\$120,\\) and \\(\\$220\\). Given the bid value, respondents were asked whether they were in favor of the program (yes or no) at the given bid value. Therefore, the outcome of interest, vote, is binary, with \\(vote = 1\\) meaning a yes vote and \\(vote = 0\\) being no. * (i) What is the fraction of yes votes over the entire sample? Determine how many individuals were presented each of the five bid values. Note that the five integers you report should sum to 1,085. * (ii) For each of the bid values, determine the fraction of yes votes. For example, you should find that when \\(bid = 5\\), the fraction of yes votes is 0.6895 (or 68.95%). Do you notice a pattern as the bid value increases? * (iii) Explain why your findings in part (ii) are consistent with a downward-sloping demand curve for the prevention of oil spills. * (iv) Run a simple regression where vote is the dependent variable and bid is the explanatory variable. Interpret the coefficient on bid. Replace bid with \\(\\log(bid)\\) and interpret the coefficient on \\(\\log(bid)\\). Does bid or \\(\\log(bid)\\) explain more of the variation in vote? Does either explain much of the variation? * (v) Run a multiple regression of vote on the dummy variables bid5, bid25, bid65, bid120, and bid220. You should not estimate an intercept because these dummy variables are exhaustive and mutually exclusive. Do the coefficients on the dummy variables look familiar from your earlier analysis? * (vi) In the regression in part (v), drop bid5 and instead estimate an intercept. Now how do you interpret the coefficients on bid25, bid65, bid120, and bid220? Compare the adjusted R-squared with that using \\(\\log(bid)\\) in part (iv). Are the adjusted R-squareds very different? * (vii) To the regression in part (vi), add the variables notax (binary, = 1 if opposed to tax increases), ccoast (binary, = 1 if visited California coast), and linc (log of income). Note that there is missing data on income, and so only 1,046 observations will be used in the regression. Is any of these three variables strongly significant? Interpret the coefficient on ccoast. * (viii) Do the estimated coefficients on bid25, bid65, bid120, and bid22 differ much between (vi) and (vii)? Explain why it makes sense that they are similar.",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Multiple Regression Analysis with Qualitative Information</span>"
+    ]
+  },
+  {
+    "objectID": "chapter08.html",
+    "href": "chapter08.html",
+    "title": "8  Heteroskedasticity",
+    "section": "",
+    "text": "8.1 C1 [SLEEP75]",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Heteroskedasticity</span>"
+    ]
+  },
+  {
+    "objectID": "chapter08.html#c1-sleep75",
+    "href": "chapter08.html#c1-sleep75",
+    "title": "8  Heteroskedasticity",
+    "section": "",
+    "text": "Consider the following model to explain sleeping behavior:\n\\[sleep = \\beta_0 + \\beta_1 totwrk + \\beta_2 educ + \\beta_3 age + \\beta_4 age^2 + \\beta_5 yngkid + \\beta_6 male + u.\\]\n\nWrite down a model that allows the variance of \\(u\\) to differ between men and women. The variance should not depend on other factors.\nUse the data in SLEEP75 to estimate the parameters of the model for heteroskedasticity. (You have to first estimate the sleep equation by OLS to obtain the OLS residuals.) Is the estimated variance of \\(u\\) higher for men or for women?\nIs the variance of \\(u\\) statistically different for men and for women?",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Heteroskedasticity</span>"
+    ]
+  },
+  {
+    "objectID": "chapter08.html#c2-hprice1",
+    "href": "chapter08.html#c2-hprice1",
+    "title": "8  Heteroskedasticity",
+    "section": "8.2 C2 [HPRICE1]",
+    "text": "8.2 C2 [HPRICE1]\n\n\nUse the data in HPRICE1 to obtain the heteroskedasticity-robust standard errors for equation (8.17). Discuss any important differences with the usual standard errors.\nRepeat part (i) for equation (8.18).\nWhat does this example suggest about heteroskedasticity and the transformation used for the dependent variable?",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Heteroskedasticity</span>"
+    ]
+  },
+  {
+    "objectID": "chapter08.html#c3",
+    "href": "chapter08.html#c3",
+    "title": "8  Heteroskedasticity",
+    "section": "8.3 C3",
+    "text": "8.3 C3\n\nApply the full White test for heteroskedasticity [see equation (8.19)] to equation (8.18). Using the chi-square form of the statistic, obtain the \\(p\\)-value. What do you conclude?",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Heteroskedasticity</span>"
+    ]
+  },
+  {
+    "objectID": "chapter08.html#c4-vote1",
+    "href": "chapter08.html#c4-vote1",
+    "title": "8  Heteroskedasticity",
+    "section": "8.4 C4 [VOTE1]",
+    "text": "8.4 C4 [VOTE1]\n\nUse VOTE1 for this exercise. (i) Estimate a model with voteA as the dependent variable and prtystrA, democA, \\(\\log(expendA)\\), and \\(\\log(expendB)\\) as independent variables. Obtain the OLS residuals, \\(\\hat{u}_i\\), and regress these on all of the independent variables. Explain why you obtain \\(R^2 = 0\\). (ii) Now, compute the Breusch-Pagan test for heteroskedasticity. Use the \\(F\\) statistic version and report the \\(p\\)-value. (iii) Compute the special case of the White test for heteroskedasticity, again using the \\(F\\) statistic form. How strong is the evidence for heteroskedasticity now?",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Heteroskedasticity</span>"
+    ]
+  },
+  {
+    "objectID": "chapter08.html#c5-pntsprd",
+    "href": "chapter08.html#c5-pntsprd",
+    "title": "8  Heteroskedasticity",
+    "section": "8.5 C5 [PNTSPRD]",
+    "text": "8.5 C5 [PNTSPRD]\n\nUse the data in PNTSPRD for this exercise. (i) The variable sprdcvr is a binary variable equal to one if the Las Vegas point spread for a college basketball game was covered. The expected value of sprdcvr, say \\(\\mu\\), is the probability that the spread is covered in a randomly selected game. Test \\(H_0: \\mu = 0.5\\) against \\(H_1: \\mu \\neq 0.5\\) at the 10% significance level and discuss your findings. (Hint: This is easily done using a \\(t\\) test by regressing sprdcvr on an intercept only.) (ii) How many games in the sample of 553 were played on a neutral court? (iii) Estimate the linear probability model\n\\[sprdcvr = \\beta_0 + \\beta_1 favhome + \\beta_2 neutral + \\beta_3 fav25 + \\beta_4 und25 + u\\]\nand report the results in the usual form. (Report the usual OLS standard errors and the heteroskedasticity-robust standard errors.) Which variable is most significant, both practically and statistically? (iv) Explain why, under the null hypothesis \\(H_0: \\beta_1 = \\beta_2 = \\beta_3 = \\beta_4 = 0\\), there is no heteroskedasticity in the model. (v) Use the usual \\(F\\) statistic to test the hypothesis in part (iv). What do you conclude? (vi) Given the previous analysis, would you say that it is possible to systematically predict whether the Las Vegas spread will be covered using information available prior to the game?",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Heteroskedasticity</span>"
+    ]
+  },
+  {
+    "objectID": "chapter08.html#c6",
+    "href": "chapter08.html#c6",
+    "title": "8  Heteroskedasticity",
+    "section": "8.6 C6",
+    "text": "8.6 C6\n\nIn Example 7.12, we estimated a linear probability model for whether a young man was arrested during 1986:\n\\[arr86 = \\beta_0 + \\beta_1 pcnv + \\beta_2 avgsen + \\beta_3 tottime + \\beta_4 ptime86 + \\beta_5 qemp86 + u.\\]\n\nUsing the data in CRIME1, estimate this model by OLS and verify that all fitted values are strictly between zero and one. What are the smallest and largest fitted values?\nEstimate the equation by weighted least squares, as discussed in Section 8-5.\nUse the WLS estimates to determine whether avgsen and tottime are jointly significant at the 5% level.",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Heteroskedasticity</span>"
+    ]
+  },
+  {
+    "objectID": "chapter08.html#c7-loanapp",
+    "href": "chapter08.html#c7-loanapp",
+    "title": "8  Heteroskedasticity",
+    "section": "8.7 C7 [LOANAPP]",
+    "text": "8.7 C7 [LOANAPP]\n\nUse the data in LOANAPP for this exercise. (i) Estimate the equation in part (iii) of Computer Exercise C8 in Chapter 7, computing the heteroskedasticity-robust standard errors. Compare the 95% confidence interval on \\(\\beta_{white}\\) with the nonrobust confidence interval. (ii) Obtain the fitted values from the regression in part (i). Are any of them less than zero? Are any of them greater than one? What does this mean about applying weighted least squares?",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Heteroskedasticity</span>"
+    ]
+  },
+  {
+    "objectID": "chapter08.html#c8-gpa1",
+    "href": "chapter08.html#c8-gpa1",
+    "title": "8  Heteroskedasticity",
+    "section": "8.8 C8 [GPA1]",
+    "text": "8.8 C8 [GPA1]\n\nUse the data set GPA1 for this exercise. (i) Use OLS to estimate a model relating colGPA to hsGPA, ACT, skipped, and PC. Obtain the OLS residuals. (ii) Compute the special case of the White test for heteroskedasticity. In the regression of \\(\\hat{u}_i^2\\) on \\(\\hat{colGPA}_i, \\hat{colGPA}_i^2\\), obtain the fitted values, say \\(\\hat{h}_i\\). (iii) Verify that the fitted values from part (ii) are all strictly positive. Then, obtain the weighted least squares estimates using weights \\(1/\\hat{h}_i\\). Compare the weighted least squares estimates for the effect of skipping lectures and the effect of PC ownership with the corresponding OLS estimates. What about their statistical significance? (iv) In the WLS estimation from part (iii), obtain heteroskedasticity-robust standard errors. In other words, allow for the fact that the variance function estimated in part (ii) might be misspecified. Do the standard errors change much from part (iii)?",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Heteroskedasticity</span>"
+    ]
+  },
+  {
+    "objectID": "chapter08.html#c9",
+    "href": "chapter08.html#c9",
+    "title": "8  Heteroskedasticity",
+    "section": "8.9 C9",
+    "text": "8.9 C9\n\nIn Example 8.7, we computed the OLS and a set of WLS estimates in a cigarette demand equation. (i) Obtain the OLS estimates in equation (8.35). (ii) Obtain the \\(\\hat{h}_i\\) used in the WLS estimation of equation (8.36) and reproduce equation (8.36). From this equation, obtain the unweighted residuals and fitted values; call these \\(\\hat{u}_i\\) and \\(\\hat{y}_i\\), respectively. (For example, in Stata®, the unweighted residuals and fitted values are given by default.) (iii) Let \\(\\tilde{u}_i = \\hat{u}_i / \\sqrt{\\hat{h}_i}\\) and \\(\\tilde{y}_i = \\hat{y}_i / \\sqrt{\\hat{h}_i}\\) be the weighted quantities. Carry out the special case of the White test for heteroskedasticity by regressing \\(\\tilde{u}_i^2\\) on \\(\\tilde{y}_i, \\tilde{y}_i^2\\), being sure to include an intercept, as always. Do you find heteroskedasticity in the weighted residuals? (iv) What does the finding from part (iii) imply about the proposed form of heteroskedasticity used in obtaining (8.36)? (v) Obtain valid standard errors for the WLS estimates that allow the variance function to be misspecified.",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Heteroskedasticity</span>"
+    ]
+  },
+  {
+    "objectID": "chapter08.html#c10-401ksubs",
+    "href": "chapter08.html#c10-401ksubs",
+    "title": "8  Heteroskedasticity",
+    "section": "8.10 C10 [401KSUBS]",
+    "text": "8.10 C10 [401KSUBS]\n\nUse the data set 401KSUBS for this exercise. (i) Using OLS, estimate a linear probability model for e401k, using as explanatory variables inc, \\(inc^2\\), age, \\(age^2\\), and male. Obtain both the usual OLS standard errors and the heteroskedasticity-robust versions. Are there any important differences? (ii) In the special case of the White test for heteroskedasticity, where we regress the squared OLS residuals on a quadratic in the OLS fitted values, \\(\\hat{u}_i^2\\) on \\(\\hat{y}_i, \\hat{y}_i^2, i = 1, \\dots, n\\), argue that the probability limit of the coefficient on \\(\\hat{y}_i\\) should be one, the probability limit of the coefficient on \\(\\hat{y}_i^2\\) should be \\(-1\\), and the probability limit of the intercept should be zero. {Hint: Remember that \\(\\text{Var}(y|x_1, \\dots, x_k) = p(\\mathbf{x})[1 - p(\\mathbf{x})]\\), where \\(p(\\mathbf{x}) = \\beta_0 + \\beta_1 x_1 + \\dots + \\beta_k x_k\\).} (iii) For the model estimated in part (i), obtain the White test and see if the coefficient estimates roughly correspond to the theoretical values described in part (ii). (iv) After verifying that the fitted values from part (i) are all between zero and one, obtain the weighted least squares estimates of the linear probability model. Do they differ in important ways from the OLS estimates?",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Heteroskedasticity</span>"
+    ]
+  },
+  {
+    "objectID": "chapter08.html#c11-401ksubs",
+    "href": "chapter08.html#c11-401ksubs",
+    "title": "8  Heteroskedasticity",
+    "section": "8.11 C11 [401KSUBS]",
+    "text": "8.11 C11 [401KSUBS]\n\nUse the data in 401KSUBS for this question, restricting the sample to \\(fsize = 1\\). (i) To the model estimated in Table 8.1, add the interaction term, \\(e401k \\cdot inc\\). Estimate the equation by OLS and obtain the usual and robust standard errors. What do you conclude about the statistical significance of the interaction term? (ii) Now estimate the more general model by WLS using the same weights, \\(1/inc_i\\), as in Table 8.1. Compute the usual and robust standard error for the WLS estimator. Is the interaction term statistically significant using the robust standard error? (iii) Discuss the WLS coefficient on e401k in the more general model. Is it of much interest by itself? Explain. (iv) Reestimate the model by WLS but use the interaction term \\(e401k \\cdot (inc - 30)\\); the average income in the sample is about 29.44. Now interpret the coefficient on e401k.",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Heteroskedasticity</span>"
+    ]
+  },
+  {
+    "objectID": "chapter08.html#c12-meap00",
+    "href": "chapter08.html#c12-meap00",
+    "title": "8  Heteroskedasticity",
+    "section": "8.12 C12 [MEAP00]",
+    "text": "8.12 C12 [MEAP00]\n\nUse the data in MEAP00 to answer this question. (i) Estimate the model\n\\[math4 = \\beta_0 + \\beta_1 lunch + \\beta_2 \\log(enroll) + \\beta_3 \\log(exppp) + u\\]\nby OLS and obtain the usual standard errors and the fully robust standard errors. How do they generally compare? (ii) Apply the special case of the White test for heteroskedasticity. What is the value of the \\(F\\) test? What do you conclude? (iii) Obtain \\(\\hat{g}_i\\) as the fitted values from the regression \\(\\log(\\hat{u}_i^2)\\) on \\(\\hat{math4}_i, \\hat{math4}_i^2\\), where \\(\\hat{math4}_i\\) are the OLS fitted values and the \\(\\hat{u}_i\\) are the OLS residuals. Let \\(\\hat{h}_i = \\exp(\\hat{g}_i)\\). Use the \\(\\hat{h}_i\\) to obtain WLS estimates. Are there big differences with the OLS coefficients? (iv) Obtain the standard errors for WLS that allow misspecification of the variance function. Do these differ much from the usual WLS standard errors? (v) For estimating the effect of spending on math4, does OLS or WLS appear to be more precise?",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Heteroskedasticity</span>"
+    ]
+  },
+  {
+    "objectID": "chapter08.html#c13-fertil2",
+    "href": "chapter08.html#c13-fertil2",
+    "title": "8  Heteroskedasticity",
+    "section": "8.13 C13 [FERTIL2]",
+    "text": "8.13 C13 [FERTIL2]\n\nUse the data in FERTIL2 to answer this question. (i) Estimate the model\n\\[children = \\beta_0 + \\beta_1 age + \\beta_2 age^2 + \\beta_3 educ + \\beta_4 electric + \\beta_5 urban + u\\]\nand report the usual and heteroskedasticity-robust standard errors. Are the robust standard errors always bigger than the nonrobust ones? (ii) Add the three religious dummy variables and test whether they are jointly significant. What are the \\(p\\)-values for the nonrobust and robust tests? (iii) From the regression in part (ii), obtain the fitted values \\(\\hat{y}\\) and the residuals, \\(\\hat{u}\\). Regress \\(\\hat{u}^2\\) on \\(\\hat{y}, \\hat{y}^2\\) and test the joint significance of the two regressors. Conclude that heteroskedasticity is present in the equation for children. (iv) Would you say the heteroskedasticity you found in part (iii) is practically important?",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Heteroskedasticity</span>"
+    ]
+  },
+  {
+    "objectID": "chapter08.html#c14-beauty",
+    "href": "chapter08.html#c14-beauty",
+    "title": "8  Heteroskedasticity",
+    "section": "8.14 C14 [BEAUTY]",
+    "text": "8.14 C14 [BEAUTY]\n\nUse the data in BEAUTY for this question. (i) Using the data pooled for men and women, estimate the equation\n\\[lwage = \\beta_0 + \\beta_1 belavg + \\beta_2 abvavg + \\beta_3 female + \\beta_4 educ + \\beta_5 exper + \\beta_6 exper^2 + u,\\]\nand report the results using heteroskedasticity-robust standard errors below coefficients. Are any of the coefficients surprising in either their signs or magnitudes? Is the coefficient on female practically large and statistically significant? (ii) Add interactions of female with all other explanatory variables in the equation from part (i) (five interactions in all). Compute the usual \\(F\\) test of joint significance of the five interactions and a heteroskedasticity-robust version. Does using the heteroskedasticity-robust version change the outcome in any important way? (iii) In the full model with interactions, determine whether those involving the looks variables—\\(female \\cdot belavg\\) and \\(female \\cdot abvavg\\)—are jointly significant. Are their coefficients practically small?",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Heteroskedasticity</span>"
+    ]
+  },
+  {
+    "objectID": "chapter09.html",
+    "href": "chapter09.html",
+    "title": "9  More on Specification and Data Issues",
+    "section": "",
+    "text": "9.1 C1",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>More on Specification and Data Issues</span>"
+    ]
+  },
+  {
+    "objectID": "chapter09.html#c1",
+    "href": "chapter09.html#c1",
+    "title": "9  More on Specification and Data Issues",
+    "section": "",
+    "text": "Apply RESET from equation (9.3) to the model estimated in Computer Exercise C5 in Chapter 7. Is there evidence of functional form misspecification in the equation?\nCompute a heteroskedasticity-robust form of RESET. Does your conclusion from part (i) change?",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>More on Specification and Data Issues</span>"
+    ]
+  },
+  {
+    "objectID": "chapter09.html#c2-wage2",
+    "href": "chapter09.html#c2-wage2",
+    "title": "9  More on Specification and Data Issues",
+    "section": "9.2 C2 [WAGE2]",
+    "text": "9.2 C2 [WAGE2]\n\nUse the data set WAGE2 for this exercise. (i) Use the variable KWW (the “knowledge of the world of work” test score) as a proxy for ability in place of IQ in Example 9.3. What is the estimated return to education in this case? (ii) Now, use IQ and KWW together as proxy variables. What happens to the estimated return to education? (iii) In part (ii), are IQ and KWW individually significant? Are they jointly significant? (iv) Do your answers in part (iii) practically change if you use heteroskedasticity-robust statistics?",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>More on Specification and Data Issues</span>"
+    ]
+  },
+  {
+    "objectID": "chapter09.html#c3-jtrain",
+    "href": "chapter09.html#c3-jtrain",
+    "title": "9  More on Specification and Data Issues",
+    "section": "9.3 C3 [JTRAIN]",
+    "text": "9.3 C3 [JTRAIN]\n\nUse the data from JTRAIN for this exercise. (i) Consider the simple regression model\n\\[\\log(scrap) = \\beta_0 + \\beta_1 grant + u,\\]\nwhere scrap is the firm scrap rate and grant is a dummy variable indicating whether a firm received a job training grant. Can you think of some reasons why the unobserved factors in \\(u\\) might be correlated with grant? (ii) Estimate the simple regression model using the data for 1988. (You should have 54 observations.) Does receiving a job training grant significantly lower a firm’s scrap rate? (iii) Now, add as an explanatory variable \\(\\log(scrap_{87})\\). How does this change the estimated effect of grant? Interpret the coefficient on grant. Is it statistically significant at the 5% level against the one-sided alternative \\(H_1: \\beta_{grant} &lt; 0\\)? (iv) Test the null hypothesis that the parameter on \\(\\log(scrap_{87})\\) is one against the two-sided alternative. Report the \\(p\\)-value for the test. (v) Repeat parts (iii) and (iv), using heteroskedasticity-robust standard errors, and briefly discuss any notable differences.",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>More on Specification and Data Issues</span>"
+    ]
+  },
+  {
+    "objectID": "chapter09.html#c4-infmrt",
+    "href": "chapter09.html#c4-infmrt",
+    "title": "9  More on Specification and Data Issues",
+    "section": "9.4 C4 [INFMRT]",
+    "text": "9.4 C4 [INFMRT]\n\nUse the data for the year 1990 in INFMRT for this exercise. (i) Reestimate equation (9.43), but now include a dummy variable for the observation on the District of Columbia (called DC). Interpret the coefficient on DC and comment on its size and significance. (ii) Compare the estimates and standard errors from part (i) with those from equation (9.44). What do you conclude about including a dummy variable for a single observation?",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>More on Specification and Data Issues</span>"
+    ]
+  },
+  {
+    "objectID": "chapter09.html#c5-rdchem",
+    "href": "chapter09.html#c5-rdchem",
+    "title": "9  More on Specification and Data Issues",
+    "section": "9.5 C5 [RDCHEM]",
+    "text": "9.5 C5 [RDCHEM]\n\nUse the data in RDCHEM to further examine the effects of outliers on OLS estimates and to see how LAD is less sensitive to outliers. The model is\n\\[rdintens = \\beta_0 + \\beta_1 sales + \\beta_2 sales^2 + \\beta_3 profmarg + u,\\]\nwhere you should first change sales to be in billions of dollars to make the estimates easier to interpret. (i) Estimate the above equation by OLS, both with and without the firm having annual sales of almost $40 billion. Discuss any notable differences in the estimated coefficients. (ii) Estimate the same equation by LAD, again with and without the largest firm. Discuss any important differences in estimated coefficients. (iii) Based on your findings in parts (i) and (ii), would you say OLS or LAD is more resilient to outliers?",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>More on Specification and Data Issues</span>"
+    ]
+  },
+  {
+    "objectID": "chapter09.html#c6",
+    "href": "chapter09.html#c6",
+    "title": "9  More on Specification and Data Issues",
+    "section": "9.6 C6",
+    "text": "9.6 C6\n\nRedo Example 4.10 by dropping schools where teacher benefits are less than 1% of salary. (i) How many observations are lost? (ii) Does dropping these observations have any important effects on the estimated trade-off?",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>More on Specification and Data Issues</span>"
+    ]
+  },
+  {
+    "objectID": "chapter09.html#c7-loanapp",
+    "href": "chapter09.html#c7-loanapp",
+    "title": "9  More on Specification and Data Issues",
+    "section": "9.7 C7 [LOANAPP]",
+    "text": "9.7 C7 [LOANAPP]\n\nUse the data in LOANAPP for this exercise. (i) How many observations have \\(obrat &gt; 40\\), that is, other debt obligations more than 40% of total income?\n\n\n\nReestimate the model in part (iii) of Computer Exercise C8 in Chapter 7, excluding observations with \\(obrat &gt; 40\\). What happens to the estimate and \\(t\\) statistic on white?\nDoes it appear that the estimate of \\(\\beta_{white}\\) is overly sensitive to the sample used?",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>More on Specification and Data Issues</span>"
+    ]
+  },
+  {
+    "objectID": "chapter09.html#c8-twoyear",
+    "href": "chapter09.html#c8-twoyear",
+    "title": "9  More on Specification and Data Issues",
+    "section": "9.8 C8 [TWOYEAR]",
+    "text": "9.8 C8 [TWOYEAR]\n\nUse the data in TWOYEAR for this exercise. (i) The variable stotal is a standardized test variable, which can act as a proxy variable for unobserved ability. Find the sample mean and standard deviation of stotal. (ii) Run simple regressions of jc and univ on stotal. Are both college education variables statistically related to stotal? Explain. (iii) Add stotal to equation (4.17) and test the hypothesis that the returns to two- and four-year colleges are the same against the alternative that the return to four-year colleges is greater. How do your findings compare with those from Section 4-4? (iv) Add \\(stotal^2\\) to the equation estimated in part (iii). Does a quadratic in the test score variable seem necessary? (v) Add the interaction terms \\(stotal \\cdot jc\\) and \\(stotal \\cdot univ\\) to the equation from part (iii). Are these terms jointly significant? (vi) What would be your final model that controls for ability through the use of stotal? Justify your answer.",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>More on Specification and Data Issues</span>"
+    ]
+  },
+  {
+    "objectID": "chapter09.html#c9",
+    "href": "chapter09.html#c9",
+    "title": "9  More on Specification and Data Issues",
+    "section": "9.9 C9",
+    "text": "9.9 C9\n\nIn this exercise, you are to compare OLS and LAD estimates of the effects of 401(k) plan eligibility on net financial assets. The model is\n\\[nettfa = \\beta_0 + \\beta_1 inc + \\beta_2 inc^2 + \\beta_3 age + \\beta_4 age^2 + \\beta_5 male + \\beta_6 e401k + u.\\]\n\nUse the data in 401KSUBS to estimate the equation by OLS and report the results in the usual form. Interpret the coefficient on e401k.\nUse the OLS residuals to test for heteroskedasticity using the Breusch-Pagan test. Is \\(u\\) independent of the explanatory variables?\nEstimate the equation by LAD and report the results in the same form as for OLS. Interpret the LAD estimate of \\(\\beta_6\\).\nReconcile your findings from parts (i) and (iii).",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>More on Specification and Data Issues</span>"
+    ]
+  },
+  {
+    "objectID": "chapter09.html#c10",
+    "href": "chapter09.html#c10",
+    "title": "9  More on Specification and Data Issues",
+    "section": "9.10 C10",
+    "text": "9.10 C10\n\nYou need to use two data sets for this exercise, JTRAIN2 and JTRAIN3. The former is the outcome of a job training experiment. The file JTRAIN3 contains observational data, where individuals themselves largely determine whether they participate in job training. The data sets cover the same time period. (i) In the data set JTRAIN2, what fraction of the men received job training? What is the fraction in JTRAIN3? Why do you think there is such a big difference? (ii) Using JTRAIN2, run a simple regression of re78 on train. What is the estimated effect of participating in job training on real earnings? (iii) Now add as controls to the regression in part (ii) the variables re74, re75, educ, age, black, and hisp. Does the estimated effect of job training on re78 change much? How come? (Hint: Remember that these are experimental data.) (iv) Do the regressions in parts (ii) and (iii) using the data in JTRAIN3, reporting only the estimated coefficients on train, along with their \\(t\\) statistics. What is the effect now of controlling for the extra factors, and why? (v) Define \\(avgcre = (re74 + re75)/2\\). Find the sample averages, standard deviations, and minimum and maximum values in the two data sets. Are these data sets representative of the same populations in 1978? (vi) Almost 96% of men in the data set JTRAIN2 have avgcre less than $10,000. Using only these men, run the regression\n\\[re78 \\text{ on } train, re74, re75, educ, age, black, hisp\\]\n\n…and report the training estimate and its \\(t\\) statistic. Run the same regression for JTRAIN3, using only men with \\(avgcre \\le 10\\). For the subsample of low-income men, how do the estimated training effects compare across the experimental and nonexperimental data sets? &gt; (vii) Now use each data set to run the simple regression re78 on train, but only for men who were unemployed in 1974 and 1975. How do the training estimates compare now? &gt; (viii) Using your findings from the previous regressions, discuss the potential importance of having comparable populations underlying comparisons of experimental and nonexperimental estimates.",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>More on Specification and Data Issues</span>"
+    ]
+  },
+  {
+    "objectID": "chapter09.html#c11-murder",
+    "href": "chapter09.html#c11-murder",
+    "title": "9  More on Specification and Data Issues",
+    "section": "9.11 C11 [MURDER]",
+    "text": "9.11 C11 [MURDER]\n\nUse the data in MURDER only for the year 1993 for this question, although you will need to first obtain the lagged murder rate, say \\(mrdrte_{-1}\\). (i) Run the regression of mrdrte on exec, unem. What are the coefficient and \\(t\\) statistic on exec? Does this regression provide any evidence for a deterrent effect of capital punishment? (ii) How many executions are reported for Texas during 1993? (Actually, this is the sum of executions for the current and past two years.) How does this compare with the other states? Add a dummy variable for Texas to the regression in part (i). Is its \\(t\\) statistic unusually large? From this, does it appear Texas is an “outlier”? (iii) To the regression in part (i) add the lagged murder rate. What happens to \\(\\hat{\\beta}_{exec}\\) and its statistical significance? (iv) For the regression in part (iii), does it appear Texas is an outlier? What is the effect on \\(\\hat{\\beta}_{exec}\\) from dropping Texas from the regression?",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>More on Specification and Data Issues</span>"
+    ]
+  },
+  {
+    "objectID": "chapter09.html#c12-elem94_95",
+    "href": "chapter09.html#c12-elem94_95",
+    "title": "9  More on Specification and Data Issues",
+    "section": "9.12 C12 [ELEM94_95]",
+    "text": "9.12 C12 [ELEM94_95]\n\nUse the data in ELEM94_95 to answer this question. See also Computer Exercise C10 in Chapter 4. (i) Using all of the data, run the regression lavgsal on bs, lenrol, lstaff, and lunch. Report the coefficient on bs along with its usual and heteroskedasticity-robust standard errors. What do you conclude about the economic and statistical significance of \\(\\hat{\\beta}_{bs}\\)? (ii) Now drop the four observations with \\(bs &gt; 0.5\\), that is, where average benefits are (supposedly) more than 50% of average salary. What is the coefficient on bs? Is it statistically significant using the heteroskedasticity-robust standard error? (iii) Verify that the four observations with \\(bs &gt; 0.5\\) are 68, 1,127, 1,508, and 1,670. Define four dummy variables for each of these observations. (You might call them \\(d68, d1127, d1508,\\) and \\(d1670\\).) Add these to the regression from part (i) and verify that the OLS coefficients and standard errors on the other variables are identical to those in part (ii). Which of the four dummies has a \\(t\\) statistic statistically different from zero at the 5% level? (iv) Verify that, in this data set, the data point with the largest studentized residual (largest \\(t\\) statistic on the dummy variable) in part (iii) has a large influence on the OLS estimates. (That is, run OLS using all observations except the one with the large studentized residual.) Does dropping, in turn, each of the other observations with \\(bs &gt; 0.5\\) have important effects? (v) What do you conclude about the sensitivity of OLS to a single observation, even with a large sample size? (vi) Verify that the LAD estimator is not sensitive to the inclusion of the observation identified in part (iii).",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>More on Specification and Data Issues</span>"
+    ]
+  },
+  {
+    "objectID": "chapter09.html#c13-ceosal2",
+    "href": "chapter09.html#c13-ceosal2",
+    "title": "9  More on Specification and Data Issues",
+    "section": "9.13 C13 [CEOSAL2]",
+    "text": "9.13 C13 [CEOSAL2]\n\nUse the data in CEOSAL2 to answer this question. (i) Estimate the model\n\\[lsalary = \\beta_0 + \\beta_1 lsales + \\beta_2 lmktval + \\beta_3 ceoten + \\beta_4 ceoten^2 + u\\]\nby OLS using all of the observations, where lsalary, lsales, and lmktval are all natural logarithms. Report the results in the usual form with the usual OLS standard errors. (You may verify that the heteroskedasticity-robust standard errors are similar.) (ii) In the regression from part (i) obtain the studentized residuals; call these \\(str_i\\). How many studentized residuals are above 1.96 in absolute value? If the studentized residuals were…\n\n…independent draws from a standard normal distribution, about how many would you expect to be above two in absolute value with 177 draws? &gt; (iii) Reestimate the equation in part (i) by OLS using only the observations with \\(|str_i| \\le 1.96\\). How do the coefficients compare with those in part (i)? &gt; (iv) Estimate the equation in part (i) by LAD, using all of the data. Is the estimate of \\(\\beta_1\\) closer to the OLS estimate using the full sample or the restricted sample? What about for \\(\\beta_3\\)? &gt; (v) Evaluate the following statement: “Dropping outliers based on extreme values of studentized residuals makes the resulting OLS estimates closer to the LAD estimates on the full sample.”",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>More on Specification and Data Issues</span>"
+    ]
+  },
+  {
+    "objectID": "chapter09.html#c14-econmath",
+    "href": "chapter09.html#c14-econmath",
+    "title": "9  More on Specification and Data Issues",
+    "section": "9.14 C14 [ECONMATH]",
+    "text": "9.14 C14 [ECONMATH]\n\nUse the data in ECONMATH to answer this question. The population model is\n\\[score = \\beta_0 + \\beta_1 act + u.\\]\n\nFor how many students is the ACT score missing? What is the fraction of the sample? Define a new variable, actmiss, which equals one if act is missing, and zero otherwise.\nCreate a new variable, say act0, which is the act score when act is reported and zero when act is missing. Find the average of act0 and compare it with the average for act.\nRun the simple regression of score on act using only the complete cases. What do you obtain for the slope coefficient and its heteroskedasticity-robust standard error?\nRun the simple regression of score on act0 using all of the cases. Compare the slope coefficient with that in part (iii) and comment.\nNow use all of the cases and run the regression\n\n\\[score_i \\text{ on } act0_i, actmiss_i.\\]\nWhat is the slope estimate on act0_i? How does it compare with the answers in parts (iii) and (iv)? (vi) Comparing regressions in parts (iii) and (v), does using all cases and adding the missing data estimator improve the precision in estimating \\(\\beta_1\\)? (vii) If you add the variable colgpa to the regressions in parts (iii) and (v), does this change your answer to part (vi)?",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>More on Specification and Data Issues</span>"
+    ]
+  },
+  {
+    "objectID": "chapter09.html#c15-voucher",
+    "href": "chapter09.html#c15-voucher",
+    "title": "9  More on Specification and Data Issues",
+    "section": "9.15 C15 [VOUCHER]",
+    "text": "9.15 C15 [VOUCHER]\n\nUse the data set VOUCHER to answer the following questions. The outcome variable, mnce94, is a standardized math test score taken in 1994. The key explanatory variable is choiceyrs, the number of years between 1990 and 1994 that a student participated in a schools-of-choice program. (i) Estimate a simple regression of mnce94 on choiceyrs and report the estimate and the heteroskedasticity-robust \\(t\\) statistic. Interpret the coefficient on choiceyrs. How many observations are used in the regression? (ii) To the regression in part (i), add the variable mnce90. If the goal is to infer causality of choiceyrs, why is adding mnce90 a good idea? What happens to the number of observations? Why? How does the coefficient on choiceyrs compare with that in part (i)? (iii) If you run the regression in part (i) but use only observations where mnce90 is not missing, how does \\(\\hat{\\beta}_{choiceyrs}\\) compare with that in part (i)? How about its precision? (iv) Define a dummy variable, mnce90_miss to be one of mnce90 is missing, and zero otherwise. Define mnce90_mean to be mnce90 if mnce90 is not missing; if mnce90 is missing, mnce90_mean is set to the average value of mnce90. Run the regression\n\\[mnce94 \\text{ on } choiceyrs, mnce90\\_mean, mnce90\\_miss\\]\nand obtain the heteroskedasticity-robust standard errors. How many observations are used? How does the estimate of \\(\\beta_{choiceyrs}\\) compare with that in part (ii)? (v) Would you say that using the complete cases in part (ii) and the missing indicator method in part (iv) give similar estimates of \\(\\beta_{choiceyrs}\\)? (vi) Define mnce90_0 to be mnce90 when it is not missing and zero whenever mnce90 is missing. Use mnce90_0 in place of mnce90_mean in part (iv). Which coefficient changes? Does its magnitude or \\(t\\) statistic provide useful information? Explain.",
+    "crumbs": [
+      "PART 1: Regression Analysis with Cross-Sectional Data",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>More on Specification and Data Issues</span>"
+    ]
+  },
+  {
+    "objectID": "chapter13.html",
+    "href": "chapter13.html",
+    "title": "13  Pooling Cross Sections across Time: Simple Panel Data Methods",
+    "section": "",
+    "text": "13.1 C1 [FERTIL1]",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Pooling Cross Sections across Time: Simple Panel Data Methods</span>"
+    ]
+  },
+  {
+    "objectID": "chapter13.html#c1-fertil1",
+    "href": "chapter13.html#c1-fertil1",
+    "title": "13  Pooling Cross Sections across Time: Simple Panel Data Methods",
+    "section": "",
+    "text": "Use the data in FERTIL1 for this exercise. (i) In the equation estimated in Example 13.1, test whether living environment at age 16 has an effect on fertility. (The base group is large city.) Report the value of the \\(F\\) statistic and the \\(p\\)-value. (ii) Test whether region of the country at age 16 (South is the base group) has an effect on fertility. (iii) Let \\(u\\) be the error term in the population equation. Suppose you think that the variance of \\(u\\) changes over time (but not with educ, age, and so on). A model that captures this is\n\\[u^2 = \\gamma_0 + \\gamma_1 y74 + \\gamma_2 y76 + \\dots + \\gamma_6 y84 + v.\\]\nUsing this model, test for heteroskedasticity in \\(u\\). (Hint: Your \\(F\\) test should have 6 and 1,122 degrees of freedom.) (iv) Add the interaction terms \\(y74 \\cdot educ, y76 \\cdot educ, \\dots, y84 \\cdot educ\\) to the model estimated in Table 13.1. Explain what these terms represent. Are they jointly significant? Does your answer depend on whether or not the test is robust to heteroskedasticity?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Pooling Cross Sections across Time: Simple Panel Data Methods</span>"
+    ]
+  },
+  {
+    "objectID": "chapter13.html#c2-cps78_85",
+    "href": "chapter13.html#c2-cps78_85",
+    "title": "13  Pooling Cross Sections across Time: Simple Panel Data Methods",
+    "section": "13.2 C2 [CPS78_85]",
+    "text": "13.2 C2 [CPS78_85]\n\nUse the data in CPS78_85 for this exercise. (i) How do you interpret the coefficient on \\(y85\\) in equation (13.2)? Does it have an interesting interpretation? (Be careful here; you must account for the interaction terms \\(y85 \\cdot educ\\) and \\(y85 \\cdot female\\).)\n\n\n\nHolding other factors fixed, what is the estimated percent increase in nominal wage for a male with 12 years of education? Propose a regression to obtain a confidence interval for this estimate. [Hint: To get the confidence interval, replace \\(y85 \\cdot educ\\) with \\(y85 \\cdot (educ - 12)\\); refer to Example 6.3.]\nReestimate equation (13.2) but let all wages be measured in 1978 dollars. In particular, define the real wage as \\(rwage = wage\\) for 1978 and as \\(rwage = wage/1.65\\) for 1985. Now, use \\(\\log(rwage)\\) in place of \\(\\log(wage)\\) in estimating (13.2). Which coefficients differ from those in equation (13.2)?\nExplain why the \\(R\\)-squared from your regression in part (iii) is not the same as in equation (13.2). (Hint: The residuals, and therefore the sum of squared residuals, from the two regressions are identical.)\nDescribe how union participation changed from 1978 to 1985.\nStarting with equation (13.2), test whether the union wage differential changed over time. (This should be a simple \\(t\\) test.)\nDo your findings in parts (v) and (vi) conflict? Explain.",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Pooling Cross Sections across Time: Simple Panel Data Methods</span>"
+    ]
+  },
+  {
+    "objectID": "chapter13.html#c3-kielmc",
+    "href": "chapter13.html#c3-kielmc",
+    "title": "13  Pooling Cross Sections across Time: Simple Panel Data Methods",
+    "section": "13.3 C3 [KIELMC]",
+    "text": "13.3 C3 [KIELMC]\n\nUse the data in KIELMC for this exercise. (i) The variable dist is the distance from each home to the incinerator site, in feet. Consider the model\n\\[\\log(price) = \\beta_0 + \\delta_0 y81 + \\beta_1 \\log(dist) + \\delta_1 y81 \\cdot \\log(dist) + u.\\]\nIf building the incinerator reduces the value of homes closer to the site, what is the sign of \\(\\delta_1\\)? What does it mean if \\(\\beta_1 &gt; 0\\)? (ii) Estimate the model from part (i) and report the results in the usual form. Interpret the coefficient on \\(y81 \\cdot \\log(dist)\\). What do you conclude? (iii) Add age, \\(age^2\\), rooms, baths, \\(\\log(intst)\\), \\(\\log(land)\\), and \\(\\log(area)\\) to the equation. Now, what do you conclude about the effect of the incinerator on housing values? (iv) Why is the coefficient on \\(\\log(dist)\\) positive and statistically significant in part (ii) but not in part (iii)? What does this say about the controls used in part (iii)?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Pooling Cross Sections across Time: Simple Panel Data Methods</span>"
+    ]
+  },
+  {
+    "objectID": "chapter13.html#c4-injury",
+    "href": "chapter13.html#c4-injury",
+    "title": "13  Pooling Cross Sections across Time: Simple Panel Data Methods",
+    "section": "13.4 C4 [INJURY]",
+    "text": "13.4 C4 [INJURY]\n\nUse the data in INJURY for this exercise. (i) Using the data for Kentucky, reestimate equation (13.13), adding as explanatory variables male, married, and a full set of industry and injury type dummy variables. How does the estimate on \\(afchnge \\cdot highearn\\) change when these other factors are controlled for? Is the estimate still statistically significant? (ii) What do you make of the small \\(R\\)-squared from part (i)? Does this mean the equation is useless? (iii) Estimate equation (13.13) using the data for Michigan. Compare the estimates on the interaction term for Michigan and Kentucky. Is the Michigan estimate statistically significant? What do you make of this?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Pooling Cross Sections across Time: Simple Panel Data Methods</span>"
+    ]
+  },
+  {
+    "objectID": "chapter13.html#c5-rental",
+    "href": "chapter13.html#c5-rental",
+    "title": "13  Pooling Cross Sections across Time: Simple Panel Data Methods",
+    "section": "13.5 C5 [RENTAL]",
+    "text": "13.5 C5 [RENTAL]\n\nUse the data in RENTAL for this exercise. The data for the years 1980 and 1990 include rental prices and other variables for college towns. The idea is to see whether a stronger presence of students affects rental rates. The unobserved effects model is\n\\[\\log(rent_{it}) = \\beta_0 + \\delta_0 y90_t + \\beta_1 \\log(pop_{it}) + \\beta_2 \\log(avginc_{it}) + \\beta_3 pctstu_{it} + a_i + u_{it},\\]\nwhere pop is city population, avginc is average income, and pctstu is student population as a percentage of city population (during the school year). (i) Estimate the equation by pooled OLS and report the results in standard form. What do you make of the estimate on the 1990 dummy variable? What do you get for \\(\\hat{\\beta}_{pctstu}\\)? (ii) Are the standard errors you report in part (i) valid? Explain. (iii) Now, difference the equation and estimate by OLS. Compare your estimate of \\(\\beta_{pctstu}\\) with that from part (ii). Does the relative size of the student population appear to affect rental prices? (iv) Obtain the heteroskedasticity-robust standard errors for the first-differenced equation in part (iii). Does this change your conclusions?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Pooling Cross Sections across Time: Simple Panel Data Methods</span>"
+    ]
+  },
+  {
+    "objectID": "chapter13.html#c6-crime3",
+    "href": "chapter13.html#c6-crime3",
+    "title": "13  Pooling Cross Sections across Time: Simple Panel Data Methods",
+    "section": "13.6 C6 [CRIME3]",
+    "text": "13.6 C6 [CRIME3]\n\nUse CRIME3 for this exercise. (i) In the model of Example 13.6, test the hypothesis \\(H_0: \\beta_1 = \\beta_2\\). (Hint: Define \\(\\theta_1 = \\beta_1 - \\beta_2\\) and write \\(\\beta_1\\) in terms of \\(\\theta_1\\) and \\(\\beta_2\\). Substitute this into the equation and then rearrange. Do a \\(t\\) test on \\(\\theta_1\\).) (ii) If \\(\\beta_1 = \\beta_2\\), show that the differenced equation can be written as\n\\[\\Delta \\log(crime_i) = \\delta_0 + \\delta_1 \\Delta avgclr_i + \\Delta u_i,\\]\nwhere \\(\\delta_1 = 2\\beta_1\\) and \\(avgclr_i = (clrprc_{i,-1} + clrprc_{i,-2})/2\\) is the average clear-up percentage over the previous two years. (iii) Estimate the equation from part (ii). Compare the adjusted \\(R\\)-squared with that in (13.28). Which model would you finally use?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Pooling Cross Sections across Time: Simple Panel Data Methods</span>"
+    ]
+  },
+  {
+    "objectID": "chapter13.html#c7-gpa3",
+    "href": "chapter13.html#c7-gpa3",
+    "title": "13  Pooling Cross Sections across Time: Simple Panel Data Methods",
+    "section": "13.7 C7 [GPA3]",
+    "text": "13.7 C7 [GPA3]\n\nUse GPA3 for this exercise. The data set is for 366 student-athletes from a large university for fall and spring semesters. [A similar analysis is in Maloney and McCormick (1993), but here we use a true panel data set.] Because you have two terms of data for each student, an unobserved effects model is appropriate. The primary question of interest is this: Do athletes perform more poorly in school during the semester their sport is in season? (i) Use pooled OLS to estimate a model with term GPA (trmgpa) as the dependent variable. The explanatory variables are spring, sat, hsperc, female, black, white, frstsem, tothrs, crsgpa, and season. Interpret the coefficient on season. Is it statistically significant? (ii) Most of the athletes who play their sport only in the fall are football players. Suppose the ability levels of football players differ systematically from those of other athletes. If ability is not adequately captured by SAT score and high school percentile, explain why the pooled OLS estimators will be biased. (iii) Now, use the data differenced across the two terms. Which variables drop out? Now, test for an in-season effect. (iv) Can you think of one or more potentially important, time-varying variables that have been omitted from the analysis?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Pooling Cross Sections across Time: Simple Panel Data Methods</span>"
+    ]
+  },
+  {
+    "objectID": "chapter13.html#c8-vote2",
+    "href": "chapter13.html#c8-vote2",
+    "title": "13  Pooling Cross Sections across Time: Simple Panel Data Methods",
+    "section": "13.8 C8 [VOTE2]",
+    "text": "13.8 C8 [VOTE2]\n\nVOTE2 includes panel data on House of Representatives elections in 1988 and 1990. Only winners from 1988 who are also running in 1990 appear in the sample; these are the incumbents. An unobserved effects model explaining the share of the incumbent’s vote in terms of expenditures by both candidates is\n\\[vote_{it} = \\beta_0 + \\delta_0 d90_t + \\beta_1 \\log(inexp_{it}) + \\beta_2 \\log(chexp_{it}) + \\beta_3 incshr_{it} + a_i + u_{it},\\]\nwhere \\(incshr_{it}\\) is the incumbent’s share of total campaign spending (in percentage form). The unobserved effect \\(a_i\\) contains characteristics of the incumbent—such as “quality”—as well as things about the district that are constant. The incumbent’s gender and party are constant over time, so these are subsumed in \\(a_i\\). We are interested in the effect of campaign expenditures on election outcomes. (i) Difference the given equation across the two years and estimate the differenced equation by OLS. Which variables are individually significant at the 5% level against a two-sided alternative? (Use heteroskedasticity-robust standard errors.) (ii) In the equation from part (i), test for joint significance of \\(\\Delta \\log(inexp)\\) and \\(\\Delta \\log(chexp)\\). Report the \\(p\\)-value of a heteroskedasticity-robust test. (iii) Reestimate the equation from part (i) using \\(\\Delta incshr\\) as the only explanatory variable. Interpret the coefficient on \\(\\Delta incshr\\). For example, if the incumbent’s share of spending increases by 10 percentage points, how is this predicted to affect the incumbent’s share of the vote? (iv) Redo part (iii), but now use only the pairs that have repeat challengers. [This allows us to control for characteristics of the challengers as well, which would be in \\(a_i\\). Levitt (1994) conducts a much more extensive analysis.]",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Pooling Cross Sections across Time: Simple Panel Data Methods</span>"
+    ]
+  },
+  {
+    "objectID": "chapter13.html#c9-crime4",
+    "href": "chapter13.html#c9-crime4",
+    "title": "13  Pooling Cross Sections across Time: Simple Panel Data Methods",
+    "section": "13.9 C9 [CRIME4]",
+    "text": "13.9 C9 [CRIME4]\n\nUse CRIME4 for this exercise. (i) Add the logs of each wage variable in the data set and estimate the model by first differencing. How does including these variables affect the coefficients on the criminal justice variables in Example 13.9? (ii) Do the wage variables in (i) all have the expected sign? Are they jointly significant? Explain.",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Pooling Cross Sections across Time: Simple Panel Data Methods</span>"
+    ]
+  },
+  {
+    "objectID": "chapter13.html#c10-jtrain",
+    "href": "chapter13.html#c10-jtrain",
+    "title": "13  Pooling Cross Sections across Time: Simple Panel Data Methods",
+    "section": "13.10 C10 [JTRAIN]",
+    "text": "13.10 C10 [JTRAIN]\n\nFor this exercise, we use JTRAIN to determine the effect of the job training grant on hours of job training per employee. The basic model for the three years is\n\\[hrsemp_{it} = \\beta_0 + \\delta_1 d88_t + \\delta_2 d89_t + \\beta_1 grant_{it} + \\beta_2 grant_{i,t-1} + \\beta_3 \\log(employ_{it}) + a_i + u_{it}.\\]\n\nEstimate the equation using first differencing. How many firms are used in the estimation? How many total observations would be used if each firm had data on all variables (in particular, hrsemp) for all three time periods?\nInterpret the coefficient on grant and comment on its significance.\nIs it surprising that \\(grant_{-1}\\) is insignificant? Explain.\nDo larger firms train their employees more or less, on average? How big are the differences in training?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Pooling Cross Sections across Time: Simple Panel Data Methods</span>"
+    ]
+  },
+  {
+    "objectID": "chapter13.html#c11-mathpnl",
+    "href": "chapter13.html#c11-mathpnl",
+    "title": "13  Pooling Cross Sections across Time: Simple Panel Data Methods",
+    "section": "13.11 C11 [MATHPNL]",
+    "text": "13.11 C11 [MATHPNL]\n\nThe file MATHPNL contains panel data on school districts in Michigan for the years 1992 through 1998. It is the district-level analogue of the school-level data used by Papke (2005). The response variable of interest in this question is math4, the percentage of fourth graders in a district receiving a passing score on a standardized math test. The key explanatory variable is rexpp, which is real expenditures per pupil in the district. The amounts are in 1997 dollars. The spending variable will appear in logarithmic form. (i) Consider the static unobserved effects model\n\\[math4_{it} = \\delta_1 y93_t + \\dots + \\delta_6 y98_t + \\beta_1 \\log(rexpp_{it}) + \\beta_2 \\log(enrol_{it}) + \\beta_3 lunch_{it} + a_i + u_{it},\\]\nwhere \\(enrol_{it}\\) is total district enrollment and \\(lunch_{it}\\) is the percentage of students in the district eligible for the school lunch program. (So \\(lunch_{it}\\) is a pretty good measure of the district-wide poverty rate.) Argue that \\(\\beta_1/10\\) is the percentage point change in \\(math4_{it}\\) when real per-student spending increases by roughly 10%. (ii) Use first differencing to estimate the model in part (i). The simplest approach is to allow an intercept in the first-differenced equation and to include dummy variables for the years 1994 through 1998. Interpret the coefficient on the spending variable. (iii) Now, add one lag of the spending variable to the model and reestimate using first differencing. Note that you lose another year of data, so you are only using changes starting in 1994. Discuss the coefficients and significance on the current and lagged spending variables. (iv) Obtain heteroskedasticity-robust standard errors for the first-differenced regression in part (iii). How do these standard errors compare with those from part (iii) for the spending variables? (v) Now, obtain standard errors robust to both heteroskedasticity and serial correlation. What does this do to the significance of the lagged spending variable? (vi) Verify that the differenced errors \\(r_{it} = \\Delta u_{it}\\) have negative serial correlation by carrying out a test of AR(1) serial correlation. (vii) Based on a fully robust joint test, does it appear necessary to include the enrollment and lunch variables in the model?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Pooling Cross Sections across Time: Simple Panel Data Methods</span>"
+    ]
+  },
+  {
+    "objectID": "chapter13.html#c12-murder",
+    "href": "chapter13.html#c12-murder",
+    "title": "13  Pooling Cross Sections across Time: Simple Panel Data Methods",
+    "section": "13.12 C12 [MURDER]",
+    "text": "13.12 C12 [MURDER]\n\nUse the data in MURDER for this exercise. (i) Using the years 1990 and 1993, estimate the equation\n\\[mrdrte_{it} = \\delta_0 + \\delta_1 d93_t + \\beta_1 exec_{it} + \\beta_2 unem_{it} + a_i + u_{it}, t = 1, 2\\]\nby pooled OLS and report the results in the usual form. Do not worry that the usual OLS standard errors are inappropriate because of the presence of \\(a_i\\). Do you estimate a deterrent effect of capital punishment?\n\n\n\nCompute the FD estimates (use only the differences from 1990 to 1993; you should have 51 observations in the FD regression). Now what do you conclude about a deterrent effect?\nIn the FD regression from part (ii), obtain the residuals, say, \\(\\hat{e}_i\\). Run the Breusch-Pagan regression \\(\\hat{e}_i^2\\) on \\(\\Delta exec_i\\), \\(\\Delta unem_i\\) and compute the \\(F\\) test for heteroskedasticity. Do the same for the special case of the White test [that is, regress \\(\\hat{e}_i^2\\) on \\(\\hat{y}_i, \\hat{y}_i^2\\), where the fitted values are from part (ii)]. What do you conclude about heteroskedasticity in the FD equation?\nRun the same regression from part (ii), but obtain the heteroskedasticity-robust \\(t\\) statistics. What happens?\nWhich \\(t\\) statistic on \\(\\Delta exec_i\\) do you feel more comfortable relying on, the usual one or the heteroskedasticity-robust one? Why?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Pooling Cross Sections across Time: Simple Panel Data Methods</span>"
+    ]
+  },
+  {
+    "objectID": "chapter13.html#c13-wagepan",
+    "href": "chapter13.html#c13-wagepan",
+    "title": "13  Pooling Cross Sections across Time: Simple Panel Data Methods",
+    "section": "13.13 C13 [WAGEPAN]",
+    "text": "13.13 C13 [WAGEPAN]\n\nUse the data in WAGEPAN for this exercise. (i) Consider the unobserved effects model\n\\[lwage_{it} = \\beta_0 + \\delta_1 d81_t + \\dots + \\delta_7 d87_t + \\beta_1 educ_i + \\gamma_1 d81_t educ_i + \\dots + \\delta_7 d87_t educ_i + \\beta_2 union_{it} + a_i + u_{it},\\]\nwhere \\(a_i\\) is allowed to be correlated with \\(educ_i\\) and \\(union_{it}\\). Which parameters can you estimate using first differencing? (ii) Estimate the equation from part (i) by FD, and test the null hypothesis that the return to education has not changed over time. (iii) Test the hypothesis from part (ii) using a fully robust test, that is, one that allows arbitrary heteroskedasticity and serial correlation in the FD errors, \\(\\Delta u_{it}\\). Does your conclusion change? (iv) Now allow the union differential to change over time (along with education) and estimate the equation by FD. What is the estimated union differential in 1980? What about 1987? Is the difference statistically significant? (v) Test the null hypothesis that the union differential has not changed over time, and discuss your results in light of your answer to part (iv).",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Pooling Cross Sections across Time: Simple Panel Data Methods</span>"
+    ]
+  },
+  {
+    "objectID": "chapter13.html#c14-jtrain3",
+    "href": "chapter13.html#c14-jtrain3",
+    "title": "13  Pooling Cross Sections across Time: Simple Panel Data Methods",
+    "section": "13.14 C14 [JTRAIN3]",
+    "text": "13.14 C14 [JTRAIN3]\n\nUse the data in JTRAIN3 for this exercise. (i) Estimate the simple regression model \\(re78 = \\beta_0 + \\beta_1 train + u\\), and report the results in the usual form. Based on this regression, does it appear that job training, which took place in 1976 and 1977, had a positive effect on real labor earnings in 1978? (ii) Now use the change in real labor earnings, \\(cre = re78 - re75\\), as the dependent variable. (We need not difference train because we assume there was no job training prior to 1975. That is, if we define \\(ctrain = train78 - train75\\) then \\(ctrain = train78\\) because \\(train75 = 0\\).) Now what is the estimated effect of training? Discuss how it compares with the estimate in part (i). (iii) Find the 95% confidence interval for the training effect using the usual OLS standard error and the heteroskedasticity-robust standard error, and describe your findings.",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Pooling Cross Sections across Time: Simple Panel Data Methods</span>"
+    ]
+  },
+  {
+    "objectID": "chapter13.html#c15-happiness",
+    "href": "chapter13.html#c15-happiness",
+    "title": "13  Pooling Cross Sections across Time: Simple Panel Data Methods",
+    "section": "13.15 C15 [HAPPINESS]",
+    "text": "13.15 C15 [HAPPINESS]\n\nThe data set HAPPINESS contains independently pooled cross sections for the even years from 1994 through 2006, obtained from the General Social Survey. The dependent variable for this problem is a measure of “happiness,” vhappy, which is a binary variable equal to one if the person reports being “very happy” (as opposed to just “pretty happy” or “not too happy”). (i) Which year has the largest number of observations? Which has the smallest? What is the percentage of people in the sample reporting they are “very happy”? (ii) Regress vhappy on all of the year dummies, leaving out \\(y94\\) so that 1994 is the base year. Compute a heteroskedasticity-robust statistic of the null hypothesis that the proportion of very happy people has not changed over time. What is the \\(p\\)-value of the test? (iii) To the regression in part (ii), add the dummy variables occttend and regattend. Interpret their coefficients. (Remember, the coefficients are interpreted relative to a base group.) How would you summarize the effects of church attendance on happiness? (iv) Define a variable, say highinc, equal to one if family income is above $25,000. (Unfortunately, the same threshold is used in each year, and so inflation is not accounted for.)\n\n…Also, $25,000 is hardly what one would consider “high income.”) Include highinc, unem10, educ, and teens in the regression in part (iii). Is the coefficient on regattend affected much? What about its statistical significance? &gt; (v) Discuss the signs, magnitudes, and statistical significance of the four new variables in part (iv). Do the estimates make sense? &gt; (vi) Controlling for the factors in part (iv), do there appear to be differences in happiness by gender or race? Justify your answer.",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Pooling Cross Sections across Time: Simple Panel Data Methods</span>"
+    ]
+  },
+  {
+    "objectID": "chapter13.html#c16-countymurders",
+    "href": "chapter13.html#c16-countymurders",
+    "title": "13  Pooling Cross Sections across Time: Simple Panel Data Methods",
+    "section": "13.16 C16 [COUNTYMURDERS]",
+    "text": "13.16 C16 [COUNTYMURDERS]\n\nUse the data in COUNTYMURDERS for this exercise. The data set covers murders and executions (capital punishment) for 2,197 counties in the United States. (i) Find the average value of murdrate across all counties and years. What is the standard deviation? For what percentage of the sample is murdrate equal to zero? (ii) How many observations have execs equal to zero? What is the maximum value of execs? Why is the average of execs so small? (iii) Consider the model\n\\[murdrate_{it} = \\theta_t + \\beta_1 execs_{it} + \\beta_2 execs_{i,t-1} + \\beta_3 percblack_{it} + \\beta_4 percmale_{it} + \\beta_5 perc1019_{it} + \\beta_6 perc2029_{it} + a_i + u_{it},\\]\nwhere \\(\\theta_t\\) represents a different intercept for each time period, \\(a_i\\) is the county fixed effect, and \\(u_{it}\\) is the idiosyncratic error. What do we need to assume about \\(a_i\\) and the execution variables in order for pooled OLS to consistently estimate the parameters, in particular, \\(\\beta_1\\) and \\(\\beta_2\\)? (iv) Apply OLS to the equation from part (ii) and report the estimates of \\(\\beta_1\\) and \\(\\beta_2\\), along with the usual pooled OLS standard errors. Do you estimate that executions have a deterrent effect on murders? What do you think is happening? (v) Even if the pooled OLS estimators are consistent, do you trust the standard errors obtained from part (iv)? Explain. (vi) Now estimate the equation in part (iii) using first differencing to remove \\(a_i\\). What are the new estimates of \\(\\beta_1\\) and \\(\\beta_2\\)? Are they very different from the estimates from part (iv)? (vii) Using the estimates from part (vi), can you say there is evidence of a statistically significant deterrent effect of capital punishment on the murder rate? If possible, in addition to the usual OLS standard errors, use those that are robust to any kind of serial correlation or heteroskedasticity in the FD errors.",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Pooling Cross Sections across Time: Simple Panel Data Methods</span>"
+    ]
+  },
+  {
+    "objectID": "chapter13.html#c17-wage_train",
+    "href": "chapter13.html#c17-wage_train",
+    "title": "13  Pooling Cross Sections across Time: Simple Panel Data Methods",
+    "section": "13.17 C17 [WAGE_TRAIN]",
+    "text": "13.17 C17 [WAGE_TRAIN]\n\nUse the data in WAGE_TRAIN to answer the following questions. This is a repeated cross section on two industries, \\(A\\) and \\(B\\), over \\(T = 3\\) time periods. The years 2001 and 2002 are the pre-job training years, and the workers in industry \\(B\\) received training before their earnings were measured in 2003. (i) How many workers are in the data set in each of the three years? What is the average wage across the three years? How many workers received job training in 2003? (ii) Estimate an equation for the log of wage, lwage, that includes the time dummies d2002 and d2003, the dummy variable dB, and the variable \\(train = dB \\cdot d2003\\). What is the estimated effect of the job training program? Report the result in (approximate) percentage terms. Does it seem practically large? Is it statistically significant when you use heteroskedasticity-robust standard errors? (iii) Now use only 2002 and 2003 and run a regression of lwage on d2003, indB, and train. Now what is the estimated job training effect? How does its precision compare with part (ii)? Why? (iv) Now use all three years of data, but add \\(indB \\cdot d2001\\) to the regression in part (i). This is the so-called event-study regression. How does the estimate on train compare with that in part (iii)? (v) In part (iv), do you find statistically significant evidence of pre-trends? Report a statistic and \\(p\\)-value to justify your answer. (vi) In part (iv), replace \\(indB \\cdot d2001\\) with \\(indB \\cdot t\\). Verify that the test statistic for pre-trends is the same in absolute value as that in part (v). How about the estimated treatment effect and its precision?\n\n\n\nIn part (iv), replace \\(indB \\cdot d2001\\) with \\(indB \\cdot d2002\\) and report the test for pre-trends. Do you notice anything? What about the estimated treatment effect and its precision?\nWhy do you think the estimator obtained from (ii) has the smallest standard error of all of the estimators of the treatment effect?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Pooling Cross Sections across Time: Simple Panel Data Methods</span>"
+    ]
+  },
+  {
+    "objectID": "chapter13.html#c18-thefts",
+    "href": "chapter13.html#c18-thefts",
+    "title": "13  Pooling Cross Sections across Time: Simple Panel Data Methods",
+    "section": "13.18 C18 [THEFTS]",
+    "text": "13.18 C18 [THEFTS]\n\nThe data set THEFTS comes from the paper by Di Tella and Schargrodsky (2004), who study the effects of increased police presence on automobile thefts at the block level in Buenos Aires, Argentina. After a terrorist attack on the main Jewish center in Buenos Aires in July 1994, all Jewish institutions were provided with additional police protection. Di Tella and Schargrodsky study the effects of the observable police presence on car thefts. For this exercise, use only the two-period panel data set for June (indicated by \\(month = 6\\) in the data set) and August (\\(month = 8\\)). The attack happened in July and so that month is skipped in the analysis.\n\nHow many blocks are included in the data set? Describe the nature of the outcome variable, thefts. How come it is not always an integer? How frequently is it zero?\nThe variable sameblock indicates increased police presence after the terrorist attack. (The variable treat varies over time for the treated blocks and is zero before the terrorist attack for all blocks. It contains the same information as sameblock, but it is a bit easier to use sameblock for this exercise.) How many blocks are in the treated group? What percentage is this of the total number of blocks?\nObtain the difference-in-differences estimate by regressing \\(\\Delta thefts_i\\) on \\(sameblock_i\\) (including an intercept, as always), where \\(\\Delta thefts_i\\) is the change from June to August for block \\(i\\). What is the estimated treatment effect? Does its statistical significance depend on whether you use the usual or heteroskedasticity-robust standard error?\nInterpret the estimated effect in part (iii). How does the magnitude of the effect compare with the average thefts in June 1994? Do you think the effect is practically large?\nWhat percentage of the blocks include a bank? If you add \\(bank_i\\) to the regression in part (iii), does the estimated treatment effect change much?\nHow many “treated” blocks also include a bank? If you add the interaction \\(sameblock_i \\cdot bank_i\\) to the regression in part (v)—so \\(sameblock_i\\), \\(bank_i\\), and \\(sameblock_i \\cdot bank_i\\) are the regressors—is it surprising that the interaction is insignificant? Is the estimated effect practically large?",
+    "crumbs": [
+      "PART 3: Advanced Topics",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Pooling Cross Sections across Time: Simple Panel Data Methods</span>"
+    ]
+  },
+  {
     "objectID": "chapter14.html",
     "href": "chapter14.html",
     "title": "14  Advanced Panel Data Methods",
     "section": "",
-    "text": "14.1 C1 [RENTAL]\nMy apologies for missing the template earlier. I appreciate you calling me out on it. Here is the text extracted from the image, formatted exactly to your specifications.",
+    "text": "14.1 C1 [RENTAL]",
     "crumbs": [
       "PART 3: Advanced Topics",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Advanced Panel Data Methods</span>"

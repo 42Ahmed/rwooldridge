@@ -46,9 +46,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-66c9649715f74f1e4324758aa2390964.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-b44ccea540e06768bee7c3f9d372997f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-66c9649715f74f1e4324758aa2390964.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-44ee0976171e9be92e6ebe9be850cd66.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-553af08a658bbaf7848ab84c12977b10.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-44ee0976171e9be92e6ebe9be850cd66.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -77,6 +77,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -435,8 +464,34 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#c1-gpa1" id="toc-c1-gpa1" class="nav-link active" data-scroll-target="#c1-gpa1"><span class="header-section-number">7.1</span> C1 [GPA1]</a></li>
+  <li><a href="#c2-wage2" id="toc-c2-wage2" class="nav-link" data-scroll-target="#c2-wage2"><span class="header-section-number">7.2</span> C2 [WAGE2]</a></li>
+  <li><a href="#c3-mlb1" id="toc-c3-mlb1" class="nav-link" data-scroll-target="#c3-mlb1"><span class="header-section-number">7.3</span> C3 [MLB1]</a></li>
+  <li><a href="#c4-gpa2" id="toc-c4-gpa2" class="nav-link" data-scroll-target="#c4-gpa2"><span class="header-section-number">7.4</span> C4 [GPA2]</a></li>
+  <li><a href="#c5-ceosal1" id="toc-c5-ceosal1" class="nav-link" data-scroll-target="#c5-ceosal1"><span class="header-section-number">7.5</span> C5 [CEOSAL1]</a></li>
+  <li><a href="#c6-sleep75" id="toc-c6-sleep75" class="nav-link" data-scroll-target="#c6-sleep75"><span class="header-section-number">7.6</span> C6 [SLEEP75]</a></li>
+  <li><a href="#c7-wage1" id="toc-c7-wage1" class="nav-link" data-scroll-target="#c7-wage1"><span class="header-section-number">7.7</span> C7 [WAGE1]</a></li>
+  <li><a href="#c8-loanapp" id="toc-c8-loanapp" class="nav-link" data-scroll-target="#c8-loanapp"><span class="header-section-number">7.8</span> C8 [LOANAPP]</a></li>
+  <li><a href="#c9-401ksubs" id="toc-c9-401ksubs" class="nav-link" data-scroll-target="#c9-401ksubs"><span class="header-section-number">7.9</span> C9 [401KSUBS]</a></li>
+  <li><a href="#c10-nbasal" id="toc-c10-nbasal" class="nav-link" data-scroll-target="#c10-nbasal"><span class="header-section-number">7.10</span> <strong>C10 [NBASAL]</strong></a></li>
+  <li><a href="#c11-401ksubs" id="toc-c11-401ksubs" class="nav-link" data-scroll-target="#c11-401ksubs"><span class="header-section-number">7.11</span> <strong>C11 [401KSUBS]</strong></a></li>
+  <li><a href="#c12-beauty" id="toc-c12-beauty" class="nav-link" data-scroll-target="#c12-beauty"><span class="header-section-number">7.12</span> <strong>C12 [BEAUTY]</strong></a>
+  <ul class="collapse">
+  <li><a href="#c13-apple" id="toc-c13-apple" class="nav-link" data-scroll-target="#c13-apple"><span class="header-section-number">7.12.1</span> <strong>C13 [APPLE]</strong></a></li>
+  <li><a href="#c14-charity" id="toc-c14-charity" class="nav-link" data-scroll-target="#c14-charity"><span class="header-section-number">7.12.2</span> <strong>C14 [CHARITY]</strong></a></li>
+  </ul></li>
+  <li><a href="#c15-fertil2" id="toc-c15-fertil2" class="nav-link" data-scroll-target="#c15-fertil2"><span class="header-section-number">7.13</span> <strong>C15 [FERTIL2]</strong></a></li>
+  <li><a href="#c16-catholic" id="toc-c16-catholic" class="nav-link" data-scroll-target="#c16-catholic"><span class="header-section-number">7.14</span> <strong>C16 [CATHOLIC]</strong></a></li>
+  <li><a href="#c17-jtrain98" id="toc-c17-jtrain98" class="nav-link" data-scroll-target="#c17-jtrain98"><span class="header-section-number">7.15</span> <strong>C17 [JTRAIN98]</strong></a></li>
+  <li><a href="#c18-jtrain98" id="toc-c18-jtrain98" class="nav-link" data-scroll-target="#c18-jtrain98"><span class="header-section-number">7.16</span> C18 [JTRAIN98]</a></li>
+  <li><a href="#c19-caloil" id="toc-c19-caloil" class="nav-link" data-scroll-target="#c19-caloil"><span class="header-section-number">7.17</span> C19 [CALOIL]</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -461,8 +516,149 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="c1-gpa1" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="c1-gpa1"><span class="header-section-number">7.1</span> C1 [GPA1]</h2>
+<blockquote class="blockquote">
+<p>Use the data in GPA1 for this exercise. (i) Add the variables <code>mothcoll</code> and <code>fathcoll</code> to the equation estimated in (7.6) and report the results in the usual form. What happens to the estimated effect of PC ownership? Is <code>PC</code> still statistically significant? (ii) Test for joint significance of <code>mothcoll</code> and <code>fathcoll</code> in the equation from part (i) and be sure to report the <span class="math inline">\(p\)</span>-value. (iii) Add <span class="math inline">\(hsGPA^2\)</span> to the model from part (i) and decide whether this generalization is needed.</p>
+</blockquote>
+</section>
+<section id="c2-wage2" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="c2-wage2"><span class="header-section-number">7.2</span> C2 [WAGE2]</h2>
+<blockquote class="blockquote">
+<p>Use the data in WAGE2 for this exercise. (i) Estimate the model</p>
+<p><span class="math display">\[\log(wage) = \beta_0 + \beta_1 educ + \beta_2 exper + \beta_3 tenure + \beta_4 married + \beta_5 black + \beta_6 south + \beta_7 urban + u\]</span></p>
+<p>and report the results in the usual form. Holding other factors fixed, what is the approximate difference in monthly salary between blacks and nonblacks? Is this difference statistically significant? (ii) Add the variables <span class="math inline">\(exper^2\)</span> and <span class="math inline">\(tenure^2\)</span> to the equation and show that they are jointly insignificant at even the 20% level. (iii) Extend the original model to allow the return to education to depend on race and test whether the return to education does depend on race. (iv) Again, start with the original model, but now allow wages to differ across four groups of people: married and black, married and nonblack, single and black, and single and nonblack. What is the estimated wage differential between married blacks and married nonblacks?</p>
+</blockquote>
+</section>
+<section id="c3-mlb1" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="c3-mlb1"><span class="header-section-number">7.3</span> C3 [MLB1]</h2>
+<blockquote class="blockquote">
+<p>A model that allows major league baseball player salary to differ by position is</p>
+<p><span class="math display">\[\log(salary) = \beta_0 + \beta_1 years + \beta_2 gamesyr + \beta_3 bavg + \beta_4 hrunsy + \beta_5 rbisyr + \beta_6 runsyr + \beta_7 fldperc + \beta_8 allstar + \beta_9 frstbase + \beta_{10} scndbase + \beta_{11} thrdbase + \beta_{12} shrtstop + \beta_{13} catcher + u,\]</span></p>
+<p>where <code>outfield</code> is the base group.</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol type="i">
+<li>State the null hypothesis that, controlling for other factors, catchers and outfielders earn, on average, the same amount. Test this hypothesis using the data in MLB1 and comment on the size of the estimated salary differential.</li>
+<li>State and test the null hypothesis that there is no difference in average salary across positions, once other factors have been controlled for.</li>
+<li>Are the results from parts (i) and (ii) consistent? If not, explain what is happening.</li>
+</ol>
+</blockquote>
+</section>
+<section id="c4-gpa2" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="c4-gpa2"><span class="header-section-number">7.4</span> C4 [GPA2]</h2>
+<blockquote class="blockquote">
+<p>Use the data in GPA2 for this exercise. (i) Consider the equation</p>
+<p><span class="math display">\[colgpa = \beta_0 + \beta_1 hsize + \beta_2 hsize^2 + \beta_3 hsperc + \beta_4 sat + \beta_5 female + \beta_6 athlete + u,\]</span></p>
+<p>where <code>colgpa</code> is cumulative college grade point average; <code>hsize</code> is size of high school graduating class, in hundreds; <code>hsperc</code> is academic percentile in graduating class; <code>sat</code> is combined SAT score; <code>female</code> is a binary gender variable; and <code>athlete</code> is a binary variable, which is equal to one for student athletes. What are your expectations for the coefficients in this equation? Which ones are you unsure about? (ii) Estimate the equation in part (i) and report the results in the usual form. What is the estimated GPA differential between athletes and nonathletes? Is it statistically significant? (iii) Drop <code>sat</code> from the model and reestimate the equation. Now, what is the estimated effect of being an athlete? Discuss why the estimate is different than that obtained in part (ii). (iv) In the model from part (i), allow the effect of being an athlete to differ by gender and test the null hypothesis that there is no ceteris paribus difference between women athletes and women nonathletes. (v) Does the effect of <code>sat</code> on <code>colgpa</code> differ by gender? Justify your answer.</p>
+</blockquote>
+</section>
+<section id="c5-ceosal1" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="c5-ceosal1"><span class="header-section-number">7.5</span> C5 [CEOSAL1]</h2>
+<blockquote class="blockquote">
+<p>In Problem 2 in Chapter 4, we added the return on the firm’s stock, <code>ros</code>, to a model explaining CEO salary; <code>ros</code> turned out to be insignificant. Now, define a dummy variable, <code>rosneg</code>, which is equal to one if <span class="math inline">\(ros &lt; 0\)</span> and equal to zero if <span class="math inline">\(ros \geq 0\)</span>. Use CEOSAL1 to estimate the model</p>
+<p><span class="math display">\[\log(salary) = \beta_0 + \beta_1 \log(sales) + \beta_2 roe + \beta_3 rosneg + u.\]</span></p>
+<p>Discuss the interpretation and statistical significance of <span class="math inline">\(\hat{\beta}_3\)</span>.</p>
+</blockquote>
+</section>
+<section id="c6-sleep75" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="c6-sleep75"><span class="header-section-number">7.6</span> C6 [SLEEP75]</h2>
+<blockquote class="blockquote">
+<p>Use the data in SLEEP75 for this exercise. The equation of interest is</p>
+<p><span class="math display">\[sleep = \beta_0 + \beta_1 totwrk + \beta_2 educ + \beta_3 age + \beta_4 age^2 + \beta_5 yngkid + u.\]</span></p>
+<ol type="i">
+<li>Estimate this equation separately for men and women and report the results in the usual form. Are there notable differences in the two estimated equations?</li>
+<li>Compute the Chow test for equality of the parameters in the sleep equation for men and women. Use the form of the test that adds <code>male</code> and the interaction terms <span class="math inline">\(male \cdot totwrk, \dots, male \cdot yngkid\)</span> and uses the full set of observations. What are the relevant <span class="math inline">\(df\)</span> for the test? Should you reject the null at the 5% level?</li>
+<li>Now, allow for a different intercept for males and females and determine whether the interaction terms involving <code>male</code> are jointly significant.</li>
+<li>Given the results from parts (ii) and (iii), what would be your final model?</li>
+</ol>
+</blockquote>
+</section>
+<section id="c7-wage1" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="c7-wage1"><span class="header-section-number">7.7</span> C7 [WAGE1]</h2>
+<blockquote class="blockquote">
+<p>Use the data in WAGE1 for this exercise. (i) Use equation (7.18) to estimate the gender differential when <span class="math inline">\(educ = 12.5\)</span>, which is very close to the average education in the sample. Compare this with the estimated differential when <span class="math inline">\(educ = 0\)</span>.</p>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="2" type="i">
+<li>Run the regression used to obtain (7.18), but with <span class="math inline">\(female \cdot (educ - 12.5)\)</span> replacing <span class="math inline">\(female \cdot educ\)</span>. How do you interpret the coefficient on <code>female</code> now?</li>
+<li>Is the coefficient on <code>female</code> in part (ii) statistically significant? Compare this with (7.18) and comment.</li>
+</ol>
+</blockquote>
+</section>
+<section id="c8-loanapp" class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="c8-loanapp"><span class="header-section-number">7.8</span> C8 [LOANAPP]</h2>
+<blockquote class="blockquote">
+<p>Use the data in LOANAPP for this exercise. The binary variable to be explained is <code>approve</code>, which is equal to one if a mortgage loan to an individual was approved. The key explanatory variable is <code>white</code>, a dummy variable equal to one if the applicant was white. The other applicants in the data set are black and Hispanic. To test for discrimination in the mortgage loan market, a linear probability model can be used:</p>
+<p><span class="math display">\[approve = \beta_0 + \beta_1 white + \text{other factors}.\]</span></p>
+<ol type="i">
+<li>If there is discrimination against minorities, and the appropriate factors have been controlled for, what is the sign of <span class="math inline">\(\beta_1\)</span>?</li>
+<li>Regress <code>approve</code> on <code>white</code> and report the results in the usual form. Interpret the coefficient on <code>white</code>. Is it statistically significant? Is it practically large?</li>
+<li>As controls, add the variables <code>hrat</code>, <code>obrat</code>, <code>loanprc</code>, <code>unem</code>, <code>male</code>, <code>married</code>, <code>dep</code>, <code>sch</code>, <code>cosign</code>, <code>chist</code>, <code>pubrec</code>, <code>mortlat1</code>, <code>mortlat2</code>, and <code>vr</code>. What happens to the coefficient on <code>white</code>? Is there still evidence of discrimination against nonwhites?</li>
+<li>Now, allow the effect of race to interact with the variable measuring other obligations as a percentage of income (<code>obrat</code>). Is the interaction term significant?</li>
+<li>Using the model from part (iv), what is the effect of being white on the probability of approval when <span class="math inline">\(obrat = 32\)</span>, which is roughly the mean value in the sample? Obtain a 95% confidence interval for this effect.</li>
+</ol>
+</blockquote>
+</section>
+<section id="c9-401ksubs" class="level2" data-number="7.9">
+<h2 data-number="7.9" class="anchored" data-anchor-id="c9-401ksubs"><span class="header-section-number">7.9</span> C9 [401KSUBS]</h2>
+<blockquote class="blockquote">
+<p>There has been much interest in whether the presence of 401(k) pension plans, available to many U.S. workers, increases net savings. The data set 401KSUBS contains information on net financial assets (<code>nettfa</code>), family income (<code>inc</code>), a binary variable for eligibility in a 401(k) plan (<code>e401k</code>), and several other variables. (i) What fraction of the families in the sample are eligible for participation in a 401(k) plan? (ii) Estimate a linear probability model explaining 401(k) eligibility in terms of income, age, and gender. Include income and age in quadratic form, and report the results in the usual form. (iii) Would you say that 401(k) eligibility is independent of income and age? What about gender? Explain. (iv) Obtain the fitted values from the linear probability model estimated in part (ii). Are any fitted values negative or greater than one? (v) Using the fitted values <span class="math inline">\(\hat{e401k}_i\)</span> from part (iv), define <span class="math inline">\(\tilde{e401k}_i = 1\)</span> if <span class="math inline">\(\hat{e401k}_i \geq 0.5\)</span> and <span class="math inline">\(\tilde{e401k}_i = 0\)</span> if <span class="math inline">\(\hat{e401k}_i &lt; 0.5\)</span>. Out of 9,275 families, how many are predicted to be eligible for a 401(k) plan? (vi) For the 5,638 families not eligible for a 401(k) plan, what percentage of these are predicted not to be eligible, using the predictor <span class="math inline">\(\tilde{e401k}_i\)</span>? For the 3,637 families eligible for a 401(k) plan, what percentage are predicted to be eligible? (It is helpful if your econometrics package has a “tabulate” command.) (vii) The overall percent correctly predicted is about 64.9%. Do you think this is a complete description of how well the model does, given your answers in part (vi)? (viii) Add the variable <code>pira</code> as an explanatory variable to the linear probability model. Other things equal, if a family has someone with an individual retirement account, how much higher is the estimated probability that the family is eligible for a 401(k) plan? Is it statistically different from zero at the 10% level?</p>
+</blockquote>
+<p>I have transcribed the content from the provided images, which feature econometrics computer exercises.</p>
+</section>
+<section id="c10-nbasal" class="level2" data-number="7.10">
+<h2 data-number="7.10" class="anchored" data-anchor-id="c10-nbasal"><span class="header-section-number">7.10</span> <strong>C10 [NBASAL]</strong></h2>
+<p>Use the data in <strong>NBASAL</strong> for this exercise. * <strong>(i)</strong> Estimate a linear regression model relating points per game to experience in the league and position (guard, forward, or center). Include experience in quadratic form and use centers as the base group. Report the results in the usual form. * <strong>(ii)</strong> Why do you not include all three position dummy variables in part (i)? * <strong>(iii)</strong> Holding experience fixed, does a guard score more than a center? How much more? Is the difference statistically significant? * <strong>(iv)</strong> Now, add marital status to the equation. Holding position and experience fixed, are married players more productive (based on points per game)? * <strong>(v)</strong> Add interactions of marital status with both experience variables. In this expanded model, is there strong evidence that marital status affects points per game? * <strong>(vi)</strong> Estimate the model from part (iv) but use assists per game as the dependent variable. Are there any notable differences from part (iv)? Discuss.</p>
+<hr>
+</section>
+<section id="c11-401ksubs" class="level2" data-number="7.11">
+<h2 data-number="7.11" class="anchored" data-anchor-id="c11-401ksubs"><span class="header-section-number">7.11</span> <strong>C11 [401KSUBS]</strong></h2>
+<p>Use the data in <strong>401KSUBS</strong> for this exercise. * <strong>(i)</strong> Compute the average, standard deviation, minimum, and maximum values of <span class="math inline">\(netfa\)</span> in the sample. * <strong>(ii)</strong> Test the hypothesis that average <span class="math inline">\(netfa\)</span> does not differ by 401(k) eligibility status; use a two-sided alternative. What is the dollar amount of the estimated difference? * <strong>(iii)</strong> From part (ii) of Computer Exercise C9, it is clear that <span class="math inline">\(e401k\)</span> is not exogenous in a simple regression model; at a minimum, it changes by income and age. Estimate a multiple linear regression model for <span class="math inline">\(netfa\)</span> that includes income, age, and <span class="math inline">\(e401k\)</span> as explanatory variables. The income and age variables should appear as quadratics. Now, what is the estimated dollar effect of 401(k) eligibility? * <strong>(iv)</strong> To the model estimated in part (iii), add the interactions <span class="math inline">\(e401k \cdot (age - 41)\)</span> and <span class="math inline">\(e401k \cdot (age - 41)^2\)</span>. Note that the average age in the sample is about 41, so that in the new model, the coefficient on <span class="math inline">\(e401k\)</span> is the estimated effect of 401(k) eligibility at the average age. Which interaction term is significant? * <strong>(v)</strong> Comparing the estimates from parts (iii) and (iv), do the estimated effects of 401(k) eligibility at age 41 differ much? Explain. * <strong>(vi)</strong> Now, drop the interaction terms from the model, but define five family size dummy variables: <span class="math inline">\(fsize1\)</span>, <span class="math inline">\(fsize2\)</span>, <span class="math inline">\(fsize3\)</span>, <span class="math inline">\(fsize4\)</span>, and <span class="math inline">\(fsize5\)</span>. The variable <span class="math inline">\(fsize5\)</span> is unity for families with five or more members. Include the family size dummies in the model estimated from part (iii); be sure to choose a base group. Are the family dummies significant at the 1% level? * <strong>(vii)</strong> Now, do a Chow test for the model <span class="math display">\[nettfa = \beta_0 + \beta_1 inc + \beta_2 inc^2 + \beta_3 age + \beta_4 age^2 + \beta_5 e401k + u\]</span> across the five family size categories, allowing for intercept differences. The restricted sum of squared residuals, <span class="math inline">\(SSR_r\)</span>, is obtained from part (vi) because that regression assumes all slopes are the same. The unrestricted sum of squared residuals is <span class="math inline">\(SSR_{ur} = SSR_1 + SSR_2 + \dots + SSR_5\)</span>, where <span class="math inline">\(SSR_f\)</span> is the sum of squared residuals for the equation estimated using only family size <span class="math inline">\(f\)</span>. You should convince yourself that there are 30 parameters in the unrestricted model (5 intercepts plus 25 slopes) and 10 parameters in the restricted model (5 intercepts plus 5 slopes). Therefore, the number of restrictions being tested is <span class="math inline">\(q = 20\)</span>, and the <span class="math inline">\(df\)</span> for the unrestricted model is <span class="math inline">\(9,275 - 30 = 9,245\)</span>.</p>
+<hr>
+</section>
+<section id="c12-beauty" class="level2" data-number="7.12">
+<h2 data-number="7.12" class="anchored" data-anchor-id="c12-beauty"><span class="header-section-number">7.12</span> <strong>C12 [BEAUTY]</strong></h2>
+<p>Use the data set in <strong>BEAUTY</strong>, which contains a subset of the variables (but more usable observations than in the regressions) reported by Hamermesh and Biddle (1994). * <strong>(i)</strong> Find the separate fractions of men and women that are classified as having above average looks. Are more people rated as having above average or below average looks? * <strong>(ii)</strong> Test the null hypothesis that the population fractions of above-average-looking women and men are the same. Report the one-sided <span class="math inline">\(p\)</span>-value that the fraction is higher for women. (<em>Hint</em>: Estimating a simple linear probability model is easiest.) * <strong>(iii)</strong> Estimate the model <span class="math inline">\(\log(wage) = \beta_0 + \beta_1belavg + \beta_2abvavg + u\)</span> separately for men and women and report the results in the usual form. Interpret the coefficient on <span class="math inline">\(belavg\)</span> in each case. State the hypothesis <span class="math inline">\(H_0: \beta_1 = 0\)</span> against <span class="math inline">\(H_1: \beta_1 &lt; 0\)</span> in words, and find the <span class="math inline">\(p\)</span>-values for both men and women. * <strong>(iv)</strong> Is there convincing evidence that women with above-average looks earn more than women with average looks? Explain. * <strong>(v)</strong> Add explanatory variables including <span class="math inline">\(educ\)</span>, <span class="math inline">\(exper\)</span>, <span class="math inline">\(exper^2\)</span>, <span class="math inline">\(union\)</span>, <span class="math inline">\(goodhlth\)</span>, <span class="math inline">\(black\)</span>, <span class="math inline">\(married\)</span>, <span class="math inline">\(south\)</span>, <span class="math inline">\(bigcity\)</span>, <span class="math inline">\(smllcity\)</span>, and <span class="math inline">\(service\)</span> for both men and women. Do the effects of the “looks” variables change in important ways? * <strong>(vi)</strong> Use the <span class="math inline">\(SSR\)</span> form of the <strong>Chow <span class="math inline">\(F\)</span> statistic</strong> to test whether the slopes of the regression functions in part (v) differ between men and women, allowing for an intercept shift under the null.</p>
+<hr>
+<section id="c13-apple" class="level3" data-number="7.12.1">
+<h3 data-number="7.12.1" class="anchored" data-anchor-id="c13-apple"><span class="header-section-number">7.12.1</span> <strong>C13 [APPLE]</strong></h3>
+<p>Use the data in <strong>APPLE</strong> to answer this question. * <strong>(i)</strong> Define a binary variable <span class="math inline">\(ecobuy = 1\)</span> if <span class="math inline">\(ecolbs &gt; 0\)</span> and <span class="math inline">\(ecobuy = 0\)</span> if <span class="math inline">\(ecolbs = 0\)</span> (indicating if a family would buy any ecologically friendly apples at the given prices). What fraction of families claim they would buy ecolabeled apples? * <strong>(ii)</strong> Estimate the <strong>linear probability model (LPM)</strong>: <span class="math inline">\(ecobuy = \beta_0 + \beta_1ecoprc + \beta_2regprc + \beta_3faminc + \beta_4hhsize + \beta_5educ + \beta_6age + u\)</span>. Report the results and carefully interpret the coefficients on the price variables. * <strong>(iii)</strong> Test if the nonprice variables are jointly significant in the LPM using the usual <span class="math inline">\(F\)</span> statistic. Which nonprice variable seems to have the most important effect on the decision to buy ecolabeled apples? * <strong>(iv)</strong> Replace <span class="math inline">\(faminc\)</span> with <span class="math inline">\(\log(faminc)\)</span> in the previous model. Which model fits the data better? Interpret the coefficient on <span class="math inline">\(\log(faminc)\)</span>. * <strong>(v)</strong> In the <span class="math inline">\(\log(faminc)\)</span> model, how many estimated probabilities are negative or greater than one? Should you be concerned? * <strong>(vi)</strong> Compute the <strong>percent correctly predicted</strong> for each outcome (<span class="math inline">\(ecobuy = 0\)</span> and <span class="math inline">\(ecobuy = 1\)</span>) for the model in part (iv). Which outcome is best predicted?</p>
+<hr>
+</section>
+<section id="c14-charity" class="level3" data-number="7.12.2">
+<h3 data-number="7.12.2" class="anchored" data-anchor-id="c14-charity"><span class="header-section-number">7.12.2</span> <strong>C14 [CHARITY]</strong></h3>
+<p>Use the data in <strong>CHARITY</strong> to answer this question. * <strong>(i)</strong> Estimate an LPM relating <span class="math inline">\(respond\)</span> (dummy for responding with a contribution) to <span class="math inline">\(resplast\)</span> (dummy for responding to the previous mailing) and <span class="math inline">\(avggift\)</span> (average of past gifts). Interpret the coefficient on <span class="math inline">\(resplast\)</span>. * <strong>(ii)</strong> Does the average value of past gifts affect the probability of responding? * <strong>(iii)</strong> Add the variable <span class="math inline">\(propresp\)</span> (proportion of times the person responded to past mailings) to the model. Interpret its coefficient, noting that an increase of one is the largest possible change. * <strong>(iv)</strong> What happened to the coefficient on <span class="math inline">\(resplast\)</span> when <span class="math inline">\(propresp\)</span> was added? Does this make sense? * <strong>(v)</strong> Add <span class="math inline">\(mailyear\)</span> (number of mailings per year) to the model. How big is its estimated effect? Why might this not be a good estimate of the causal effect of mailings on responding?</p>
+</section>
+</section>
+<section id="c15-fertil2" class="level2" data-number="7.13">
+<h2 data-number="7.13" class="anchored" data-anchor-id="c15-fertil2"><span class="header-section-number">7.13</span> <strong>C15 [FERTIL2]</strong></h2>
+<p>Use the data in <strong>FERTIL2</strong> to answer this question. * <strong>(i)</strong> Find the smallest and largest values of <em>children</em> in the sample. What is the average of <em>children</em>? Does any woman have exactly the average number of children? * <strong>(ii)</strong> What percentage of women have electricity in the home? * <strong>(iii)</strong> Compute the average of <em>children</em> for those without electricity and do the same for those with electricity. Comment on what you find. Test whether the population means are the same using a simple regression. * <strong>(iv)</strong> From part (iii), can you infer that having electricity “causes” women to have fewer children? Explain. * <strong>(v)</strong> Estimate a multiple regression model of the kind reported in equation (7.47), but add <span class="math inline">\(age^2\)</span>, <em>urban</em>, and the three religious affiliation dummies. How does the estimated effect of having electricity compare with that in part (iii)? Is it still statistically significant? * <strong>(vi)</strong> To the equation in part (v), add an interaction between <em>electric</em> and <em>educ</em>. Is its coefficient statistically significant? What happens to the coefficient on <em>electric</em>? * <strong>(vii)</strong> The median and mode value for <em>educ</em> is 7. In the equation from part (vi), use the centered interaction term <span class="math inline">\(electric \cdot (educ - 7)\)</span> in place of <span class="math inline">\(electric \cdot educ\)</span>. What happens to the coefficient on <em>electric</em> compared with part (vi)? Why? How does the coefficient on <em>electric</em> compare with that in part (v)?</p>
+</section>
+<section id="c16-catholic" class="level2" data-number="7.14">
+<h2 data-number="7.14" class="anchored" data-anchor-id="c16-catholic"><span class="header-section-number">7.14</span> <strong>C16 [CATHOLIC]</strong></h2>
+<p>Use the data in <strong>CATHOLIC</strong> to answer this question. * <strong>(i)</strong> In the entire sample, what percentage of the students attend a Catholic high school? What is the average of <em>math12</em> in the entire sample? * <strong>(ii)</strong> Run a simple regression of <em>math12</em> on <em>cathhs</em> and report the results in the usual way. Interpret what you have found. * <strong>(iii)</strong> Now add the variables <em>lfaminc, motheduc,</em> and <em>fatheduc</em> to the regression from part (ii). How many observations are used in the regression? What happens to the coefficient on <em>cathhs</em>, along with its statistical significance? * <strong>(iv)</strong> Return to the simple regression of <em>math12</em> on <em>cathhs</em>, but restrict the regression to observations used in the multiple regression from part (iii). Do any important conclusions change? * <strong>(v)</strong> To the multiple regression in part (iii), add interactions between <em>cathhs</em> and each of the other explanatory variables. Are the interaction terms individually or jointly significant? * <strong>(vi)</strong> What happens to the coefficient on <em>cathhs</em> in the regression from part (v)? Explain why this coefficient is not very interesting. * <strong>(vii)</strong> Compute the average partial effect of <em>cathhs</em> in the model estimated in part (v). How does it compare with the coefficients on <em>cathhs</em> in parts (iii) and (v)?</p>
+</section>
+<section id="c17-jtrain98" class="level2" data-number="7.15">
+<h2 data-number="7.15" class="anchored" data-anchor-id="c17-jtrain98"><span class="header-section-number">7.15</span> <strong>C17 [JTRAIN98]</strong></h2>
+<p>Use the data in <strong>JTRAIN98</strong> to answer this question. The variable <em>unem98</em> is a binary variable indicating whether a worker was unemployed in 1998. It can be used to measure the effectiveness of the job training program in reducing the probability of being unemployed. * <strong>(i)</strong> What percentage of workers was unemployed in 1998, after the job training program? How does this compare with the unemployment rate in 1996? * <strong>(ii)</strong> Run the simple regression <em>unem98</em> on <em>train</em>. How do you interpret the coefficient on <em>train</em>? Is it statistically significant? Does it make sense to you? * <strong>(iii)</strong> Add to the regression in part (ii) the explanatory variables <em>earn96, educ, age,</em> and <em>married</em>. Now interpret the estimated training effect. Why does it differ so much from that in part (ii)? * <strong>(iv)</strong> Now perform full regression adjustment by running a regression with a full set of interactions, where all variables (except the training indicator) are centered around their sample means: <span class="math display">\[unem98 \text{ on } train, earn96, educ, age, married, train \cdot (earn96 - \overline{earn96}),\]</span> <span class="math display">\[train \cdot (educ - \overline{educ}), train \cdot (age - \overline{age}), train \cdot (married - \overline{married}).\]</span></p>
+<ul>
+<li><strong>(v)</strong> Are the interaction terms in part (iv) jointly significant?</li>
+<li><strong>(vi)</strong> Verify that you obtain exactly the same average treatment effect if you run two separate regressions and use the formula in equation (7.43). That is, run two separate regressions for the control and treated groups, obtain the fitted values <span class="math inline">\(\widehat{unem98}_i(0)\)</span> and <span class="math inline">\(\widehat{unem98}_i(1)\)</span> for everyone in the sample, and then compute: <span class="math display">\[\hat{\tau}_{ara} = n^{-1} \sum_{i=1}^{n} [\widehat{unem98}_i(1) - \widehat{unem98}_i(0)]\]</span> Check this with the coefficient on <em>train</em> in part (iv). Which approach is more convenient for obtaining a standard error?</li>
+</ul>
+<hr>
+</section>
+<section id="c18-jtrain98" class="level2" data-number="7.16">
+<h2 data-number="7.16" class="anchored" data-anchor-id="c18-jtrain98"><span class="header-section-number">7.16</span> C18 [JTRAIN98]</h2>
+<p>Use the data in <strong>JTRAIN98</strong> for this exercise. The purpose is to illustrate the effects of changing units of measurement when using <span class="math inline">\(\log(1 + y)\)</span> as the outcome variable. * <strong>(i)</strong> What are the units of measurement of the labor market earnings variables <em>earn98</em> and <em>earn96</em>? What percentage of values of <em>earn98</em> equal zero? What percentage of men participated in the job training program? * <strong>(ii)</strong> Define two new variables, <span class="math inline">\(earn98dol = 1,000 \cdot earn98\)</span> and <span class="math inline">\(earn96dol = 1,000 \cdot earn96\)</span>. How do the averages and standard deviations of these variables compare with the corresponding variables in part (i)? Do your findings make sense? * <strong>(iii)</strong> Now define <span class="math inline">\(learn98p1 = \log(1 + earn98)\)</span>, <span class="math inline">\(learn96p1 = \log(1 + earn96)\)</span> where “p1” is short for “plus one.” Using the same transformation, generate <span class="math inline">\(learn98dolp1\)</span> and <span class="math inline">\(learn96dolp1\)</span>. Is there any obvious relationship between the averages of <span class="math inline">\(learn98p1\)</span> and <span class="math inline">\(learn98dolp1\)</span>? * <strong>(iv)</strong> Run each of the following regressions: * <span class="math inline">\(learn98p1\)</span> on <em>train, learn96p1, educ, age, married</em> * <span class="math inline">\(learn98dolp1\)</span> on <em>train, learn96dolp1, educ, age, married</em> How do the coefficients on <em>train</em> compare? Is there an easy way, such as comparing the R-squareds, to choose between these regressions? * <strong>(v)</strong> Now run the regressions: * <span class="math inline">\(earn98\)</span> on <em>train, earn96, educ, age, married</em> * <span class="math inline">\(earn98dol\)</span> on <em>train, earn96dol, educ, age, married</em> What is the ratio of the two coefficients on <em>train</em>? Does the answer make sense to you? * <strong>(vi)</strong> Use the coefficient on <em>train</em> from the <em>earn98</em> equation, along with the average <span class="math inline">\(earn98_0\)</span> over the control group, to estimate an average percentage increase in earnings due to the job training program. Is it similar to either coefficient on <em>train</em> in part (iv)?</p>
+<hr>
+</section>
+<section id="c19-caloil" class="level2" data-number="7.17">
+<h2 data-number="7.17" class="anchored" data-anchor-id="c19-caloil"><span class="header-section-number">7.17</span> C19 [CALOIL]</h2>
+<p>Use the data in <strong>CALOIL</strong> to answer the following questions. These are data from a <em>contingent valuation</em> (CV) survey, where respondents were provided with a scenario whereby oil spills off the coast of central California could be prevented. After being provided with a scenario that would prevent future oil spills, each respondent was randomly given one of five cost values, often called “bids” in the CV literature. In this study, the bids were <span class="math inline">\(\$5, \$25, \$65, \$120,\)</span> and <span class="math inline">\(\$220\)</span>. Given the bid value, respondents were asked whether they were in favor of the program (yes or no) at the given bid value. Therefore, the outcome of interest, <em>vote</em>, is binary, with <span class="math inline">\(vote = 1\)</span> meaning a yes vote and <span class="math inline">\(vote = 0\)</span> being no. * <strong>(i)</strong> What is the fraction of yes votes over the entire sample? Determine how many individuals were presented each of the five bid values. Note that the five integers you report should sum to 1,085. * <strong>(ii)</strong> For each of the bid values, determine the fraction of yes votes. For example, you should find that when <span class="math inline">\(bid = 5\)</span>, the fraction of yes votes is 0.6895 (or 68.95%). Do you notice a pattern as the bid value increases? * <strong>(iii)</strong> Explain why your findings in part (ii) are consistent with a downward-sloping demand curve for the prevention of oil spills. * <strong>(iv)</strong> Run a simple regression where <em>vote</em> is the dependent variable and <em>bid</em> is the explanatory variable. Interpret the coefficient on <em>bid</em>. Replace <em>bid</em> with <span class="math inline">\(\log(bid)\)</span> and interpret the coefficient on <span class="math inline">\(\log(bid)\)</span>. Does <em>bid</em> or <span class="math inline">\(\log(bid)\)</span> explain more of the variation in <em>vote</em>? Does either explain much of the variation? * <strong>(v)</strong> Run a multiple regression of <em>vote</em> on the dummy variables <em>bid5, bid25, bid65, bid120,</em> and <em>bid220</em>. You should not estimate an intercept because these dummy variables are exhaustive and mutually exclusive. Do the coefficients on the dummy variables look familiar from your earlier analysis? * <strong>(vi)</strong> In the regression in part (v), drop <em>bid5</em> and instead estimate an intercept. Now how do you interpret the coefficients on <em>bid25, bid65, bid120,</em> and <em>bid220</em>? Compare the adjusted R-squared with that using <span class="math inline">\(\log(bid)\)</span> in part (iv). Are the adjusted R-squareds very different? * <strong>(vii)</strong> To the regression in part (vi), add the variables <em>notax</em> (binary, = 1 if opposed to tax increases), <em>ccoast</em> (binary, = 1 if visited California coast), and <em>linc</em> (log of income). Note that there is missing data on income, and so only 1,046 observations will be used in the regression. Is any of these three variables strongly significant? Interpret the coefficient on <em>ccoast</em>. * <strong>(viii)</strong> Do the estimated coefficients on <em>bid25, bid65, bid120,</em> and <em>bid22</em> differ much between (vi) and (vii)? Explain why it makes sense that they are similar.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

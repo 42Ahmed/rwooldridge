@@ -46,9 +46,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-66c9649715f74f1e4324758aa2390964.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-b44ccea540e06768bee7c3f9d372997f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-66c9649715f74f1e4324758aa2390964.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-44ee0976171e9be92e6ebe9be850cd66.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-553af08a658bbaf7848ab84c12977b10.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-44ee0976171e9be92e6ebe9be850cd66.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -77,6 +77,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -435,8 +464,27 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#c1-sleep75" id="toc-c1-sleep75" class="nav-link active" data-scroll-target="#c1-sleep75"><span class="header-section-number">8.1</span> C1 [SLEEP75]</a></li>
+  <li><a href="#c2-hprice1" id="toc-c2-hprice1" class="nav-link" data-scroll-target="#c2-hprice1"><span class="header-section-number">8.2</span> C2 [HPRICE1]</a></li>
+  <li><a href="#c3" id="toc-c3" class="nav-link" data-scroll-target="#c3"><span class="header-section-number">8.3</span> C3</a></li>
+  <li><a href="#c4-vote1" id="toc-c4-vote1" class="nav-link" data-scroll-target="#c4-vote1"><span class="header-section-number">8.4</span> C4 [VOTE1]</a></li>
+  <li><a href="#c5-pntsprd" id="toc-c5-pntsprd" class="nav-link" data-scroll-target="#c5-pntsprd"><span class="header-section-number">8.5</span> C5 [PNTSPRD]</a></li>
+  <li><a href="#c6" id="toc-c6" class="nav-link" data-scroll-target="#c6"><span class="header-section-number">8.6</span> C6</a></li>
+  <li><a href="#c7-loanapp" id="toc-c7-loanapp" class="nav-link" data-scroll-target="#c7-loanapp"><span class="header-section-number">8.7</span> C7 [LOANAPP]</a></li>
+  <li><a href="#c8-gpa1" id="toc-c8-gpa1" class="nav-link" data-scroll-target="#c8-gpa1"><span class="header-section-number">8.8</span> C8 [GPA1]</a></li>
+  <li><a href="#c9" id="toc-c9" class="nav-link" data-scroll-target="#c9"><span class="header-section-number">8.9</span> C9</a></li>
+  <li><a href="#c10-401ksubs" id="toc-c10-401ksubs" class="nav-link" data-scroll-target="#c10-401ksubs"><span class="header-section-number">8.10</span> C10 [401KSUBS]</a></li>
+  <li><a href="#c11-401ksubs" id="toc-c11-401ksubs" class="nav-link" data-scroll-target="#c11-401ksubs"><span class="header-section-number">8.11</span> C11 [401KSUBS]</a></li>
+  <li><a href="#c12-meap00" id="toc-c12-meap00" class="nav-link" data-scroll-target="#c12-meap00"><span class="header-section-number">8.12</span> C12 [MEAP00]</a></li>
+  <li><a href="#c13-fertil2" id="toc-c13-fertil2" class="nav-link" data-scroll-target="#c13-fertil2"><span class="header-section-number">8.13</span> C13 [FERTIL2]</a></li>
+  <li><a href="#c14-beauty" id="toc-c14-beauty" class="nav-link" data-scroll-target="#c14-beauty"><span class="header-section-number">8.14</span> C14 [BEAUTY]</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -461,8 +509,116 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="c1-sleep75" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="c1-sleep75"><span class="header-section-number">8.1</span> C1 [SLEEP75]</h2>
+<blockquote class="blockquote">
+<p>Consider the following model to explain sleeping behavior:</p>
+<p><span class="math display">\[sleep = \beta_0 + \beta_1 totwrk + \beta_2 educ + \beta_3 age + \beta_4 age^2 + \beta_5 yngkid + \beta_6 male + u.\]</span></p>
+<ol type="i">
+<li><p>Write down a model that allows the variance of <span class="math inline">\(u\)</span> to differ between men and women. The variance should not depend on other factors.</p></li>
+<li><p>Use the data in SLEEP75 to estimate the parameters of the model for heteroskedasticity. (You have to first estimate the <code>sleep</code> equation by OLS to obtain the OLS residuals.) Is the estimated variance of <span class="math inline">\(u\)</span> higher for men or for women?</p></li>
+<li><p>Is the variance of <span class="math inline">\(u\)</span> statistically different for men and for women?</p></li>
+</ol>
+</blockquote>
+</section>
+<section id="c2-hprice1" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="c2-hprice1"><span class="header-section-number">8.2</span> C2 [HPRICE1]</h2>
+<blockquote class="blockquote">
+<ol type="i">
+<li>Use the data in HPRICE1 to obtain the heteroskedasticity-robust standard errors for equation (8.17). Discuss any important differences with the usual standard errors.</li>
+<li>Repeat part (i) for equation (8.18).</li>
+<li>What does this example suggest about heteroskedasticity and the transformation used for the dependent variable?</li>
+</ol>
+</blockquote>
+</section>
+<section id="c3" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="c3"><span class="header-section-number">8.3</span> C3</h2>
+<blockquote class="blockquote">
+<p>Apply the full White test for heteroskedasticity [see equation (8.19)] to equation (8.18). Using the chi-square form of the statistic, obtain the <span class="math inline">\(p\)</span>-value. What do you conclude?</p>
+</blockquote>
+</section>
+<section id="c4-vote1" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="c4-vote1"><span class="header-section-number">8.4</span> C4 [VOTE1]</h2>
+<blockquote class="blockquote">
+<p>Use VOTE1 for this exercise. (i) Estimate a model with <code>voteA</code> as the dependent variable and <code>prtystrA</code>, <code>democA</code>, <span class="math inline">\(\log(expendA)\)</span>, and <span class="math inline">\(\log(expendB)\)</span> as independent variables. Obtain the OLS residuals, <span class="math inline">\(\hat{u}_i\)</span>, and regress these on all of the independent variables. Explain why you obtain <span class="math inline">\(R^2 = 0\)</span>. (ii) Now, compute the Breusch-Pagan test for heteroskedasticity. Use the <span class="math inline">\(F\)</span> statistic version and report the <span class="math inline">\(p\)</span>-value. (iii) Compute the special case of the White test for heteroskedasticity, again using the <span class="math inline">\(F\)</span> statistic form. How strong is the evidence for heteroskedasticity now?</p>
+</blockquote>
+</section>
+<section id="c5-pntsprd" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="c5-pntsprd"><span class="header-section-number">8.5</span> C5 [PNTSPRD]</h2>
+<blockquote class="blockquote">
+<p>Use the data in PNTSPRD for this exercise. (i) The variable <code>sprdcvr</code> is a binary variable equal to one if the Las Vegas point spread for a college basketball game was covered. The expected value of <code>sprdcvr</code>, say <span class="math inline">\(\mu\)</span>, is the probability that the spread is covered in a randomly selected game. Test <span class="math inline">\(H_0: \mu = 0.5\)</span> against <span class="math inline">\(H_1: \mu \neq 0.5\)</span> at the 10% significance level and discuss your findings. (<em>Hint</em>: This is easily done using a <span class="math inline">\(t\)</span> test by regressing <code>sprdcvr</code> on an intercept only.) (ii) How many games in the sample of 553 were played on a neutral court? (iii) Estimate the linear probability model</p>
+<p><span class="math display">\[sprdcvr = \beta_0 + \beta_1 favhome + \beta_2 neutral + \beta_3 fav25 + \beta_4 und25 + u\]</span></p>
+<p>and report the results in the usual form. (Report the usual OLS standard errors and the heteroskedasticity-robust standard errors.) Which variable is most significant, both practically and statistically? (iv) Explain why, under the null hypothesis <span class="math inline">\(H_0: \beta_1 = \beta_2 = \beta_3 = \beta_4 = 0\)</span>, there is no heteroskedasticity in the model. (v) Use the usual <span class="math inline">\(F\)</span> statistic to test the hypothesis in part (iv). What do you conclude? (vi) Given the previous analysis, would you say that it is possible to systematically predict whether the Las Vegas spread will be covered using information available prior to the game?</p>
+</blockquote>
+</section>
+<section id="c6" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="c6"><span class="header-section-number">8.6</span> C6</h2>
+<blockquote class="blockquote">
+<p>In Example 7.12, we estimated a linear probability model for whether a young man was arrested during 1986:</p>
+<p><span class="math display">\[arr86 = \beta_0 + \beta_1 pcnv + \beta_2 avgsen + \beta_3 tottime + \beta_4 ptime86 + \beta_5 qemp86 + u.\]</span></p>
+<ol type="i">
+<li>Using the data in CRIME1, estimate this model by OLS and verify that all fitted values are strictly between zero and one. What are the smallest and largest fitted values?</li>
+<li>Estimate the equation by weighted least squares, as discussed in Section 8-5.</li>
+<li>Use the WLS estimates to determine whether <code>avgsen</code> and <code>tottime</code> are jointly significant at the 5% level.</li>
+</ol>
+</blockquote>
+</section>
+<section id="c7-loanapp" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="c7-loanapp"><span class="header-section-number">8.7</span> C7 [LOANAPP]</h2>
+<blockquote class="blockquote">
+<p>Use the data in LOANAPP for this exercise. (i) Estimate the equation in part (iii) of Computer Exercise C8 in Chapter 7, computing the heteroskedasticity-robust standard errors. Compare the 95% confidence interval on <span class="math inline">\(\beta_{white}\)</span> with the nonrobust confidence interval. (ii) Obtain the fitted values from the regression in part (i). Are any of them less than zero? Are any of them greater than one? What does this mean about applying weighted least squares?</p>
+</blockquote>
+</section>
+<section id="c8-gpa1" class="level2" data-number="8.8">
+<h2 data-number="8.8" class="anchored" data-anchor-id="c8-gpa1"><span class="header-section-number">8.8</span> C8 [GPA1]</h2>
+<blockquote class="blockquote">
+<p>Use the data set GPA1 for this exercise. (i) Use OLS to estimate a model relating <code>colGPA</code> to <code>hsGPA</code>, <code>ACT</code>, <code>skipped</code>, and <code>PC</code>. Obtain the OLS residuals. (ii) Compute the special case of the White test for heteroskedasticity. In the regression of <span class="math inline">\(\hat{u}_i^2\)</span> on <span class="math inline">\(\hat{colGPA}_i, \hat{colGPA}_i^2\)</span>, obtain the fitted values, say <span class="math inline">\(\hat{h}_i\)</span>. (iii) Verify that the fitted values from part (ii) are all strictly positive. Then, obtain the weighted least squares estimates using weights <span class="math inline">\(1/\hat{h}_i\)</span>. Compare the weighted least squares estimates for the effect of skipping lectures and the effect of PC ownership with the corresponding OLS estimates. What about their statistical significance? (iv) In the WLS estimation from part (iii), obtain heteroskedasticity-robust standard errors. In other words, allow for the fact that the variance function estimated in part (ii) might be misspecified. Do the standard errors change much from part (iii)?</p>
+</blockquote>
+</section>
+<section id="c9" class="level2" data-number="8.9">
+<h2 data-number="8.9" class="anchored" data-anchor-id="c9"><span class="header-section-number">8.9</span> C9</h2>
+<blockquote class="blockquote">
+<p>In Example 8.7, we computed the OLS and a set of WLS estimates in a cigarette demand equation. (i) Obtain the OLS estimates in equation (8.35). (ii) Obtain the <span class="math inline">\(\hat{h}_i\)</span> used in the WLS estimation of equation (8.36) and reproduce equation (8.36). From this equation, obtain the <em>unweighted</em> residuals and fitted values; call these <span class="math inline">\(\hat{u}_i\)</span> and <span class="math inline">\(\hat{y}_i\)</span>, respectively. (For example, in Stata®, the unweighted residuals and fitted values are given by default.) (iii) Let <span class="math inline">\(\tilde{u}_i = \hat{u}_i / \sqrt{\hat{h}_i}\)</span> and <span class="math inline">\(\tilde{y}_i = \hat{y}_i / \sqrt{\hat{h}_i}\)</span> be the weighted quantities. Carry out the special case of the White test for heteroskedasticity by regressing <span class="math inline">\(\tilde{u}_i^2\)</span> on <span class="math inline">\(\tilde{y}_i, \tilde{y}_i^2\)</span>, being sure to include an intercept, as always. Do you find heteroskedasticity in the weighted residuals? (iv) What does the finding from part (iii) imply about the proposed form of heteroskedasticity used in obtaining (8.36)? (v) Obtain valid standard errors for the WLS estimates that allow the variance function to be misspecified.</p>
+</blockquote>
+</section>
+<section id="c10-401ksubs" class="level2" data-number="8.10">
+<h2 data-number="8.10" class="anchored" data-anchor-id="c10-401ksubs"><span class="header-section-number">8.10</span> C10 [401KSUBS]</h2>
+<blockquote class="blockquote">
+<p>Use the data set 401KSUBS for this exercise. (i) Using OLS, estimate a linear probability model for <code>e401k</code>, using as explanatory variables <code>inc</code>, <span class="math inline">\(inc^2\)</span>, <code>age</code>, <span class="math inline">\(age^2\)</span>, and <code>male</code>. Obtain both the usual OLS standard errors and the heteroskedasticity-robust versions. Are there any important differences? (ii) In the special case of the White test for heteroskedasticity, where we regress the squared OLS residuals on a quadratic in the OLS fitted values, <span class="math inline">\(\hat{u}_i^2\)</span> on <span class="math inline">\(\hat{y}_i, \hat{y}_i^2, i = 1, \dots, n\)</span>, argue that the probability limit of the coefficient on <span class="math inline">\(\hat{y}_i\)</span> should be one, the probability limit of the coefficient on <span class="math inline">\(\hat{y}_i^2\)</span> should be <span class="math inline">\(-1\)</span>, and the probability limit of the intercept should be zero. {<em>Hint</em>: Remember that <span class="math inline">\(\text{Var}(y|x_1, \dots, x_k) = p(\mathbf{x})[1 - p(\mathbf{x})]\)</span>, where <span class="math inline">\(p(\mathbf{x}) = \beta_0 + \beta_1 x_1 + \dots + \beta_k x_k\)</span>.} (iii) For the model estimated in part (i), obtain the White test and see if the coefficient estimates roughly correspond to the theoretical values described in part (ii). (iv) After verifying that the fitted values from part (i) are all between zero and one, obtain the weighted least squares estimates of the linear probability model. Do they differ in important ways from the OLS estimates?</p>
+</blockquote>
+</section>
+<section id="c11-401ksubs" class="level2" data-number="8.11">
+<h2 data-number="8.11" class="anchored" data-anchor-id="c11-401ksubs"><span class="header-section-number">8.11</span> C11 [401KSUBS]</h2>
+<blockquote class="blockquote">
+<p>Use the data in 401KSUBS for this question, restricting the sample to <span class="math inline">\(fsize = 1\)</span>. (i) To the model estimated in Table 8.1, add the interaction term, <span class="math inline">\(e401k \cdot inc\)</span>. Estimate the equation by OLS and obtain the usual and robust standard errors. What do you conclude about the statistical significance of the interaction term? (ii) Now estimate the more general model by WLS using the same weights, <span class="math inline">\(1/inc_i\)</span>, as in Table 8.1. Compute the usual and robust standard error for the WLS estimator. Is the interaction term statistically significant using the robust standard error? (iii) Discuss the WLS coefficient on <code>e401k</code> in the more general model. Is it of much interest by itself? Explain. (iv) Reestimate the model by WLS but use the interaction term <span class="math inline">\(e401k \cdot (inc - 30)\)</span>; the average income in the sample is about 29.44. Now interpret the coefficient on <code>e401k</code>.</p>
+</blockquote>
+</section>
+<section id="c12-meap00" class="level2" data-number="8.12">
+<h2 data-number="8.12" class="anchored" data-anchor-id="c12-meap00"><span class="header-section-number">8.12</span> C12 [MEAP00]</h2>
+<blockquote class="blockquote">
+<p>Use the data in MEAP00 to answer this question. (i) Estimate the model</p>
+<p><span class="math display">\[math4 = \beta_0 + \beta_1 lunch + \beta_2 \log(enroll) + \beta_3 \log(exppp) + u\]</span></p>
+<p>by OLS and obtain the usual standard errors and the fully robust standard errors. How do they generally compare? (ii) Apply the special case of the White test for heteroskedasticity. What is the value of the <span class="math inline">\(F\)</span> test? What do you conclude? (iii) Obtain <span class="math inline">\(\hat{g}_i\)</span> as the fitted values from the regression <span class="math inline">\(\log(\hat{u}_i^2)\)</span> on <span class="math inline">\(\hat{math4}_i, \hat{math4}_i^2\)</span>, where <span class="math inline">\(\hat{math4}_i\)</span> are the OLS fitted values and the <span class="math inline">\(\hat{u}_i\)</span> are the OLS residuals. Let <span class="math inline">\(\hat{h}_i = \exp(\hat{g}_i)\)</span>. Use the <span class="math inline">\(\hat{h}_i\)</span> to obtain WLS estimates. Are there big differences with the OLS coefficients? (iv) Obtain the standard errors for WLS that allow misspecification of the variance function. Do these differ much from the usual WLS standard errors? (v) For estimating the effect of spending on <code>math4</code>, does OLS or WLS appear to be more precise?</p>
+</blockquote>
+</section>
+<section id="c13-fertil2" class="level2" data-number="8.13">
+<h2 data-number="8.13" class="anchored" data-anchor-id="c13-fertil2"><span class="header-section-number">8.13</span> C13 [FERTIL2]</h2>
+<blockquote class="blockquote">
+<p>Use the data in FERTIL2 to answer this question. (i) Estimate the model</p>
+<p><span class="math display">\[children = \beta_0 + \beta_1 age + \beta_2 age^2 + \beta_3 educ + \beta_4 electric + \beta_5 urban + u\]</span></p>
+<p>and report the usual and heteroskedasticity-robust standard errors. Are the robust standard errors always bigger than the nonrobust ones? (ii) Add the three religious dummy variables and test whether they are jointly significant. What are the <span class="math inline">\(p\)</span>-values for the nonrobust and robust tests? (iii) From the regression in part (ii), obtain the fitted values <span class="math inline">\(\hat{y}\)</span> and the residuals, <span class="math inline">\(\hat{u}\)</span>. Regress <span class="math inline">\(\hat{u}^2\)</span> on <span class="math inline">\(\hat{y}, \hat{y}^2\)</span> and test the joint significance of the two regressors. Conclude that heteroskedasticity is present in the equation for <code>children</code>. (iv) Would you say the heteroskedasticity you found in part (iii) is practically important?</p>
+</blockquote>
+</section>
+<section id="c14-beauty" class="level2" data-number="8.14">
+<h2 data-number="8.14" class="anchored" data-anchor-id="c14-beauty"><span class="header-section-number">8.14</span> C14 [BEAUTY]</h2>
+<blockquote class="blockquote">
+<p>Use the data in BEAUTY for this question. (i) Using the data pooled for men and women, estimate the equation</p>
+<p><span class="math display">\[lwage = \beta_0 + \beta_1 belavg + \beta_2 abvavg + \beta_3 female + \beta_4 educ + \beta_5 exper + \beta_6 exper^2 + u,\]</span></p>
+<p>and report the results using heteroskedasticity-robust standard errors below coefficients. Are any of the coefficients surprising in either their signs or magnitudes? Is the coefficient on <code>female</code> practically large and statistically significant? (ii) Add interactions of <code>female</code> with all other explanatory variables in the equation from part (i) (five interactions in all). Compute the usual <span class="math inline">\(F\)</span> test of joint significance of the five interactions and a heteroskedasticity-robust version. Does using the heteroskedasticity-robust version change the outcome in any important way? (iii) In the full model with interactions, determine whether those involving the looks variables—<span class="math inline">\(female \cdot belavg\)</span> and <span class="math inline">\(female \cdot abvavg\)</span>—are jointly significant. Are their coefficients practically small?</p>
+</blockquote>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
