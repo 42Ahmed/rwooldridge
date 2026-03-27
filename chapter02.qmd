@@ -41,7 +41,7 @@ c1 |>
 
 **Interpretation:**
 
-On average, **87.36%** of eligible employees participate in their company's 401(k) plan. Their company matches *\$0.73* for every dollar an employee contributes.
+On average, **87.36%** of eligible employees participate in their company's 401(k) plan. Their company matches **$0.73** for every dollar an employee contributes.
 
 > estimate the simple regression equation $$\widehat{prate} = \hat \beta_0 + \hat \beta_1 mrate$$ and report the results along with the sample size and R-squared.
 
@@ -63,7 +63,7 @@ modelsummary(
 
 $$
 \begin{align}
-\beta_0 &= 83.03 & \beta_1 &= 5.86 \\
+\hat \beta_0 &= 83.03 & \hat\beta_1 &= 5.86 \\
 R^2 &= 0.075 & n &= 1534
 \end{align}
 $$
@@ -72,7 +72,7 @@ $$
 
 **Interpretation:**
 
-If the match rate is 0, predicted participation rate is **83.08%**. For ever \$1 increase in match rate, participation is associated by an increase of **5.86 percentage points**.
+If the match rate is 0, the predicted participation rate is **83.08%**. For every $1 increase in the match rate, the participation rate is predicted to increase by **5.86** percentage points
 
 > (iv) Find the predicted prate when `mrate` = 3.5. Is this a reasonable prediction? Explain what is happening here.
 
@@ -96,13 +96,13 @@ $$\hat y = \hat \beta_0 + \hat \beta_1 x$$
 
 **Interpretation:**
 
-Model predicts a participation rate of **103.59** which exceeds the maximum possible value of 100.
+The model predicts a participation rate of **103.59%**, which exceeds the maximum logical value of 100%. This highlights the danger of extrapolation and the limitation of simple linear models when dealing with bounded dependent variables (like percentages or probabilities).
 
 > (v) How much of the variation in `prate` is explained by `mrate`? Is this a lot in your opinion?
 
 **Interpretation:**
 
-Match rate explains only about **7.5%** of the variation in participation rate, while the remaining 92.5% are due to other factors.
+The match rate explains only about 7.5% of the variation in the participation rate. This is relatively low, meaning the remaining 92.5% of the variation is due to other unobserved factors (like employee age, income, or financial literacy).
 
 ## C2 \[CEOSAL2\]
 
@@ -130,7 +130,7 @@ c2 |>
 
 **Interpretation:**
 
-Average salary is **\$865,860** with an average tenure of **7.95** years.
+The average annual compensation for a CEO in this sample is $865,860, with an average tenure in the CEO position of 7.95 years
 
 > (ii) How many CEOs are in their first year as CEO (that is, `ceoten` = 0)? What is the longest tenure as a CEO?
 
@@ -146,7 +146,7 @@ c2 |>
 
 **Interpretation:**
 
-There are **5** CEOs in their first year, and the longest serving CEO has been in charge for **37** years.
+There are 5 CEOs currently in their first year on the job (ceoten = 0), while the longest-serving veteran in the sample has been CEO for 37 years
 
 > (iii) Estimate the regression model $$ \log(salary) = \beta_0 + \beta_1 ceoten + u$$ and report your results in the usual form. What is the (approximate) predicted percentage increase in salary given one more year as a CEO?
 
@@ -166,7 +166,7 @@ modelsummary(
 
 **Interpretation:**
 
-For every 1 additional year of tenure as CEO, salary is predicted to increase by **1%**. This shows that salary increases due to other factors not loyalty.
+Because this is a log-level model, we multiply the slope coefficient by 100 to get the approximate percentage change. For every 1 additional year of tenure as a CEO, annual salary is predicted to increase by approximately 1%.
 
 ## C3 \[SLEEP75\]
 
@@ -200,8 +200,7 @@ modelsummary(
 
 **Interpretation:**
 
-A jobless person is predicted to sleep **3586** minutes per week \[**8.54** hours of daily sleep\].\
-For every 100 minutes worked, 15 minutes of sleep are lost.
+The intercept indicates that for a person who works zero minutes during the week, their predicted sleep is 3586 minutes per week (approximately 8.54 hours per night). The slope coefficient indicates that for every additional 100 minutes worked per week, weekly sleep is predicted to decrease by 15 minutes.
 
 > (ii) If `totwrk` increases by 2 hours, by how much is `sleep` estimated to fall? Do you find this to be a large effect?
 
@@ -222,7 +221,7 @@ cat("Estimated change in sleep:", round(sleep_fall, 2), "minutes")
 
 **Interpretation:**
 
-Working an extra two hours per week will reduce weekly sleep by **18** minutes \[2.6 minutes per night\]. This is practically insignificant.
+An increase of two hours (120 minutes) of work per week is associated with a predicted reduction in weekly sleep of 18 minutes (or about 2.6 minutes per night). While this estimate might be statistically significant, it is practically (economically) insignificant. Losing less than 3 minutes of sleep per night has no meaningful impact on a person's life or productivity.
 
 ## C4 \[WAGE2\]
 
@@ -251,7 +250,7 @@ c4 |>
 
 **Interpretation:**
 
-The sample average wage ($\overline{wage}$) is **957.95**, with an average IQ ($\overline{IQ}$) of **101.28**. The sample standard deviation for IQ $\hat \sigma_{IQ}$ is **15.05**
+The sample average monthly wage is $957.95, with an average IQ of 101.28. The sample standard deviation for IQ is 15.05
 
 > (ii) Estimate a simple regression model where a one-point increase in `IQ` changes `wage` by a constant dollar amount. Use this model to find the predicted increase in `wage` for an increase in `IQ` of 15 points. Does `IQ` explain most of the variation in `wage`?
 
@@ -281,7 +280,8 @@ cat("Estimated change in wage:", round(IQ_inc, 2), "dollars")
 
 **Interpretation:**
 
-An increase in IQ by 15 is associated with an in increase in predicted wage by **\$124.55**. IQ explains only **9.6%** of the variation in wage ; the remaining variation is unexplained by the model.
+For every 1-point increase in IQ, the predicted monthly wage increases by approximately \$8.30. Therefore, a 15-point increase in IQ is associated with a predicted wage increase of $124.55.
+IQ explains only 9.6% of the variation in wage ($R^2 = 0.096$); the remaining 90.4% of the variation is unexplained by this simple model and is due to other factors.
 
 > (iii) Now, estimate a model where each one-point increase in `IQ` has the same percentage effect on `wage`. If `IQ` increases by 15 points, what is the approximate percentage increase in predicted `wage`?
 
@@ -311,7 +311,7 @@ cat("Estimated change in wage:", round(IQ_inc, 2), "percent")
 
 **Interpretation:**
 
-Each point increase is associated with an increase in wage by **0.9%**; 15 point increase in IQ will have a predicted wage increase by approximately **13%** percent.
+Because this is a log-level model, we multiply the slope by 100 to get the percentage effect. Each 1-point increase in IQ is associated with a predicted wage increase of 0.9%. Consequently, a 15-point increase in IQ will yield a predicted wage increase of approximately 13.5%
 
 ## C5 \[RDCHEM\]
 
@@ -326,11 +326,9 @@ kable(head(c5))
 
 > (i) Write down a model (not an estimated equation) that implies a constant elasticity between `rd` and `sales`. Which parameter is the elasticity?
 
-$$\log(rd) = \beta_0 + \beta_1 \log(sales) + u$$
-
 **Interpretation:**
 
-The parameter $\beta_1$ represents elasticity
+The population model is:$$\log(rd) = \beta_0 + \beta_1 \log(sales) + u$$The parameter $\beta_1$ represents the constant elasticity of R&D expenditures with respect to firm sales.
 
 > (ii) Now, estimate the model using the data in RDCHEM. Write out the estimated equation in the usual form. What is the estimated elasticity of `rd` with respect to `sales`? Explain in words what this elasticity means.
 
@@ -353,7 +351,7 @@ modelsummary(
 
 **Interpretation:**
 
-A **1%** change in sales is associated with a *1.08%* change in expenditures.
+The estimated elasticity of R&D with respect to sales is 1.08. This means that a 1% increase in a firm's sales is associated with a predicted 1.08% increase in its R&D expenditures. Because the elasticity is greater than 1, R&D spending increases at a slightly faster rate than sales.
 
 ## C6 \[MEAP93\]
 
@@ -370,7 +368,7 @@ kable(head(meap93))
 
 **Interpretation:**
 
-I believe dollar has a diminishing effect on passing rate. Most students with limited source can pass, but scoring maximum mark takes very high resources. Also a constant effect may predict students can pass the maximum score.
+A diminishing effect is more appropriate. The first few dollars spent (on basic necessities like textbooks or qualified teachers) likely have a large impact on the pass rate. However, once a school is well-funded, spending additional money yields smaller marginal improvements. Furthermore, because the pass rate is strictly bounded at 100%, a constant linear effect would eventually and unrealistically predict pass rates exceeding 100% for very high-spending schools.
 
 > (ii) In the population model $$math10 = \beta_0 + \beta_1 \log(expend) + u$$ argue that $β_1 / 10$ is approximately the percentage point change in `math10` given a 10% increase in `expend`.
 
@@ -384,6 +382,8 @@ $$
 \Delta math10 &\approx \frac{\beta_1}{10}
 \end{align}
 $$
+
+Therefore, a 10% increase in spending ($\frac{\Delta expend}{expend} = 0.10$) results in an approximate change in the math pass rate of $\frac{\beta_1}{10}$.
 
 > (iii) Use the data in MEAP93 to estimate the model from part (ii). Report the estimated equation in the usual way, including the sample size and R-squared.
 
@@ -408,7 +408,8 @@ modelsummary(
 
 **Interpretation:**
 
-Estimated effect for spending effect is **11.16**. If spending increases by 10%, math pass rate increase by **1.116** percentage points.
+The estimated coefficient on $\log(expend)$ is $\hat{\beta}_1 \approx 11.16$.
+If spending increases by 10%, the math pass rate is predicted to increase by approximately 1.116 percentage points ($11.16 / 10$).
 
 > (v) One might worry that regression analysis can produce fitted values for `math10` that are greater than 100. Why is this not much of a worry in this data set?
 
@@ -426,7 +427,7 @@ c6m |>
 
 **Interpretation:**
 
-We don’t have to worry about passing maximum rate because predicted rates are between the interval **\[20, 30\]** while original rates had maximum rate below 80.
+We do not have to worry about the model predicting impossible values (greater than 100) for this specific sample. As shown in the histogram, the highest predicted pass rate ($\hat{y}$) generated by our model is around 30%, well below the theoretical ceiling of 100%. The maximum actual pass rate in the sample is also well below 100.
 
 ## C7 \[CHARITY\]
 
@@ -454,7 +455,7 @@ c7 |>
 
 **Interpretation:**
 
-Average gift in the sample is 7.44 with **60%** of the sample having no gifts.
+The average gift in the sample of 4,268 people is 7.44 Dutch guilders. Exactly 60% of the people in the sample gave no gift (a contribution of 0).
 
 > (ii) What is the average mailings per year? What are the minimum and maximum values?
 
@@ -472,7 +473,7 @@ c7 |>
 
 **Interpretation:**
 
-Minimum number of mailings per year is 0.25. The average is **2.05** and maximum is **3.05**.
+The minimum number of mailings per year is 0.25 (which equates to one mailing every four years). The average is 2.05 mailings per year, and the maximum is 3.05 mailings per year.
 
 > (iii) Estimate the model $$gift = \beta_0 + \beta_1 mailsyear + u$$ by OLS and report the results in the usual way, including the sample size and R-squared.
 
@@ -497,7 +498,7 @@ modelsummary(
 
 **Interpretation:**
 
-For each extra mailing per year, gift is predicted to increase by **2.65**. If each mailing costs 1 guilder, net gain on each mail is **2.65 - 1 = 1.65**. This does not mean that charity makes a net gain on every mailing, it means that, on average, net gain will be 1.65.
+For each additional mailing sent per year, the charitable gift is predicted to increase by 2.65 guilders. If each mailing costs 1 guilder, the expected net gain per additional mailing is 1.65 guilders (2.65 - 1.00). It is crucial to note that this is an average predicted net gain across the population ; it absolutely does not guarantee that the charity makes a profit on every single piece of mail sent, especially since 60% of the sample contributes nothing.
 
 > (v) What is the smallest predicted charitable contribution in the sample? Using this simple regression analysis, can you ever predict zero for `gift`?
 
@@ -515,7 +516,8 @@ c7m |>
 
 **Interpretation:**
 
-Minimum predicted gift is **2.68** coming from the observation with 0.25 mailings per year ($2.01 + 2.65(0.25) = 2.68$). Predicting a zero is impossible with this model because $\hat \beta_0$ and $\hat \beta_1$ are both greater than zero; least possible value is$\hat \beta_0 = 2.01$.
+The smallest predicted charitable contribution for an individual in this specific sample is 2.68 guilders, which comes from the observation with the minimum 0.25 mailings per year ($2.01 + 2.65 \times 0.25 = 2.68$).
+Using this estimated equation, it is impossible to predict a zero gift. Because the number of mailings cannot be negative ($x \ge 0$), and both $\hat{\beta}_0$ and $\hat{\beta}_1$ are positive, the absolute lowest prediction this model can logically generate is the intercept itself: $\hat{\beta}_0 = 2.01$ guilders.
 
 ## C8 \[Simulation\]
 
@@ -533,7 +535,7 @@ cat(round(mean(x_i), 2), round(sd(x_i), 2))
 
 **Interpretation:**
 
-The sample mean of $x_i$ is 4.9 and the sample standard deviation is 2.89. These values are close to, but not exactly equal to, the theoretical population mean ($E[x] = 5$) and population standard deviation ($\sigma_x \approx 2.93$) of a Uniform(0,10) distribution due to finite sampling variance.
+The sample mean of $x_i$ is 4.9 and the sample standard deviation is 2.89. These values are extremely close to the theoretical population mean ($E[x] = 5$) and population standard deviation ($\sigma_x = \sqrt{100/12} \approx 2.887$) of a Uniform(0,10) distribution, differing only slightly due to finite sampling variance.
 
 > (ii) Randomly generate 500 errors, $u_i$, from the Normal(0,36) distribution. (If you generate a Normal(0,1), as is commonly available, simply multiply the outcomes by six.) Is the sample average of the $u_i$ exactly zero? Why or why not? What is the sample standard deviation of the $u_i$?
 
@@ -549,7 +551,7 @@ cat(round(mean(u_i), 2), round(sd(u_i), 2))
 
 **Interpretation:**
 
-The sample average of $u_i$ is -0.18, which is not exactly zero. While the population expectation is exactly zero ($E[u] = 0$), a finite sample of 500 random draws will inherently contain sampling error, preventing the sample mean from perfectly matching the population mean. The sample standard deviation is 5.83, which closely approximates the population standard deviation of 6.
+The sample average of $u_i$ is -0.18, which is not exactly zero. While the population expectation is exactly zero ($E[u] = 0$), a finite sample of 500 random draws will inherently contain sampling error, preventing the sample mean from perfectly matching the population mean. The sample standard deviation is 5.83, which closely approximates the true population standard deviation of 6.
 
 > (iii) Now generate $y_i$ as $$y_i = 1+2x_i + u_i \equiv \beta_0 + \beta_1 + u_i$$ that is, the population intercept is one and the population slope is two. Use the data to run the regression of $y_i$ on $x_i$. What are your estimates of the intercept and slope? Are they equal to the population values in the above equation? Explain.
 
@@ -573,7 +575,7 @@ modelsummary(
 
 **Interpretation:**
 
-$\hat \beta_0$is estimated to be 0.901 and $\hat \beta_1$ is estimated to be 1.983. They differ from the true population parameters ($\beta_0 = 1, \beta_1 = 2$) due to sampling error. The intercept deviates because the sample mean of the errors ($\bar u$) is not exactly zero. More importantly, the slope deviates because the sample covariance between $x_i$ and $u_i$ is not exactly zero.
+$\hat{\beta}_0$ is estimated to be 0.901 and $\hat{\beta}_1$ is estimated to be 1.983. They differ from the true population parameters ($\beta_0 = 1, \beta_1 = 2$) due to sampling error. The intercept deviates because the sample mean of the errors ($\bar{u}$) is not exactly zero. More importantly, the slope deviates because the sample covariance between $x_i$ and $u_i$ in this specific draw is not exactly zero.
 
 > (iv) Obtain the OLS residuals, $u_i$, and verify that equation (2.60) holds (subject to rounding error).
 
@@ -609,12 +611,12 @@ c8m |>
 
 **Interpretation:**
 
-When using the unobserved population errors ($u_i$) instead of the OLS residuals ($\hat u_i$), the sums are far from zero ($\sum u_i = -90.14$ and $\sum x_i u_i = -512.34$). This highlights the fundamental mechanical difference between errors and residuals: OLS residuals are mathematically forced by the regression algorithm to sum to zero and be uncorrelated with , whereas population errors are unobserved random variables that will not perfectly satisfy these orthogonal conditions in a finite sample.
+When using the unobserved population errors ($u_i$) instead of the OLS residuals ($\hat{u}_i$), the sums are far from zero ($\sum u_i = -90.14$ and $\sum x_i u_i = -512.34$). This highlights the fundamental mechanical difference between errors and residuals: OLS residuals are mathematically forced by the regression algorithm to sum to zero and be uncorrelated with the regressors ($x_i$), whereas population errors are unobserved random variables that will not perfectly satisfy these orthogonality conditions in a finite sample.
 
 > (vi) Repeat parts (i), (ii), and (iii) with a new sample of data, starting with generating the $x_i$.Now what do you obtain for $\hat \beta_0, \hat \beta_1$? Why are these different from what you obtained in part (iii)?
 
 ```{r}
-#| label: c7_vi
+#| label: c8_vi
 
 set.seed(43)
 
@@ -637,7 +639,7 @@ modelsummary(
 
 **Interpretation:**
 
-With a new random sample, the estimates change to $\hat{\beta}_0 = 1.022$ and $\hat{\beta}_1 = 2.040$. These differ from the estimates in part (iii) because every new sample draws a unique set of $x_i$ and $u_i$ values. Consequently, the new sample mean of and the new sample covariance between and have changed. The OLS estimator processes this new random sample variation, resulting in different deviations from the true population parameters.
+With a new random sample, the estimates change to $\hat{\beta}_0 = 1.022$ and $\hat{\beta}_1 = 2.040$. These differ from the estimates in part (iii) because every new sample draws a unique set of $x_i$ and $u_i$ values. Consequently, the new sample mean of $u_i$ and the new sample covariance between $x_i$ and $u_i$ have changed. The OLS estimator processes this new random sample variation, resulting in different deviations from the true population parameters.
 
 ::: callout-caution
 ### When estimate equals parameter
@@ -674,7 +676,7 @@ c9 |>
 
 **Interpretation:**
 
-In 1996, **1051** counties had zero murders. **31** counties had executions.
+In 1996, 1,051 counties had zero murders. There were 31 counties that had at least one execution. The largest number of executions in a single county was 3.
 
 > (ii) Estimate the equation $$murders = \beta_0 + \beta_1 execs + u$$ by OLS and report the results in the usual way, including sample size and R-squared.
 
@@ -697,7 +699,7 @@ modelsummary(
 
 > (iii) Interpret the slope coefficient reported in part (ii). Does the estimated equation suggest a deterrent effect of capital punishment?
 
-For every one additional execution in a county, the model predicts an increase of approximately **59** murders. No, slope should be negative to have a deterrent effect.
+For every one additional execution in a county, the model predicts an increase of approximately 59 murders. This estimated equation does not suggest a deterrent effect of capital punishment. If executions had a deterrent effect, we would expect the slope coefficient to be negative (indicating that more executions are associated with fewer murders).
 
 > (iv) What is the smallest number of murders that can be predicted by the equation? What is the residual for a county with zero executions and zero murders?
 
@@ -714,13 +716,15 @@ cat(min_pred, residual)
 
 **Interpretation:**
 
-Minimum murders prediction possible from the model is $\beta_0 = 5.46$. If county has zero murders and zero executions, the residual is $\hat u = 0 - 5.46 = -5.46$.
+The minimum possible number of predicted murders from this model is the intercept, 5.46, which occurs when a county has zero executions. For a county with exactly zero executions and zero murders, the residual is $\hat{u} = y - \hat{y} = 0 - 5.46 = \mathbf{-5.46}$.
 
 > (v) Explain why a simple regression analysis is not well suited for determining whether capital punishment has a deterrent effect on murders.
 
 **Interpretation:**
 
-To capture causal effect, zero conditional mean assumption must be satisfied. Execution is likely to be correlated with other omitted variables in the error term like police strength. We can also have reverse causal effect in which number of murders causes the number of executions.
+A simple regression analysis is entirely unsuited for capturing the causal deterrent effect of capital punishment because it heavily violates the zero conditional mean assumption ($E[u|x] = 0$).
+First, there is massive omitted variable bias. The error term contains unobserved factors like local poverty rates, police funding, and demographics that are correlated with both murder rates and the likelihood of executions.
+Second, there is a clear issue of simultaneous (reverse) causality. Executions do not randomly occur; counties with historically high murder rates are mechanically more likely to sentence criminals to death. Therefore, murders cause executions just as much as (or more than) executions might deter murders, resulting in a positive, heavily biased slope coefficient.
 
 ## C10 \[CATHOLIC\]
 
@@ -751,7 +755,7 @@ c10 |>
 
 **Interpretation:**
 
-There are 7430 students in the sample. Math score averaged 52.13 with standard deviation of 9.46. Reading score averaged 51.77 with standard deviation of 9.41.
+There are 7,430 students in the sample. The math score averaged 52.13 with a standard deviation of 9.46. The reading score averaged 51.77 with a standard deviation of 9.41.
 
 > (ii) Run the simple regression of `math12` on `read12` to obtain the OLS intercept and slope estimates. Report the results.
 
@@ -784,13 +788,13 @@ ggplot(c10, aes(x = read12)) +
 
 **Interpretation:**
 
-The intercept of 15.15 represents predicted math score for a student with a zero reading score. The sample has no such students (extrapolation). Intercept is included to satisfy the first order conditions.
+The intercept of 15.15 represents the predicted math score for a student with a reading score of exactly zero. This intercept does not have a meaningful real-world interpretation because a reading score of zero is far outside the range of our sample data (as shown in the histogram, the lowest scores are around 20). It is merely a mechanical extrapolation necessary to satisfy the OLS first-order conditions.
 
 > (iv) Are you surprised by the $\hat \beta_1$ that you found? What about $R^2$?
 
 **Interpretation:**
 
-Standardized tests for math and reading both measure general cognitive ability and test taking skills, so a high $\hat \beta_1$ is expected. $R^2$ is high for cross sectional observational data.
+A high $\hat{\beta}_1$ is not surprising. Standardized tests for math and reading both heavily measure general cognitive ability, intelligence, and test-taking skills. Students who are academically gifted tend to perform well on all sections of a standardized test. Furthermore, an $R^2$ of around 0.50 (or 50%) is quite high for cross-sectional observational data on human behavior, confirming a strong linear relationship.
 
 > (v) Suppose that you present your findings to a superintendent of a school district, and the superintendent says, “Your findings show that to improve math scores we just need to improve reading scores, so we should hire more reading tutors.” How would you respond to this comment? (Hint: If you instead run the regression of read12 on math12, what would you expect to find?)
 
@@ -813,7 +817,7 @@ modelsummary(
 
 **Interpretation:**
 
-Running regression in reverse resulted in almost identical $R^2, \hat \beta_1$. Both variables are correlated and move together. This may indicate presence of a confounding variable like school quality.
+The superintendent is falsely equating correlation with causality. Running the regression in reverse yields the exact same $R^2$ because $R^2$ in a simple regression is just the squared correlation coefficient, which is symmetric. The relationship is driven by unobserved confounding variables (omitted variable bias)—such as a student's innate ability, family income, or the quality of the school itself—which simultaneously cause high reading scores and high math scores. Hiring reading tutors will likely only improve reading skills, not the underlying omitted variables driving the math scores.
 
 ::: callout-note
 ### Correlation VS Causaliy.
@@ -854,7 +858,7 @@ c11 |>
 
 **Interpretation:**
 
-There are 141 students in the sample, with an average GPA of 3.06. Maximum GPA is 4.
+There are 141 students in the sample. The average college GPA is 3.06, and the maximum GPA in the sample is 4.0.
 
 > (ii) How many students owned their own PC?
 
@@ -869,7 +873,7 @@ c11 |>
 
 **Interpretation:**
 
-**56** students have personal computer in the sample.
+In this sample, 56 students own a personal computer.
 
 > (iii) Estimate the simple regression equation $$colGPA = \beta_0 + PC + u$$ Interpret these estimates, including a discussion of the magnitudes.
 
@@ -892,17 +896,17 @@ modelsummary(
 
 **Interpretation:**
 
-A student with no PC is expected to get a GPA of **2.99**. Owning PC is associated with an increase of GPA by **0.17** to be a total of 3.16.
+The estimated equation shows that the predicted GPA for a student who does not own a PC is 2.99. Owning a PC is associated with a predicted GPA increase of 0.17 points, resulting in a total predicted GPA of 3.16. In terms of magnitude, a 0.17 point increase is practically significant, as it represents a meaningful jump in a student's letter grade (e.g., roughly half the distance between a B and a B+).
 
 > (iv)  What is the R-squared from the regression? What do you make of its magnitude?
 
-$R^2 = 5\%$; 5% of the variation in GPA is explained by owning a PC. 
+The R-squared is 0.05 (or 5%). This means that owning a PC explains only 5% of the variation in college GPAs. The magnitude is quite low, which makes logical sense; the vast majority (95%) of the variation in GPA is driven by other unobserved factors such as study habits, natural aptitude, major difficulty, and high school preparation. 
 
 > (v) Does your finding in part (iii) imply that owning a PC has a causal effect on colGPA? Explain.
 
 **Interpretation:**
 
-No, PC is associated with many other omitted variables found in the error term like wealth.
+No, this finding does not imply a causal effect. There is a severe risk of omitted variable bias. The binary variable for owning a PC is likely positively correlated with unobserved factors in the error term, such as family wealth, parental education, or the student's inherent motivation. For example, wealthier parents might be more likely to buy their child a PC, and wealth might also provide other educational advantages (like tutoring or not having to work a part-time job), which actually drive the higher GPA.
 
 ## C12 \[LOANAPP\]
 
@@ -942,7 +946,7 @@ c12 |>
 
 **Interpretation:**
 
-The sample has **1989** applicants. **84.5%** of those applicants are classified as white. The approval rate for white is **0.91** while non white applicants have an approval raye of **0.71**
+The sample contains 1989 mortgage applications. Approximately 84.5% of the applicants in this sample are classified as White. The approval rate for White applicants is 91% (0.91), while the approval rate for non-White applicants is 71% (0.71).
 
 > (ii) Run a simple regression of approve on white and report the results. Note that the OLS method allows `approve` and `white` to both be binary variables.
 
@@ -967,7 +971,7 @@ modelsummary(
 
 **Interpretation:**
 
-Probability of getting approved is **0.71**. This probability increases by 0.2 to reach **0.9** if applicant is white.
+The intercept ($\hat{\beta}_0$) is 0.71, which is the predicted probability of mortgage approval for a non-White applicant (white = 0). The slope ($\hat{\beta}_1$) is 0.20, meaning that being White is associated with a predicted 0.20 increase in the probability of approval, leading to a total predicted approval rate of 0.91 (or 91%) for White applicants.
 
 > (iv)  Describe the variable `loanprc`. What are its average, standard deviation, minimum, and maximum values in the sample?
 
@@ -986,7 +990,7 @@ c12 |>
 
 **Interpretation:**
 
-The variable `loanprc` is loan-to-price ratio $\text{loanprc} = \dfrac{\text{loanamt}}{\text{price}}$. Mean is **0.77** with standard deviation of **0.19**. Minimum loan to price ratio is **0.02** and reaches a maximum of **2.57**.
+The variable loanprc (the loan-to-price ratio) has a sample mean of 0.77 and a standard deviation of 0.19. The minimum loan-to-price ratio in the sample is 0.02 and it reaches a maximum of 2.57.
 
 > (v)  Estimate a simple regression of `loanprc` on `white` and interpret the results.
 
@@ -1009,10 +1013,10 @@ modelsummary(
 
 **Interpretation:**
 
-The loan to price ratio is predicted to be **0.84**. The ratio decreases by **0.09** if the applicant is white to be 0.75.
+The intercept indicates that the predicted loan-to-price ratio for a non-White applicant is 0.84. The slope indicates that White applicants have a predicted loan-to-price ratio that is 0.09 lower, resulting in a predicted ratio of 0.75.
 
 > (vi) Does it make sense to think of `loanprc` as a variable that can affect the chance that a loan is approved? Explain.
 
 **Interpretation:**
 
-Yes, `loanprcp` and `white`are correlated. Omitting `loanprcp` will result in an omitted variable bias.
+Yes, it makes perfect economic sense that loanprc affects approval chances. The loan-to-price ratio measures how much of the home's value is being financed versus how much is paid upfront as a down payment. A higher ratio means a smaller down payment, which translates to a higher risk of default for the bank. Therefore, a higher loanprc should naturally lower the probability of a loan being approved. Because loanprc fundamentally affects approval chances and is also correlated with race (as proven in part v), failing to include it in the regression causes severe omitted variable bias when attempting to measure racial discrimination in lending.
