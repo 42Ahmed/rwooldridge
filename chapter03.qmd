@@ -15,7 +15,7 @@ library(modelsummary)
 library(broom)
 ```
 
-## C1 [BWGHT]
+## C1 \[BWGHT\]
 
 > A problem of interest to health officials (and others) is to determine the effects of smoking during pregnancy on infant health. One measure of infant health is birth weight; a birth weight that is too low can put an infant at risk for contracting various illnesses. Since factors other than cigarette smoking that affect birth weight are likely to be correlated with smoking, we should take those factors into account. For example, higher income generally results in access to better prenatal care, as well as better nutrition for the mother. An equation that recognizes this is $$bwght = \beta_0 + \beta_1 cigs + \beta_2 faminc + u$$
 
@@ -30,13 +30,13 @@ kable(head(c1))
 
 **Interpretation:**
 
-$\beta_2$ is expected to be **positive**. Higher family income $\rightarrow$ better nutrition $\rightarrow$ higher birth weight
+The expected sign for $\beta_2$ is positive. Higher family income is generally associated with better access to prenatal care and improved maternal nutrition , both of which positively impact infant birth weight.
 
 > (ii) Do you think `cigs` and `faminc` are likely to be correlated? Explain why the correlation might be positive or negative.
 
 **Interpretation:**
 
-Yes, **negative** correlation. smoking rates is higher among lower-income demographics. Omitting family income will cause Omitted Variable Bias (OVB).
+Yes, cigs and faminc are likely to be negatively correlated. Historically, smoking rates tend to be higher among lower-income demographics. Because family income is correlated with both the dependent variable (birth weight) and the primary independent variable (cigarettes smoked), omitting it from the model will result in omitted variable bias (OVB).
 
 > (iii) Now, estimate the equation with and without `faminc`, using the data in BWGHT. Report the results in equation form, including the sample size and R-squared. Discuss your results, focusing on whether adding `faminc` substantially changes the estimated effect of `cigs` on `bwght`.
 
@@ -66,17 +66,9 @@ modelsummary(
 
 **Interpretation:**
 
-Including income reduces the smoking coefficient from approximately $-0.514$ to $-0.463$. This indicates that the simple regression suffered from omitted variable bias.$$ \text{Bias} = \beta_2 \times \tilde \delta_1$$
+Including faminc reduces the magnitude of the smoking coefficient from approximately $-0.514$ to $-0.463$. This confirms that the simple regression suffered from omitted variable bias. We can decompose this bias theoretically using the formula: $$\text{Bias} = \beta_2 \times \tilde{\delta}_1$$$\beta_2$ (Income effect on birth weight): Expected to be positive.$\tilde{\delta}_1$ (Income-smoking correlation): Expected to be negative.Direction of Bias: Positive $\times$ Negative = Negative Bias.Because the true partial effect of smoking ($\beta_1$) is negative, this negative bias pulls the simple OLS estimate further away from zero (from $-0.463$ to $-0.514$), overstating the detrimental effect of smoking when income is omitted
 
-1\. $\beta_2$: Positive, rich people have heavier babies.
-
-2\. $\tilde \delta_1$: Negative, poor people smoke more
-
-3\. Effect: Positive $\times$ Negative = **Negative Bias**
-
-4\. $\beta_1$ is negative, negative bias will increase it from -0.46 to -0.51
-
-## C2 [HPRICE1]
+## C2 \[HPRICE1\]
 
 > Use the data in HPRICE1 to estimate the model $$price = \beta_0 + \beta_1sqrft + \beta_2bdrms + u$$ where `price` is the house price measured in thousands of dollars.
 
@@ -107,11 +99,16 @@ modelsummary(
 )
 ```
 
+**Interpretation:**
+
+$$\widehat{price} = \hat{\beta}_0 + 0.128 sqrft + 15.2 bdrms$$
+$n = 88, R^2 = 0.632$
+
 > (ii) What is the estimated increase in price for a house with one more bedroom, holding square footage constant?
 
 **Interpretation:**
 
-Holding square footage constant, adding one more bedroom increases price by \$15,200. This estimate is not useful because adding small rooms without adding square footage will make it feel cramped.
+Holding square footage constant (ceteris paribus), the estimated increase in price for an additional bedroom is $15,200. However, this partial effect may lack practical realism; adding a bedroom without increasing the total square footage implies partitioning existing space, which could result in smaller, cramped rooms and potentially decrease the home's overall appeal.
 
 > (iii) What is the estimated increase in price for a house with an additional bedroom that is 140 square feet in size? Compare this to your answer in part (ii).
 
@@ -136,7 +133,7 @@ The estimates increase is **\$33,180**. This represents the combined value of ad
 
 **Interpretation:**
 
-**63.2%** of the variation in house prices are explained by the two variables.
+The model explains 63.2% of the variation in house prices  ($R^2 = 0.632$). This indicates that the combination of total square footage and the number of bedrooms jointly accounts for a substantial majority of the variance in home selling prices within this sample.
 
 > (v) The first house in the sample has `sqrft` = 2,438 and `bdrms` = 4. Find the predicted selling price
 
@@ -148,7 +145,7 @@ cat(c2m$fitted.values[1])
 
 **Interpretation:**
 
-Predicted selling price is **\$354,605**
+By plugging the house's characteristics into the estimated regression equation, the predicted selling price ($\widehat{price}$) is $354,605.
 
 > (vi) The actual selling price of the first house in the sample was \$300,000 Find the residual for this house. Does it suggest that the buyer underpaid or overpaid for the house?
 
@@ -160,9 +157,9 @@ cat(c2m$residuals[1])
 
 **Interpretation:**
 
-Residual is **\$-54,605**. The buyer underpaid for the house.
+Residual is **\$-54,605**. Because the actual selling price is lower than the model's predicted price (resulting in a negative residual), it suggests that the buyer underpaid relative to the expected market valuation implied by the house's size and bedroom count.
 
-## C3 [CEOSAL2]
+## C3 \[CEOSAL2\]
 
 > The file CEOSAL2 contains data on 177 chief executive officers and can be used to examine the effects of firm performance on CEO salary.
 
@@ -223,7 +220,7 @@ modelsummary(
 
 **Interpretation:**
 
-Profits can't be added in log form because it has non positive values. The model explains **30%** of the variation in the salaries. The remaining 70% is determined by other factors like tenure, unobserved CEO talent, or corporate politics.
+The profits variable cannot be included in logarithmic form because it contains negative values for certain firms experiencing losses. The natural logarithm is strictly undefined for non-positive numbers.Regarding the explanatory power, these firm performance variables explain approximately 30% of the variation in CEO salaries ($R^2 \approx 0.30$). Therefore, they do not explain most of the variation. The remaining 70% of the variance is captured by the error term, which accounts for unobserved factors such as unmeasured managerial talent, specific industry conditions, or corporate governance dynamics.
 
 > (iii) Add the variable `ceoten` to the model in part (ii). What is the estimated percentage return for another year of CEO tenure, holding other factors fixed?
 
@@ -252,7 +249,7 @@ modelsummary(
 
 **Interpretation:**
 
-$\beta_4$ = 0.01, one additional year of tenure is associated with **1%** increase in salary, holding firm performance constant.
+The estimated coefficient on tenure ($\hat{\beta}_4$) is approximately 0.01. Because the dependent variable (lsalary) is in logarithmic form and the independent variable (ceoten) is in levels (a log-level specification), we interpret this as a semi-elasticity. Holding firm performance variables constant (ceteris paribus), one additional year of CEO tenure is associated with an approximate 1% increase in salary.
 
 > (iv) Find the sample correlation coefficient between the variables `log(mktval)` and `profits`. Are these variables highly correlated? What does this say about the OLS estimators?
 
@@ -268,7 +265,7 @@ c3 |>
 
 **Interpretation:**
 
-Correlation = **0.78**. This high correlation between market value and profits indicates multicollinearity. While this does not bias our estimates or inflate the overall $R^2$, it makes it difficult to isolate the individual partial effects of profits versus market value.
+The sample correlation coefficient between log(mktval) and profits is 0.78. This strong positive linear relationship indicates a high degree of multicollinearity between the two explanatory variables.Regarding the OLS estimators, this multicollinearity does not violate OLS assumptions, meaning the coefficient estimates remain unbiased and consistent. However, the high correlation inflates the standard errors for these specific variables. This variance inflation reduces the precision of the estimates, making it statistically difficult to isolate the individual partial effect of market value from the partial effect of profits.
 
 ## C4 \[ATTEND\]
 
@@ -302,7 +299,11 @@ c4 |>
 
 **Interpretation:**
 
-Attendance rate lies in the range \[6.25, 100\] with an average of 81.71. Prior GPA is in the interval \[0.86, 3.93\] with an average of 2.59. ACT score is in the interval \[13, 32\] with an average of 22.51.
+Attendance Rate (atndrte): Ranges from 6.25% to 100%, with a sample mean of 81.71%.
+
+Prior GPA (priGPA): Ranges from 0.86 to 3.93, with a sample mean of 2.59.
+
+ACT Score (ACT): Ranges from 13 to 32, with a sample mean of 22.51.
 
 > (ii) Estimate the model $$atndrte = \beta_0 + \beta_1 priGPA + \beta_2 ACT + u$$ and write the results in equation form. Interpret the intercept. Does it have a useful meaning?
 
@@ -340,13 +341,15 @@ c4 |>
 
 **Interpretation:**
 
-$\hat \beta_0 = 75.7$. A student with zero ACT score and zero prior GPA is expected to have attendance rate = **75.7**. The intercept has no useful meaning because regression is extrapolating.
+$$\widehat{atndrte} = 75.70 + 17.26 priGPA - 1.72 ACT$$
+
+The estimated intercept ($\hat{\beta}_0$) is approximately 75.7. Mechanically, this predicts an attendance rate of 75.7% for a student with a prior GPA of 0 and an ACT score of 0. This estimate lacks any useful economic or practical meaning. As shown in part (i), minimum values for GPA and ACT in this sample are 0.86 and 13, respectively. Evaluating the model at zero for both variables involves severe extrapolation outside the relevant range of the data, describing a hypothetical student who likely does not exist in a university setting.
 
 > (iii) Discuss the estimated slope coefficients. Are there any surprises?
 
 **Interpretation**
 
-ACT score has a slope of **-1.72**. This is surprising as a higher score is usually correlated with higher attendance.
+The coefficient on priGPA is positive, indicating that, ceteris paribus, students with higher past academic performance tend to have higher attendance rates, which aligns with standard expectations.However, the coefficient on ACT ($\hat{\beta}_2 = -1.72$) is negative. This means that, holding prior GPA constant, a one-point increase in a student's ACT score is associated with a 1.72 percentage point decrease in their attendance rate. This is somewhat surprising, as one might assume higher standardized test scores correlate with higher academic engagement. Economically, this could imply that students with higher cognitive ability (as measured by the ACT) feel they can master the material independently and thus skip class more frequently.
 
 > (iv) What is the predicted atndrte if `priGPA` = 3.65. and `ACT` = 20? What do you make of this result? Are there any students in the sample with these values of the explanatory variables?
 
@@ -371,7 +374,9 @@ cat(prediction)
 
 **Interpretation:**
 
-A student with prior GPA of 3.65 and ACT score of 20 is predicted to have attendance rate of **104**; which passes maximum value of 100. The model has no students with such values so it is extrapolating.
+Plugging these values into the estimated equation yields a predicted attendance rate of approximately 104%.
+
+Because an attendance rate cannot logically exceed 100%, this result highlights a fundamental mathematical limitation of OLS regression: linear models are unbounded and can produce fitted values outside the logically permissible range of the dependent variable. Furthermore, querying the data reveals there are no students in the sample with this exact combination of characteristics, meaning the model is extrapolating to generate this impossible prediction.
 
 > (v) If Student A has `priGPA` = 3 1. and `ACT` = 21 and Student B has `priGPA = 2.1`. and `ACT = 26`, what is the predicted difference in their attendance rates?
 
@@ -389,7 +394,7 @@ cat(predictionA - predictionB)
 
 **Interpretation:**
 
-The expected difference in attendance rate between the two students is **25.8**.
+The predicted difference in attendance rates between the two students is 25.8 percentage points, heavily favoring Student A.We can decompose this difference using the estimated slope coefficients. Student A has a prior GPA that is 1.0 point higher (which increases predicted attendance) and an ACT score that is 5 points lower (which, based on our negative $\hat{\beta}_2$, also increases predicted attendance). Both partial effects work in the same direction, resulting in a substantially higher predicted attendance rate for Student A.
 
 ## C5 \[WAGE1\]
 
@@ -428,7 +433,8 @@ modelsummary(
 
 **Interpretation:**
 
-Slope of the residual term is same as that of education **(0.09)**. This proves that multiple regression computes partial effect of each independent variable.
+$$\widehat{\log(wage)} = 0.284 + 0.092 educ + 0.0041 exper + 0.022 tenure$$
+The estimated slope coefficient on the residual term ($\hat{u}$) is approximately 0.092, which is mathematically identical to the coefficient on educ in the full multiple regression model.This empirical result confirms the "partialling out" interpretation of Ordinary Least Squares (OLS), formally known as the Frisch-Waugh-Lovell theorem. By first regressing educ on the other explanatory variables (exper and tenure) and saving the residuals ($\hat{u}$), we isolate the variation in education that is completely uncorrelated with both experience and tenure. Consequently, regressing log(wage) strictly on these residuals yields the pure, ceteris paribus effect of education on wages, demonstrating exactly how multiple regression statistically controls for other included covariates.
 
 ::: callout-note
 ### Frisch-Waugh-Lovell Theorem
@@ -473,7 +479,7 @@ modelsummary(
 
 **Interpretation:**
 
-The slope coefficient $\tilde \delta_1$ is 3.534.
+The estimated slope coefficient ($\tilde{\delta}_1$) is 3.534. This indicates that, on average, one additional year of education is associated with an increase of approximately 3.5 points in IQ score.
 
 > (ii) Run the simple regression of `log(wage)` on `educ` and obtain the slope coefficient $\tilde \beta_1$
 
@@ -496,7 +502,7 @@ modelsummary(
 
 **Interpretation:**
 
-The slope coefficient $\tilde \beta_1$ is 0.060.
+The estimated slope coefficient ($\tilde{\beta}_1$) is 0.060. Because the dependent variable is logarithmic and the independent variable is in levels, this represents a semi-elasticity. Without controlling for any other factors, one additional year of education is associated with an approximate 6.0% increase in wages.
 
 > (iii) Run the multiple regression of `log(wage)` on `educ` and `IQ`, and obtain the slope coefficients, $\hat \beta_1, \hat \beta_2$ respectively.
 
@@ -520,7 +526,7 @@ modelsummary(
 
 **Interpretation:**
 
-$\hat \beta_1$ is 0.039, while $\hat \beta_2$ is 0.006
+The partial effect of education ($\hat{\beta}_1$) is 0.039, and the partial effect of IQ ($\hat{\beta}_2$) is 0.006.Holding IQ constant (ceteris paribus), one additional year of education is associated with an approximate 3.9% increase in wages.Holding education constant, a one-point increase in IQ is associated with an approximate 0.6% increase in wages.
 
 > (iv) Verify that $\tilde \beta_1 = \hat \beta_1 + \hat \beta_2 \tilde \delta_1$
 
@@ -530,12 +536,11 @@ $$\begin{align*}
 &= 0.06
 \end{align*}$$
 
-**Interpretation:** 
+**Interpretation:**
 
-From simple regression, we had effect of education on wage to be $\tilde \beta_1$ = 0.06. This estimate suffers from omitted variable bias and can be calculated as: education partial effect $\hat \beta\_1 $ = 0.039, IQ effect on wage $\hat \beta\_2$ = 0.006, how much IQ varies with education $\tilde \delta_1$ = 3.534
+From the simple regression, the unconditional effect of education on wages was $\tilde{\beta}_1 = 0.060$. This estimate suffers from omitted variable bias because it conflates the true effect of education with the effect of unobserved ability (IQ).By controlling for IQ in the multiple regression, we isolate the pure partial effect of education ($\hat{\beta}_1 = 0.039$). The difference between the simple and multiple regression estimates represents the omitted variable bias, which is exactly equal to the effect of IQ on wages ($\hat{\beta}_2 = 0.006$) multiplied by the relationship between IQ and education ($\tilde{\delta}_1 = 3.534$).
 
 ::: callout-important
-
 ### Omitted Variable Decomposition
 
 $$
@@ -553,7 +558,7 @@ Where:
 -   $\hat \beta_2$ is the omitted variable effect from multiple regression on dependent variable
 :::
 
-## C7 [MEAP93]
+## C7 \[MEAP93\]
 
 > Use the data in MEAP93 to answer this question.
 
@@ -586,13 +591,14 @@ modelsummary(
 
 **Interpretation:**
 
-Free lunch program has a negative sign. It may be acting as a proxy variable for poverty. The constant has a negative score which is also below the minimum range of 0.
+ $$\widehat{math10} = -20.36 + 6.23 \log(expend) - 0.30 lnchprg$$
+The estimated coefficient on lnchprg ($\hat{\beta}_2$) is negative. This is exactly what we would expect. The percentage of students eligible for the free lunch program serves as a proxy variable for district poverty rates. Holding per-pupil spending constant, higher poverty levels are typically associated with lower academic performance due to various socioeconomic disadvantages that exist outside the school's direct control.
 
-> (ii) What do you make of the intercept you estimated in part (i)? In particular, does it make sense to set the two explanatory variables to zero? [Hint: Recall that log(1) 0 = 0.]
+> (ii) What do you make of the intercept you estimated in part (i)? In particular, does it make sense to set the two explanatory variables to zero? \[Hint: Recall that log(1) 0 = 0.\]
 
-The intercept is predicting the math score will be negative if students spend exactly one dollar and no one is eligible for lunch programs. The regression is extrapolating.
+The estimated intercept ($\hat{\beta}_0$) is roughly -20.36. Mechanically, this predicts a negative math pass rate (-20.36%) for a school district where the log of per-pupil spending is zero and where no students are eligible for the free lunch program (lnchprg = 0). Because $\log(expend) = 0$ implies that actual spending is exactly \$1 per student, this demonstrates severe extrapolation. Evaluating the model at these hypothetical zeros is theoretically meaningless, as a district spending \$1 per student does not exist in reality.
 
-> (iii)  Now run the simple regression of `math10` on `log(expend)`, and compare the slope coefficient with the estimate obtained in part (i). Is the estimated spending effect now larger or smaller than in part (i)?
+> (iii) Now run the simple regression of `math10` on `log(expend)`, and compare the slope coefficient with the estimate obtained in part (i). Is the estimated spending effect now larger or smaller than in part (i)?
 
 ```{r}
 #| label: c7_iii
@@ -613,7 +619,7 @@ modelsummary(
 
 **Interpretation:**
 
-Estimated spending now is 11.16 after it was 6.23.
+In the simple regression, the estimated slope coefficient for lexpend ($\tilde{\beta}_1$) is approximately 11.16. This unconditional estimate is substantially larger than the partial effect estimated in the multiple regression from part (i) ($\hat{\beta}_1 \approx 6.23$)
 
 > (iv) Find the correlation between `lexpend` = log(expend) and `lnchprg`. Does its sign make sense to you?
 
@@ -625,7 +631,7 @@ cor(c7$lexpend, c7$lnchprg)
 
 **Interpretation:**
 
-Student spending and eligibility for lunch program are negatively correlated (-0.2). It makes sense if lunch program is a proxy for poverty.
+The sample correlation between lexpend and lnchprg is approximately -0.19. This negative sign makes perfect economic sense: school districts with a higher proportion of low-income students (higher lnchprg) tend to have lower local property tax bases, which mechanically results in lower per-pupil spending (lexpend).
 
 > (v) Use part (iv) to explain your findings in part (iii).
 
@@ -633,9 +639,15 @@ Student spending and eligibility for lunch program are negatively correlated (-0
 
 $$Bias = \beta_2 \times Correlation(X_1, X_2)$$
 
-Estimate of lunch program on math score $\hat \beta_2$ is negative. And the correlation between  the two independent variables is negative; resulting in a positive bias that is added on $\hat \beta_1$
+We can explain the discrepancy between the simple and multiple regression estimates using omitted variable bias (OVB) analysis. By omitting lnchprg in part (iii), the simple regression estimate ($\tilde{\beta}_1$) becomes biased upward. We can decompose this mathematically:
 
-## C8 [DISCRIM]
+$\beta_2$ (Effect of poverty proxy on math scores): Negative.
+
+$\tilde{\delta}_1$ (Relationship between poverty and spending): Negative.
+
+Direction of Bias: Negative $\times$ Negative = Positive Bias.Because wealthier districts tend to spend more per student and have fewer students in poverty (which naturally correlates with higher test scores), omitting the poverty proxy forces the lexpend coefficient to absorb both effects. This artificially inflates the apparent impact of school spending from 6.23 to 11.16.
+
+## C8 \[DISCRIM\]
 
 > Use the data in DISCRIM to answer this question. These are zip code–level data on prices for various items at fast-food restaurants, along with characteristics of the zip code population, in New Jersey and Pennsylvania. The idea is to see whether fast-food restaurants charge higher prices in areas with a larger concentration of blacks.
 
@@ -645,7 +657,6 @@ Estimate of lunch program on math score $\hat \beta_2$ is negative. And the corr
 c8 <- discrim
 kable(head(c8))
 ```
-
 
 > (i) Find the average values of `prpblck` and `income` in the sample, along with their standard deviations. What are the units of measurement of `prpblck` and `income`?
 
@@ -665,9 +676,7 @@ c8 |>
 
 **Interpretation:**
 
-prpblck: Mean is roughly 0.113, Standard Deviation is 0.182. Units: This is a proportion, meaning it's measured on a scale from 0 to 1 (e.g., 0.113 means the population is 11.3% black).
-
-income: Mean is roughly $47,053, Standard Deviation is $13,179. Units: Dollars.
+The sample mean for the proportion of the black population (prpblck) is approximately 0.113, with a standard deviation of 0.182. Because this is a proportion, it is unitless and bounded between 0 and 1, representing an average of 11.3% across the sampled zip codes. The sample mean for median income (income) is roughly 47,053, with a standard deviation of 13,179, measured in dollars.
 
 > (ii) Consider a model to explain the price of soda, `psoda`, in terms of the proportion of the population that is black and median income: $$psoda = \beta_0 + \beta_1 prpblck + \beta_2 income + u$$ Estimate this model by OLS and report the results in equation form, including the sample size and R-squared. (Do not use scientific notation when reporting the estimates.) Interpret the coefficient on `prpblck`. Do you think it is economically large?
 
@@ -684,7 +693,7 @@ modelsummary(
 
 **Interpretation:**
 
-The coefficient on prpblck is 0.115. This means if the proportion of the black population increases by 1 unit (going from 0% to 100% black), the price of a soda increases by 11.5 cents. Is this economically large? Absolutely not. A 10 percentage point increase in prpblck (an increase of 0.10) only raises the price of a soda by about 1.15 cents. It's statistically significant, but functionally meaningless to a consumer's wallet.
+The estimated coefficient on prpblck ($\hat{\beta}_1$) is 0.115. Holding median income constant, a one-unit increase in prpblck (representing a theoretical shift from a 0% to a 100% black population) is associated with an 11.5 cent increase in the price of a soda.To evaluate the economic magnitude, consider a more realistic 10 percentage point increase ($\Delta prpblck = 0.10$). This translates to a price increase of merely 1.15 cents. While this partial effect is statistically significant, it is economically negligible; a one-cent increase has no meaningful impact on consumer purchasing power.
 
 > (iii) Compare the estimate from part (ii) with the simple regression estimate from `psoda` on `prpblck`. Is the discrimination effect larger or smaller when you control for income?
 
@@ -701,7 +710,7 @@ modelsummary(
 
 **Interpretation:**
 
-In the simple regression, the coefficient on prpblck drops to **0.065**. The discrimination effect is larger when you control for income (0.115 vs. 0.065). Why? Because prpblck and income are negatively correlated, and income has a positive effect on soda prices.
+In the simple regression of psoda on prpblck, the estimated coefficient drops to approximately 0.065. The discrimination effect appears larger in the multiple regression (0.115) than in the simple regression (0.065).This occurs because prpblck and income are negatively correlated, while income has a positive partial effect on soda prices. Omitting income from the model creates a negative omitted variable bias, which suppresses the estimated price effect of the minority proportion.
 
 > (iv) A model with a constant price elasticity with respect to income may be more appropriate. Report estimates of the model $$\log(psoda) = \beta_0 + \beta_1 prpblck + \beta_2 \log(income) + u$$ If `prpblck` increases by 0.20 (20 percentage points), what is the estimated percentage change in `psoda`? (Hint: The answer is 2.xx, where you fill in the “xx.”)
 
@@ -719,7 +728,7 @@ modelsummary(
 
 **Interpretation:**
 
-If percentage of black increases by 0.2 (20 percentage points), estimated percentage change in price of soda is $100 \times (0.122 \times 0.2) = 2.44$. Sode prices go up by **2.44%**
+The estimated coefficient on prpblck in this log-level specification is approximately 0.122. Because the dependent variable is logarithmic, if the proportion of the black population increases by 0.20 (20 percentage points), the estimated percentage change in the price of soda, holding income constant, is $100 \times (0.122 \times 0.20) = 2.44\%$.
 
 > (v) Now add the variable `prppov` to the regression in part (iv). What happens to $\hat \beta_{prpblck}$
 
@@ -737,7 +746,7 @@ modelsummary(
 
 **Interpretation:**
 
-When you add poverty proportion to the regression, $\hat{\beta}_{prpblck}$ drops from ~0.122 to roughly **0.073**. The effect practically gets cut in half. This tells you that a massive chunk of what looked like pure racial price discrimination was actually just restaurants pricing differently in impoverished areas.
+Upon adding the poverty proportion (prppov) to the model, the estimated coefficient on prpblck ($\hat{\beta}_{prpblck}$) decreases substantially from 0.122 to approximately 0.073. The partial effect is nearly halved. This indicates that a significant portion of the price premium previously attributed to the racial composition of the zip code was actually capturing the effect of restaurants operating in impoverished areas.
 
 > (vi) Find the correlation between log(`income`) and `prppov`. Is it roughly what you expected?
 
@@ -747,17 +756,15 @@ cor(c8$lincome, c8$prppov, use = "complete.obs")
 
 **Interpretation:**
 
-The correlation is roughly -0.83. Is this expected? Yes, completely. Areas with higher median incomes naturally have lower poverty rates.
+The sample correlation between log(income) and prppov is approximately -0.83. This strong negative correlation is entirely expected; geographic areas with higher median incomes inherently have lower poverty rates.
 
 > (vii) Evaluate the following statement: “Because log(`income`) and `prppov` are so highly correlated, they have no business being in the same regression.”
 
 **Interpretation:**
 
-High correlation (multicollinearity) does not magically disqualify variables from a regression. The whole point of multiple regression is to isolate ceteris paribus effects. If you want to know if race drives prices holding both income and poverty constant, you must include both variables.
+The statement is flawed. While log(income) and prppov are highly correlated (exhibiting multicollinearity), this does not justify omitting either variable. The primary objective of multiple regression is to estimate the ceteris paribus effect of the variable of interest by controlling for relevant confounding factors. Because median income and poverty rates represent distinct socioeconomic mechanisms affecting local prices, excluding one to reduce variance inflation would induce severe omitted variable bias, undermining the validity of the estimates. Both variables should remain in the model to isolate the distinct partial effects.
 
-Excluding one just to make your standard errors look prettier will cause omitted variable bias, completely ruining the validity of your estimates. Multicollinearity might inflate your standard errors, but dropping a theoretically vital variable ruins your entire model. Keep them both in.
-
-## C9 [CHARITY]
+## C9 \[CHARITY\]
 
 > Use the data in CHARITY to answer the following questions:
 
@@ -767,7 +774,6 @@ Excluding one just to make your standard errors look prettier will cause omitted
 c9 <- charity
 kable(head(c9))
 ```
-
 
 > (i) Estimate the equation $$gift + \beta_0 + \beta_1 mailsyear + \beta_2 giftlast + \beta_3 propresp + u$$ by OLS and report the results in the usual way, including the sample size and R-squared. How does the R-squared compare with that from the simple regression that omits `giftlast` and `propresp`?
 
@@ -781,7 +787,7 @@ kable(head(c9))
 
 > (vi) In order to guarantee that one gets an unbiased estimator of the causal effect of mailings, what would you recommend to the directors of the charity? Assume that the charity is willing to take some time, and that there is a budget for sending out mailings.
 
-## C10 [HTV]
+## C10 \[HTV\]
 
 > Use the data in HTV to answer this question. The data set includes information on wages, education, parents’ education, and several other variables for 1,230 working men in 1991.
 
@@ -797,7 +803,7 @@ kable(head(c9))
 
 > (vi) If you have access to a statistical program that includes graphing capabilities, use the estimates in part (iv) to graph the relationship between the predicted education and `abil`. Set `motheduc` and `fatheduc` at their average values in the sample, 12.18 and 12.45, respectively.
 
-## C11 [MEAPSINGLE]
+## C11 \[MEAPSINGLE\]
 
 > Use the data in MEAPSINGLE to study the effects of single-parent households on student math performance. These data are for a subset of schools in southeast Michigan for the year 2000. The socioeconomic variables are obtained at the ZIP code level (where ZIP code is assigned to schools based on their mailing addresses).
 
@@ -811,7 +817,7 @@ kable(head(c9))
 
 > (v) Find the variance inflation factors (VIFs) for each of the explanatory variables appearing in the regression in part (ii). Which variable has the largest VIF? Does this knowledge affect the model you would use to study the causal effect of single parenthood on math performance?
 
-## C12 [ECONMATH]
+## C12 \[ECONMATH\]
 
 > The data in ECONMATH contain grade point averages and standardized test scores, along with performance in an introductory economics course, for students at a large public university. The variable to be explained is `score`, the final score in the course measured as a percentage.
 
@@ -823,7 +829,7 @@ kable(head(c9))
 
 > (iv) Discuss the size of the R-squared in the regression.
 
-## C13 [GPA1]
+## C13 \[GPA1\]
 
 > Use the data in GPA1 to answer this question. We can compare multiple regression estimates, where we control for student achievement and background variables, and compare our findings with the difference-in-means estimate in Computer Exercise C11 in Chapter 2.
 
@@ -839,7 +845,7 @@ kable(head(c9))
 
 > (vi) For curiosity’s sake, compute the VIFs for hsGPA and ACT. Of what value is this information?
 
-## C14 [APPLE]
+## C14 \[APPLE\]
 
 > Use the data in APPLE to answer the following questions. These come from a survey where respondents were presented with the characteristics of an “ecologically-friendly” apple. They were also randomly presented with a price pair: the price per lb. of the new apple, `ecoprc`, and the price per lb. of regular apples, `regprc`. Each respondent was asked, at the given pair of prices, how many pounds of eco-friendly apples (`ecolbs`) would they buy (and how many pounds of regular apples).
 
