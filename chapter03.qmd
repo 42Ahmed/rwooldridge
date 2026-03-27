@@ -13,6 +13,7 @@ library(wooldridge)
 library(knitr)
 library(modelsummary)
 library(broom)
+library(car)
 ```
 
 ## C1 \[BWGHT\]
@@ -777,45 +778,267 @@ kable(head(c9))
 
 > (i) Estimate the equation $$gift + \beta_0 + \beta_1 mailsyear + \beta_2 giftlast + \beta_3 propresp + u$$ by OLS and report the results in the usual way, including the sample size and R-squared. How does the R-squared compare with that from the simple regression that omits `giftlast` and `propresp`?
 
+```{r}
+#| label: c9_i
+
+c9m <- lm(gift ~ mailsyear + giftlast + propresp, data = c9)
+c9m2 <- lm(gift ~ mailsyear, data = c9)
+
+models <- list(
+  "Simple" = c9m2,
+  "Multiple" = c9m
+)
+
+modelsummary(
+  models, 
+  gof_map = c("nobs", "r.squared"), 
+  statistic = NULL)
+
+```
+
+**Interpretation:**
+
+$$\widehat{gift} = -4.552 + 2.166 mailsyear + 0.006 giftlast + 15.359 propresp$$ $n = 4268, R^2 = 0.083$The R-squared for the multiple regression is 0.083, compared to just 0.014 for the simple regression. Adding the donor's most recent gift amount and their response rate increases the explained variation in the current gift from a dismal 1.4% to 8.3%.
+
 > (ii) Interpret the coefficient on `mailsyear`. Is it bigger or smaller than the corresponding simple regression coefficient?
+
+**Interpretation:**
+
+The estimated coefficient on mailsyear ($\hat{\beta}_1$) is 2.166. Holding the last gift amount and response rate constant, each additional mailing sent per year increases the expected gift by $2.17.This is smaller than the simple regression coefficient of 2.650. The simple regression overstates the effect of mailings because of omitted variable bias; people who receive more mail are generally those who have higher response rates and give larger gifts. Controlling for those traits naturally reduces the isolated effect of the mail itself.
 
 > (iii) Interpret the coefficient on `propresp`. Be careful to notice the units of measurement of `propresp`.
 
+**Interpretation:**
+
+The coefficient is 15.359. Because propresp is a proportion measured from 0 to 1, a one-unit increase means jumping from a 0% response rate to a 100% response rate. Holding other factors constant, going from never responding to always responding increases the predicted gift by \$15.36. More realistically, a 10% (0.10) increase in a donor's response rate yields an expected gift increase of $1.54.
+
 > (iv) Now add the variable `avggift` to the equation. What happens to the estimated effect of `mailsyear`?
+
+```{r}
+c9m3 <- lm(gift ~ mailsyear + giftlast + propresp + avggift, data = c9)
+
+modelsummary(
+  c9m3, 
+  gof_map = c("nobs", "r.squared"), 
+  statistic = NULL)
+```
+**Interpretation:**
+
+When avggift is added, the coefficient on mailsyear drops substantially from 2.166 down to 1.201. Once you account for a donor's historical average gift size, the isolated impact of sending them another piece of mail is nearly cut in half.
 
 > (v) In the equation from part (iv), what has happened to the coefficient on `giftlast`? What do you think is happening?
 
+**Interpretation:**
+
+The coefficient on giftlast flips from a positive 0.006 to a negative -0.261. This is a classic symptom of severe multicollinearity. A donor's most recent gift (giftlast) and their average historical gift (avggift) are highly correlated. When both are crammed into the same model, they compete for the same variance. The model is now essentially measuring the effect of the last gift relative to the average gift, rendering the isolated interpretation of giftlast mathematically unstable and practically useless.
+
 > (vi) In order to guarantee that one gets an unbiased estimator of the causal effect of mailings, what would you recommend to the directors of the charity? Assume that the charity is willing to take some time, and that there is a budget for sending out mailings.
+
+**Interpretation:**
+
+To guarantee an unbiased estimator of the causal effect of mailings, the charity must stop relying on observational data where mailings are targeted based on a donor's past behavior. I recommend they conduct a randomized controlled trial (RCT). Because they have the time and budget, they should randomly assign the number of mailings each potential donor receives over the year, entirely ignoring their past gift history or response rate. This randomization severs any correlation between mailsyear and the unobserved factors in the error term ($u$), effectively eliminating omitted variable bias.
 
 ## C10 \[HTV\]
 
 > Use the data in HTV to answer this question. The data set includes information on wages, education, parents’ education, and several other variables for 1,230 working men in 1991.
 
+```{r}
+c10 <- htv
+kable(head(c10))
+```
+
+
 > (i) What is the range of the `educ` variable in the sample? What percentage of men completed twelfth grade but no higher grade? Do the men or their parents have, on average, higher levels of education?
+
+```{r}
+#| label: c10_i
+
+c10 |>
+  summarise(
+    Min_Education = min(educ),
+    Max_Education = max(educ),
+    Pct_12 = mean(educ == 12) * 100,
+    Avg_son = mean(educ),
+    Avg_moth = mean(motheduc),
+    avg_farg = mean(fatheduc)
+  ) |>
+  round(3)
+```
+
+**Interpretation:**
+
+The educ variable ranges from 6 to 20 years. Approximately 41.6% of the men in the sample completed exactly 12th grade. The sons are better educated on average; they have a mean of 13.04 years of education, surpassing both their mothers (12.18 years) and fathers (12.45 years).
 
 > (ii) Estimate the regression model $$educ = \beta_1 motheduc + \beta_2 fatheduc + u$$ by OLS and report the results in the usual form. How much sample variation in `educ` is explained by parents’ education? Interpret the coefficient on `motheduc`.
 
+```{r}
+#| label: c10_ii
+
+c10m <- lm(educ ~ motheduc + fatheduc, data = c10)
+
+modelsummary(
+  c10m, 
+  gof_map = c("nobs", "r.squared"), 
+  statistic = NULL)
+```
+
+**Interpretation:**
+
+Parents' education explains approximately 24.9% of the sample variation in the son's education ($R^2 = 0.249$). The estimated coefficient on motheduc is roughly 0.304. This means that, holding the father's education constant, one additional year of a mother's education is associated with an increase of 0.304 years in the son's educational attainment.
+
 > (iii) Add the variable `abil` (a measure of cognitive ability) to the regression from part (ii), and report the results in equation form. Does “ability” help to explain variations in education, even after controlling for parents’ education? Explain.
+
+```{r}
+#| label: c10_iii
+
+c10m2 <- lm(educ ~ motheduc + fatheduc + abil, data = c10)
+
+modelsummary(
+  c10m2, 
+  gof_map = c("nobs", "r.squared"), 
+  statistic = NULL)
+```
+
+**Interpretation:**
+
+Yes, ability is highly relevant. Adding abil increases the R-squared significantly to 0.428, meaning the model now explains 42.8% of the variation in education. The coefficient on abil is around 0.502 and is highly statistically significant. This proves that cognitive ability has a strong, independent effect on educational attainment that cannot be explained away by family background alone.
 
 > (iv) (Requires calculus) Now estimate an equation where `abil` appears in quadratic form: $$educ = \beta_0 + \beta_1 motheduc + \beta_2 fatheduc + \beta_3 abil + \beta_4 abil^2 + u$$ Using the estimated $\hat \beta_3, \hat \beta_4$, use calculus to find the value of `abil`, call it `abil*`, where educ is minimized. (The other coefficients and values of parents’ education variables have no effect; we are holding parents’ education fixed.) Notice that `abil` is measured so that negative values are permissible. You might also verify that the second derivative is positive so that you do indeed have a minimum.
 
+```{r}
+#| label: c10_iv
+
+c10m3 <- lm(educ ~ motheduc + fatheduc + abil + I(abil^2), data = c10)
+
+beta3 <- coef(c10m3)["abil"]
+beta4 <- coef(c10m3)["I(abil^2)"]
+abil_star <- -beta3 / (2 * beta4)
+cat(abil_star)
+```
+
+**Interpretation:**
+
+the coefficient for squared ability ($\hat{\beta}_4$) is 0.051.By taking the first derivative with respect to $abil$ and setting it to zero, we find the minimum point formula:$$abil^* =\frac{-\hat{\beta}_3}{2\hat{\beta}_4}$$
+Plugging in the estimates:$abil^* = \frac{-0.401}{2 \times 0.051} = -3.96$
+
+The second derivative is $2\hat{\beta}_4$, which equals $0.102$. Because this value is strictly positive, the curve is convex (U-shaped), confirming that -3.96 is indeed a global minimum, not a maximum.
+
 > (v) Argue that only a small fraction of men in the sample have “ability” less than the value calculated in part (iv). Why is this important?
 
+```{r}
+#| label: c10_v
+
+below_star <- mean(c10$abil < abil_star) * 100
+cat(below_star)
+```
+
+**Interpretation:**
+
+Only about 1.2% of the men in the sample (roughly 15 individuals) have an ability score below -3.96. This is practically vital because it means the "downward sloping" portion of the quadratic curve is virtually irrelevant. For 98.8% of the sample, the relationship between ability and education is strictly positive. The quadratic term simply captures the fact that the return to ability increases at an accelerating rate as ability gets higher.
+
 > (vi) If you have access to a statistical program that includes graphing capabilities, use the estimates in part (iv) to graph the relationship between the predicted education and `abil`. Set `motheduc` and `fatheduc` at their average values in the sample, 12.18 and 12.45, respectively.
+
+```{r}
+#| label: c10_vi
+
+plot_data <- data.frame(
+  abil = seq(min(c10$abil), max(c10$abil), length.out = 100),
+  motheduc = 12.18,
+  fatheduc = 12.45
+)
+
+
+plot_data$pred_educ <- predict(c10m3, newdata = plot_data)
+
+
+ggplot(plot_data, aes(x = abil, y = pred_educ)) +
+  geom_line(color = "blue", linewidth =  1) +
+  labs(title = "Predicted Education vs. Ability",
+       subtitle = "Parents' education held at sample averages",
+       x = "Cognitive Ability (abil)",
+       y = "Predicted Years of Education") +
+  theme_minimal()
+```
+
+**Interpretation:**
+
+The resulting graph displays a parabola opening upwards, but the vertex (the minimum point) is pushed far to the left side of the chart at -3.96. For the visible cluster of actual data points on the right side of this minimum, the curve looks like an upward-sloping line that gradually gets steeper, illustrating the increasing marginal impact of cognitive ability on years of schooling.
 
 ## C11 \[MEAPSINGLE\]
 
 > Use the data in MEAPSINGLE to study the effects of single-parent households on student math performance. These data are for a subset of schools in southeast Michigan for the year 2000. The socioeconomic variables are obtained at the ZIP code level (where ZIP code is assigned to schools based on their mailing addresses).
 
+```{r}
+c11 <- meapsingle
+kable(head(c11))
+```
+
+
 > (i) Run the simple regression of `math4` on `pctsgle` and report the results in the usual format. Interpret the slope coefficient. Does the effect of single parenthood seem large or small?
+
+```{r}
+#| label: c11_i
+
+c11m <- lm(math4 ~ pctsgle, data = c11)
+
+modelsummary(
+  c11m, 
+  gof_map = c("nobs", "r.squared"), 
+  statistic = NULL)
+```
+
+**Interpretation:**
+
+The simple regression yields a coefficient on pctsgle of approximately $-0.83$. This means that a one percentage point increase in single-parent households within a zip code is associated with a 0.83 percentage point drop in the proportion of students passing the 4th-grade math test. This effect is undeniably massive. A 10-point increase in single parenthood translates to over an 8-point plunge in the math pass rate. However, taking this at face value is statistically reckless because it ignores all other socioeconomic realities.
 
 > (ii) Add the variables `lmedinc` and `free` to the equation. What happens to the coefficient on `pctsgle`? Explain what is happening.
 
+```{r}
+#| label: c11_ii
+
+c11m2 <- lm(math4 ~ pctsgle + lmedinc + free, data = c11)
+modelsummary(
+  c11m2, 
+  gof_map = c("nobs", "r.squared"), 
+  statistic = NULL)
+```
+
+**Interpretation:**
+
+When you add median income (lmedinc) and the free lunch proxy (free), the coefficient on pctsgle collapses from roughly $-0.83$ down to about $-0.20$. The partial effect of single parenthood is nearly quartered.What is happening is textbook omitted variable bias in the simple regression. Single-parent households are heavily correlated with deeper systemic disadvantages—namely, lower local incomes and higher poverty rates (measured by free lunch eligibility). By failing to control for poverty in part (i), the pctsgle variable was unfairly forced to absorb the negative impacts of all those missing economic factors.
+
 > (iii) Find the sample correlation between `lmedinc` and `free`. Does it have the sign you expect?
+
+```{r}
+#| label: c11_iii
+
+cor_income_free <- cor(c11$lmedinc, c11$free, use = "complete.obs")
+cat(cor_income_free)
+```
+
+**Interpretation:**
+
+The correlation is approximately $-0.75$. Yes, this makes perfect sense. As median income goes up, the percentage of students impoverished enough to qualify for a free lunch program mechanically goes down.
 
 > (iv) Does the substantial correlation between `lmedinc` and `free` mean that you should drop one from the regression to better estimate the causal effect of single parenthood on student performance? Explain.
 
+**Interpretation:**
+
+Absolutely not. Dropping a variable just because it's correlated with another control variable is a rookie mistake. Multicollinearity between controls does not bias your primary coefficient of interest (pctsgle). While lmedinc and free both measure aspects of wealth, they capture slightly different demographics (median wealth vs. extreme poverty). If you drop one, you inevitably dump its omitted effect back into the error term, which will likely correlate with pctsgle and contaminate your causal estimate again. You must keep them both to isolate the true effect of family structure.
+
 > (v) Find the variance inflation factors (VIFs) for each of the explanatory variables appearing in the regression in part (ii). Which variable has the largest VIF? Does this knowledge affect the model you would use to study the causal effect of single parenthood on math performance?
+
+```{r}
+#| label: c11_v
+
+vif(c11m2)
+```
+
+**Interpretation:**
+
+The calculated variance inflation factors are 5.74 for pctsgle, 4.12 for lmedinc, and 3.19 for free. The variable measuring the percentage of single-parent households (pctsgle) has the largest VIF.
+
+This knowledge dictates absolutely no change to the model you should use to study the causal effect of single parenthood. A VIF of 5.74 indicates that the variance of the pctsgle coefficient is 5.74 times larger than it would be if it were perfectly uncorrelated with median income and free lunch eligibility. While this multicollinearity reduces the statistical precision of your estimate, dropping either lmedinc or free to artificially lower the VIF would be a catastrophic methodological error. Because family structure is heavily entangled with local income and poverty rates, omitting these control variables would dump their effects back into the error term. This would subject the pctsgle coefficient to massive omitted variable bias, rendering your causal estimate completely invalid. You must accept the inflated variance to preserve the unbiasedness of the causal parameter.
 
 ## C12 \[ECONMATH\]
 
