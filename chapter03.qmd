@@ -639,23 +639,135 @@ Estimate of lunch program on math score $\hat \beta_2$ is negative. And the corr
 
 > Use the data in DISCRIM to answer this question. These are zip code–level data on prices for various items at fast-food restaurants, along with characteristics of the zip code population, in New Jersey and Pennsylvania. The idea is to see whether fast-food restaurants charge higher prices in areas with a larger concentration of blacks.
 
+```{r}
+#| label: c8_data
+
+c8 <- discrim
+kable(head(c8))
+```
+
+
 > (i) Find the average values of `prpblck` and `income` in the sample, along with their standard deviations. What are the units of measurement of `prpblck` and `income`?
+
+```{r}
+#| label: c8_i
+
+c8 |>
+  select(prpblck, income) |>
+  drop_na() |>
+  summarise(
+    across(
+      everything(), list(mean = mean, sd = sd)
+    )
+  ) |>
+  round(2)
+```
+
+**Interpretation:**
+
+prpblck: Mean is roughly 0.113, Standard Deviation is 0.182. Units: This is a proportion, meaning it's measured on a scale from 0 to 1 (e.g., 0.113 means the population is 11.3% black).
+
+income: Mean is roughly $47,053, Standard Deviation is $13,179. Units: Dollars.
 
 > (ii) Consider a model to explain the price of soda, `psoda`, in terms of the proportion of the population that is black and median income: $$psoda = \beta_0 + \beta_1 prpblck + \beta_2 income + u$$ Estimate this model by OLS and report the results in equation form, including the sample size and R-squared. (Do not use scientific notation when reporting the estimates.) Interpret the coefficient on `prpblck`. Do you think it is economically large?
 
+```{r}
+#| label: c8_ii
+
+c8m <- lm(psoda ~ prpblck + income, data = c8)
+modelsummary(
+  c8m,
+  gof_map = c("nobs", "r.squared"),
+  statistic = NULL
+)
+```
+
+**Interpretation:**
+
+The coefficient on prpblck is 0.115. This means if the proportion of the black population increases by 1 unit (going from 0% to 100% black), the price of a soda increases by 11.5 cents. Is this economically large? Absolutely not. A 10 percentage point increase in prpblck (an increase of 0.10) only raises the price of a soda by about 1.15 cents. It's statistically significant, but functionally meaningless to a consumer's wallet.
+
 > (iii) Compare the estimate from part (ii) with the simple regression estimate from `psoda` on `prpblck`. Is the discrimination effect larger or smaller when you control for income?
+
+```{r}
+#| label: c8_iii
+
+c8m2 <- lm(psoda ~ prpblck, data = c8)
+modelsummary(
+  list("Simple" = c8m2, "Multiple" = c8m),
+  gof_map = c("nobs", "r.squared"),
+  statistic = NULL
+)
+```
+
+**Interpretation:**
+
+In the simple regression, the coefficient on prpblck drops to **0.065**. The discrimination effect is larger when you control for income (0.115 vs. 0.065). Why? Because prpblck and income are negatively correlated, and income has a positive effect on soda prices.
 
 > (iv) A model with a constant price elasticity with respect to income may be more appropriate. Report estimates of the model $$\log(psoda) = \beta_0 + \beta_1 prpblck + \beta_2 \log(income) + u$$ If `prpblck` increases by 0.20 (20 percentage points), what is the estimated percentage change in `psoda`? (Hint: The answer is 2.xx, where you fill in the “xx.”)
 
+```{r}
+#| label: c8_iv
+
+c8m3 <- lm(lpsoda ~ prpblck + lincome, data = c8)
+
+modelsummary(
+  c8m3,
+  statistic = NULL,
+  gof_map = c("nobs", "r.squared")
+)
+```
+
+**Interpretation:**
+
+If percentage of black increases by 0.2 (20 percentage points), estimated percentage change in price of soda is $100 \times (0.122 \times 0.2) = 2.44$. Sode prices go up by **2.44%**
+
 > (v) Now add the variable `prppov` to the regression in part (iv). What happens to $\hat \beta_{prpblck}$
+
+```{r}
+#| label: c8_v
+
+c8m4 <- lm(lpsoda ~ prpblck + lincome + prppov, data = c8)
+
+modelsummary(
+  c8m4,
+  statistic = NULL,
+  gof_map = c("nobs", "r.squared")
+)
+```
+
+**Interpretation:**
+
+When you add poverty proportion to the regression, $\hat{\beta}_{prpblck}$ drops from ~0.122 to roughly **0.073**. The effect practically gets cut in half. This tells you that a massive chunk of what looked like pure racial price discrimination was actually just restaurants pricing differently in impoverished areas.
 
 > (vi) Find the correlation between log(`income`) and `prppov`. Is it roughly what you expected?
 
+```{r}
+cor(c8$lincome, c8$prppov, use = "complete.obs")
+```
+
+**Interpretation:**
+
+The correlation is roughly -0.83. Is this expected? Yes, completely. Areas with higher median incomes naturally have lower poverty rates.
+
 > (vii) Evaluate the following statement: “Because log(`income`) and `prppov` are so highly correlated, they have no business being in the same regression.”
+
+**Interpretation:**
+
+High correlation (multicollinearity) does not magically disqualify variables from a regression. The whole point of multiple regression is to isolate ceteris paribus effects. If you want to know if race drives prices holding both income and poverty constant, you must include both variables.
+
+Excluding one just to make your standard errors look prettier will cause omitted variable bias, completely ruining the validity of your estimates. Multicollinearity might inflate your standard errors, but dropping a theoretically vital variable ruins your entire model. Keep them both in.
 
 ## C9 [CHARITY]
 
 > Use the data in CHARITY to answer the following questions:
+
+```{r}
+#| label: c9_data
+
+c9 <- charity
+kable(head(c9))
+```
+
 
 > (i) Estimate the equation $$gift + \beta_0 + \beta_1 mailsyear + \beta_2 giftlast + \beta_3 propresp + u$$ by OLS and report the results in the usual way, including the sample size and R-squared. How does the R-squared compare with that from the simple regression that omits `giftlast` and `propresp`?
 
