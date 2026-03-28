@@ -1221,42 +1221,87 @@ kable(head(apple))
 
 > (i) How many respondents are there in the sample? How many report `ecolbs` of zero? What is the second most common value reported for `ecolbs`?
 
+```{r}
+#| label: c14_i
+
+c14 |>
+  summarise(
+    Count = n(),
+    Zero_ecolbs = sum(ecolbs == 0),
+    Second_most_common = c14 |>
+      count(ecolbs) |>
+      arrange(desc(n)) |>
+      slice(2) |>
+      pull(ecolbs)
+  )
+```
+
 **Interpretation:**
 
-
+There are 660 respondents in the sample. Out of those, 248 respondents report zero ecolbs. The second most common value reported is 2 lbs.
 
 > (ii) Consider a demand equation for the eco-friendly apples: $$ecolbs = \beta_0 + \beta_1 ecoprc + \beta_2 regprc + u $$. What does economic theory predict for the signs of $\beta_1, \beta_2$?
 
 **Interpretation:**
 
-
+Economic theory dictates that $\beta_1$ (the own-price effect) must be negative due to the Law of Demand; as the price of eco-apples increases, quantity demanded decreases. $\beta_2$ (the cross-price effect) must be positive because regular apples and eco-apples are substitute goods; as the price of the alternative increases, demand for eco-apples shifts upward.
 
 > (iii) Estimate the equation by OLS and report the results in equation form. Are any of the fitted values negative? Does the estimated intercept answer an interesting question? Explain. What is the R-squared?
 
+```{r}
+#| label: c14_iii
+
+c14m <- lm(ecolbs ~ ecoprc + regprc, data = apple)
+modelsummary(
+  c14m,
+  fmt = 4,
+  statistic = NULL,
+  gof_map = c("nobs", "r.squared")
+)
+```
+
 **Interpretation:**
 
-
+$$\widehat{ecolbs}=1.9653-2.9265ecoprc+3.0289regprc$$Negative Fitted Values: Yes, there will absolutely be negative fitted values. Because 248 people reported zero pounds, using a linear model (OLS) for a corner solution variable almost guarantees that high values of ecoprc combined with low values of regprc will push the mathematical prediction below zero (which is physically impossible).The Intercept: The intercept is 1.9653. It does not answer an interesting question. It represents the predicted pounds of eco-apples bought if both eco-apples and regular apples were completely free ($ecoprc=0$ and $regprc=0$). Since apples are never free, this is a meaningless extrapolation outside the bounds of realistic data.R-squared: The R-squared is 0.036. Only 3.6% of the variation in the quantity of eco-apples demanded is explained by the prices.
 
 > (iv) If `ecoprc` increases by 0.10 (10 cents per lb.), what is the estimated change in `ecolbs`, holding `regprc` fixed? Do you think this is a practically large effect?
 
 **Interpretation:**
 
-
+Holding regular apple prices constant, a 10-cent increase in eco-apple prices reduces demand by roughly 0.29 lbs ($-2.9265 \times 0.10 = -0.29265$). Yes, this is a practically large effect. A mere 10-cent hike destroys over a quarter pound of demand per person. These consumers are highly price-sensitive.
 
 > (v) If `ecoprc` and `regprc` both increase by 0.10, argue that the estimated change in `ecolbs` is close to zero.
 
 **Interpretation:**
 
-
+If both prices increase by 10 cents, you sum the effects:$$\Delta ecolbs=(-2.9265+3.0289)\times 0.10=0.01024$$The estimated change is a tiny increase of about 0.01 lbs. This is because consumers are reacting to the price differential. If both prices rise by the exact same amount, the relative cost between the substitute goods remains essentially unchanged, so demand barely shifts.
 
 > (vi) Suppose you present your estimated equation to a colleague who says, “I’m concerned about the low R-squared; it probably means the OLS estimators are biased.” How would you respond?
 
 **Interpretation:**
 
-
+You should tell your colleague they are confusing variance with bias. A low R-squared (0.036) simply means there is a massive amount of unobserved variance in the error term $u$ (e.g., family size, income, personal taste, health consciousness). High variance in the error term increases the standard errors of your estimates, but it does not cause bias. Bias only occurs if those unobserved factors in $u$ are correlated with the price variables (violating the zero conditional mean assumption).
 
 > (vii) Confirm that `ecoprc` and `regprc` are strongly positively correlated. What is the correlation? Does this mean that you should exclude `regprc` from the regression in order to estimate the own price effect? What happens to your estimate of $\beta_1$ if you drop `regprc` and use simple regression?
 
+```{r}
+#| label: c14_vii
+
+cat(cor(c14$ecoprc, c14$regprc))
+```
+
+```{r}
+#| label: c14_vii_2
+
+c14m2 <- lm(ecolbs ~ ecoprc, data = apple)
+modelsummary(
+  c14m2,
+  fmt = 4,
+  statistic = NULL,
+  gof_map = c("nobs", "r.squared")
+)
+```
+
 **Interpretation:**
 
-
+The correlation is 0.83, which is highly positive. The survey designers clearly set the experimental prices to move together.Should you exclude it? Absolutely not. If you exclude regprc, you intentionally introduce Omitted Variable Bias (OVB).What happens to $\beta_1$: When you drop regprc, the estimate for ecoprc shrinks massively from -2.9265 to -0.8452.Why? The omitted variable (regprc) has a positive effect on demand (+3.03). The correlation between the included variable (ecoprc) and the omitted variable (regprc) is positive (0.83). A positive times a positive equals an upward bias. The simple regression conflates the two prices, severely underestimating how much consumers actually hate paying more for eco-apples.
