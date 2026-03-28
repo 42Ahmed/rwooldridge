@@ -790,10 +790,10 @@ models <- list(
 )
 
 modelsummary(
-  models, 
-  gof_map = c("nobs", "r.squared"), 
-  statistic = NULL)
-
+  models,
+  gof_map = c("nobs", "r.squared"),
+  statistic = NULL
+)
 ```
 
 **Interpretation:**
@@ -818,9 +818,10 @@ The coefficient is 15.359. Because propresp is a proportion measured from 0 to 1
 c9m3 <- lm(gift ~ mailsyear + giftlast + propresp + avggift, data = c9)
 
 modelsummary(
-  c9m3, 
-  gof_map = c("nobs", "r.squared"), 
-  statistic = NULL)
+  c9m3,
+  gof_map = c("nobs", "r.squared"),
+  statistic = NULL
+)
 ```
 **Interpretation:**
 
@@ -877,9 +878,10 @@ The educ variable ranges from 6 to 20 years. Approximately 41.6% of the men in t
 c10m <- lm(educ ~ motheduc + fatheduc, data = c10)
 
 modelsummary(
-  c10m, 
-  gof_map = c("nobs", "r.squared"), 
-  statistic = NULL)
+  c10m,
+  gof_map = c("nobs", "r.squared"),
+  statistic = NULL
+)
 ```
 
 **Interpretation:**
@@ -894,9 +896,10 @@ Parents' education explains approximately 24.9% of the sample variation in the s
 c10m2 <- lm(educ ~ motheduc + fatheduc + abil, data = c10)
 
 modelsummary(
-  c10m2, 
-  gof_map = c("nobs", "r.squared"), 
-  statistic = NULL)
+  c10m2,
+  gof_map = c("nobs", "r.squared"),
+  statistic = NULL
+)
 ```
 
 **Interpretation:**
@@ -952,11 +955,13 @@ plot_data$pred_educ <- predict(c10m3, newdata = plot_data)
 
 
 ggplot(plot_data, aes(x = abil, y = pred_educ)) +
-  geom_line(color = "blue", linewidth =  1) +
-  labs(title = "Predicted Education vs. Ability",
-       subtitle = "Parents' education held at sample averages",
-       x = "Cognitive Ability (abil)",
-       y = "Predicted Years of Education") +
+  geom_line(color = "blue", linewidth = 1) +
+  labs(
+    title = "Predicted Education vs. Ability",
+    subtitle = "Parents' education held at sample averages",
+    x = "Cognitive Ability (abil)",
+    y = "Predicted Years of Education"
+  ) +
   theme_minimal()
 ```
 
@@ -982,9 +987,10 @@ kable(head(c11))
 c11m <- lm(math4 ~ pctsgle, data = c11)
 
 modelsummary(
-  c11m, 
-  gof_map = c("nobs", "r.squared"), 
-  statistic = NULL)
+  c11m,
+  gof_map = c("nobs", "r.squared"),
+  statistic = NULL
+)
 ```
 
 **Interpretation:**
@@ -998,9 +1004,10 @@ The simple regression yields a coefficient on pctsgle of approximately $-0.83$. 
 
 c11m2 <- lm(math4 ~ pctsgle + lmedinc + free, data = c11)
 modelsummary(
-  c11m2, 
-  gof_map = c("nobs", "r.squared"), 
-  statistic = NULL)
+  c11m2,
+  gof_map = c("nobs", "r.squared"),
+  statistic = NULL
+)
 ```
 
 **Interpretation:**
@@ -1044,44 +1051,212 @@ This knowledge dictates absolutely no change to the model you should use to stud
 
 > The data in ECONMATH contain grade point averages and standardized test scores, along with performance in an introductory economics course, for students at a large public university. The variable to be explained is `score`, the final score in the course measured as a percentage.
 
+```{r}
+#| label: c12_data
+
+c12 <- econmath
+kable(head(c12))
+```
+
+
 > (i) How many students received a perfect score for the course? What was the average score? Find the means and standard deviations of `actmth` and `acteng`, and discuss how they compare.
+
+```{r}
+#| label: c12_i
+
+
+c12 |>
+  drop_na() |>
+  summarise(
+    n_perfect = sum(score == 100),
+    avg_score = mean(score),
+    across(c(actmth, acteng),
+      list(mean = ~ mean(.x), sd = ~ sd(.x)),
+      .names = "{.col}_{.fn}"
+    )
+  ) |>
+  round(2)
+```
+
+**Interpretation:**
+
+Zero students received a perfect score of 100 in this course. The average score sits around a 72.7 (a low C). When comparing the standardized test scores, the mean for actmth (roughly 23.2) is slightly higher than acteng (roughly 22.6), but their standard deviations are almost identical (around 3.77 to 3.8). The brutal reality is that the university is admitting students with very similar mid-tier aptitudes in both math and English, yet the course is still difficult enough that an average student barely scrapes by, and perfection is nonexistent.
+
 
 > (ii) Estimate a linear equation relating `score` to `colgpa`, `actmth`, and `acteng`, where `colgpa` is measured at the beginning of the term. Report the results in the usual form.
 
+```{r}
+#| label: c12_ii
+
+c12m <- lm(score ~ colgpa + actmth + acteng, data = c12)
+
+modelsummary(c12m,
+  fmt = 3,
+  statistic = NULL,
+  gof_map = c("nobs", "r.squared")
+)
+```
+
+**Interpretation:**
+
+$$\widehat{score} = 16.174 + 12.366 colgpa + 0.883 actmth + 0.052 acteng$$
+$n = 814, R^2 = 0.397$Holding standardized test scores constant, a one-point increase in college GPA is associated with a 12.366 percentage point increase in the final economics score. Holding GPA and English scores constant, a one-point increase in the ACT Math score yields an additional 0.883 points on the final score. The intercept of 16.174 is the predicted score for a student with a 0.0 GPA and zeroes on both ACT sections—a mathematically necessary but practically meaningless baseline, as such a student would never be admitted to the university.
+
 > (iii) Would you say the math or English ACT score is a better predictor of performance in the economics course? Explain.
 
+**Interpretation:**
+
+The math ACT score is objectively the better predictor, and it isn't even close. The estimated partial effect of the math score ($\hat{\beta}_{actmth} = 0.883$) is nearly 17 times larger than the partial effect of the English score ($\hat{\beta}_{acteng} = 0.052$). In a quantitative field like economics, numerical literacy translates directly to course performance. The English ACT coefficient is so small (0.052 points per ACT point) that a massive 10-point jump in an English score wouldn't even raise the final grade by a single percentage point. It is statistical dead weight in this model.
+
 > (iv) Discuss the size of the R-squared in the regression.
+
+**Interpretation:**
+
+The $R^2$ is 0.397. This means your model explains 39.7% of the total variation in final economics scores using just past GPA and ACT scores.While 39.7% is actually quite high for a cross-sectional study of human behavior and grades. The majority of a student's performance is still driven by omitted variables. This model is completely blind to class attendance, study habits, motivation, or whether the student actually does the reading. You have a decent macro-level trend, but using this to guarantee an individual student's success or failure would be statistically irresponsible.
 
 ## C13 \[GPA1\]
 
 > Use the data in GPA1 to answer this question. We can compare multiple regression estimates, where we control for student achievement and background variables, and compare our findings with the difference-in-means estimate in Computer Exercise C11 in Chapter 2.
 
-> (i) In the simple regression equation $$colGPA = \beta_0 + \beta_1 PC + u$$
+```{r}
+#| label: c13_data
+
+c13 <- gpa1
+kable(head(c13))
+```
+
+
+> (i) In the simple regression equation $$colGPA = \beta_0 + \beta_1 PC + u$$ Interpret the estimates.
+
+```{r}
+#| label: c13_i
+
+c13m <- lm(colGPA ~ PC, data = c13)
+
+modelsummary(c13m,
+  fmt = 4,
+  statistic = NULL,
+  gof_map = c("nobs", "r.squared")
+)
+```
+
+**Interpretation:**
+
+$$\widehat{colGPA} = 2.9894 + 0.1695 PC$$
+$n = 141, R^2 = 0.050$The intercept ($\hat{\beta}_0$) is 2.9894. This means the predicted college GPA for a student who does not own a personal computer is roughly a 2.99.The coefficient on PC ($\hat{\beta}_1$) is 0.1695. Because PC is a binary indicator, this means that owning a PC is associated with a college GPA that is 0.1695 points higher than not owning one, ignoring all other factors.However, the R-squared is a pathetic 0.050. This simple model only explains 5% of the variation in college GPA. The remaining 95% is currently hiding in the error term ($u$), meaning this estimate is highly susceptible to omitted variable bias.
 
 > (ii) Now add the controls `hsGPA` and `ACT`—that is, run the regression `colGPA` on `PC`, `hsGPA`, and `ACT`. Does the coefficient on PC change much from part (ii)? Does $\hat \beta_{colGPA}$ make sense?
 
+```{r}
+#| label: c13_ii
+
+c13m2 <- lm(colGPA ~ PC + hsGPA + ACT, data = c13)
+
+modelsummary(c13m2,
+  fmt = 4,
+  statistic = NULL,
+  gof_map = c("nobs", "r.squared")
+)
+```
+
+**Interpretation:**
+
+$$\widehat{colGPA} = 1.2635 + 0.1573 PC + 0.4472 hsGPA + 0.0087 ACT$$
+$n = 141, R^2 = 0.219$The coefficient on PC drops from 0.1695 to 0.1573. It does not change by a massive amount, but the reduction confirms that part of the "PC effect" in the simple regression was actually just capturing the fact that better students (who have higher high school GPAs and ACT scores) were more likely to own computers.The coefficient for hsGPA ($\hat{\beta}_{hsGPA} = 0.4472$) makes perfect, logical sense. Holding PC ownership and ACT scores constant, a one-point increase in high school GPA translates to nearly a half-point (0.4472) increase in college GPA. Past academic discipline is the most reliable predictor of future academic discipline.
+
 > (iii) In the estimation from part (ii), what is worth more: Owning a PC or having 10 more points on the ACT score?
+
+**Interpretation:**
+
+We can calculate the exact partial effects:Owning a PC: $+0.1573$ points to predicted college GPA.10 more ACT points: $10 \times 0.0087 = +0.087$ points to predicted college GPA.Mathematically, owning a PC is worth nearly twice as much as a 10-point jump on the ACT (0.1573 vs. 0.087).The reality here is that a 10-point jump on the ACT is a monumental achievement in the real world, yet the model values the computer more. This suggests that in this specific era of data, owning a PC was either an incredible academic advantage or, more likely, it is still acting as a proxy for unobserved family wealth and resources that help students succeed.
 
 > (iv) Now to the regression in part (ii) add the two binary indicators for the parents being college graduates. Does the estimate of $\beta_1$ change much from part (ii)? How much variation are you explaining in `colGPA`?
 
+```{r}
+#| label: c13_iv
+
+c13m3 <- lm(colGPA ~ PC + hsGPA + ACT + fathcoll + mothcoll, data = c13)
+modelsummary(c13m3,
+  fmt = 4,
+  statistic = NULL,
+  gof_map = c("nobs", "r.squared")
+)
+```
+
+**Interpretation:**
+
+$$\begin{align}
+\widehat{colGPA} &= 1.2556 + 0.1519 PC + 0.4502 hsGPA \\&+ 0.0077 ACT + 0.0418 fathcoll - 0.0038 mothcoll\end{align}$$
+$n = 141, R^2 = 0.222$The estimate of $\hat{\beta}_1$ (PC) drops marginally from 0.1573 to 0.1519. It hardly changed at all.We are now explaining 22.2% of the variation in colGPA ($R^2 = 0.222$).The truth is that adding the parents' education only bumped the explanatory power from 21.9% to 22.2%. By the time a student reaches college, their parents' educational background is already fully "priced in" to the student's high school GPA and ACT scores. Adding these variables provides almost zero new, useful information to the model.
+
 > (v) Suppose someone looking at your regression from part (iv) says to you, “The variables `hsGPA` and `ACT` are probably pretty highly correlated, so you should drop one of them from the regression.” How would you respond?
 
+**Interpretation:**
+
+I would tell them they are fundamentally misunderstanding the purpose of multiple regression. While hsGPA and ACT are certainly correlated (exhibiting multicollinearity), they measure entirely different dimensions of student ability. High school GPA measures sustained effort, homework completion, and consistency over four years. The ACT measures raw logic and test-taking ability on a single Saturday morning. If you drop one of them, you force the remaining variable to absorb its omitted effect, creating severe Omitted Variable Bias (OVB) and ruining the ceteris paribus interpretation. You must keep both to isolate their distinct effects on college performance.
+
 > (vi) For curiosity’s sake, compute the VIFs for hsGPA and ACT. Of what value is this information?
+
+```{r}
+#| label: c13_vi
+
+vif(c13m3)
+```
+
+**Interpretation:**
+
+The VIFs are: hsGPA: 1.14, ACT: 1.15. This information is highly valuable because it completely destroys the colleague's argument from part (v). A VIF of 1.15 means the variance of the ACT coefficient is only 15% larger than it would be if it were perfectly uncorrelated with all other variables. Statisticians generally don't worry about multicollinearity until a VIF hits 5 or 10. These VIFs are incredibly low. It proves that the correlation between high school GPA and ACT scores in this sample is nowhere near strong enough to destabilize the model. The multicollinearity is a complete non-issue.
 
 ## C14 \[APPLE\]
 
 > Use the data in APPLE to answer the following questions. These come from a survey where respondents were presented with the characteristics of an “ecologically-friendly” apple. They were also randomly presented with a price pair: the price per lb. of the new apple, `ecoprc`, and the price per lb. of regular apples, `regprc`. Each respondent was asked, at the given pair of prices, how many pounds of eco-friendly apples (`ecolbs`) would they buy (and how many pounds of regular apples).
 
+```{r}
+#| label: c14_data
+
+c14 <- apple
+kable(head(apple))
+```
+
+
 > (i) How many respondents are there in the sample? How many report `ecolbs` of zero? What is the second most common value reported for `ecolbs`?
+
+**Interpretation:**
+
+
 
 > (ii) Consider a demand equation for the eco-friendly apples: $$ecolbs = \beta_0 + \beta_1 ecoprc + \beta_2 regprc + u $$. What does economic theory predict for the signs of $\beta_1, \beta_2$?
 
+**Interpretation:**
+
+
+
 > (iii) Estimate the equation by OLS and report the results in equation form. Are any of the fitted values negative? Does the estimated intercept answer an interesting question? Explain. What is the R-squared?
+
+**Interpretation:**
+
+
 
 > (iv) If `ecoprc` increases by 0.10 (10 cents per lb.), what is the estimated change in `ecolbs`, holding `regprc` fixed? Do you think this is a practically large effect?
 
+**Interpretation:**
+
+
+
 > (v) If `ecoprc` and `regprc` both increase by 0.10, argue that the estimated change in `ecolbs` is close to zero.
+
+**Interpretation:**
+
+
 
 > (vi) Suppose you present your estimated equation to a colleague who says, “I’m concerned about the low R-squared; it probably means the OLS estimators are biased.” How would you respond?
 
+**Interpretation:**
+
+
+
 > (vii) Confirm that `ecoprc` and `regprc` are strongly positively correlated. What is the correlation? Does this mean that you should exclude `regprc` from the regression in order to estimate the own price effect? What happens to your estimate of $\beta_1$ if you drop `regprc` and use simple regression?
+
+**Interpretation:**
+
+
